@@ -2,6 +2,7 @@
 * -text
 *.png binary
 *.pptx binary
+*.pdf binary
 *.parquet binary
 *.npy binary
 
