@@ -374,30 +374,6 @@ Fixed-upstream No-review는 candidate identity 1.000에서 top-1 change 0.556, t
 Product/Review NDCG@3, candidate provenance, trade-off product direction과 hidden-intent
 promotion/restraint/temporal scope는 현재 gold가 지원하지 않으므로 official metric으로 만들지 않는다.
 
-### Post-hoc Gold-State Oracle ranking diagnostic
-
-포스터 제출 뒤인 2026-08-16, 기존 evaluator-side Gold-State oracle을 최종 추천 리스트까지
-확장한 사후 보조 분석을 별도로 실행했다. 에피소드 종료 Gold-State를 동결된
-Query → catalog filter → semantic review retrieval → Cross-Encoder → Rank 경로에 주입하며,
-Understanding과 Response Composer는 실행하지 않아 추가 LLM 호출은 0회다.
-
-```powershell
-.\.venv\Scripts\python.exe scripts\evaluate_tablet_domain_gold_oracle_rankings.py
-.\.venv\Scripts\python.exe scripts\verify_tablet_domain_gold_oracle_rankings.py
-```
-
-20개 중 19개 에피소드에서 Oracle-conditioned 추천이 생성됐고, Top-3 54개는 Gold hard filter
-위반 0건이었다. Oracle 대비 Full의 평균 Top-3 Jaccard는 0.540, No-memory는 0.133이었다.
-이는 state-to-ranking 전달 충실도 진단이며 Gold 추천 상품, 인간 relevance 또는 추천 품질 정답이
-아니다. th17은 `$380 이하 + RAM 8GB 이상`을 동시에 만족하는 catalog 후보가 없어 빈 리스트다.
-
-산출물:
-
-- [`data/results/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json`](data/results/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json)
-- [`docs/tablet_domain_gold_state_oracle_rankings_posthoc_v1.md`](docs/tablet_domain_gold_state_oracle_rankings_posthoc_v1.md)
-- [`data/manifests/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json`](data/manifests/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json)
-- Git 제외 원본 `reports/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json`
-
 공식 final output의 별도 blind pool도 준비됐다. Full / No-memory / fixed-upstream No-review top-3
 합집합이며, 3명 각각 상품 88건·리뷰 239건을 상품 1세션과 리뷰 2세션으로 나눴다.
 작업 파일은 Git 제외 `reports/tablet_domain_holdout_annotation_packet_v1/annotator-*/sessions/`,

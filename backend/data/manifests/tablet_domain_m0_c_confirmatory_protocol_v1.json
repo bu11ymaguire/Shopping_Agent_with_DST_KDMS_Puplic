@@ -1,0 +1,98 @@
+{
+  "schema_version": "tablet-domain-m0-c-confirmatory-protocol-manifest-v1",
+  "status": "protocol_frozen_before_first_confirmatory_run",
+  "study_label": "confirmatory_full_memory_semantic_noop_comparison",
+  "branch": "Extended_Experiment",
+  "selected_method_commit": "cb6bcf2683f622e3c44edc6672b7167ae1b2171a",
+  "exploratory_result_commit": "37c2924f0572108246a2963fb87ca053e874d689",
+  "exploratory_selection": {
+    "selected_strategy": "c_semantic_noop",
+    "result_manifest_sha256_lf_normalized": "fe2d6e1e38c415a97324a1299cad92dd6c6b6244e15ac569233e8178bb3f287b",
+    "compact_result_sha256_lf_normalized": "53f669d2f5af7f3219fd622f4005b70c09a7e698e97ceff017718080fa53bac5"
+  },
+  "dataset": {
+    "path": "data/tablet_domain_m0_c_confirmatory_holdout_v1.json",
+    "sha256_lf_normalized": "09101347675cdca0186c6bc9bccfedb5395a9cd013ba3372fa6040db86a8d008",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "scenario_ids": [
+      "th21", "th22", "th23", "th24", "th25",
+      "th26", "th27", "th28", "th29", "th30",
+      "th31", "th32", "th33", "th34", "th35",
+      "th36", "th37", "th38", "th39", "th40"
+    ],
+    "reuse_classification": "new_untouched_confirmatory_holdout",
+    "predefined_product_ids": false,
+    "predefined_rankings": false,
+    "predefined_human_relevance": false
+  },
+  "live_strategy_order": [
+    "m0_baseline",
+    "c_semantic_noop"
+  ],
+  "execution_contract": {
+    "run_each_live_strategy_once": true,
+    "aggregate_only_after_both_live_strategies": true,
+    "expected_maximum_live_logical_calls": 160,
+    "understanding_llm_calls_per_attempted_live_turn": 1,
+    "response_composer": "deterministic_template",
+    "fixed_upstream_replay_after_live_arms": true,
+    "fixed_upstream_replay_additional_llm_calls": 0,
+    "tracked_worktree_must_be_clean": true,
+    "temperature": 0
+  },
+  "correction_turns": [
+    "th21:4",
+    "th22:4",
+    "th23:4",
+    "th24:4",
+    "th25:4",
+    "th26:4",
+    "th27:4",
+    "th28:4"
+  ],
+  "statistics": {
+    "primary_estimand": "paired mean scenario State Diff F1 difference (C fixed-upstream replay minus M0 live)",
+    "bootstrap_unit": "scenario",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260817,
+    "confidence_interval": "two-sided percentile 95%"
+  },
+  "non_inferiority_margins": {
+    "final_state_f1": 0.02,
+    "correction_recall": 0.05,
+    "hard_filter_completion": 0.02,
+    "turn_output_completion": 0.02
+  },
+  "confirmation_rule": {
+    "required_for_fixed_upstream_replay_and_independent_live": [
+      "paired mean scenario State Diff F1 difference > 0",
+      "paired bootstrap 95% CI lower bound > 0",
+      "material State Diff FP < M0",
+      "Final State F1 within non-inferiority margin",
+      "correction recall within non-inferiority margin",
+      "hard-filter completion within non-inferiority margin",
+      "turn-output completion within non-inferiority margin"
+    ],
+    "all_checks_required": true,
+    "failure_label": "not_confirmed_no_holdout_tuning"
+  },
+  "frozen_sources_sha256_lf_normalized": {
+    "app/actual_workflow.py": "eb0a94341e5ac0ec3d5675506077c7b3850626b67aa48bf160bea551e2dfcf92",
+    "app/extended_experiment.py": "aaf41c6af20a5ac3f2935b56194f97f89fd39867fdc4384b8135d69447feb93a",
+    "app/evaluation/tablet_domain_extended.py": "c140819fd56d05fb8fb817a8d947bc7d994dc71821fae2b61b1f3e8d71337f40",
+    "app/evaluation/tablet_domain_confirmatory.py": "a745e53b9a2a5c20684e11560d516c55604075c8f6461bee334cf07d40de4528",
+    "app/nodes/tablet_domain_understanding.py": "4b8ed0afa0f6bdd6c1a9876b696942d8693c3c5845492c2e77316c198c923776",
+    "app/nodes/actual_state_manager.py": "1a63cfc410e6bc4ec1c7e6fef8e3ce7a1a19d0ca7ceebb635d5341e0d27b7bab",
+    "scripts/run_tablet_domain_m0_c_confirmatory.py": "de1cd1b30d91dfcd9675a57253154983270caaaaaf9640a1e7bf87caf13ab2a1",
+    "scripts/verify_tablet_domain_m0_c_confirmatory.py": "0cdd76d7d46daf52c8533c907aef16ab2db596b3f9e95366a946b62272140d0b",
+    "docs/tablet_domain_m0_c_confirmatory_protocol_v1.md": "22600154175e8c59b7df7f953754f290df6a8e6a28b3620719a8b8f317138f4b"
+  },
+  "claim_boundaries": [
+    "C is a deterministic State Manager intervention, not an Understanding extractor improvement.",
+    "Fixed-upstream replay is the primary causal comparison; independent live calls are operational replication.",
+    "Gold product relevance, human recommendation quality, and response prose are not evaluated.",
+    "No E arm or C+E combination is tested.",
+    "The dataset, Gold, C implementation, endpoints, and thresholds must not be changed after the first run."
+  ]
+}

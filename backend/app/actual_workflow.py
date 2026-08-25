@@ -48,7 +48,6 @@ ActualProductRanker = Callable[
     tuple[list[RankedProduct], list[Any]],
 ]
 
-
 class ActualUnderstandingProvider(Protocol):
     async def __call__(
         self,
@@ -58,6 +57,17 @@ class ActualUnderstandingProvider(Protocol):
         conversation_id: str,
         turn: int,
     ) -> ActualUnderstandingOutput | TabletDomainUnderstandingOutput: ...
+
+
+class ActualStateUpdater(Protocol):
+    def __call__(
+        self,
+        previous: DialogueState,
+        understanding: ActualUnderstandingOutput | TabletDomainUnderstandingOutput,
+        previous_rankings: list[RankedProduct],
+        *,
+        turn_id: str,
+    ) -> tuple[DialogueState, StateDiff]: ...
 
 
 class ActualLLMUnderstandingProvider:
@@ -159,12 +169,14 @@ class ActualCatalogWorkflow:
         response_composer: ActualResponseComposer,
         review_retriever: ReviewEvidenceRetriever | None = None,
         product_ranker: ActualProductRanker = rank_actual_products,
+        state_updater: ActualStateUpdater = update_actual_dialogue_state,
     ) -> None:
         self.catalog = catalog
         self.understand = understand
         self.response_composer = response_composer
         self.review_retriever = review_retriever or TokenReviewRetriever()
         self.product_ranker = product_ranker
+        self.state_updater = state_updater
         self.graph = self._build_graph()
 
     def _build_graph(self):
@@ -261,7 +273,7 @@ class ActualCatalogWorkflow:
 
     def _state_manager_node(self, state: ActualWorkflowState) -> dict[str, Any]:
         started = time.perf_counter()
-        dialogue, diff = update_actual_dialogue_state(
+        dialogue, diff = self.state_updater(
             state["dialogue_state"],
             state["understanding"],
             state.get("previous_rankings", []),

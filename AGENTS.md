@@ -213,12 +213,6 @@ LLM을 사용하는 단계:
   Markdown, metric definitions, tracked manifest에 보존한다. Product/Review NDCG는 계산하지 않는다.
 - candidate provenance, trade-off product direction, hidden-intent promotion/restraint/temporal scope는
   현재 gold가 지원하지 않아 `not_evaluable_with_current_holdout`이다. 새 gold를 사후 추가하지 않는다.
-- 2026-08-16 post-hoc Gold-State oracle은 최종 Gold 상태를 동결된 Query·catalog filter·semantic
-  retrieval·Rank에만 주입한 사후 secondary diagnostic이다. 추가 LLM 호출 0회, 19/20 에피소드에서
-  추천 생성, Oracle Top-3 Gold hard-filter 위반 0건이며 Full/No-memory의 mean Top-3 Jaccard는
-  0.540/0.133이다. state-to-ranking 전달 충실도이지 human relevance나 품질 정답이 아니다.
-  official raw와 primary 결과는 재실행·수정하지 않으며, 이 세 소스 파일은 post-hoc manifest에
-  hash로 동결되어 있으므로 임의로 수정하지 않는다.
 - 아직 없는 것은 PostgreSQL/pgvector, 통제 inventory snapshot, 세션 영속화, 인증·배포다.
 
 ## 검증과 변경 보고
@@ -245,7 +239,6 @@ python scripts\verify_tablet_domain_holdout_freeze.py
 python scripts\verify_tablet_domain_official.py
 python scripts\verify_tablet_domain_annotation_packet.py
 python scripts\verify_tablet_domain_automatic.py
-python scripts\verify_tablet_domain_gold_oracle_rankings.py
 python scripts\verify_mvp.py
 python scripts\verify_amazon_processing.py
 python scripts\verify_actual_demo.py

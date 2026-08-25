@@ -1,0 +1,147 @@
+{
+  "schema_version": "tablet-domain-extended-experiment-result-manifest-v1",
+  "status": "posthoc_exploratory_result_frozen",
+  "study_label": "full_memory_false_update_independent_strategy_comparison",
+  "run_id": "extended-20260817T072917Z-fa9cd2af",
+  "branch": "Extended_Experiment",
+  "execution_commit": "cb6bcf2683f622e3c44edc6672b7167ae1b2171a",
+  "official_base_commit": "92d70c21993a6780d1078e77af64750c3629410d",
+  "dataset": {
+    "path": "data/tablet_domain_multiturn_holdout_v1.json",
+    "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e",
+    "scenario_count": 20,
+    "turn_count": 81,
+    "reuse_classification": "previously_observed_official_holdout_posthoc"
+  },
+  "artifacts": {
+    "compact_result": {
+      "path": "data/results/tablet_domain_extended_experiment_posthoc_v1.json",
+      "sha256_lf_normalized": "53f669d2f5af7f3219fd622f4005b70c09a7e698e97ceff017718080fa53bac5",
+      "tracked": true
+    },
+    "analysis_report": {
+      "path": "docs/tablet_domain_extended_experiment_results_posthoc_v1.md",
+      "sha256_lf_normalized": "bcd7b8149989d690110358411d91afb79535b9ac11e99bf0a5fae4a28d6181f8",
+      "tracked": true
+    },
+    "raw_report": {
+      "path": "reports/tablet_domain_extended_experiment_posthoc_v1.json",
+      "sha256": "c2e147a7dfc9785a71ff427f167174bbcbed3d1704ef1b33125acf031e77f371",
+      "size_bytes": 32944430,
+      "tracked": false
+    }
+  },
+  "strategy_order": [
+    "m0_baseline",
+    "a_som_operation",
+    "b_sparse_delta",
+    "c_semantic_noop",
+    "d_full_state_diff",
+    "e_compact_context"
+  ],
+  "llm_audit": {
+    "reported_model": "gpt-4o-mini-2024-07-18",
+    "structured_mode": "json_schema",
+    "logical_understanding_calls": 356,
+    "schema_repair_attempts": 133,
+    "structured_generation_http_attempts": 489,
+    "transport_retries": 0,
+    "fallbacks": 0,
+    "trace_reported_input_tokens": 1088861,
+    "trace_reported_output_tokens": 50791
+  },
+  "traces": {
+    "m0_baseline": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_m0_baseline.jsonl",
+      "sha256": "cb4e75e808235979da1eb7c5b88666d9fced84a1611fbc76a4829a6422826a33",
+      "size_bytes": 866770,
+      "logical_calls": 72,
+      "http_attempts": 100
+    },
+    "a_som_operation": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_a_som_operation.jsonl",
+      "sha256": "fb390de1bb0daef37dc26b182020588bc7074e1fce0a26e2ce17237b458227e2",
+      "size_bytes": 574559,
+      "logical_calls": 47,
+      "http_attempts": 68
+    },
+    "b_sparse_delta": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_b_sparse_delta.jsonl",
+      "sha256": "bf03848a15c3ce3bdbfe31b605c42a2bdf6cbd9a75bb31e0567c77f4f6ec4ff0",
+      "size_bytes": 533840,
+      "logical_calls": 45,
+      "http_attempts": 65
+    },
+    "c_semantic_noop": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_c_semantic_noop.jsonl",
+      "sha256": "80ccda865a1131686ebca9aa197d7d72e6b5f0db69b05485afa03a4529bb6729",
+      "size_bytes": 905187,
+      "logical_calls": 75,
+      "http_attempts": 101
+    },
+    "d_full_state_diff": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_d_full_state_diff.jsonl",
+      "sha256": "6409d256bc384858c4251cb46ccbebf94c328cfa3ffcd48a3fbdd5f8d5ad0a02",
+      "size_bytes": 470753,
+      "logical_calls": 40,
+      "http_attempts": 58
+    },
+    "e_compact_context": {
+      "file": "tablet_extended_extended-20260817T072917Z-fa9cd2af_e_compact_context.jsonl",
+      "sha256": "26e96c8e1bec05cc6e25fe061bac676c253fabd36522da10b2dea95f61cde8d7",
+      "size_bytes": 879456,
+      "logical_calls": 77,
+      "http_attempts": 97
+    }
+  },
+  "selection": {
+    "status": "exploratory_posthoc_only",
+    "baseline": "m0_baseline",
+    "eligible_strategies_in_rank_order": [
+      "c_semantic_noop",
+      "m0_baseline"
+    ],
+    "exploratory_selected_strategy": "c_semantic_noop",
+    "selected_strategy_passed_all_retention_gates": true,
+    "compact_context_failed_gate": "correction_recall"
+  },
+  "key_metrics": {
+    "m0_baseline": {
+      "turn_output_completion": 0.8518518518518519,
+      "candidate_false_positives": 50,
+      "carryover_to_update_false_positives": 31,
+      "state_diff_f1": 0.6009389671361501,
+      "material_state_diff_false_positives": 50,
+      "final_state_f1": 0.7628865979381445,
+      "correction_recall": 1.0,
+      "hard_filter_completion": 0.6790123456790124
+    },
+    "c_semantic_noop": {
+      "turn_output_completion": 0.8765432098765432,
+      "candidate_false_positives": 55,
+      "carryover_to_update_false_positives": 38,
+      "state_diff_f1": 0.7391304347826086,
+      "material_state_diff_false_positives": 17,
+      "final_state_f1": 0.7959183673469389,
+      "correction_recall": 1.0,
+      "hard_filter_completion": 0.7407407407407407
+    },
+    "e_compact_context": {
+      "turn_output_completion": 0.9259259259259259,
+      "candidate_f1": 0.696629213483146,
+      "candidate_false_positives": 31,
+      "carryover_to_update_false_positives": 4,
+      "state_diff_f1": 0.712871287128713,
+      "final_state_f1": 0.7846889952153109,
+      "correction_recall": 0.6666666666666666,
+      "hard_filter_completion": 0.8271604938271605
+    }
+  },
+  "claim_boundaries": [
+    "The reused 20-scenario holdout supports exploratory comparison only.",
+    "C reduces material State Diff false positives; it does not reduce candidate extraction false positives in this run.",
+    "Gold-State Oracle agreement is recommender fidelity, not product relevance or recommendation quality.",
+    "A, B, and D results evaluate these strict-schema GPT adapters, not the source methods in general.",
+    "A new untouched holdout is required before adopting C as a confirmed winner."
+  ]
+}

@@ -103,16 +103,6 @@ top-3 order는 87.3% 바뀌고 mean top-3 Jaccard는 0.522였다. 이 변화는 
 보여주지만 human relevance가 없으므로 품질 향상이라고 주장하지 않는다. evaluator-side Gold-State
 oracle은 Policy/reach/hard-filter를 각각 1.0으로 회복했지만 diagnostic upper bound다.
 
-포스터 제출 뒤인 2026-08-16에는 이 Gold-State oracle을 에피소드 종료 추천 리스트까지 확장한
-**post-hoc secondary diagnostic**을 별도로 실행했다. `final_gold_state_ids`와 턴별 Gold scope,
-`final_expected_hard_filters`로 최종 상태를 재구성한 뒤 기존 Query, 실제 catalog filter, 고정
-semantic review retrieval/Cross-Encoder, 결정론적 Rank만 실행했으며 추가 LLM 호출은 0회다.
-20개 중 19개에서 추천이 생성됐고 Oracle Top-3 54개의 Gold hard-filter 위반은 0건, review
-fallback은 0건이었다. Oracle 대비 Full/No-memory의 비교 가능 에피소드는 15/13개, Top-1
-일치율은 0.333/0.077, exact Top-3 order는 0.333/0.000, mean Jaccard는 0.540/0.133이다.
-이는 state-to-ranking 전달 충실도이지 Gold 상품이나 인간 relevance 정답이 아니다. 기존 official
-raw와 primary 결과는 수정하거나 재실행하지 않았으며 별도 post-hoc report/manifest에 보존한다.
-
 기존 두 종류의 3인용 blind packet, private provenance, agreement/NDCG 코드는 삭제하지 않고
 **Optional / Future Human Relevance Evaluation**으로 보존한다. Product/Review NDCG는 이번
 포스터 official result로 계산하지 않는다. 다음 과제는 automatic 결과를 포스터 narrative/figure로
