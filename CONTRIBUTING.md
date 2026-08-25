@@ -11,6 +11,8 @@ Before opening a pull request:
    Parquet/model artifacts, or completed annotation workbooks.
 3. Run the public, data-free verifier set in `.github/workflows/offline-smoke.yml`. Run additional
    verifiers only when their documented Git-ignored catalog/report prerequisites are available.
+   Original-history ancestry checks are intentionally outside the public verifier set; see
+   `PUBLIC_RELEASE_MANIFEST.json`.
 4. Run `git diff --check` and inspect the staged diff for secrets and generated files.
 5. Describe which branch and research question the change belongs to.
 
