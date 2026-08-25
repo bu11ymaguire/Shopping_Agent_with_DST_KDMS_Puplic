@@ -4,3 +4,15 @@
 *.pptx binary
 *.parquet binary
 *.npy binary
+
+# These raw hashes were recorded from Windows CRLF worktrees. The Git blobs remain LF.
+backend/data/manifests/segse_v14_method_freeze.json text eol=crlf
+backend/data/manifests/tablet_domain_v2_freeze.json text eol=crlf
+backend/data/results/segse_confirmatory_v1.json text eol=crlf
+backend/data/results/tablet_domain_segse_dev_v1.json text eol=crlf
+backend/data/results/tablet_domain_segse_dev_v12.json text eol=crlf
+backend/data/results/tablet_domain_segse_dev_v12_corrected.json text eol=crlf
+backend/data/results/tablet_domain_segse_e2e_dev_v1.json text eol=crlf
+backend/data/results/tablet_domain_segse_e2e_dev_v13.json text eol=crlf
+backend/data/results/tablet_domain_segse_e2e_dev_v14.json text eol=crlf
+backend/data/results/tablet_domain_segse_e2e_dev_v14_attribution.json text eol=crlf
