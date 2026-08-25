@@ -1,7 +1,7 @@
 # ShoppingAgent_with_DST_KDMS repository guidance
 
 이 파일은 저장소 전체에 적용된다. 구현 세부사항을 중복 보관하는 문서가 아니라,
-후속 작업자가 정본을 올바른 순서로 읽고 목업과 현행 코드를 혼동하지 않게 하는
+후속 작업자가 정본을 올바른 순서로 읽고 발표 자료와 현행 코드를 혼동하지 않게 하는
 작업 라우터다.
 
 ## 작업 시작 시 반드시 읽을 것
@@ -10,8 +10,8 @@
    - 연구 목적, 아키텍처와 데이터 계약, 수식, 회귀 fixture, 알려진 함정의 최우선 정본이다.
 2. `manual.md`
    - LangGraph, 데이터셋, 검색·저장 기술을 선택한 근거다.
-3. 필요한 경우에만 `reference/README.md`와 `reference/mock-demo-v1/`
-   - 이전 Next.js 목업의 읽기 전용 스냅숏이며 현행 런타임 소스가 아니다.
+3. 필요한 경우에만 `presentation/`
+   - 개발 과정을 보여 주는 발표 자료이며 현행 런타임이나 연구 계약의 정본이 아니다.
 
 문서나 코드가 충돌하면 다음 우선순위를 적용한다.
 
@@ -20,22 +20,19 @@
 → 이 AGENTS.md의 작업 규칙
 → flow.md의 계약과 교정 사항
 → manual.md의 기술·데이터 권고
-→ reference/mock-demo-v1의 과거 구현
+→ presentation/의 개발 당시 설명
 ```
 
-`flow.md`와 목업 코드가 다르면 목업을 그대로 복사하지 말고 현행 코드를
-`flow.md`에 맞춘다.
+`flow.md`와 발표 자료가 다르면 `flow.md`와 동결된 fixture·manifest를 우선한다.
 
-## 현재 코드와 reference의 경계
+## 현재 코드와 발표 자료의 경계
 
 - 현행 Python 구현은 `backend/`다.
-- `reference/mock-demo-v1/`는 UI 재구성, fixture 확인, 회귀 비교를 위한 원본 스냅숏이다.
-- 명시적인 요청 없이 reference 파일을 수정하거나 현행 빌드에 연결하지 않는다.
-- reference의 `data/scenario.json`, `app.js`, `index.html`, `styles.css`는 더 오래된
-  태블릿 프로토타입이다. 현재 6턴 iPhone 회귀 시나리오로 사용하지 않는다.
-- reference의 `package.json`과 `package-lock.json`은 목업 재현용이다. 루트 또는
-  `backend/` 의존성으로 설치하지 않는다.
-- reference에서 코드를 가져올 때는 알려진 버그와 시나리오 하드코딩을 먼저 제거한다.
+- `presentation/`의 PPTX·PDF는 중간 점검부터 최종 발표까지의 기록이다.
+- 발표 자료를 런타임 의존성, 테스트 fixture 또는 연구 결과의 정본으로 사용하지 않는다.
+- 발표 자료의 설명이 현행 코드와 다르면 `flow.md`, 동결 manifest와 결과 문서를 따른다.
+- 새 발표 자료를 추가하기 전에는 자격 증명, 비공개 대화, 원본 리뷰와 제3자 자료의
+  공개 가능 여부를 확인한다.
 
 ## 연구·상태 모델의 불변식
 
@@ -89,7 +86,9 @@ LLM을 사용하는 단계:
 - Amazon Reviews 2023에 없는 `deliveryDays`와 `availableColors`는 통제된 inventory
   snapshot의 합성 운영 데이터라는 사실을 숨기지 않는다.
 
-## reference에서 그대로 가져오면 안 되는 항목
+## 삭제된 과거 목업에서 확인된 함정
+
+과거 목업 소스는 공개본에 포함하지 않지만, 다음 교정 사항은 현행 구현을 검토할 때 계속 적용한다.
 
 - `rank-reviews.ts`의 `slice(0, Math.max(topK, reviews.length))`는 topK를 자르지 못하는 버그다.
 - 전체 리뷰·상품을 응답 객체에 담거나 매 요청마다 전부 스캔하는 목업 경로는
@@ -259,15 +258,6 @@ python scripts\verify_amazon_pilot.py --pilot-dir data\amazon_reviews_2023\table
 python scripts\verify_experimental_catalog.py
 python scripts\verify_review_semantic_retrieval.py
 node --check app\static\app.js
-```
-
-reference 목업을 의도적으로 수정한 경우에만 해당 폴더에서 다음을 실행한다.
-
-```powershell
-npm ci
-npx tsc --noEmit
-npm run lint
-npm run build
 ```
 
 - 기존 사용자의 관련 없는 변경을 되돌리거나 함께 커밋하지 않는다.

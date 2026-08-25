@@ -22,11 +22,12 @@
     "log/ episode audit exports containing Amazon review excerpts",
     "backend/logs/ and backend/reports/ raw traces and reports",
     "backend/data/amazon_reviews_2023/ local datasets and indexes",
-    "deleted poster figures and editable presentation files from historical commits",
+    "historical poster and presentation artifacts other than the selected files in presentation/",
     "credential files and local virtual environments"
   ],
   "public_only_changes": [
     "repository-facing documentation, data/privacy notices, and ignore policy",
+    "selected development-process presentations published under presentation/",
     "a mock-provider startup path for the synthetic six-turn API when Luxia and the local catalog are absent",
     "cross-platform checkout rules for historical raw hashes recorded from Windows CRLF worktrees"
   ],
@@ -36,5 +37,5 @@
     "backend/scripts/verify_segse_v12_historical_audit.py": "checks the intentionally omitted original last-touch commit",
     "backend/scripts/verify_tablet_domain_segse_dev_v12.py": "the repository deliberately preserves the documented v1.2 frozen-manifest/current-source mismatch"
   },
-  "integrity_note": "Tracked experiment manifests, frozen fixtures, and result files are copied byte-for-byte from each source branch. Research evaluation and ranking logic is unchanged; the only runtime change is the public mock startup guard described above. Original freeze commit IDs are provenance only and are not reachable objects in this public repository."
+  "integrity_note": "Tracked experiment manifests, frozen fixtures, and result files are copied byte-for-byte from each source branch. Research evaluation and ranking logic is unchanged; the only runtime change is the public mock startup guard described above. Files in presentation/ are publication artifacts and are not inputs to the reported evaluation. Original freeze commit IDs are provenance only and are not reachable objects in this public repository."
 }
