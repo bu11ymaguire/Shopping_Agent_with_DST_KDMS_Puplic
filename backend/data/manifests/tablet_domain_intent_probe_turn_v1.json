@@ -1,0 +1,173 @@
+{
+  "schema_version": "tablet-domain-intent-probe-turn-manifest-v1",
+  "status": "exploratory_turn_level_probe_complete",
+  "analysis_schema_version": "tablet-domain-intent-probe-turn-v1",
+  "analysis_label": "exploratory_qualitative_turn_level_hidden_intent_probe",
+  "comparison_unit": "turn",
+  "official_run_reexecuted": false,
+  "frozen_prompt_or_schema_modified": false,
+  "new_gold_labels_added": false,
+  "accuracy_or_ndcg_computed": false,
+  "additional_llm_calls": 146,
+  "execution_commit": "2216b66c1dac1ffecdb4e35517efa2aadc85afee",
+  "worktree_dirty_at_execution": true,
+  "immutable_inputs": {
+    "gold_holdout": {
+      "path": "data/tablet_domain_multiturn_holdout_v1.json",
+      "bytes": 46716,
+      "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e",
+      "git_excluded": false
+    },
+    "official_raw": {
+      "path": "reports/tablet_domain_holdout_official_v1.json",
+      "bytes": 16900202,
+      "sha256": "87257652cab27c2608536bbd9846244c15a7fba4a7110c119728235fb07b6426",
+      "git_excluded": true
+    },
+    "official_manifest": {
+      "path": "data/manifests/tablet_domain_holdout_official_v1.json",
+      "bytes": 6922,
+      "sha256": "fa7e2b4d7b2d2d2791ca1031f3ac9e3d53495368aecab2a99ce12cf77ec479af",
+      "git_excluded": false
+    }
+  },
+  "outputs": {
+    "raw_report": {
+      "path": "reports/tablet_domain_intent_probe_turn_v1.json",
+      "bytes": 632455,
+      "sha256": "0f4f41361508ef95e04a09d593d19eb74ca210c7710468ce4c7be534355c35ec",
+      "git_excluded": true
+    },
+    "full_detail_markdown": {
+      "path": "reports/tablet_domain_intent_probe_turn_v1.md",
+      "bytes": 176069,
+      "sha256": "29d49d3cdb9037482895fbf477f81d0522bb5f19dc60de6caa5956f7ff534414",
+      "git_excluded": true
+    },
+    "compact_result": {
+      "path": "data/results/tablet_domain_intent_probe_turn_v1.json",
+      "bytes": 455663,
+      "sha256": "f18de67a3fe9db4bd3d8edad9c982be758ffbf1c24731c2bea98f2d04d5e77a6",
+      "git_excluded": false
+    },
+    "tracked_report": {
+      "path": "docs/tablet_domain_intent_probe_turn_v1.md",
+      "bytes": 9309,
+      "sha256": "5b4a1586de2dbe21a16a1b78b490a52b8f9a8e35b9f6398c732475f041ce2744",
+      "git_excluded": false
+    }
+  },
+  "source_files": {
+    "app/evaluation/tablet_domain_intent_probe.py": {
+      "sha256": "84d2c76ca9fb3a51315966483762613ed0c70009334460930f9dc69c1afd60cb"
+    },
+    "scripts/run_tablet_domain_intent_probe.py": {
+      "sha256": "5f31fe205577c3998fd21df29f8bb7098ddcb8ab8e03141508b43c65309fbbf9"
+    },
+    "scripts/verify_tablet_domain_intent_probe.py": {
+      "sha256": "a1dd3726e46e6a8b807bee2d17fdd5b2e9363948d8eec38627fcc4c40077606a"
+    }
+  },
+  "runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "structured_mode_preferred": "json_schema",
+    "trace_filename": "tablet_domain_intent_probe_turn_v1_llm_trace.jsonl",
+    "execution_commit": "2216b66c1dac1ffecdb4e35517efa2aadc85afee",
+    "worktree_dirty_at_execution": true
+  },
+  "summary": {
+    "episode_count": 20,
+    "turn_count": 81,
+    "per_condition": {
+      "gold_dst": {
+        "turns": 81,
+        "state_available": 81,
+        "probe_succeeded": 81,
+        "turn_not_completed": 0,
+        "probe_failed": 0,
+        "mean_active_canonical_ids": 3.74,
+        "mean_hypotheses_per_turn": 1.91,
+        "hypothesis_type_counts": {
+          "motive_hypothesis": 65,
+          "situational_context": 9,
+          "tradeoff": 81
+        },
+        "suggested_scope_counts": {
+          "current_purchase": 141,
+          "persistent": 14
+        },
+        "abstain_from_ranking_true": 144,
+        "unsupported_evidence_id_count": 0,
+        "empty_evidence_hypothesis_count": 9,
+        "verbatim_utterance_value_text_count": 0,
+        "turns_with_verbatim_utterance_value_text": 0
+      },
+      "full_dst": {
+        "turns": 81,
+        "state_available": 65,
+        "probe_succeeded": 65,
+        "turn_not_completed": 16,
+        "probe_failed": 0,
+        "mean_active_canonical_ids": 3.8,
+        "mean_hypotheses_per_turn": 1.91,
+        "hypothesis_type_counts": {
+          "motive_hypothesis": 49,
+          "situational_context": 11,
+          "tradeoff": 64
+        },
+        "suggested_scope_counts": {
+          "category": 1,
+          "current_purchase": 119,
+          "persistent": 4
+        },
+        "abstain_from_ranking_true": 119,
+        "unsupported_evidence_id_count": 1,
+        "empty_evidence_hypothesis_count": 19,
+        "verbatim_utterance_value_text_count": 53,
+        "turns_with_verbatim_utterance_value_text": 41
+      }
+    },
+    "state_divergence": {
+      "comparison_condition": "full_dst",
+      "episodes": 20,
+      "comparable_turns": 65,
+      "identical_state_turns": 17,
+      "diverged_state_turns": 48,
+      "episodes_with_any_divergence": 15,
+      "first_divergence_turn_counts": {
+        "1": 10,
+        "2": 2,
+        "3": 2,
+        "4": 1
+      },
+      "episodes_recovered_after_divergence": 0,
+      "episodes_with_divergence_and_multiple_comparable_turns": 15,
+      "episodes_where_divergence_never_shrinks": 14,
+      "episodes_where_divergence_shrinks_at_least_once": [
+        "th16"
+      ],
+      "mean_divergence_size_over_comparable_turns": 1.37
+    },
+    "metric_claim_allowed": false,
+    "note": "Counts describe what each condition produced per turn. They are not accuracy scores against any designed-situation ground truth, which the frozen holdout does not contain."
+  },
+  "guardrail": {
+    "analysis_label": "exploratory_qualitative_turn_level_hidden_intent_probe",
+    "comparison_unit": "turn",
+    "position": "exploratory_qualitative_observation",
+    "official_run_reexecuted": false,
+    "frozen_prompt_or_schema_modified": false,
+    "new_gold_labels_added": false,
+    "designed_situation_reference": "frozen scenario title, tags, and per-turn utterances only",
+    "accuracy_or_ndcg_computed": false,
+    "resolves_hidden_intent_analysis_not_evaluable_metrics": false,
+    "hypotheses_enter_pipeline_state_or_ranking": false,
+    "llm_confidence_requested": false,
+    "sampling": "one sample per turn per condition at temperature 0.0",
+    "known_asymmetry": "Gold snapshot value_text is derived mechanically from canonical IDs and is uniformly explicit/confirmed, while Full snapshot value_text is LLM-written from real utterances. Both are rendered by one function, but the surface text origin differs.",
+    "claim_allowed": "turn-by-turn qualitative comparison of what each dialogue state lets a model infer, including where the two states first diverge",
+    "claim_not_allowed": "any measured hidden-intent accuracy, ranking quality, or human relevance claim"
+  }
+}

@@ -219,6 +219,20 @@ LLM을 사용하는 단계:
   0.540/0.133이다. state-to-ranking 전달 충실도이지 human relevance나 품질 정답이 아니다.
   official raw와 primary 결과는 재실행·수정하지 않으며, 이 세 소스 파일은 post-hoc manifest에
   hash로 동결되어 있으므로 임의로 수정하지 않는다.
+- 턴 단위 숨은 의도 probe는 **정성 탐색 관찰**이며 primary 결과가 아니다. 동결 holdout 81턴마다
+  Gold DST(사전 주석 누적)와 Full DST(official raw의 해당 턴 상태)를 같은 렌더러로 직렬화해
+  발화 원문 없이 Luxia GPT-4o-mini에게 상황과 숨은 의도 가설을 추론시켰다. 146회 호출로
+  Gold 81/81턴, Full 65/81턴을 완주했다. 비교 가능 65턴 중 17턴은 상태가 동일하고 48턴은 갈리며,
+  갈라진 15개 에피소드 중 10개가 1턴에서 이미 갈라진다. 갈린 뒤 마지막 비교 턴에서 다시 일치한
+  에피소드는 0개이고, 15개 중 14개는 차이가 한 번도 줄지 않는다.
+- 이 probe는 숨은 의도 정확도가 아니다. 설계 상황을 서술한 gold label이 동결 holdout에 없으므로
+  점수를 만들지 않았고, `hidden_intent_analysis`의 네 `not_evaluable_with_current_holdout`
+  metric을 해소하지 않는다. 생성된 가설은 분석 artifact이며 상태나 랭킹에 들어가지 않는다.
+  Gold DST의 `value_text`는 canonical ID에서 기계 생성되고 Full DST는 LLM이 발화에서 쓴 문면이라
+  65턴 중 41턴에서 발화 조각이 그대로 실려 온다. 두 조건 차이는 상태 내용 차이와 문면 출처 차이가
+  섞인 결과이므로 한 변수 비교로 인용하지 않는다.
+- probe는 동결 holdout과 official raw를 해시 확인 후 읽기만 하며 official run을 재실행하지 않는다.
+  원본과 전체 턴 상세 문서, LLM trace는 Git 제외이고 압축 결과·레포트·manifest만 tracked다.
 - 아직 없는 것은 PostgreSQL/pgvector, 통제 inventory snapshot, 세션 영속화, 인증·배포다.
 
 ## 검증과 변경 보고
@@ -246,6 +260,7 @@ python scripts\verify_tablet_domain_official.py
 python scripts\verify_tablet_domain_annotation_packet.py
 python scripts\verify_tablet_domain_automatic.py
 python scripts\verify_tablet_domain_gold_oracle_rankings.py
+python scripts\verify_tablet_domain_intent_probe.py
 python scripts\verify_mvp.py
 python scripts\verify_amazon_processing.py
 python scripts\verify_actual_demo.py
