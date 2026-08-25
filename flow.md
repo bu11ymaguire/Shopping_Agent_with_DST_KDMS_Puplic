@@ -2,9 +2,9 @@
 
 > **이 문서의 성격**
 > 원래 이 저장소에는 `agent-main/`(Next.js mock 데모 일체)과 `Using_Luxia_API-main/`(제3자 API 가이드)이
-> 있었고, 사용자 지시로 삭제되었다. 이후 사용자가 목업 원본을 다시 제공해
-> `reference/mock-demo-v1/`에 **읽기 전용 스냅숏**으로 보존했다.
-> 이 문서는 "진행상황 메모"이면서, 목업의 알려진 버그와 레거시를 교정한
+> 있었고, 사용자 지시로 삭제되었다. 개발 중에는 목업 원본을 읽기 전용 스냅숏으로 잠시 보존했지만,
+> 공개본에서는 다시 제거했다. 목업에서 필요한 계약과 교정 사항은 이 문서에 자립적으로 남아 있다.
+> 이 문서는 "진행상황 메모"이면서, 과거 목업의 알려진 버그와 레거시를 교정한
 > **현행 계약·수식·픽스처의 최우선 정본**이다.
 >
 > 뒤이어 작업하는 에이전트는 §1~§3으로 목적과 현재 상태를 파악하고, 구현할 때 §4~§7을 계약으로 삼고,
@@ -68,16 +68,15 @@ ShoppingAgent_with_DST_KDMS/
   flow.md              ← 이 문서
   manual.md            기술 스택 조사 문서 (유지됨, 읽을 것)
   backend/             Python LLM 계층 + Understanding 스키마·노드 (§6)
-  reference/
-    README.md          목업 스냅숏의 지위와 사용 규칙
-    mock-demo-v1/      이전 Next.js 목업 원본 (읽기 전용)
+  presentation/        개발 과정의 발표 자료 (PPTX/PDF, 런타임과 분리)
 ```
 
 - 배포 위치에 따라 git remote가 달라질 수 있다. 현재 상태와 원격은 `git log`, `git status`,
   `git remote -v`로 확인한다.
 - `manual.md`는 남아 있다. 기술 스택 선택 근거(LangGraph vs LangChain, Amazon Reviews 2023, ESCI, pgvector 등)가
   거기 있으므로 반드시 함께 읽어야 한다.
-- `reference/mock-demo-v1/`는 회귀·UI 참고용이며 현행 코드가 아니다. 충돌 시 이 문서가 우선한다.
+- `presentation/`은 개발 당시 설명을 보존하는 자료다. 현행 계약·결과와 충돌하면 이 문서와
+  동결된 fixture·manifest를 우선한다.
 - 개발 환경: Windows / PowerShell, Python 3.12, Node v22.17.0, npm 10.9.2.
   설치 확인됨: httpx 0.28.1, pydantic 2.12.5, python-dotenv 1.2.1, fastapi 0.128.0,
   uvicorn 0.40.0, langgraph 1.0.5, sentence-transformers 5.6.0, torch 2.13.0 CPU.
@@ -402,10 +401,10 @@ mock 및 다른 provider를 위한 방어 경로로만 남겨 두었다.
 
 ---
 
-## 4. 파이프라인 아키텍처 계약 (목업 정본 + 현행 교정)
+## 4. 파이프라인 아키텍처 계약
 
-`reference/mock-demo-v1/episode/spn-ra-rec-architecture-annotated.html`의 `architecture-graph` JSON이 목업 정본이었다.
-노드 id / role / owner는 아래 값이 정본이며, 코드가 이 대응을 벗어나면 코드를 고친다.
+아래 대응은 과거 목업의 아키텍처에서 시작해 현행 Python 구현과 fixture를 기준으로 교정한 값이다.
+노드 id / role / owner는 이 문서가 정본이며, 코드가 이 대응을 벗어나면 코드를 고친다.
 
 ```
 사용자 발화 (INPUT)

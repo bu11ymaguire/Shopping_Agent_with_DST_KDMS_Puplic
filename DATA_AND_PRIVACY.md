@@ -1,8 +1,10 @@
 # Data and privacy boundary
 
-This public release contains source code, synthetic fixtures, frozen labels, aggregate metrics,
-and reproducibility manifests. It does not contain API credentials, raw LLM trace files, local
-Parquet/model artifacts, real user conversations, or verbatim Amazon Reviews 2023 review text.
+The runtime and reproducibility portion of this public release contains source code, synthetic
+fixtures, frozen labels, aggregate metrics, and reproducibility manifests. It does not contain API
+credentials, raw LLM trace files, local Parquet/model artifacts, real user conversations, or
+verbatim Amazon Reviews 2023 review text. Selected presentation artifacts are documented separately
+below.
 
 ## Intentionally excluded artifacts
 
@@ -16,6 +18,14 @@ These artifacts are not required to inspect the state, policy, evaluation, and r
 Where a frozen result depends on an excluded artifact, a tracked manifest records the source
 revision, configuration, and SHA-256 values needed for an integrity check.
 
+## Intentionally included presentation materials
+
+`presentation/` contains selected PPTX and PDF artifacts that document the development process.
+They are publication artifacts, not runtime inputs or reproducibility fixtures, and may retain
+author names and statements from the point in time when each deck was prepared. Review every new
+or replacement file for credentials, private conversations, raw review text, personal data, and
+third-party redistribution rights before committing it.
+
 ## Reproducing the Amazon Reviews 2023 path
 
 Follow `backend/data/README.md` to obtain the dataset from its original distributor and generate
@@ -24,4 +34,5 @@ redistribute review text. Users are responsible for checking the upstream terms 
 ethical and legal requirements before downloading, processing, or publishing derived data.
 
 Do not submit real customer conversations, credentials, raw review corpora, or private annotation
-workbooks in issues or pull requests.
+workbooks in issues or pull requests. The presence of selected public presentations does not change
+these exclusions.
