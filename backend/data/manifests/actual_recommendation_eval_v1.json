@@ -1,0 +1,65 @@
+{
+  "schema_version": "actual-recommendation-eval-summary-v1",
+  "generated_at": "2026-08-07T04:12:34.312487+00:00",
+  "dataset_version": "actual-recommendation-eval-v1.0",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "dataset_sha256": "4fc0db94f8b150c626a223c5a3b8af12ebd61630089f66dec706d848b30ee2c8",
+  "catalog_manifest_sha256": "e6af26c276e9e05bef2b5328cf731ca9da805f0275fb95b11fba41f2de82c90d",
+  "semantic_manifest_sha256": "2e1a44306eb408b7e35987d2dad3334f73d9d3dae84edc0995312a31d569db10",
+  "protocol": {
+    "product_case_count": 4,
+    "product_judgment_count": 44,
+    "review_case_count": 4,
+    "review_judgment_count": 28,
+    "pool": "token top 10 union semantic top 10 for products; complete per-product outputs for reviews",
+    "relevance_scale": "0-3 graded relevance; grade 2 or 3 is relevant",
+    "frozen_before_first_baseline": true,
+    "unjudged_policy": "score as zero and report judgment coverage"
+  },
+  "results": {
+    "token": {
+      "product_ranking": {
+        "ndcg_at_3": 0.821028,
+        "ndcg_at_10": 0.921066,
+        "recall_at_3": 0.379167,
+        "recall_at_10": 0.94375,
+        "precision_at_3": 0.833333,
+        "judgment_coverage_at_3": 1.0,
+        "judgment_coverage_at_10": 1.0,
+        "hard_filter_violation_rate": 0.0,
+        "evidence_consistency_rate": 1.0
+      },
+      "review_retrieval": {
+        "ndcg_at_3": 0.732843,
+        "recall_at_3": 0.48125,
+        "precision_at_3": 0.833333,
+        "judgment_coverage_at_3": 1.0
+      }
+    },
+    "semantic": {
+      "product_ranking": {
+        "ndcg_at_3": 0.698524,
+        "ndcg_at_10": 0.863365,
+        "recall_at_3": 0.379167,
+        "recall_at_10": 0.91875,
+        "precision_at_3": 0.833333,
+        "judgment_coverage_at_3": 1.0,
+        "judgment_coverage_at_10": 1.0,
+        "hard_filter_violation_rate": 0.0,
+        "evidence_consistency_rate": 1.0
+      },
+      "review_retrieval": {
+        "ndcg_at_3": 0.660568,
+        "recall_at_3": 0.46875,
+        "precision_at_3": 0.833333,
+        "judgment_coverage_at_3": 1.0
+      }
+    }
+  },
+  "limitations": [
+    "Pooled judgments cover four product queries and four review queries, not the full catalog or query distribution.",
+    "A single annotation pass produced v1 labels; inter-annotator agreement has not been measured.",
+    "The semantic implementation did not outperform the token baseline on this frozen set, so no relevance improvement is claimed.",
+    "The raw per-case report remains Git ignored under backend/reports/."
+  ]
+}

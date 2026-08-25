@@ -1,0 +1,288 @@
+{
+  "dataset_version": "poster-recommendation-scenarios-v1.0",
+  "catalog_schema_version": "amazon-tablet-pilot-v2",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "frozen_before_first_packet_build": true,
+  "recommended_annotator_count": 3,
+  "scenario_design_note": "Twenty English four-turn scenarios created independently of system outputs. They are inputs for blinded human relevance annotation, not gold labels and not an end-to-end Understanding test.",
+  "scenarios": [
+    {
+      "id":"ph01","title":"Work documents with ample storage","tags":["work","storage","portability","budget"],
+      "conversation_turns":["I need a tablet mainly for work documents.","Keep it at $320 or less.","I store a lot locally, so make that at least 128 GB.","Something reasonably portable would be better than the largest screen."],
+      "final_request_summary":"A work tablet at or below $320 with at least 128 GB; portability is preferred.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$320 maximum","evidence_text":"$320 or less","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 128 GB storage","evidence_text":"at least 128 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_work_study","value_text":"work documents","evidence_text":"work documents","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"portability"},"canonical_id":"portability","value_text":"reasonably portable","evidence_text":"reasonably portable","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":320.0,"min_storage_gb":128}
+    },
+    {
+      "id":"ph02","title":"Low-cost reader with battery evidence","tags":["reading","battery","weight","budget"],
+      "conversation_turns":["I'm shopping for a tablet to read ebooks on the train.","My ceiling is $180.","It should weigh no more than 550 grams.","Please favor reviews that actually discuss battery life."],
+      "final_request_summary":"An ebook reader at or below $180 and 550 g, with useful battery evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$180 maximum","evidence_text":"$180","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"max_weight"},"canonical_id":"max_weight","value_text":"at most 550 grams","evidence_text":"no more than 550 grams","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_reading","value_text":"reading ebooks","evidence_text":"read ebooks","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"battery life review evidence matters","evidence_text":"discuss battery life","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":180.0,"max_weight_grams":550}
+    },
+    {
+      "id":"ph03","title":"Affordable casual gaming","tags":["gaming","memory","display","budget"],
+      "conversation_turns":["I want a tablet for casual games.","Don't go over $300.","I need at least 4 GB of RAM.","A clear display matters along with responsive performance."],
+      "final_request_summary":"A gaming tablet at or below $300 with at least 4 GB RAM; display and responsiveness matter.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$300 maximum","evidence_text":"$300","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"memory_capacity"},"canonical_id":"memory_capacity","value_text":"at least 4 GB RAM","evidence_text":"at least 4 GB of RAM","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_gaming","value_text":"casual gaming","evidence_text":"casual games","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"clear display","evidence_text":"clear display","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"performance"},"canonical_id":"performance","value_text":"responsive performance","evidence_text":"responsive performance","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":300.0,"min_memory_gb":4}
+    },
+    {
+      "id":"ph04","title":"Streaming on a constrained budget","tags":["video","screen","audio","budget"],
+      "conversation_turns":["I'd like a tablet for streaming shows.","The budget is $220.","The screen must be at least 10 inches.","Speaker and sound reviews should help break ties."],
+      "final_request_summary":"A streaming tablet at or below $220 with a 10-inch or larger screen and useful audio evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$220 maximum","evidence_text":"$220","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"display"},"canonical_id":"display","value_text":"at least 10 inch screen","evidence_text":"at least 10 inches","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_video","value_text":"streaming shows","evidence_text":"streaming shows","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"audio"},"canonical_id":"audio","value_text":"speaker and sound evidence matters","evidence_text":"Speaker and sound reviews","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":220.0,"min_screen_inches":10.0}
+    },
+    {
+      "id":"ph05","title":"First tablet for a child","tags":["child","durability","value","budget"],
+      "conversation_turns":["This will be a first tablet for my child.","I can spend up to $160.","It needs to be easy for a kid to use.","Durability matters more than premium performance."],
+      "final_request_summary":"A child-friendly first tablet at or below $160, prioritizing durability.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$160 maximum","evidence_text":"up to $160","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"event"},"canonical_id":"event_first_purchase","value_text":"first tablet purchase","evidence_text":"first tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_audience"},"canonical_id":"audience_child","value_text":"for a child","evidence_text":"my child","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"child_friendly"},"canonical_id":"child_friendly","value_text":"easy for a child to use","evidence_text":"easy for a kid to use","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"durability"},"canonical_id":"durability","value_text":"durability is important","evidence_text":"Durability matters","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":160.0}
+    },
+    {
+      "id":"ph06","title":"Android school tablet","tags":["android","study","storage","battery"],
+      "conversation_turns":["I need a tablet for school assignments.","It has to run Android.","Keep it under $280 with at least 64 GB of storage.","Battery reports from real owners are important."],
+      "final_request_summary":"An Android school tablet below $280 with at least 64 GB and credible battery evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"operating_system"},"canonical_id":"operating_system","value_text":"Android required","evidence_text":"run Android","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$280 maximum","evidence_text":"under $280","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 64 GB storage","evidence_text":"at least 64 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_work_study","value_text":"school assignments","evidence_text":"school assignments","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"owner battery evidence matters","evidence_text":"Battery reports from real owners","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":280.0,"min_storage_gb":64,"operating_system":"android"}
+    },
+    {
+      "id":"ph07","title":"Windows productivity device","tags":["windows","work","memory","display"],
+      "conversation_turns":["I'm replacing an old device with a tablet for office work.","Windows is required.","I need 4 GB of RAM or more and can spend $500.","A useful display for documents is more important than being ultra light."],
+      "final_request_summary":"A Windows work tablet at or below $500 with at least 4 GB RAM and a document-friendly display.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"event"},"canonical_id":"event_replacement","value_text":"replacing an old device","evidence_text":"replacing an old device","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"operating_system"},"canonical_id":"operating_system","value_text":"Windows required","evidence_text":"Windows is required","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"memory_capacity"},"canonical_id":"memory_capacity","value_text":"at least 4 GB RAM","evidence_text":"4 GB of RAM or more","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$500 maximum","evidence_text":"$500","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_work_study","value_text":"office work","evidence_text":"office work","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"document-friendly display","evidence_text":"display for documents","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":500.0,"min_memory_gb":4,"operating_system":"windows"}
+    },
+    {
+      "id":"ph08","title":"Highly rated everyday tablet","tags":["rating","reviews","value","general"],
+      "conversation_turns":["I just need a tablet for everyday use.","Cap the price at $250.","Only show models rated at least 4.4 stars.","I care about trustworthy owner experiences and overall value."],
+      "final_request_summary":"An everyday tablet at or below $250 and rated at least 4.4, with trustworthy review evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_general","value_text":"everyday use","evidence_text":"everyday use","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$250 maximum","evidence_text":"$250","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"min_rating"},"canonical_id":"min_rating","value_text":"at least 4.4 stars","evidence_text":"at least 4.4 stars","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"review_signal"},"canonical_id":"review_signal","value_text":"trustworthy owner experiences","evidence_text":"trustworthy owner experiences","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"price_value"},"canonical_id":"price_value","value_text":"overall value matters","evidence_text":"overall value","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":250.0,"min_rating":4.4}
+    },
+    {
+      "id":"ph09","title":"Very light reading tablet","tags":["reading","portability","display","weight"],
+      "conversation_turns":["I read long articles on a tablet while commuting.","I can pay up to $350.","It cannot weigh more than 400 grams.","Screen comfort and portability are the priorities."],
+      "final_request_summary":"A reading tablet at or below $350 and 400 g, prioritizing screen comfort and portability.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_reading","value_text":"reading long articles","evidence_text":"read long articles","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$350 maximum","evidence_text":"up to $350","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"max_weight"},"canonical_id":"max_weight","value_text":"at most 400 grams","evidence_text":"more than 400 grams","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"comfortable screen","evidence_text":"Screen comfort","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"portability"},"canonical_id":"portability","value_text":"portability is a priority","evidence_text":"portability","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":350.0,"max_weight_grams":400}
+    },
+    {
+      "id":"ph10","title":"Large local library","tags":["storage","long-term","durability","budget"],
+      "conversation_turns":["I want a tablet that can hold a large offline library.","At least 256 GB of internal storage is required.","My limit is $700.","I plan to keep it for years, so build quality matters."],
+      "final_request_summary":"A long-term tablet at or below $700 with at least 256 GB storage and durability evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 256 GB storage","evidence_text":"At least 256 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$700 maximum","evidence_text":"$700","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_long_term_use","value_text":"keep it for years","evidence_text":"keep it for years","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"durability"},"canonical_id":"durability","value_text":"build quality matters","evidence_text":"build quality matters","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":700.0,"min_storage_gb":256}
+    },
+    {
+      "id":"ph11","title":"Large-screen home entertainment","tags":["entertainment","screen","audio","battery"],
+      "conversation_turns":["This tablet will mostly stay at home for entertainment.","I can spend up to $600.","The display has to be at least 11 inches.","Strong speaker and battery reports are both important."],
+      "final_request_summary":"A home entertainment tablet at or below $600 with an 11-inch screen and audio/battery evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_entertainment","value_text":"home entertainment","evidence_text":"entertainment","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$600 maximum","evidence_text":"up to $600","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"display"},"canonical_id":"display","value_text":"at least 11 inch screen","evidence_text":"at least 11 inches","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"audio"},"canonical_id":"audio","value_text":"speaker evidence matters","evidence_text":"speaker","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"battery evidence matters","evidence_text":"battery reports","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":600.0,"min_screen_inches":11.0}
+    },
+    {
+      "id":"ph12","title":"Strictly low-cost general use","tags":["budget","value","reviews","general"],
+      "conversation_turns":["I need a basic tablet for browsing and email.","The hard limit is $100.","I don't need premium specifications.","Reliable owner feedback and price value should decide it."],
+      "final_request_summary":"A basic tablet at or below $100, prioritizing value and reliable owner feedback.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_general","value_text":"browsing and email","evidence_text":"browsing and email","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$100 maximum","evidence_text":"$100","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"price_value"},"canonical_id":"price_value","value_text":"price value matters","evidence_text":"price value","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"review_signal"},"canonical_id":"review_signal","value_text":"reliable owner feedback matters","evidence_text":"Reliable owner feedback","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":100.0}
+    },
+    {
+      "id":"ph13","title":"Shared family gift","tags":["gift","family","durability","budget"],
+      "conversation_turns":["I'm buying a tablet as a gift for the family.","Keep the price at $200 or below.","It will be shared for general household use.","I would rather have durable build quality than maximum speed."],
+      "final_request_summary":"A shared family gift at or below $200, prioritizing durability over maximum performance.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"event"},"canonical_id":"event_gift","value_text":"gift purchase","evidence_text":"as a gift","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_audience"},"canonical_id":"audience_family","value_text":"for the family","evidence_text":"for the family","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_general","value_text":"general household use","evidence_text":"general household use","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$200 maximum","evidence_text":"$200 or below","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"durability"},"canonical_id":"durability","value_text":"durable build quality","evidence_text":"durable build quality","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":200.0}
+    },
+    {
+      "id":"ph14","title":"Serious note-taking with storage","tags":["note-taking","storage","display","budget"],
+      "conversation_turns":["I take handwritten meeting notes on a tablet.","My maximum is $400.","I want at least 128 GB of storage.","Pen support and a readable display are the main priorities."],
+      "final_request_summary":"A note-taking tablet at or below $400 with at least 128 GB, prioritizing pen support and display.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_note_taking","value_text":"handwritten meeting notes","evidence_text":"handwritten meeting notes","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$400 maximum","evidence_text":"$400","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 128 GB storage","evidence_text":"at least 128 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"note_taking"},"canonical_id":"note_taking","value_text":"pen support is a priority","evidence_text":"Pen support","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"readable display","evidence_text":"readable display","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":400.0,"min_storage_gb":128}
+    },
+    {
+      "id":"ph15","title":"Higher-memory gaming","tags":["gaming","memory","battery","budget"],
+      "conversation_turns":["I want a tablet for more demanding games.","Set the budget ceiling at $600.","It needs at least 6 GB of RAM.","Performance and battery experience should both count."],
+      "final_request_summary":"A gaming tablet at or below $600 with at least 6 GB RAM, using performance and battery evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_gaming","value_text":"demanding games","evidence_text":"demanding games","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$600 maximum","evidence_text":"$600","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"memory_capacity"},"canonical_id":"memory_capacity","value_text":"at least 6 GB RAM","evidence_text":"at least 6 GB of RAM","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"performance"},"canonical_id":"performance","value_text":"performance evidence matters","evidence_text":"Performance","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"battery experience matters","evidence_text":"battery experience","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":600.0,"min_memory_gb":6}
+    },
+    {
+      "id":"ph16","title":"Android entertainment with storage","tags":["android","entertainment","storage","audio"],
+      "conversation_turns":["I prefer an Android tablet for entertainment apps.","The most I can spend is $350.","It should have at least 128 GB of storage.","Good speaker evidence matters for videos."],
+      "final_request_summary":"An Android entertainment tablet at or below $350 with at least 128 GB and useful speaker evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"operating_system"},"canonical_id":"operating_system","value_text":"Android required","evidence_text":"Android tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_entertainment","value_text":"entertainment apps","evidence_text":"entertainment apps","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$350 maximum","evidence_text":"$350","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 128 GB storage","evidence_text":"at least 128 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"audio"},"canonical_id":"audio","value_text":"speaker evidence matters","evidence_text":"speaker evidence","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":350.0,"min_storage_gb":128,"operating_system":"android"}
+    },
+    {
+      "id":"ph17","title":"iOS replacement tablet","tags":["ios","replacement","performance","display"],
+      "conversation_turns":["I'm replacing an older tablet with a newer one.","I want iOS for compatibility with my existing apps.","My price ceiling is $500.","A strong display and responsive performance matter most."],
+      "final_request_summary":"An iOS replacement tablet at or below $500, prioritizing display and performance.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet-style device","evidence_text":"tablet-style device","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"event"},"canonical_id":"event_replacement","value_text":"replacing an older tablet","evidence_text":"replacing an older tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"operating_system"},"canonical_id":"operating_system","value_text":"iOS","evidence_text":"iOS","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$500 maximum","evidence_text":"$500","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"strong display","evidence_text":"strong display","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"performance"},"canonical_id":"performance","value_text":"responsive performance","evidence_text":"responsive performance","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":500.0,"operating_system":"iOS"}
+    },
+    {
+      "id":"ph18","title":"Well-rated streaming tablet","tags":["video","rating","audio","budget"],
+      "conversation_turns":["I mainly watch streaming video on a tablet.","I can spend as much as $500.","The average rating must be 4.5 stars or higher.","Reviews about picture and sound quality should matter."],
+      "final_request_summary":"A streaming tablet at or below $500 and rated at least 4.5, with picture and sound evidence.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_video","value_text":"streaming video","evidence_text":"streaming video","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$500 maximum","evidence_text":"$500","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"min_rating"},"canonical_id":"min_rating","value_text":"at least 4.5 stars","evidence_text":"4.5 stars or higher","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"picture quality evidence matters","evidence_text":"picture","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"audio"},"canonical_id":"audio","value_text":"sound quality evidence matters","evidence_text":"sound quality","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":500.0,"min_rating":4.5}
+    },
+    {
+      "id":"ph19","title":"Small and light family reader","tags":["family","reading","weight","budget"],
+      "conversation_turns":["We need a family tablet mostly for reading.","The budget is $250.","It must weigh 350 grams or less.","Ease of carrying matters more than high-end performance."],
+      "final_request_summary":"A family reading tablet at or below $250 and 350 g, prioritizing portability.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_audience"},"canonical_id":"audience_family","value_text":"for the family","evidence_text":"family tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_reading","value_text":"mostly reading","evidence_text":"mostly for reading","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$250 maximum","evidence_text":"$250","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"max_weight"},"canonical_id":"max_weight","value_text":"at most 350 grams","evidence_text":"350 grams or less","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"portability"},"canonical_id":"portability","value_text":"ease of carrying matters","evidence_text":"Ease of carrying","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":250.0,"max_weight_grams":350}
+    },
+    {
+      "id":"ph20","title":"Premium study and media balance","tags":["study","video","storage","performance"],
+      "conversation_turns":["I need one tablet for graduate study and media.","My upper limit is $700.","Require at least 128 GB and a 10-inch screen.","Performance and battery evidence are more important than the lowest price."],
+      "final_request_summary":"A study/media tablet at or below $700 with at least 128 GB and a 10-inch screen, prioritizing performance and battery.",
+      "state_candidates":[
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"goal_purpose"},"canonical_id":"goal_work_study","value_text":"graduate study","evidence_text":"graduate study","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_video","value_text":"media viewing","evidence_text":"media","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"$700 maximum","evidence_text":"$700","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 128 GB storage","evidence_text":"at least 128 GB","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"display"},"canonical_id":"display","value_text":"at least 10 inch screen","evidence_text":"10-inch screen","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"performance"},"canonical_id":"performance","value_text":"performance evidence matters","evidence_text":"Performance","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"battery evidence matters","evidence_text":"battery evidence","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters":{"max_price_usd":700.0,"min_storage_gb":128,"min_screen_inches":10.0}
+    }
+  ]
+}

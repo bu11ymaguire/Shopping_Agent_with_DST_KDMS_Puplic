@@ -1,0 +1,275 @@
+{
+  "schema_version": "poster-live-replay-run-manifest-v1",
+  "run_status": "first_run_with_recorded_failure",
+  "frozen_after_first_complete_attempt": true,
+  "production_system_commit": "eaf79895d5406f2d4eb0b6caf232c416b991251f",
+  "runner_sha256": "388f6f11ce97fe9c784c696efbcb46c9586d2f7f3d346b1158786ac7e15135db",
+  "source_summary_sha256": "c84ba73f984f2978e1ead0d5717f6f18ce77ebbcf95e3bddf05f1ab34c028a42",
+  "raw_report_sha256": "4467fc43d2a568e2d30ac8a56a9bae01a41cdfe24cd2bb363f97bab26749ef83",
+  "dataset_sha256": "6241a74a9f678585ab97726e28683b5f4df09224712341a416110b6cee237934",
+  "provider": "luxia",
+  "requested_model": "gpt-4o-mini",
+  "prompt_versions": {
+    "understanding": "spn-understanding-amazon-tablet-en-v1",
+    "clarify": "spn-response-clarify-tablet-en-v1",
+    "recommend": "spn-response-recommend-tablet-en-v1"
+  },
+  "review_retrieval_mode": "semantic",
+  "metrics": {
+    "scenario_count": 20,
+    "completed_scenario_count": 19,
+    "scenario_completion_rate": 0.95,
+    "completed_turn_count": 79,
+    "expected_turn_count": 80,
+    "turn_completion_rate": 0.9875,
+    "schema_failure_rate": 0.05,
+    "end_to_end_recommend_success_rate": 0.4,
+    "end_to_end_hard_filter_success_rate": 0.4,
+    "canonical_id_exact_rate": 0.0,
+    "canonical_id_micro_precision": 0.6728971962616822,
+    "canonical_id_micro_recall": 0.6428571428571429,
+    "canonical_id_micro_f1": 0.6575342465753425,
+    "final_lane_accuracy": 0.42105263157894735,
+    "hard_filter_exact_rate": 0.42105263157894735,
+    "response_template_fallback_rate": 0.0,
+    "review_retrieval_fallback_rate": 0.0,
+    "actual_query_hard_filter_violation_rate": 0.0,
+    "expected_hard_filter_violation_rate": 0.0,
+    "evidence_consistency_rate": 1.0,
+    "final_recommendation_count": 24,
+    "turn_wall_latency_ms": {
+      "median": 4547.6,
+      "p95": 27011.8,
+      "max": 32532.4
+    },
+    "error_scenarios": [
+      {
+        "scenario_id": "ph14",
+        "error_type": "StructuredOutputError",
+        "error_message": "ActualUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['candidates.1: Value error, constraint key must equal canonical_id', 'candidates.0: Value error, constraint key must equal canonical_id; candidates.1: Value error, constraint key must equal canonical_id']"
+      }
+    ]
+  },
+  "scenario_outcomes": [
+    {
+      "scenario_id": "ph01",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph02",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph03",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph04",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph05",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph06",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph07",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph08",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph09",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph10",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph11",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph12",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph13",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph14",
+      "status": "error",
+      "completed_turn_count": 3,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": "StructuredOutputError"
+    },
+    {
+      "scenario_id": "ph15",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph16",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph17",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph18",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph19",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": true,
+      "final_lane": "recommend-lane",
+      "final_recommendation_count": 3,
+      "error_type": null
+    },
+    {
+      "scenario_id": "ph20",
+      "status": "completed",
+      "completed_turn_count": 4,
+      "canonical_id_exact": false,
+      "hard_filter_exact": false,
+      "final_lane": "clarify-lane",
+      "final_recommendation_count": 0,
+      "error_type": null
+    }
+  ],
+  "separate_retry_observation": {
+    "scenario_id": "ph14",
+    "source_summary_sha256": "23ac52db400f8152dbc596f567222bcdc9b627e64fdd825ed16e4d49754aed1b",
+    "status": "completed",
+    "completed_turn_count": 4,
+    "canonical_id_exact": false,
+    "hard_filter_exact": false,
+    "final_lane": "clarify-lane",
+    "interpretation": "The schema failure did not recur, but the scenario still ended in clarify-lane. The retry is not substituted into first-run metrics."
+  },
+  "interpretation": [
+    "The frozen gold-state packet is not an end-to-end live-pipeline result.",
+    "Only 8 of 20 scenarios reached the expected final recommend lane on the first run.",
+    "No production prompt, retriever, or ranker was changed after viewing this run."
+  ],
+  "limitations": [
+    "These are researcher-authored controlled scenarios, not human conversation logs.",
+    "This replay measures the live pipeline on frozen inputs; it is not a user study.",
+    "Candidate relevance still requires independent human annotation."
+  ]
+}

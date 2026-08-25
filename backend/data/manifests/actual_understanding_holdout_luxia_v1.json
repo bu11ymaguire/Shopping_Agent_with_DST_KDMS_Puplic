@@ -1,0 +1,38 @@
+{
+  "schema_version": "actual-understanding-holdout-result-v1",
+  "run_id": "actual-holdout-20260807T023123Z-d0a88688",
+  "generated_at": "2026-08-07T02:31:44.189449+00:00",
+  "provider": "luxia",
+  "provider_version": "spn-understanding-amazon-tablet-en-v1",
+  "reported_model": "gpt-4o-mini-2024-07-18",
+  "dataset_version": "actual-understanding-holdout-v1.0",
+  "dataset_sha256": "ca996106286653b3888fd89459b52d228a9e4c6e95afa7a33db22c4a7c6a3251",
+  "system_prompt_sha256": "cb4fd4c0917970d90bf687872a156eeaa636ac64d64d96ee1085a1b254480bfb",
+  "protocol": "Prompt and fixture were frozen before the first Luxia run. Do not tune prompt v1 against these cases.",
+  "case_count": 30,
+  "metrics": {
+    "validation_success_rate": 0.9,
+    "canonical_id_exact_accuracy": 0.4,
+    "canonical_id_micro_precision": 0.6,
+    "canonical_id_micro_recall": 0.4186046511627907,
+    "canonical_id_micro_f1": 0.49315068493150693,
+    "intent_exact_accuracy": 0.8,
+    "item_action_exact_accuracy": 0.8333333333333334,
+    "item_action_rank_exact_accuracy": 0.8666666666666667,
+    "tradeoff_exact_accuracy": 0.8333333333333334,
+    "candidate_value_semantics_accuracy": 0.8888888888888888,
+    "candidate_evidence_span_accuracy": 0.8333333333333334,
+    "forbidden_candidate_violation_rate": 0.03333333333333333,
+    "mean_latency_ms": 2578.796330002175,
+    "p95_latency_ms": 5605.5049000133295
+  },
+  "trace_summary": {
+    "trace_count": 30,
+    "strict_json_schema_count": 30,
+    "fallback_count": 0,
+    "schema_repair_count": 4,
+    "input_tokens": 76962,
+    "output_tokens": 4603
+  },
+  "raw_report": "reports/actual_understanding_holdout_luxia_v1.json (Git ignored)"
+}

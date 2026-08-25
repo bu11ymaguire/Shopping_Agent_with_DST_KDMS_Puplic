@@ -1,0 +1,20 @@
+# 실제 API 키가 들어가는 파일. 절대 커밋하지 않는다.
+.env
+
+# 연구 로그와 실험 산출물. 원본은 별도로 보관하고 저장소에는 넣지 않는다.
+logs/
+reports/
+
+# 외부 데이터셋 캐시와 실제 리뷰 가공 산출물. 재생성 스크립트와 manifest만 커밋한다.
+.cache/
+data/amazon_reviews_2023/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/

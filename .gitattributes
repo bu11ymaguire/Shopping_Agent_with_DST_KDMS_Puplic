@@ -1,0 +1,6 @@
+# Frozen fixtures and manifests are hash-addressed. Preserve every tracked byte exactly as added.
+* -text
+*.png binary
+*.pptx binary
+*.parquet binary
+*.npy binary

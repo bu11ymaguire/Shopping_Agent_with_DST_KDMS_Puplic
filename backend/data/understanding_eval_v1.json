@@ -1,0 +1,481 @@
+{
+  "dataset_version": "understanding-eval-v1.1",
+  "schema_version": "understanding-v1-generic-electronics",
+  "description": "Appendix C six-turn seed plus budget, purpose, rejection, comparison, inspection, purchase, vague, and contradictory Korean shopping utterances.",
+  "cases": [
+    {
+      "id": "u01",
+      "tags": ["appendix-c", "search", "failure", "inference"],
+      "utterance": "쓰던 아이폰이 고장 나서 새로 바꿔야 해요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_smartphone", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "event_device_failure", "target_kind": "facet", "facet": "event", "scope": null, "origin": "explicit"},
+          {"canonical_id": "goal_replace_device", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "implicit"},
+          {"canonical_id": "urgency_pressure", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "inferred"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u02",
+      "tags": ["appendix-c", "budget", "longevity", "refine"],
+      "utterance": "150만 원 정도 생각하는데, 오래 쓸 거면 조금 더 써도 괜찮아요.",
+      "previous_state_summary": {"category": "category_smartphone"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"},
+          {"canonical_id": "budget_flexibility", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"},
+          {"canonical_id": "subjective_longevity", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "longevity_value", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u03",
+      "tags": ["appendix-c", "reject", "delivery", "situational"],
+      "utterance": "첫 번째 제품은 재고가 없어서 2주 뒤에나 받는대요. 지금 쓸 폰이 없어서 그건 안 돼요.",
+      "previous_state_summary": {
+        "category": "category_smartphone",
+        "soft_constraints": {"urgency_pressure": {"status": "unconfirmed"}},
+        "ranking_context": {"first": "iphone-17"}
+      },
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "delivery_deadline", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "inferred"}
+        ],
+        "item_action": {"name": "reject_first", "rejection_reason_id": "reject_stock_delay", "reason_type": "situational_constraint"},
+        "supersedes": ["urgency_pressure"],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u04",
+      "tags": ["appendix-c", "reject", "audio", "review-negative-control"],
+      "utterance": "이건 스피커랑 배터리가 아쉽다는 후기가 많네요.",
+      "previous_state_summary": {"ranking_context": {"first": "iphone-air"}},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "audio", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "implicit"},
+          {"canonical_id": "battery", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "implicit"}
+        ],
+        "item_action": {"name": "reject_first", "rejection_reason_id": "reject_audio_battery", "reason_type": "product_attribute"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["review_signal"]
+      }
+    },
+    {
+      "id": "u05",
+      "tags": ["appendix-c", "inspect", "action"],
+      "utterance": "그럼 추천해주신 제품을 자세히 볼게요.",
+      "previous_state_summary": {"ranking_context": {"current": "iphone-17-pro"}},
+      "gold": {
+        "intents": ["inspect"],
+        "candidates": [],
+        "item_action": {"name": "inspect_current", "rejection_reason_id": null, "reason_type": null},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u06",
+      "tags": ["appendix-c", "purchase", "residual-color"],
+      "utterance": "색상은 지금 받을 수 있는 게 코스믹 오렌지뿐이네요. 그럼 이걸로 살게요.",
+      "previous_state_summary": {
+        "current_item": "iphone-17-pro",
+        "available_colors": ["cosmic-orange"]
+      },
+      "gold": {
+        "intents": ["purchase"],
+        "candidates": [],
+        "item_action": {"name": "purchase_current", "rejection_reason_id": null, "reason_type": null},
+        "supersedes": [],
+        "residual_color_choice": true,
+        "forbidden_candidate_ids": ["color_residual"]
+      }
+    },
+    {
+      "id": "u07",
+      "tags": ["budget", "hard-constraint", "refine"],
+      "utterance": "100만 원은 절대 넘으면 안 돼요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["budget_flexibility"]
+      }
+    },
+    {
+      "id": "u08",
+      "tags": ["budget", "revision", "context"],
+      "utterance": "아까 말한 예산을 180만 원으로 올릴게요.",
+      "previous_state_summary": {"hard_constraints": {"budget": {"value": 1500000, "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u09",
+      "tags": ["search", "tablet", "first-purchase", "note-taking"],
+      "utterance": "필기용 태블릿을 처음 사는데 펜으로 노트 정리가 잘됐으면 해요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "event_first_purchase", "target_kind": "facet", "facet": "event", "scope": null, "origin": "explicit"},
+          {"canonical_id": "activity_note_taking", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit"},
+          {"canonical_id": "note_taking", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u10",
+      "tags": ["search", "laptop", "gaming", "performance"],
+      "utterance": "게임용 노트북을 찾고 있어요. 성능이 가장 중요해요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_laptop", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "activity_gaming", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit"},
+          {"canonical_id": "subjective_performance", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "performance", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u11",
+      "tags": ["search", "tablet", "video", "display", "battery"],
+      "utterance": "영상 볼 태블릿을 추천해 주세요. 화면과 배터리가 중요해요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "activity_video", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit"},
+          {"canonical_id": "display", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"},
+          {"canonical_id": "battery", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u12",
+      "tags": ["storage", "hard-constraint", "refine"],
+      "utterance": "저장 공간은 적어도 256GB 이상이어야 해요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u13",
+      "tags": ["reject", "storage", "product-attribute"],
+      "utterance": "첫 번째 제품은 64GB라 부족해서 빼 주세요. 256GB는 필요해요.",
+      "previous_state_summary": {"ranking_context": {"first": "tablet-a"}},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"}
+        ],
+        "item_action": {"name": "reject_first", "rejection_reason_id": "reject_storage", "reason_type": "product_attribute"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u14",
+      "tags": ["compare", "action"],
+      "utterance": "1번과 2번 제품의 차이를 비교해 주세요.",
+      "previous_state_summary": {"ranking_context": {"first": "tablet-a", "second": "tablet-b"}},
+      "gold": {
+        "intents": ["compare"],
+        "candidates": [],
+        "item_action": {"name": "compare_first_second", "rejection_reason_id": null, "reason_type": null},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u15",
+      "tags": ["review-signal", "refine", "positive-control"],
+      "utterance": "저는 리뷰가 많고 사용자 후기가 신뢰되는 제품이 중요해요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "review_signal", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u16",
+      "tags": ["vague", "tablet", "first-purchase", "search"],
+      "utterance": "태블릿을 처음 사는데 뭘 봐야 할지 모르겠어요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "event_first_purchase", "target_kind": "facet", "facet": "event", "scope": null, "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u17",
+      "tags": ["portability", "subjective", "refine"],
+      "utterance": "매일 들고 다닐 거라 가볍고 휴대하기 편한 게 좋아요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "subjective_portability", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u18",
+      "tags": ["display", "subjective", "refine"],
+      "utterance": "글자가 또렷하게 보이도록 화면 품질이 좋은 제품이면 좋겠어요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "subjective_display_quality", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "display", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u19",
+      "tags": ["durability", "subjective", "refine"],
+      "utterance": "아이도 쓸 거라 떨어뜨려도 잘 버티는 튼튼한 제품이 필요해요.",
+      "previous_state_summary": {"category": "category_tablet"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "audience_child", "target_kind": "facet", "facet": "goal_audience", "scope": null, "origin": "explicit"},
+          {"canonical_id": "subjective_durability", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "durability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u20",
+      "tags": ["gift", "child", "tablet", "search"],
+      "utterance": "중학생 아이에게 선물할 태블릿을 찾고 있어요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "event_gift", "target_kind": "facet", "facet": "event", "scope": null, "origin": "explicit"},
+          {"canonical_id": "audience_child", "target_kind": "facet", "facet": "goal_audience", "scope": null, "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u21",
+      "tags": ["work-study", "laptop", "search"],
+      "utterance": "학교 과제와 문서 작업에 쓸 노트북을 추천해 주세요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_laptop", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "goal_work_study", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u22",
+      "tags": ["headphones", "audio", "search"],
+      "utterance": "음질이 좋은 헤드폰을 찾고 있어요. 소리가 가장 중요해요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_headphones", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit"},
+          {"canonical_id": "subjective_audio_quality", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "audio", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u23",
+      "tags": ["purchase", "action", "negative-color-control"],
+      "utterance": "첫 번째 제품으로 살게요.",
+      "previous_state_summary": {"ranking_context": {"current": "tablet-a"}},
+      "gold": {
+        "intents": ["purchase"],
+        "candidates": [],
+        "item_action": {"name": "purchase_current", "rejection_reason_id": null, "reason_type": null},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["color_residual"]
+      }
+    },
+    {
+      "id": "u24",
+      "tags": ["color-negative-control", "performance", "refine"],
+      "utterance": "색상은 아무거나 괜찮아요. 성능만 좋으면 돼요.",
+      "previous_state_summary": {"category": "category_laptop"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "subjective_performance", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "performance", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["color_residual"]
+      }
+    },
+    {
+      "id": "u25",
+      "tags": ["reject", "price", "product-attribute"],
+      "utterance": "첫 번째 제품은 가격이 너무 비싸서 제외해 주세요.",
+      "previous_state_summary": {"ranking_context": {"first": "laptop-a"}},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [],
+        "item_action": {"name": "reject_first", "rejection_reason_id": "reject_price", "reason_type": "product_attribute"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["budget_flexibility"]
+      }
+    },
+    {
+      "id": "u26",
+      "tags": ["reject", "performance", "product-attribute"],
+      "utterance": "이 제품은 게임 성능이 부족해서 빼 주세요. 성능 좋은 게 중요해요.",
+      "previous_state_summary": {"ranking_context": {"first": "laptop-b"}},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "activity_gaming", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit"},
+          {"canonical_id": "subjective_performance", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit"},
+          {"canonical_id": "performance", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit"}
+        ],
+        "item_action": {"name": "reject_first", "rejection_reason_id": "reject_performance", "reason_type": "product_attribute"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u27",
+      "tags": ["vague", "first-purchase", "unknown-category", "search"],
+      "utterance": "처음 사는데 뭘 봐야 할지 모르겠어요.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "event_first_purchase", "target_kind": "facet", "facet": "event", "scope": null, "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "u28",
+      "tags": ["contradiction", "budget", "last-clause-wins", "refine"],
+      "utterance": "예산은 상관없어요. 아니, 100만 원은 넘지 않았으면 해요.",
+      "previous_state_summary": {"category": "category_laptop"},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit"}
+        ],
+        "item_action": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["budget_flexibility"]
+      }
+    }
+  ]
+}

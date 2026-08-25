@@ -1,0 +1,84 @@
+{
+  "schema_version": "tablet-domain-automatic-benchmark-manifest-v1",
+  "status": "primary_automatic_benchmark_complete",
+  "created_on": "2026-08-09",
+  "official_run_reexecuted": false,
+  "new_gold_labels_added": false,
+  "run_id": "tablet-holdout-20260808T134819Z-9d786cf8",
+  "frozen_references": {
+    "system_tag": "tablet-domain-v2.3-freeze",
+    "holdout_tag": "tablet-domain-holdout-v1-freeze",
+    "official_result_tag": "tablet-domain-official-v1",
+    "execution_commit": "754287212e1272a7dba7398b8790e91416ac5b0a"
+  },
+  "immutable_inputs": {
+    "data/tablet_domain_multiturn_holdout_v1.json": {
+      "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e"
+    },
+    "reports/tablet_domain_holdout_official_v1.json": {
+      "git_excluded": true,
+      "bytes": 16900202,
+      "sha256": "87257652cab27c2608536bbd9846244c15a7fba4a7110c119728235fb07b6426"
+    },
+    "reports/tablet_domain_holdout_official_v1_analysis.json": {
+      "git_excluded": true,
+      "bytes": 80951,
+      "sha256": "4a72ed018e47e9729eff4d94a30105a4b9f0867e76a71297d7a5202475e2b979"
+    },
+    "logs/tablet_domain_holdout_tablet-holdout-20260808T134819Z-9d786cf8_full_llm_trace.jsonl": {
+      "git_excluded": true,
+      "sha256": "119dc3ace2ec2deeb824463df23ad325d37f37c2675e1a4b80607e7e29ca9408"
+    },
+    "logs/tablet_domain_holdout_tablet-holdout-20260808T134819Z-9d786cf8_no_memory_llm_trace.jsonl": {
+      "git_excluded": true,
+      "sha256": "b3159e0f3cdc6436ec734af76e235182196bbd8b4366f97ba7e05ea45d73bef1"
+    },
+    "logs/tablet_domain_holdout_tablet-holdout-20260808T134819Z-9d786cf8_no_review_llm_trace.jsonl": {
+      "git_excluded": true,
+      "sha256": "368565093ae5dff4366dd6718b499051b17a145dab534cdfab5b14ba0e6a4d5c"
+    }
+  },
+  "tracked_outputs": {
+    "data/results/tablet_domain_automatic_benchmark_v1.json": {
+      "bytes": 17324,
+      "sha256": "7f32a483b2a35fc8b6e6cfcc73db5c1612f75749f29de15c12b0cb0a6ea6179a",
+      "sha256_lf_normalized": "d2368f2e76d6b0813caa97954866c23088067f10ade18ed4a3790681eb0aeeec"
+    },
+    "data/results/tablet_domain_automatic_benchmark_v1_scenarios.csv": {
+      "bytes": 16089,
+      "sha256": "dd63f3f591fc0f81575895b06d8233692233e48a1592a6f6cebaa779ba2653d0",
+      "sha256_lf_normalized": "560b009000a0a492f33522ce6ea02500e822c18c477902115698a8a6ca0204b8"
+    },
+    "docs/tablet_domain_automatic_benchmark_v1.md": {
+      "bytes": 4008,
+      "sha256": "4e7c82f77e0142338c39b5e1cc12f9f9439019ea374ae679e8828077074afaff",
+      "sha256_lf_normalized": "6935df886c0f640b2975ddd747dacab2831da92a93d82ab2cf03d05fd32fcb39"
+    },
+    "docs/tablet_domain_automatic_metric_definitions.md": {
+      "bytes": 8954,
+      "sha256": "a2881b9bfb2dc12daa70750c4fd63b19e07c0b9f48aa5db5c73829dd5b3c4ea6",
+      "sha256_lf_normalized": "a2881b9bfb2dc12daa70750c4fd63b19e07c0b9f48aa5db5c73829dd5b3c4ea6"
+    }
+  },
+  "source_sha256_lf_normalized": {
+    "app/evaluation/tablet_domain_automatic.py": "e63e7dabf5e4fae9dfe7574c32c5fb7a582de2af4bc71c4763eb7b48a80398cc",
+    "scripts/evaluate_tablet_domain_automatic.py": "bb04e85a324b20c5d6745f16bdd40d785aaa0be52faa37f911ad5018dc793152",
+    "scripts/verify_tablet_domain_automatic.py": "8ceb50c7d8a01dfdbf44ef52ecc67961bc19ff85d6c53c6d8ed6ea3278b30a0e"
+  },
+  "statistics": {
+    "bootstrap_unit": "scenario",
+    "paired_scenario_count": 20,
+    "resamples": 10000,
+    "base_seed": 20260809,
+    "p_values_computed": false
+  },
+  "human_evaluation": {
+    "primary": false,
+    "status": "optional_future_human_relevance_evaluation",
+    "existing_packet_preserved": true,
+    "human_grade_count": 0,
+    "product_ndcg_at_3_official": false,
+    "review_ndcg_at_3_official": false
+  },
+  "do_not_tune_on_this_holdout": true
+}

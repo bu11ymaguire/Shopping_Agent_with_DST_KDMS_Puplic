@@ -1,0 +1,153 @@
+{
+  "turns": [
+    {
+      "user": "태블릿을 처음 사보는데, 뭘 보고 골라야 할지 잘 모르겠어요.",
+      "assistant": "태블릿을 주로 어떤 용도로 사용하실 예정이신가요? 예를 들어 영상 시청, 문서 작업, 필기, 그림 그리기 등이 있을 수 있어요.",
+      "detectedIntent": ["추천 요청", "선호 미정"],
+      "selectedAction": "추가 정보 요청",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {},
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "미정"
+        },
+        "recommended_items": []
+      },
+      "updatedFields": ["category", "soft_constraints.user_level", "soft_constraints.purpose"],
+      "retrievedReviews": [],
+      "candidateProductIds": []
+    },
+    {
+      "user": "아직 잘 모르겠어요.",
+      "assistant": "괜찮아요. 처음 구매하시는 거라면 목적을 바로 정하기보다 가격 부담과 후기 신뢰도를 먼저 보는 방식이 좋아요. 너무 비싸지 않은 입문용 제품 위주로 살펴볼까요?",
+      "detectedIntent": ["선호 불확실", "기준 탐색"],
+      "selectedAction": "추가 정보 요청",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {},
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "미정",
+          "decision_support": "선택 기준 안내 필요"
+        },
+        "recommended_items": []
+      },
+      "updatedFields": ["soft_constraints.decision_support"],
+      "retrievedReviews": [],
+      "candidateProductIds": []
+    },
+    {
+      "user": "너무 비싸진 않았으면 좋겠고, 그래도 후기가 많은 게 좋을 것 같아요.",
+      "assistant": "예산은 부담을 낮추고, 리뷰 수가 많은 제품을 더 신뢰하시는군요. 이 조건을 기준으로 후보를 먼저 필터링해볼게요. 현재 조건은 입문용, 가성비, 리뷰 수 중요, 고가 제품 제외로 정리됩니다.",
+      "detectedIntent": ["선호 추가", "제약 제공"],
+      "selectedAction": "검색 근거 수집",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {
+          "price_preference": "너무 비싸지 않은 제품"
+        },
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "미정",
+          "review_signal": "리뷰 수 중요",
+          "risk_attitude": "구매 실패 위험을 줄이고 싶음"
+        },
+        "recommended_items": []
+      },
+      "updatedFields": ["hard_constraints.price_preference", "soft_constraints.review_signal", "soft_constraints.risk_attitude"],
+      "retrievedReviews": [
+        "리뷰 수가 많아 실제 사용자 반응을 확인하기 좋습니다.",
+        "가격이 낮아 처음 구매할 때 부담이 적습니다.",
+        "영상 시청과 웹서핑 같은 기본 용도에 무난하다는 평가가 많습니다."
+      ],
+      "candidateProductIds": ["android-tablet-10", "alldocube-iplay-50", "doogee-t20"]
+    },
+    {
+      "user": "사용 후기가 궁금해요.",
+      "assistant": "지금 후보 중에서는 리뷰가 많은 제품을 우선해서 비교해드릴게요. 안드로이드 태블릿 10인치, 4GB+64GB는 리뷰 수가 많아 실제 사용자 반응을 보기 좋고, 평점도 무난한 편입니다. 다만 입문형 제품이라 고사양 게임이나 전문 필기 작업보다는 영상 시청, 검색, 간단한 앱 사용에 더 잘 맞습니다.",
+      "detectedIntent": ["상품 정보 질문", "후기 문의"],
+      "selectedAction": "질문 답변",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {
+          "price_preference": "너무 비싸지 않은 제품"
+        },
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "미정",
+          "review_signal": "리뷰 수 중요",
+          "risk_attitude": "구매 실패 위험을 줄이고 싶음",
+          "interest": "사용 후기와 실사용 안정성"
+        },
+        "recommended_items": []
+      },
+      "updatedFields": ["soft_constraints.interest"],
+      "retrievedReviews": [
+        "리뷰 수가 많아 실제 사용자 반응을 확인하기 좋습니다.",
+        "기본 영상 시청, 웹서핑, 가벼운 앱 사용에 적합합니다.",
+        "메모리가 더 여유로운 제품은 여러 앱을 함께 쓸 때 안정적입니다."
+      ],
+      "candidateProductIds": ["android-tablet-10", "alldocube-iplay-50", "lectrus-tablet-10"]
+    },
+    {
+      "user": "리뷰 많은 게 믿음이 가네요.",
+      "assistant": "그럼 추천 기준을 리뷰 수 우선, 입문용, 낮은 가격으로 더 확정하겠습니다. 이 기준에서는 안드로이드 태블릿 10인치, 4GB+64GB가 가장 먼저 볼 만합니다. 가격이 낮고 리뷰 수가 많아서 처음 구매자가 실패 위험을 줄이기 좋은 선택지입니다. 조금 더 나은 사용 여유를 원하면 ALLDOCUBE iPlay 50을 두 번째 후보로 두는 것이 좋습니다.",
+      "detectedIntent": ["선호 확정", "추천 요청"],
+      "selectedAction": "추천 및 설명",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {
+          "price_preference": "너무 비싸지 않은 제품"
+        },
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "영상 시청, 웹서핑 중심의 기본 사용 가능성",
+          "review_signal": "리뷰 수 우선",
+          "risk_attitude": "구매 실패 위험을 줄이고 싶음",
+          "interest": "사용 후기와 실사용 안정성"
+        },
+        "recommended_items": ["안드로이드 태블릿 10인치, 4GB+64GB", "ALLDOCUBE iPlay 50", "LECTRUS 태블릿 10인치"]
+      },
+      "updatedFields": ["soft_constraints.review_signal", "soft_constraints.purpose", "recommended_items"],
+      "retrievedReviews": [
+        "리뷰 수가 많아 실제 사용자 반응을 확인하기 좋습니다.",
+        "가격이 낮아 처음 구매할 때 부담이 적습니다.",
+        "기본 영상 시청, 웹서핑, 가벼운 앱 사용에 적합합니다.",
+        "메모리가 더 여유로운 제품은 여러 앱을 함께 쓸 때 안정적입니다."
+      ],
+      "candidateProductIds": ["android-tablet-10", "alldocube-iplay-50", "lectrus-tablet-10"]
+    },
+    {
+      "user": "그럼 첫 번째 제품을 먼저 자세히 볼게요.",
+      "assistant": "좋아요. 안드로이드 태블릿 10인치, 4GB+64GB를 현재 관심 제품으로 저장해둘게요. 다음에는 이 제품의 장단점, 리뷰 요약, 비슷한 가격대 대안 중 원하는 방식으로 이어서 비교해드릴 수 있습니다.",
+      "detectedIntent": ["추천 수락", "현재 관심 제품 지정"],
+      "selectedAction": "수락 후속 처리",
+      "dialogueState": {
+        "category": "태블릿",
+        "hard_constraints": {
+          "price_preference": "너무 비싸지 않은 제품"
+        },
+        "soft_constraints": {
+          "user_level": "첫 구매자",
+          "purpose": "영상 시청, 웹서핑 중심의 기본 사용 가능성",
+          "review_signal": "리뷰 수 우선",
+          "risk_attitude": "구매 실패 위험을 줄이고 싶음",
+          "interest": "사용 후기와 실사용 안정성"
+        },
+        "recommended_items": ["안드로이드 태블릿 10인치, 4GB+64GB", "ALLDOCUBE iPlay 50", "LECTRUS 태블릿 10인치"],
+        "accepted_items": ["안드로이드 태블릿 10인치, 4GB+64GB"],
+        "current_item": "안드로이드 태블릿 10인치, 4GB+64GB"
+      },
+      "updatedFields": ["accepted_items", "current_item"],
+      "retrievedReviews": [
+        "리뷰 수가 많아 실제 사용자 반응을 확인하기 좋습니다.",
+        "가격이 낮아 처음 구매할 때 부담이 적습니다.",
+        "기본 영상 시청, 웹서핑, 가벼운 앱 사용에 적합합니다."
+      ],
+      "candidateProductIds": ["android-tablet-10", "alldocube-iplay-50", "lectrus-tablet-10"]
+    }
+  ],
+  "suggestions": ["사용 후기가 궁금해요", "리뷰 많은 게 좋아요", "첫 번째 제품을 볼게요"],
+  "retrievalFlow": ["대화 상태", "검색기", "리뷰 데이터베이스", "Top-k 리뷰", "후보 상품", "LLM", "추천 응답"]
+}

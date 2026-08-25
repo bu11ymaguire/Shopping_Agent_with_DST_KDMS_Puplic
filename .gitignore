@@ -1,0 +1,35 @@
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+
+# Node / frontend tooling
+node_modules/
+.next/
+out/
+
+# Local datasets, models, traces, and generated reports
+**/data/amazon_reviews_2023/
+**/logs/
+**/reports/
+log/
+logs/
+reports/
+*.parquet
+*.npy
+
+# Editors and operating systems
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

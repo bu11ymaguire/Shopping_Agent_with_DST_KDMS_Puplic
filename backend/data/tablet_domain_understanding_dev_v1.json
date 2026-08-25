@@ -1,0 +1,380 @@
+{
+  "dataset_version": "tablet-domain-understanding-dev-v1.0",
+  "split": "dev",
+  "schema_version": "understanding-v3.1-tablet-domain-en",
+  "prompt_version_at_creation": "spn-understanding-tablet-domain-en-v2-dev",
+  "description": "Development-only English cases for tablet environment routing and state updates. This set may be used to tune v2 and must never be reported as an untouched holdout.",
+  "cases": [
+    {
+      "id": "td01",
+      "tags": ["implicit-domain", "note-taking", "portability", "study"],
+      "utterance": "I need something lightweight for taking notes in lectures.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "activity_note_taking", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "goal_work_study", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "implicit", "value_must_contain": []},
+          {"canonical_id": "note_taking", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_portability"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td02",
+      "tags": ["implicit-domain", "reading", "portability"],
+      "utterance": "Mostly for reading ebooks on the train, and it should be easy to carry.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "activity_reading", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_portability"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td03",
+      "tags": ["implicit-domain", "video", "display", "budget"],
+      "utterance": "I want to stream shows with a sharp screen for no more than $350.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "activity_video", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "display", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["350"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_display_quality"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td04",
+      "tags": ["implicit-domain", "work-study", "storage", "note-taking-negative-control"],
+      "utterance": "I need one for school assignments and documents, with at least 128 GB of internal storage.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "goal_work_study", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["128"], ["storage"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "activity_note_taking", "note_taking"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td05",
+      "tags": ["implicit-domain", "child", "durability"],
+      "utterance": "It is for my 10-year-old, so it should be easy for a child to use and sturdy.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "audience_child", "target_kind": "facet", "facet": "goal_audience", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "child_friendly", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "durability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_durability"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td06",
+      "tags": ["implicit-domain", "gaming", "performance"],
+      "utterance": "I mainly want smooth gaming performance without lag.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "activity_gaming", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "performance", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_performance"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td07",
+      "tags": ["unsupported-category", "laptop", "negative-control"],
+      "utterance": "I need a laptop for coding and running Docker.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "goal_work_study", "performance"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "laptop"
+      }
+    },
+    {
+      "id": "td08",
+      "tags": ["unsupported-category", "phone", "negative-control"],
+      "utterance": "Can you recommend a phone with a great camera?",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "display"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "phone"
+      }
+    },
+    {
+      "id": "td09",
+      "tags": ["unsupported-category", "headphones", "negative-control"],
+      "utterance": "Find me noise-canceling headphones for flights.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "audio"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "headphones"
+      }
+    },
+    {
+      "id": "td10",
+      "tags": ["unsupported-category", "camera", "negative-control"],
+      "utterance": "I am shopping for a camera for wildlife photography.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "camera"
+      }
+    },
+    {
+      "id": "td11",
+      "tags": ["unsupported-category", "smartwatch", "negative-control"],
+      "utterance": "I want a smartwatch to track my workouts.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "smartwatch"
+      }
+    },
+    {
+      "id": "td12",
+      "tags": ["unsupported-category", "printer", "negative-control"],
+      "utterance": "Please help me choose a printer for my home office.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "goal_work_study"],
+        "domain_route": "unsupported_category", "unsupported_category_text": "printer"
+      }
+    },
+    {
+      "id": "td13",
+      "tags": ["storage", "ram-negative-control", "negation"],
+      "utterance": "I need at least 256 GB of internal storage; RAM does not matter.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["256"], ["storage"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "memory_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td14",
+      "tags": ["ram", "storage-negative-control"],
+      "utterance": "It needs 8 GB RAM. I mean memory, not storage.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "memory_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["8"], ["ram", "memory"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "storage_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td15",
+      "tags": ["ram", "constraint-change", "previous-state"],
+      "utterance": "Change my RAM requirement from 4 GB to 8 GB.",
+      "previous_state_summary": {"hard_constraints": {"memory_capacity": {"value_text": "at least 4 GB RAM", "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "memory_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["8"], ["ram"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "storage_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td16",
+      "tags": ["unsupported-field", "expansion-storage", "negation"],
+      "utterance": "A microSD slot would be nice, but I am not setting a minimum internal storage.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "storage_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td17",
+      "tags": ["negation", "video", "note-taking-negative-control"],
+      "utterance": "I do not need pen support; I will only use it to watch videos.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "activity_video", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "activity_note_taking", "note_taking"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td18",
+      "tags": ["negation", "operating-system-negative-control"],
+      "utterance": "Anything except Windows is fine.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"], "candidates": [], "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "operating_system"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td19",
+      "tags": ["review-signal", "over-inference-negative-control"],
+      "utterance": "I want a reliable option with lots of useful owner feedback.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "review_signal", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "durability", "subjective_durability", "subjective_longevity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td20",
+      "tags": ["price-value", "portability", "over-inference-negative-control"],
+      "utterance": "Keep it inexpensive and easy to carry.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "price_value", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "subjective_value", "subjective_portability"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td21",
+      "tags": ["reject", "rank-reference", "product-attribute"],
+      "utterance": "Remove the second result; it is too heavy.",
+      "previous_state_summary": {"visible_rankings": [{"rank": 1, "product_id": "p1"}, {"rank": 2, "product_id": "p2"}, {"rank": 3, "product_id": "p3"}]},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": {"name": "reject_first", "target_rank": 2, "compare_rank": null, "rejection_reason_id": "reject_portability", "reason_type": "product_attribute"},
+        "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "max_weight"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td22",
+      "tags": ["inspect", "rank-reference"],
+      "utterance": "Show me the details for the first one.",
+      "previous_state_summary": {"visible_rankings": [{"rank": 1, "product_id": "p1"}, {"rank": 2, "product_id": "p2"}, {"rank": 3, "product_id": "p3"}]},
+      "gold": {
+        "intents": ["inspect"], "candidates": [],
+        "item_action": {"name": "inspect_current", "target_rank": 1, "compare_rank": null, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td23",
+      "tags": ["constraint-change", "previous-state", "do-not-copy"],
+      "utterance": "Raise my budget from $300 to $450, but keep the 128 GB storage requirement.",
+      "previous_state_summary": {"hard_constraints": {"budget": {"value_text": "$300 maximum", "status": "confirmed"}, "storage_capacity": {"value_text": "at least 128 GB storage", "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["450"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "storage_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td24",
+      "tags": ["tradeoff", "battery", "portability"],
+      "utterance": "Battery matters more than low weight; I can accept a heavier model.",
+      "previous_state_summary": {"soft_constraints": {"portability": {"value_text": "lightweight", "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "battery", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": {"prioritized_ids": ["battery"], "compromised_ids": ["portability"], "origin": "explicit"},
+        "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "max_weight", "subjective_portability"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td25",
+      "tags": ["contradiction", "correction", "ram"],
+      "utterance": "I need at least 12 GB RAM—actually, make that 8 GB RAM.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "memory_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["8"], ["ram"]]}
+        ],
+        "item_action": null, "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "storage_capacity"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    },
+    {
+      "id": "td26",
+      "tags": ["reject", "rank-reference", "constraint-change", "situational-constraint"],
+      "utterance": "The first one is too expensive for my situation, so remove it. I can increase my ceiling to $500.",
+      "previous_state_summary": {"hard_constraints": {"budget": {"value_text": "$350 maximum", "status": "confirmed"}}, "visible_rankings": [{"rank": 1, "product_id": "p1"}, {"rank": 2, "product_id": "p2"}, {"rank": 3, "product_id": "p3"}]},
+      "gold": {
+        "intents": ["reject", "refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["500"]]}
+        ],
+        "item_action": {"name": "reject_first", "target_rank": 1, "compare_rank": null, "rejection_reason_id": "reject_price", "reason_type": "situational_constraint"},
+        "tradeoff": null, "supersedes": [], "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "budget_flexibility"],
+        "domain_route": "in_domain", "unsupported_category_text": null
+      }
+    }
+  ]
+}

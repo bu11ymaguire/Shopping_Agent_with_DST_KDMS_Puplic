@@ -1,0 +1,175 @@
+{
+  "dataset_version": "actual-recommendation-eval-v1.0",
+  "catalog_schema_version": "amazon-tablet-pilot-v2",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "frozen_before_baseline_run": true,
+  "annotation_protocol": {
+    "annotator": "single research annotation pass (Codex-assisted)",
+    "annotated_at": "2026-08-07",
+    "pool_method": "Union of token and pinned semantic system outputs. Product pools use top 10 per mode; review pools use each mode's per-product output. Judgments are assigned from raw metadata and review text without using production total scores as labels.",
+    "product_relevance_scale": {
+      "0": "violates the stated need or has no usable evidence",
+      "1": "marginal fit with important missing or weak attributes",
+      "2": "good substitute that satisfies the main use and hard filters",
+      "3": "strong direct fit for the stated use and priorities"
+    },
+    "review_relevance_scale": {
+      "0": "not about the requested evidence need",
+      "1": "mentions a related topic without decision-useful detail",
+      "2": "directly discusses at least one requested aspect",
+      "3": "direct, specific, and decision-useful evidence for the query"
+    },
+    "limitations": [
+      "This is a small pooled judgment set, not an exhaustive judgment of all 117 products or 7,552 reviews.",
+      "A single annotator produced v1 labels; inter-annotator agreement has not been measured.",
+      "Unjudged results are scored as zero and judgment coverage is reported alongside ranking metrics.",
+      "The pool is tied to the pinned catalog and two recorded retrieval implementations."
+    ]
+  },
+  "product_cases": [
+    {
+      "id": "rp01",
+      "description": "Affordable note-taking tablet with storage and battery evidence",
+      "tags": ["budget", "storage", "note-taking", "battery"],
+      "state_candidates": [
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"USD 300 maximum","evidence_text":"under USD 300","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"storage_capacity"},"canonical_id":"storage_capacity","value_text":"at least 64 GB storage","evidence_text":"at least 64 GB storage","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_note_taking","value_text":"taking class notes","evidence_text":"note taking","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"note_taking"},"canonical_id":"note_taking","value_text":"pen and note taking support matters","evidence_text":"note taking","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"battery"},"canonical_id":"battery","value_text":"battery life reviews matter","evidence_text":"battery reviews","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters": {"max_price_usd":300.0,"min_storage_gb":64},
+      "product_judgments": [
+        {"parent_asin":"B07HRYDNLZ","relevance":3,"rationale":"Under budget with 128 GB storage and direct stylus support; strong evidence for handwritten note taking."},
+        {"parent_asin":"B07SPHMZF5","relevance":3,"rationale":"Meets the exact budget and storage limits and has direct stylus support in a compact tablet."},
+        {"parent_asin":"B09MP3D4D6","relevance":2,"rationale":"Meets price and storage limits and includes a stylus, but its very high recorded weight weakens classroom use."},
+        {"parent_asin":"B0B7B53HM4","relevance":1,"rationale":"Good price, storage, and display, but the catalog has no pen or note-taking support evidence."},
+        {"parent_asin":"B08NWY6LQ4","relevance":1,"rationale":"Meets the hard limits and is light, but has no direct note-taking or stylus evidence."},
+        {"parent_asin":"B08BH87FPJ","relevance":1,"rationale":"Strong storage and display substitute, but no direct pen or note-taking evidence is present."},
+        {"parent_asin":"B012DTDBI8","relevance":1,"rationale":"Meets price and storage limits but lacks catalog evidence for the requested note-taking support."},
+        {"parent_asin":"B012DTEMQ8","relevance":1,"rationale":"Large display and storage fit, but it is heavy and the local metadata has no stylus evidence."},
+        {"parent_asin":"B01L2VGEQE","relevance":1,"rationale":"Affordable with ample storage, but no direct note-taking support is documented."},
+        {"parent_asin":"B0BQDTZDP6","relevance":1,"rationale":"Affordable 64 GB substitute without pen or note-taking evidence."},
+        {"parent_asin":"B07CFWLW3G","relevance":1,"rationale":"Portable and ample storage, but no direct pen or note-taking evidence is present."}
+      ]
+    },
+    {
+      "id": "rp02",
+      "description": "Portable reading tablet under a moderate budget",
+      "tags": ["budget", "weight", "reading", "display"],
+      "state_candidates": [
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"USD 250 maximum","evidence_text":"under USD 250","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"max_weight"},"canonical_id":"max_weight","value_text":"600 grams maximum","evidence_text":"no heavier than 600 grams","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_reading","value_text":"reading books and articles","evidence_text":"reading","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"portability"},"canonical_id":"portability","value_text":"easy to hold and carry","evidence_text":"portable","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"display"},"canonical_id":"display","value_text":"comfortable reading display","evidence_text":"reading display","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters": {"max_price_usd":250.0,"max_weight_grams":600},
+      "product_judgments": [
+        {"parent_asin":"B01N24N9TH","relevance":2,"rationale":"Light and inexpensive with an 8-inch screen that is usable for portable reading."},
+        {"parent_asin":"B0134RE54W","relevance":3,"rationale":"A balanced 9.7-inch display at 386 grams provides a strong portable reading fit."},
+        {"parent_asin":"B017TK4H6G","relevance":1,"rationale":"Very portable and inexpensive, but the old 7-inch low-capacity model is a marginal reading choice."},
+        {"parent_asin":"B08BH87FPJ","relevance":3,"rationale":"The 10.3-inch FHD display, 458-gram weight, and adequate storage are a strong reading fit."},
+        {"parent_asin":"B0B7B53HM4","relevance":3,"rationale":"The 10.51-inch FHD display remains under 500 grams and well under budget."},
+        {"parent_asin":"B01N13866H","relevance":1,"rationale":"Light and cheap, but its 7-inch display and 8 GB storage make it a marginal reader."},
+        {"parent_asin":"B07Y2KBBTD","relevance":2,"rationale":"Portable 8-inch model with explicit long-battery evidence, though the display is modest."},
+        {"parent_asin":"B00G6D6HBG","relevance":1,"rationale":"Portable but the small 7-inch 2013 model is only a marginal reading fit."},
+        {"parent_asin":"B0BQDTZDP6","relevance":2,"rationale":"A 10-inch screen at 476 grams is a good budget substitute despite only HD display evidence."},
+        {"parent_asin":"B09XGVPJV2","relevance":2,"rationale":"A light 9-inch HD tablet is a reasonable portable reading substitute."},
+        {"parent_asin":"B09XM8QVKC","relevance":2,"rationale":"The 10.1-inch screen and 540-gram weight meet the stated need, with modest display evidence."}
+      ]
+    },
+    {
+      "id": "rp03",
+      "description": "Gaming tablet with at least 4 GB RAM",
+      "tags": ["budget", "memory", "gaming", "performance"],
+      "state_candidates": [
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"USD 500 maximum","evidence_text":"under USD 500","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"memory_capacity"},"canonical_id":"memory_capacity","value_text":"at least 4 GB RAM","evidence_text":"4 GB RAM or more","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_gaming","value_text":"playing games","evidence_text":"gaming","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"performance"},"canonical_id":"performance","value_text":"responsive gaming performance","evidence_text":"gaming performance","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters": {"max_price_usd":500.0,"min_memory_gb":4},
+      "product_judgments": [
+        {"parent_asin":"B0B7B53HM4","relevance":3,"rationale":"6 GB RAM, an octa-core processor, and FHD display give direct strong gaming evidence."},
+        {"parent_asin":"B0BRJ8M7SK","relevance":2,"rationale":"6 GB RAM and Android 12 meet the main constraints, but performance evidence is limited."},
+        {"parent_asin":"B0CFRDP7FX","relevance":3,"rationale":"The octa-core processor, 4 GB RAM, and FHD display directly support the gaming use."},
+        {"parent_asin":"B08BH87FPJ","relevance":3,"rationale":"4 GB RAM, an octa-core processor, FHD display, and dual speakers make a strong gaming fit."},
+        {"parent_asin":"B08F696X62","relevance":2,"rationale":"4 GB RAM and a 1080p display are a good substitute, but direct gaming performance evidence is limited."},
+        {"parent_asin":"B0BQDTZDP6","relevance":2,"rationale":"Meets the 4 GB RAM limit with a stated 2.0 GHz processor, but has weaker performance evidence."},
+        {"parent_asin":"B086QQNRT4","relevance":3,"rationale":"8 GB RAM and an Intel Pentium platform provide the strongest recorded memory and compute fit."},
+        {"parent_asin":"B09MP3D4D6","relevance":2,"rationale":"4 GB RAM and an octa-core processor satisfy the main use, though the recorded weight is very high."},
+        {"parent_asin":"B06XTT46WQ","relevance":2,"rationale":"Core i3 and 4 GB RAM meet the need, but the old renewed model and high weight weaken the fit."},
+        {"parent_asin":"B08KFHS3QQ","relevance":2,"rationale":"The metadata passes the RAM filter and the tablet is capable, but it lacks direct gaming evidence."}
+      ]
+    },
+    {
+      "id": "rp04",
+      "description": "Large-screen tablet for video with audio evidence",
+      "tags": ["budget", "screen", "video", "audio"],
+      "state_candidates": [
+        {"target":{"kind":"category"},"canonical_id":"category_tablet","value_text":"tablet","evidence_text":"tablet","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"budget"},"canonical_id":"budget","value_text":"USD 400 maximum","evidence_text":"under USD 400","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"hard","key":"display"},"canonical_id":"display","value_text":"at least 10 inch screen","evidence_text":"10 inch or larger screen","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"facet","facet":"activity"},"canonical_id":"activity_video","value_text":"watching movies and streaming video","evidence_text":"watching video","origin":"explicit","confidence":1.0},
+        {"target":{"kind":"constraint","scope":"soft","key":"audio"},"canonical_id":"audio","value_text":"clear speakers and sound matter","evidence_text":"good audio","origin":"explicit","confidence":1.0}
+      ],
+      "expected_hard_filters": {"max_price_usd":400.0,"min_screen_inches":10.0},
+      "product_judgments": [
+        {"parent_asin":"B0B7B53HM4","relevance":3,"rationale":"A 10.51-inch 1920x1200 display and adequate hardware provide strong video evidence."},
+        {"parent_asin":"B08BH87FPJ","relevance":3,"rationale":"The 10.3-inch FHD display and explicit dual speakers directly match video and audio needs."},
+        {"parent_asin":"B09TVR1YBQ","relevance":3,"rationale":"The 10.1-inch 1080p Full HD display is a direct strong streaming fit."},
+        {"parent_asin":"B09WYFWH2Y","relevance":1,"rationale":"Meets the screen limit but the 1280x800 panel and absent audio evidence make it marginal."},
+        {"parent_asin":"B012DTEMQ8","relevance":2,"rationale":"Large 12-inch display supports video, but local metadata has no direct speaker evidence."},
+        {"parent_asin":"B01N0ON3DN","relevance":2,"rationale":"Meets the 10-inch screen need and budget, with limited display and audio detail."},
+        {"parent_asin":"B06XTT46WQ","relevance":2,"rationale":"Large 12-inch screen is a good video substitute, but audio evidence is missing."},
+        {"parent_asin":"B08F69779X","relevance":3,"rationale":"The 10.1-inch 1080p Full HD display directly supports the requested video use."},
+        {"parent_asin":"B08YFJYD5Z","relevance":3,"rationale":"The 10.1-inch 1080p Full HD display is a direct strong video fit."},
+        {"parent_asin":"B09XM8QVKC","relevance":2,"rationale":"The 10.1-inch HD screen meets the main need, but audio evidence is absent."},
+        {"parent_asin":"B012DTDBI8","relevance":2,"rationale":"A 10.8-inch display is suitable for video, with no direct speaker evidence."},
+        {"parent_asin":"B087BC4DJH","relevance":1,"rationale":"Barely meets the screen limit with only generic IPS HD evidence and no audio detail."}
+      ]
+    }
+  ],
+  "review_cases": [
+    {"id":"rr01","description":"Note-taking and pen evidence","tags":["note-taking","stylus"],"query":"stylus pen note taking writing experience","parent_asin":"B07CZMMQPM","review_judgments":[
+      {"review_id":"ar23-a4444a8807202e66b3e9","parent_asin":"B07CZMMQPM","relevance":3,"rationale":"Detailed first-hand note-taking and Apple Pencil compatibility, including practical drawbacks."},
+      {"review_id":"ar23-25b87709c5663b7490d7","parent_asin":"B07CZMMQPM","relevance":3,"rationale":"Specific school use with a pen for notes, highlighting, and writing on books."},
+      {"review_id":"ar23-6508f906343719b3c510","parent_asin":"B07CZMMQPM","relevance":2,"rationale":"Directly confirms stylus compatibility but gives little writing-experience detail."},
+      {"review_id":"ar23-7005bc31b1e9fa7e549b","parent_asin":"B07CZMMQPM","relevance":2,"rationale":"Directly discusses Apple Pencil compatibility, without actual note-taking experience."},
+      {"review_id":"ar23-1fb77a230c10412e1195","parent_asin":"B07CZMMQPM","relevance":0,"rationale":"Discusses general screen and tablet use without pen or note-taking evidence."},
+      {"review_id":"ar23-b8eb15a8382b85e12b6b","parent_asin":"B07CZMMQPM","relevance":1,"rationale":"Mentions an intention to take notes but provides no pen support or actual experience."}
+    ]},
+    {"id":"rr02","description":"Battery endurance and charging evidence","tags":["battery","charging"],"query":"long battery life charging lasts all day","parent_asin":"B07BTS2KWK","review_judgments":[
+      {"review_id":"ar23-d13de311f93a307cd775","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Specific positive endurance evidence plus the trade-off of slow recharging."},
+      {"review_id":"ar23-ae298ebcca992b4bb4b1","parent_asin":"B07BTS2KWK","relevance":2,"rationale":"Directly reports longer battery life, but without duration or charging detail."},
+      {"review_id":"ar23-39911808287a3a1084f7","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Specific comparison of shorter endurance and the need for overnight charging."},
+      {"review_id":"ar23-63c0fedec4d9f699ddd2","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Decision-useful report that the battery lasts days and rarely drops below 80 percent."},
+      {"review_id":"ar23-7babaa527dc65edd9991","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Direct and emphatic first-hand assessment of excellent battery life."},
+      {"review_id":"ar23-d18c0163e529745c90f4","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Specific negative evidence about degradation and shutdown at 50 percent."},
+      {"review_id":"ar23-3abe9692477d404cdea4","parent_asin":"B07BTS2KWK","relevance":2,"rationale":"Direct comparison reporting shorter battery life, with limited detail."},
+      {"review_id":"ar23-de6d5706ed584ca48507","parent_asin":"B07BTS2KWK","relevance":3,"rationale":"Specific charging-port failure that prevents the tablet from accepting a charge."}
+    ]},
+    {"id":"rr03","description":"Streaming display and speaker evidence","tags":["video","display","audio"],"query":"streaming video display screen speakers sound","parent_asin":"B07CZMMQPM","review_judgments":[
+      {"review_id":"ar23-a4444a8807202e66b3e9","parent_asin":"B07CZMMQPM","relevance":2,"rationale":"Directly evaluates the display and an audible screen-tapping drawback, though not streaming."},
+      {"review_id":"ar23-f6a897be484b20f253f9","parent_asin":"B07CZMMQPM","relevance":3,"rationale":"Detailed first-hand comparison finding the built-in speakers good enough without an external speaker."},
+      {"review_id":"ar23-1fb77a230c10412e1195","parent_asin":"B07CZMMQPM","relevance":1,"rationale":"Mentions watching videos but provides no useful picture or sound assessment."},
+      {"review_id":"ar23-7dcbd612c9274c3036ef","parent_asin":"B07CZMMQPM","relevance":3,"rationale":"Directly evaluates picture and sound quality and adds touchscreen and battery trade-offs."},
+      {"review_id":"ar23-2007f7ef7a2c9165e85e","parent_asin":"B07CZMMQPM","relevance":3,"rationale":"Specific vivid-display and loud-speaker evidence useful for media use."},
+      {"review_id":"ar23-b62e8e87637f91d334c9","parent_asin":"B07CZMMQPM","relevance":1,"rationale":"Reports a broken screen but contains no streaming, picture-quality, or audio detail."},
+      {"review_id":"ar23-f82bf9b7008c83c17a2d","parent_asin":"B07CZMMQPM","relevance":2,"rationale":"Direct speaker comparison is useful, but display and streaming experience are not evaluated."}
+    ]},
+    {"id":"rr04","description":"Child use, durability, and parental evidence","tags":["child","durability","parental"],"query":"child friendly parental controls durable for kids","parent_asin":"B00G6D6HBG","review_judgments":[
+      {"review_id":"ar23-0eda87f731b6d9ffa12a","parent_asin":"B00G6D6HBG","relevance":3,"rationale":"First-hand child use with small-hand fit, ease of use, and a graphics-quality trade-off."},
+      {"review_id":"ar23-dac6b27e869590bef64c","parent_asin":"B00G6D6HBG","relevance":0,"rationale":"Children are only mentioned as owners of other tablets; this review evaluates adult use."},
+      {"review_id":"ar23-6a298abb61fa679b747b","parent_asin":"B00G6D6HBG","relevance":2,"rationale":"Directly reports young-teen use without issues, but gives little durability detail."},
+      {"review_id":"ar23-e9d9507a87adf1a0030c","parent_asin":"B00G6D6HBG","relevance":1,"rationale":"Only briefly says the children are doing fine and offers no controls or durability evidence."},
+      {"review_id":"ar23-82aee6c12d4e20f5410e","parent_asin":"B00G6D6HBG","relevance":2,"rationale":"Direct niece use and user-friendly evidence, without durability or parental-control detail."},
+      {"review_id":"ar23-8023aa6cce32552284b9","parent_asin":"B00G6D6HBG","relevance":3,"rationale":"Specific durability evidence that it survived use and abuse by a five-year-old."},
+      {"review_id":"ar23-093bf269866d2cb0dc48","parent_asin":"B00G6D6HBG","relevance":3,"rationale":"Detailed kid suitability through small-hand fit, customization, speed, and reliability."}
+    ]}
+  ]
+}

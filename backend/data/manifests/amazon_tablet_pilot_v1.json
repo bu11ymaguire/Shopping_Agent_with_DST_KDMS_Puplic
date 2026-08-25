@@ -1,0 +1,65 @@
+{
+  "schema_version": "amazon-tablet-pilot-report-v1",
+  "run_date": "2026-08-06",
+  "dataset": "McAuley-Lab/Amazon-Reviews-2023",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "category": "Electronics",
+  "sampling": {
+    "metadata_rows": 50000,
+    "metadata_strategy": "10 parquet shards에서 앞 5000행씩 균등 순회",
+    "review_rows": 1000000,
+    "review_strategy": "공식 gzip 스트림 앞 1000000행 순차 순회",
+    "min_rating_number": 20,
+    "min_reviews_per_product": 5,
+    "reviews_per_product": 50
+  },
+  "classification": {
+    "tablet_candidates": 91,
+    "rules": [
+      "title에 태블릿 본체 신호가 있어야 함",
+      "leaf category가 Tablets/Tablet Computers/Computers & Tablets이거나 category가 비어 있어야 함",
+      "case, protector, drawing tablet 등 액세서리 신호 제외",
+      "rating_number 20 이상과 설명 또는 feature 존재"
+    ]
+  },
+  "review_scan": {
+    "candidate_parent_matches": 818,
+    "products_with_matches": 37
+  },
+  "output": {
+    "product_count": 8,
+    "review_count": 194,
+    "verified_purchase_count": 179,
+    "sentiment_counts": {
+      "negative": 37,
+      "neutral": 18,
+      "positive": 139
+    },
+    "products_missing": {
+      "price_usd": 4,
+      "image_url": 0,
+      "storage_gb": 0,
+      "memory_gb": 2,
+      "screen_inches": 0,
+      "weight_grams": 3,
+      "operating_system": 3
+    }
+  },
+  "artifact_sha256": {
+    "source_metadata.jsonl.gz": "b2b8b5632459d8b422ece6c3b4f6fb202f57d290c3a7baff9cabf6c9d99a5f67",
+    "source_reviews.jsonl.gz": "11243a5f09862737c6200d3dddf59b74c2f4f7b72f0a28bfb3d80ec3e929d4f9",
+    "products.parquet": "623929ba3f81394d82a8e5608e8fe0a257f82148c44171c5e895e43b2b7c1b45",
+    "reviews.parquet": "310fe1be2c5902a66c1293844ef39e10774bc501deca4e614a1ceba45ac43eaf"
+  },
+  "privacy": {
+    "raw_sample_committed": false,
+    "processed_user_id_retained": false,
+    "processed_review_images_retained": false
+  },
+  "limitations": [
+    "전체 Electronics의 확률 표본이 아니라 shard별 metadata prefix와 review stream prefix pilot임",
+    "8개 상품 중 4개만 리뷰 20개 이상이므로 목표 100~300개 상품을 충족하지 않음",
+    "가격과 일부 사양의 결측이 높음",
+    "배송일과 가용 색상은 원본에 없어 별도 inventory snapshot이 필요함"
+  ]
+}

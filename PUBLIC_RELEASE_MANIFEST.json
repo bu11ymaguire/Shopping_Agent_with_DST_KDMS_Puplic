@@ -1,0 +1,33 @@
+{
+  "schema_version": "public-release-manifest-v1",
+  "created_on": "2026-08-25",
+  "release_model": "sanitized branch-tip snapshots with new Git history",
+  "source_remote": "https://github.com/bu11ymaguire/ShoppingAgent_with_DST_KDMS.git",
+  "source_refs": {
+    "main": "d71934e742a071fb9ca4449b14ad672a87c325e2",
+    "exp/0-intent-extraction": "33b3e8604760e4fe38c2dbbc6599a63cd8dacadb",
+    "exp/1-state-diff-strategies": "8ade460f763367fd8a7edaacb0856f23b9762af1",
+    "exp/2-segse-final-state": "4f8fcc5d691cef616a8b7c614cc962119a2d4b80"
+  },
+  "original_freeze_refs_not_imported": {
+    "tablet-domain-v2.3-freeze": "bb45d554951736abc3874ca27ea120e1beb291ab",
+    "tablet-domain-holdout-v1-freeze": "172e4f833c77ded174b58d3eb10e6ae602a30d2b",
+    "tablet-domain-official-v1": "cbf3ec8ecb543ad85b9b29155e6d3dabacbd3014",
+    "segse-v1.4-freeze": "0dc0160c6d6fd3b6d8a9ea3cfd45d98aed926137",
+    "segse-confirmatory-v1-protocol-freeze": "137a87fef2a65d39236c370e3055db60f2b26b34",
+    "segse-confirmatory-holdout-v1-freeze": "5eafc310afdeff741fbf0615fb1d347e5ac985e1"
+  },
+  "excluded": [
+    "the original Git commit history and tags",
+    "log/ episode audit exports containing Amazon review excerpts",
+    "backend/logs/ and backend/reports/ raw traces and reports",
+    "backend/data/amazon_reviews_2023/ local datasets and indexes",
+    "deleted poster figures and editable presentation files from historical commits",
+    "credential files and local virtual environments"
+  ],
+  "public_only_changes": [
+    "repository-facing documentation, data/privacy notices, and ignore policy",
+    "a mock-provider startup path for the synthetic six-turn API when Luxia and the local catalog are absent"
+  ],
+  "integrity_note": "Tracked experiment manifests, frozen fixtures, and result files are copied byte-for-byte from each source branch. Research evaluation and ranking logic is unchanged; the only runtime change is the public mock startup guard described above. Original freeze commit IDs are provenance only and are not reachable objects in this public repository."
+}

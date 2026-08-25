@@ -1,0 +1,29 @@
+# SPN / RA-Rec 백엔드 — 실데이터 + LLM 전환용
+#
+# 버전을 고정한다. 연구 로그를 나중에 재분석할 때 라이브러리 동작이 바뀌면
+# 같은 입력에서 같은 결과를 재현할 수 없다.
+# 아래 값은 현재 개발 환경(Python 3.12.13)에 설치된 버전과 일치시켰다.
+
+# --- 현재 단계(capability probe + 스키마 준수율 측정)에 필요한 것 ---
+httpx==0.28.1
+pydantic==2.12.5
+python-dotenv==1.2.1
+
+# --- end-to-end MVP 런타임 ---
+# API와 explicit workflow가 아래 고정 버전을 실제로 사용한다.
+fastapi==0.128.0
+uvicorn==0.40.0
+langgraph==1.0.5
+
+# --- Amazon Reviews 2023 streaming·Parquet 프로파일링 ---
+datasets==5.0.1
+duckdb==1.5.5
+pyarrow==25.0.0
+huggingface-hub==1.26.0
+requests==2.34.2
+
+# --- 실제 review semantic retrieval + 제한 Cross-Encoder reranking ---
+sentence-transformers==5.6.0
+numpy==2.5.1
+torch==2.13.0
+transformers==5.14.1

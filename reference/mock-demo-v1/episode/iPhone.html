@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>iPhone 17 Pro 구매 사례 정리</title>
+<meta name="description" content="example/index.html 3~6페이지의 iPhone 17 Pro 구매 사례를 한 문서로 정리한 것. 관찰된 구매 결과와 실제 의사결정 과정의 차이를 다룬다.">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+KR:wght@300;400;500;700&display=swap');
+
+/* 색상과 서체는 example/design.md 규격을 따른다. 강조색은 #3452F0 하나뿐이다. */
+:root {
+  --accent:      #3452F0;
+  --gray-title:  #595959;
+  --gray-sub:    #787878;
+  --ink:         #000000;
+  --box:         #EEEEEE;
+  --rule-soft:   #D8D8D8;
+  --accent-soft: #EEF2FE;
+  --kr: 'IBM Plex Sans KR', 'IBM Plex Sans', 'Malgun Gothic', sans-serif;
+  --en: 'IBM Plex Sans', 'IBM Plex Sans KR', 'Malgun Gothic', sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #F2F3F5;
+  color: var(--ink);
+  font-family: var(--kr);
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  padding: 40px 20px 72px;
+}
+
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 52px 56px 56px;
+  box-shadow: 0 2px 18px rgba(0, 0, 0, .08);
+}
+
+/* ------------------------------------------------------------------ 머리말 */
+
+.eyebrow {
+  font-family: var(--en);
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: .1em;
+  color: var(--gray-sub);
+  text-transform: uppercase;
+}
+
+h1 {
+  margin: 10px 0 12px;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.3;
+  letter-spacing: -.02em;
+  color: var(--gray-title);
+}
+
+.abstract {
+  padding: 16px 18px;
+  background: #FAFAFB;
+  border-left: 3px solid var(--gray-title);
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+.meta {
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--gray-sub);
+  line-height: 1.7;
+}
+.meta code {
+  font-family: var(--en);
+  font-size: 12.5px;
+  background: var(--box);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+
+/* -------------------------------------------------------------------- 본문 */
+
+section { margin-top: 44px; }
+
+h2 {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 6px;
+  border-bottom: 1.5px solid var(--gray-title);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -.015em;
+}
+h2 .num {
+  flex: 0 0 auto;
+  font-family: var(--en);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--accent);
+}
+h2 .src {
+  flex: 0 0 auto;
+  margin-left: auto;
+  font-family: var(--en);
+  font-size: 11.5px;
+  font-weight: 400;
+  color: var(--gray-sub);
+  letter-spacing: .04em;
+}
+
+.lead {
+  margin: 14px 0 16px;
+  font-size: 15.5px;
+  font-weight: 500;
+  line-height: 1.62;
+}
+
+/* 결론 배너 */
+.claim {
+  margin-top: 18px;
+  padding: 12px 15px;
+  background: var(--accent-soft);
+  border-left: 3px solid var(--accent);
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+/* --------------------------------------------------------------------- 표 */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  line-height: 1.55;
+}
+th, td {
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--rule-soft);
+}
+thead th {
+  font-weight: 700;
+  color: var(--gray-title);
+  border-bottom: 1.5px solid var(--gray-title);
+  white-space: nowrap;
+}
+tbody tr:last-child td { border-bottom: none; }
+td.k { font-weight: 700; white-space: nowrap; }
+/* 좌우 대비표 — 가운데 열이 구분선 역할 */
+table.versus td + td, table.versus th + th { border-left: 1px solid var(--rule-soft); }
+
+/* -------------------------------------------------------------------- 흐름 */
+
+/* 여섯 노드를 한 줄에 유지한다. flex-basis 를 0 으로 두어 남는 폭을 균등 분배하며,
+   폭이 좁아지면 노드 안에서 줄바꿈되고 줄 자체가 접히지는 않는다. */
+.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  margin: 4px 0 22px;
+}
+.flow .node {
+  flex: 1 1 0;
+  min-width: 0;
+  padding: 9px 10px;
+  background: var(--box);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  word-break: keep-all;
+}
+.flow .node .tag {
+  display: block;
+  margin-bottom: 3px;
+  font-family: var(--en);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: .07em;
+  color: var(--gray-sub);
+}
+.flow .node.sel  { box-shadow: inset 0 -3px 0 var(--accent); }
+.flow .arrow {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  color: var(--gray-sub);
+  font-size: 11px;
+}
+
+/* 단일 부등식 — 줄바꿈 위치가 의미를 갖는 경우에만 쓴다 */
+.mono {
+  margin-top: 20px;
+  padding: 14px 16px;
+  background: var(--box);
+  font-family: var(--en);
+  font-size: 14px;
+  font-weight: 500;
+  text-align: center;
+  white-space: pre;
+}
+
+/* ---------------------------------------------------------------- 범위 한정 */
+
+.scope { margin-top: 46px; padding-top: 20px; border-top: 1.5px solid var(--gray-title); }
+.scope h2 { border-bottom: 0; padding-bottom: 0; margin-bottom: 10px; }
+.scope .note {
+  margin-top: 14px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--gray-title);
+}
+
+footer {
+  margin-top: 44px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rule-soft);
+  font-family: var(--en);
+  font-size: 11.5px;
+  color: var(--gray-sub);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+footer i { font-style: normal; color: var(--accent); }
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { max-width: none; box-shadow: none; padding: 0 12mm; }
+  section { break-inside: avoid; }
+}
+@media (max-width: 620px) {
+  .page { padding: 32px 22px 36px; }
+  /* 좁은 화면에서는 흐름도를 2열로 접는다 */
+  .flow { flex-wrap: wrap; gap: 6px; }
+  .flow .node { flex: 1 1 42%; }
+  .flow .arrow { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="eyebrow">CASE SUMMARY</div>
+    <h1>iPhone 17 Pro 구매 사례</h1>
+    <div class="abstract">
+      iPhone 12 Pro Max White 사용자가 iPhone 17 Pro Cosmic Orange를 구매하였다.
+      이 사례는 구매 후기가 아니라 <strong>관찰된 구매 결과만으로 사용자의 선호를 추론하면
+      어긋날 수 있다</strong>는 것을 보이기 위한 반례로 사용한다. 구매 결과에서 도출되는 추론과
+      실제 의사결정 과정을 대비하고, 후보가 탈락한 이유가 서로 다른 종류였음을 정리한다.
+    </div>
+    <div class="meta">
+      출처 <code>example/index.html</code> 3 · 4 · 5 · 6페이지 &nbsp;·&nbsp;
+      양식 <code>example/design.md</code>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════════════════════════════════════════ 1 ══ -->
+  <section>
+    <h2><span class="num">01</span> 구매 결과 기반 선호 추론의 한계 <span class="src">p3</span></h2>
+    <p class="lead">구매 이력만으로 내릴 수 있는 추론 세 가지가 실제로 확인된 사실과 모두 어긋난다.</p>
+
+    <table class="versus">
+      <thead>
+        <tr><th style="width:44%">구매 결과만으로 도출될 수 있는 추론</th><th>실제로 확인된 사실</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>iPhone 재구매 → Apple 제품 선호</td>
+            <td>기존 기기가 고장 나 교체가 필요하였다</td></tr>
+        <tr><td><strong>Pro 라인업</strong> 선호 → 성능 중시</td>
+            <td>17 Pro는 검토 후보 중 즉시 수령이 가능한 제품이었다</td></tr>
+        <tr><td>Cosmic Orange 구매 → 색상 선호</td>
+            <td>즉시 수령이 가능한 잔여 색상이었다</td></tr>
+      </tbody>
+    </table>
+
+    <div class="claim">관찰된 구매 결과만으로는 지속적 선호와 구매 시점의 상황적 제약을 구분할 수 없다.</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ 2 ══ -->
+  <section>
+    <h2><span class="num">02</span> 상황적 배경과 후보 탐색 <span class="src">p4</span></h2>
+    <p class="lead">기기 고장으로 빠른 교체가 필요하여, 제품 사양과 함께
+      <strong>재고 및 수령 시점</strong>이 결정 변수가 되었다.</p>
+
+    <table>
+      <thead>
+        <tr><th style="width:132px">후보</th><th>장점</th><th style="width:35%">탈락 요인</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">iPhone 17</td>
+            <td>가격과 주사용 목적에 충분한 성능 사이의 균형</td>
+            <td>재고 부족으로 수령까지 장시간 소요</td></tr>
+        <tr><td class="k">iPhone Air</td>
+            <td>가벼운 무게, A19 Pro AP 적용</td>
+            <td>리뷰에서 스피커 · 배터리 성능이 단점으로 제시</td></tr>
+        <tr><td class="k">iPhone 17 Pro</td>
+            <td>성능 및 즉시 수령 가능성 (Cosmic Orange)</td>
+            <td>매우 높은 가격대</td></tr>
+      </tbody>
+    </table>
+
+    <div class="claim">세 후보의 탈락 요인은 재고 · 제품 속성 · 가격으로 서로 다른 종류에 속한다.</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ 3 ══ -->
+  <section>
+    <h2><span class="num">03</span> 최종 의사결정 — 조건의 결합 <span class="src">p5</span></h2>
+    <p class="lead">고장에서 색상까지 여섯 단계의 조건이 순차로 후보를 줄였다.</p>
+
+    <div class="flow">
+      <div class="node"><span class="tag">STATE</span>기존 기기 고장</div>
+      <div class="arrow">&#9654;</div>
+      <div class="node"><span class="tag">CONSTRAINT</span>긴급 교체 필요</div>
+      <div class="arrow">&#9654;</div>
+      <div class="node"><span class="tag">REJECT</span>17 — 배송 지연</div>
+      <div class="arrow">&#9654;</div>
+      <div class="node"><span class="tag">REJECT</span>Air — 제품 속성</div>
+      <div class="arrow">&#9654;</div>
+      <div class="node sel"><span class="tag">SELECT</span>17 Pro</div>
+      <div class="arrow">&#9654;</div>
+      <div class="node sel"><span class="tag">RESIDUAL</span>Cosmic Orange</div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th style="width:150px">단계</th><th>결정을 만든 요인</th><th style="width:130px">유형</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">17 탈락</td><td>재고 부족과 배송 지연</td><td>상황적 제약</td></tr>
+        <tr><td class="k">Air 탈락</td><td>스피커 · 배터리 성능</td><td>상품 속성</td></tr>
+        <tr><td class="k">17 Pro 선택</td><td>즉시 수령 가능성 및 장기 사용 가치</td><td>우선순위</td></tr>
+        <tr><td class="k">Cosmic Orange</td><td>즉시 수령이 가능한 잔여 대안</td><td>대안 선택</td></tr>
+      </tbody>
+    </table>
+
+    <div class="claim">네 단계의 유형이 서로 다르므로, 같은 선택으로 기록하면 이 차이가 사라진다.</div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ 4 ══ -->
+  <section>
+    <h2><span class="num">04</span> 최종 의사결정 — 사용자의 Trade-off <span class="src">p6</span></h2>
+    <p class="lead">우선한 것과 양보한 것이 갈렸으며, 둘은 독립적 선호가 아니라 하나의 순서 관계였다.</p>
+
+    <table class="versus">
+      <thead>
+        <tr><th style="width:50%">우선한 것</th><th>양보한 것</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>빠른 수령 가능성</td><td>가격 — 최고가 모델 수용</td></tr>
+        <tr><td>장기 사용 가치</td><td>색상 — 선택하지 않고 수용</td></tr>
+      </tbody>
+    </table>
+
+    <div class="mono">빠른 수령 · 장기 사용 가치   &gt;   가격 · 색상 옵션</div>
+
+    <div class="claim">최종 구매 상품의 속성과 실제 사용자의 우선순위는 일치하지 않을 수 있다.</div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════════════ 범위 한정 ══ -->
+  <div class="scope">
+    <h2>이 사례의 범위</h2>
+    <p class="lead">사례에서 확보된 근거와 확보되지 않은 근거를 구분한다.</p>
+
+    <table>
+      <thead>
+        <tr><th style="width:150px">근거</th><th>사례에서의 내용</th><th style="width:72px">확보</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="k">사용자 발화</td>
+            <td>기기가 고장 났으며, 오래 쓸 제품에는 비용을 지불할 의향이 있음</td><td>○</td></tr>
+        <tr><td class="k">후보 탐색 행동</td>
+            <td>17 · Air · 17 Pro의 사양과 리뷰를 비교</td><td>○</td></tr>
+        <tr><td class="k">비선택 이유</td>
+            <td>17은 재고, Air는 제품 속성으로 제외</td><td>○</td></tr>
+        <tr><td class="k">최종 행동</td>
+            <td>즉시 수령이 가능한 17 Pro 구매</td><td>○</td></tr>
+        <tr><td class="k">반사실적 질문</td>
+            <td>17을 즉시 수령할 수 있었다면 선택이 달라졌는가</td><td><strong>✕</strong></td></tr>
+      </tbody>
+    </table>
+
+    <p class="note">단일 자기보고 사례이며 네 근거가 모두 같은 화자의 회상에서 나왔으므로 서로 완전히
+      독립적이지 않다. 반사실적 응답도 확보하지 않았다. 따라서 이 사례는 일반적 결론의 근거가 아니라
+      <strong>정의를 도출하기 위한 예시</strong>로만 사용한다.</p>
+  </div>
+
+  <footer>
+    <span><i>H</i>anyang <i>H</i>uman <i>C</i>entered <i>C</i>omputing <i>L</i>ab</span>
+    <span>Summer Intern week5 · 사례 정리</span>
+  </footer>
+
+</div>
+
+</body>
+</html>

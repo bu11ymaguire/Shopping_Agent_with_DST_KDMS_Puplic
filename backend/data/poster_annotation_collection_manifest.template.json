@@ -1,0 +1,15 @@
+{
+  "schema_version": "poster-annotation-collection-v1",
+  "packet_base_id": "poster-v1-2fc174978a6dbbec",
+  "collection_method": "pending",
+  "product_annotator_ids": ["annotator-01", "annotator-02", "annotator-03"],
+  "review_annotator_ids": ["annotator-01", "annotator-02", "annotator-03"],
+  "annotators_worked_independently": false,
+  "private_provenance_withheld_until_completion": false,
+  "completed_at": null,
+  "annotation_authorship_disclosure": "Replace this text with a truthful disclosure of who performed the annotation and how independence was maintained. Do not include names or other personally identifying information in the tracked repository.",
+  "notes": [
+    "Copy this file to the Git-ignored completed collection directory and update it only after annotation is complete.",
+    "Do not mark independent_human_annotation unless the listed annotators worked independently and did not see private provenance."
+  ]
+}

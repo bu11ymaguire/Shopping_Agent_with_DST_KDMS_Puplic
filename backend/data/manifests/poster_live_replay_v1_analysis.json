@@ -1,0 +1,189 @@
+{
+  "schema_version": "poster-live-replay-v1-analysis",
+  "generated_at": "2026-08-08T09:25:16.164040+00:00",
+  "raw_report_sha256": "4467fc43d2a568e2d30ac8a56a9bae01a41cdfe24cd2bb363f97bab26749ef83",
+  "dataset_sha256": "6241a74a9f678585ab97726e28683b5f4df09224712341a416110b6cee237934",
+  "evaluation_population": {
+    "scenario_count": 20,
+    "completed_scenario_count": 19,
+    "expected_turn_count": 80,
+    "completed_turn_count": 79
+  },
+  "routing_and_completion": {
+    "recommend_lane_reach_count": 8,
+    "recommend_lane_reach_rate": 0.4,
+    "schema_failure_scenario_count": 1,
+    "schema_failure_scenario_rate": 0.05,
+    "schema_failure_turn_rate": 0.0125
+  },
+  "hard_filter": {
+    "end_to_end_completion_count": 8,
+    "end_to_end_completion_rate": 0.4,
+    "conditional_correct_count": 8,
+    "conditional_recommend_count": 8,
+    "conditional_correctness": 1.0,
+    "recommended_product_count": 24,
+    "expected_filter_violation_count": 0,
+    "expected_filter_violation_rate": 0.0
+  },
+  "category_extraction": {
+    "all_scenario_true_positive": 8,
+    "all_scenario_expected": 20,
+    "all_scenario_recall": 0.4,
+    "completed_scenario_true_positive": 8,
+    "completed_scenario_expected": 19,
+    "completed_scenario_recall": 0.42105263157894735
+  },
+  "completed_scenario_slot_metrics": {
+    "all": {
+      "true_positive": 72,
+      "false_positive": 35,
+      "false_negative": 40,
+      "precision": 0.6728971962616822,
+      "recall": 0.6428571428571429,
+      "f1": 0.6575342465753425
+    },
+    "category": {
+      "true_positive": 8,
+      "false_positive": 0,
+      "false_negative": 11,
+      "precision": 1.0,
+      "recall": 0.42105263157894735,
+      "f1": 0.5925925925925926
+    },
+    "constraint.hard": {
+      "true_positive": 39,
+      "false_positive": 0,
+      "false_negative": 0,
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0
+    },
+    "constraint.soft": {
+      "true_positive": 6,
+      "false_positive": 1,
+      "false_negative": 23,
+      "precision": 0.8571428571428571,
+      "recall": 0.20689655172413793,
+      "f1": 0.33333333333333326
+    },
+    "facet.activity": {
+      "true_positive": 11,
+      "false_positive": 7,
+      "false_negative": 0,
+      "precision": 0.6111111111111112,
+      "recall": 1.0,
+      "f1": 0.7586206896551725
+    },
+    "facet.all": {
+      "true_positive": 19,
+      "false_positive": 34,
+      "false_negative": 6,
+      "precision": 0.3584905660377358,
+      "recall": 0.76,
+      "f1": 0.48717948717948717
+    },
+    "facet.event": {
+      "true_positive": 1,
+      "false_positive": 2,
+      "false_negative": 3,
+      "precision": 0.3333333333333333,
+      "recall": 0.25,
+      "f1": 0.28571428571428575
+    },
+    "facet.goal_audience": {
+      "true_positive": 3,
+      "false_positive": 1,
+      "false_negative": 0,
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571
+    },
+    "facet.goal_purpose": {
+      "true_positive": 4,
+      "false_positive": 3,
+      "false_negative": 3,
+      "precision": 0.5714285714285714,
+      "recall": 0.5714285714285714,
+      "f1": 0.5714285714285714
+    },
+    "facet.subjective_property": {
+      "true_positive": 0,
+      "false_positive": 21,
+      "false_negative": 0,
+      "precision": 0.0,
+      "recall": null,
+      "f1": null
+    }
+  },
+  "completed_scenario_over_extraction": {
+    "scenario_count": 18,
+    "scenario_rate": 0.9473684210526315,
+    "extra_canonical_id_count": 35
+  },
+  "latency_ms": {
+    "turn_wall": {
+      "observation_count": 79,
+      "median_ms": 4547.6,
+      "p95_ms": 27011.8,
+      "max_ms": 32532.4
+    },
+    "trace_total": {
+      "observation_count": 79,
+      "median_ms": 4543.251,
+      "p95_ms": 27006.467,
+      "max_ms": 32526.834
+    },
+    "unattributed_wrapper_overhead": {
+      "observation_count": 79,
+      "median_ms": 3.1520000000000437,
+      "p95_ms": 5.532000000001062,
+      "max_ms": 7.638999999999214
+    },
+    "groups": {
+      "understanding_llm": {
+        "observation_count": 79,
+        "median_ms": 2500.248,
+        "p95_ms": 12858.186,
+        "max_ms": 22452.353
+      },
+      "state_policy": {
+        "observation_count": 79,
+        "median_ms": 0.20500000000000002,
+        "p95_ms": 0.291,
+        "max_ms": 0.334
+      },
+      "query_generation": {
+        "observation_count": 32,
+        "median_ms": 0.058,
+        "p95_ms": 0.266,
+        "max_ms": 0.279
+      },
+      "retrieval_and_cross_encoder": {
+        "observation_count": 32,
+        "median_ms": 2224.5695,
+        "p95_ms": 13725.102,
+        "max_ms": 14244.721
+      },
+      "ranking": {
+        "observation_count": 32,
+        "median_ms": 3.109,
+        "p95_ms": 14.573,
+        "max_ms": 15.806
+      },
+      "response_composer_llm": {
+        "observation_count": 79,
+        "median_ms": 1406.794,
+        "p95_ms": 14878.205,
+        "max_ms": 17467.771
+      }
+    },
+    "instrumentation_limit": "v1 records semantic retrieval and Cross-Encoder together inside spn-browsing-actions; v2 must time them separately."
+  },
+  "interpretation": [
+    "recommend-lane reach is a completion metric, not recommendation relevance.",
+    "Conditional hard-filter correctness is evaluated only after recommend-lane is reached.",
+    "Canonical exact is secondary because any additional subjective ID makes the whole scenario non-exact.",
+    "The v1 category metric is diagnostic only; v2 fixes tablet as environment state and evaluates unsupported routing separately."
+  ]
+}

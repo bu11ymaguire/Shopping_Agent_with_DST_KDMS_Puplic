@@ -1,0 +1,447 @@
+{
+  "schema_version": "tablet-domain-automatic-benchmark-v1",
+  "status": "primary_automatic_benchmark_complete",
+  "run_id": "tablet-holdout-20260808T134819Z-9d786cf8",
+  "source_run_completed_at": "2026-08-08T14:19:49.013753+00:00",
+  "scope": {
+    "holdout_scenarios": 20,
+    "holdout_turns": 81,
+    "full_denominator_includes_missing_outputs": true,
+    "official_run_reexecuted": false,
+    "new_gold_labels_added": false,
+    "human_relevance_primary": false
+  },
+  "condition_metrics": {
+    "full": {
+      "scenario_completion_rate": 0.75,
+      "scenario_completion": "15/20",
+      "turn_completion_rate": 0.8024691358024691,
+      "turn_completion": "65/81",
+      "canonical_id_micro": {
+        "precision": 0.4818181818181818,
+        "recall": 0.6235294117647059,
+        "f1": 0.5435897435897435
+      },
+      "final_state_micro": {
+        "precision": 0.8275862068965517,
+        "recall": 0.6990291262135923,
+        "f1": 0.7578947368421052
+      },
+      "state_diff_micro": {
+        "precision": 0.5169491525423728,
+        "recall": 0.6161616161616161,
+        "f1": 0.5622119815668203
+      },
+      "scope_accuracy_on_gold_candidates": 0.6,
+      "forbidden_candidate_turn_violation_rate": 0.04938271604938271,
+      "item_action_exact_accuracy": 0.5714285714285714,
+      "rejection_target_accuracy": 0.0,
+      "rejection_reason_id_accuracy": 0.0,
+      "rejection_reason_type_accuracy": 0.0,
+      "tradeoff_relation_accuracy": 0.3333333333333333,
+      "spurious_tradeoff_count": 0,
+      "policy_lane_accuracy": 0.8024691358024691,
+      "question_target_exact_accuracy": 0.6666666666666666,
+      "premature_recommendation_rate": 0.0,
+      "unnecessary_clarification_rate": 0.0,
+      "recommendation_reach_rate": 0.8076923076923077,
+      "recommendation_completion_rate": 0.8076923076923077,
+      "strict_schema_validation_rate": 0.9285714285714286,
+      "understanding_attempt_coverage": 0.8641975308641975,
+      "schema_repair_call_rate": 0.42857142857142855,
+      "schema_repair_event_count": 30,
+      "transport_retry_call_rate": 0.0,
+      "transport_retry_event_count": 0,
+      "llm_fallback_call_rate": 0.0,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "hard_filter_completion_rate": 0.6296296296296297,
+      "hard_filter_field_micro": {
+        "precision": 1.0,
+        "recall": 0.5882352941176471,
+        "f1": 0.7407407407407407
+      },
+      "hard_constraint_violation_rate": 0.13513513513513514,
+      "hard_constraint_violations": "25/185",
+      "rejection_retention_rate": 0.0,
+      "rejection_retention_support": "1 resolvable gold events",
+      "rejected_item_reappearance_rate": null,
+      "feedback_constraint_state_reflection_rate": 0.5818181818181818,
+      "feedback_constraint_query_reflection_rate": 0.5818181818181818,
+      "evidence_id_consistency_rate": 1.0,
+      "inferred_candidate_count": 0,
+      "unsupported_inferred_candidate_rate": null
+    },
+    "no_memory": {
+      "scenario_completion_rate": 0.85,
+      "scenario_completion": "17/20",
+      "turn_completion_rate": 0.8395061728395061,
+      "turn_completion": "68/81",
+      "canonical_id_micro": {
+        "precision": 0.7721518987341772,
+        "recall": 0.7176470588235294,
+        "f1": 0.7439024390243902
+      },
+      "final_state_micro": {
+        "precision": 0.9459459459459459,
+        "recall": 0.33980582524271846,
+        "f1": 0.5
+      },
+      "state_diff_micro": {
+        "precision": 0.7777777777777778,
+        "recall": 0.6363636363636364,
+        "f1": 0.7000000000000001
+      },
+      "scope_accuracy_on_gold_candidates": 0.7058823529411765,
+      "forbidden_candidate_turn_violation_rate": 0.037037037037037035,
+      "item_action_exact_accuracy": 0.8571428571428571,
+      "rejection_target_accuracy": 0.5,
+      "rejection_reason_id_accuracy": 0.5,
+      "rejection_reason_type_accuracy": 0.5,
+      "tradeoff_relation_accuracy": 0.3333333333333333,
+      "spurious_tradeoff_count": 0,
+      "policy_lane_accuracy": 0.7407407407407407,
+      "question_target_exact_accuracy": 0.6666666666666666,
+      "premature_recommendation_rate": 0.0,
+      "unnecessary_clarification_rate": 0.10256410256410256,
+      "recommendation_reach_rate": 0.7435897435897436,
+      "recommendation_completion_rate": 0.7435897435897436,
+      "strict_schema_validation_rate": 0.9577464788732394,
+      "understanding_attempt_coverage": 0.8765432098765432,
+      "schema_repair_call_rate": 0.23943661971830985,
+      "schema_repair_event_count": 17,
+      "transport_retry_call_rate": 0.0,
+      "transport_retry_event_count": 0,
+      "llm_fallback_call_rate": 0.0,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.46551724137931033,
+      "hard_filter_completion_rate": 0.4444444444444444,
+      "hard_filter_field_micro": {
+        "precision": 1.0,
+        "recall": 0.3411764705882353,
+        "f1": 0.5087719298245613
+      },
+      "hard_constraint_violation_rate": 0.29310344827586204,
+      "hard_constraint_violations": "51/174",
+      "rejection_retention_rate": null,
+      "rejection_retention_support": "0 resolvable gold events",
+      "rejected_item_reappearance_rate": null,
+      "feedback_constraint_state_reflection_rate": 0.7090909090909091,
+      "feedback_constraint_query_reflection_rate": 0.7090909090909091,
+      "evidence_id_consistency_rate": 1.0,
+      "inferred_candidate_count": 0,
+      "unsupported_inferred_candidate_rate": null
+    },
+    "no_review": {
+      "scenario_completion_rate": 0.8,
+      "scenario_completion": "16/20",
+      "turn_completion_rate": 0.8024691358024691,
+      "turn_completion": "65/81",
+      "canonical_id_micro": {
+        "precision": 0.4774774774774775,
+        "recall": 0.6235294117647059,
+        "f1": 0.5408163265306123
+      },
+      "final_state_micro": {
+        "precision": 0.782608695652174,
+        "recall": 0.6990291262135923,
+        "f1": 0.7384615384615385
+      },
+      "state_diff_micro": {
+        "precision": 0.5126050420168067,
+        "recall": 0.6161616161616161,
+        "f1": 0.5596330275229358
+      },
+      "scope_accuracy_on_gold_candidates": 0.611764705882353,
+      "forbidden_candidate_turn_violation_rate": 0.06172839506172839,
+      "item_action_exact_accuracy": 0.5714285714285714,
+      "rejection_target_accuracy": 0.0,
+      "rejection_reason_id_accuracy": 0.0,
+      "rejection_reason_type_accuracy": 0.0,
+      "tradeoff_relation_accuracy": 0.3333333333333333,
+      "spurious_tradeoff_count": 0,
+      "policy_lane_accuracy": 0.8024691358024691,
+      "question_target_exact_accuracy": 0.6666666666666666,
+      "premature_recommendation_rate": 0.0,
+      "unnecessary_clarification_rate": 0.0,
+      "recommendation_reach_rate": 0.8076923076923077,
+      "recommendation_completion_rate": 0.8076923076923077,
+      "strict_schema_validation_rate": 0.9420289855072463,
+      "understanding_attempt_coverage": 0.8518518518518519,
+      "schema_repair_call_rate": 0.391304347826087,
+      "schema_repair_event_count": 27,
+      "transport_retry_call_rate": 0.0,
+      "transport_retry_event_count": 0,
+      "llm_fallback_call_rate": 0.0,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "hard_filter_completion_rate": 0.6296296296296297,
+      "hard_filter_field_micro": {
+        "precision": 0.9152542372881356,
+        "recall": 0.6352941176470588,
+        "f1": 0.75
+      },
+      "hard_constraint_violation_rate": 0.11602209944751381,
+      "hard_constraint_violations": "21/181",
+      "rejection_retention_rate": 0.0,
+      "rejection_retention_support": "1 resolvable gold events",
+      "rejected_item_reappearance_rate": 0.0,
+      "feedback_constraint_state_reflection_rate": 0.6,
+      "feedback_constraint_query_reflection_rate": 0.6,
+      "evidence_id_consistency_rate": 1.0,
+      "inferred_candidate_count": 0,
+      "unsupported_inferred_candidate_rate": null
+    }
+  },
+  "paired_full_vs_no_memory": {
+    "final_state_micro_f1": {
+      "full": 0.7578947368421052,
+      "ablation": 0.5,
+      "difference": 0.2578947368421052,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 20,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260810,
+      "ci95": [
+        0.17160500274347978,
+        0.3339955320730992
+      ],
+      "status": "computed"
+    },
+    "state_diff_micro_f1": {
+      "full": 0.5622119815668203,
+      "ablation": 0.7000000000000001,
+      "difference": -0.13778801843317978,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 20,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260811,
+      "ci95": [
+        -0.22184395842048352,
+        -0.056276031184288165
+      ],
+      "status": "computed"
+    },
+    "policy_accuracy": {
+      "full": 0.8024691358024691,
+      "ablation": 0.7407407407407407,
+      "difference": 0.06172839506172845,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 20,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260812,
+      "ci95": [
+        -0.11111111111111116,
+        0.2222222222222222
+      ],
+      "status": "computed"
+    },
+    "recommendation_reach": {
+      "full": 0.8076923076923077,
+      "ablation": 0.7435897435897436,
+      "difference": 0.0641025641025641,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 20,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260813,
+      "ci95": [
+        -0.10256410256410253,
+        0.23076923076923084
+      ],
+      "status": "computed"
+    },
+    "hard_filter_completion": {
+      "full": 0.6296296296296297,
+      "ablation": 0.4444444444444444,
+      "difference": 0.18518518518518523,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 20,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260814,
+      "ci95": [
+        0.0,
+        0.36250000000000004
+      ],
+      "status": "computed"
+    },
+    "rejection_retention": {
+      "full": 0.0,
+      "ablation": null,
+      "difference": null,
+      "paired_scenario_count": 20,
+      "eligible_scenario_count": 0,
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000,
+      "bootstrap_seed": 20260815,
+      "ci95": null,
+      "status": "insufficient_support",
+      "reason": "only 0 paired scenarios contain an evaluable event"
+    }
+  },
+  "fixed_upstream_no_review": {
+    "contract": {
+      "source": "validated Full turn output",
+      "persistent_state": true,
+      "query_and_candidate_set": "held fixed from Full",
+      "review_score_and_reliability": 0,
+      "additional_llm_calls": 0,
+      "reason": "The independently replayed live No-review condition had non-identical Understanding outputs, so it cannot isolate review contribution alone."
+    },
+    "recommendation_turn_count": 63,
+    "candidate_count_identity_rate": 1.0,
+    "top1_change_rate": {
+      "value": 0.5555555555555556,
+      "ci95": [
+        0.4032197881559942,
+        0.7123287671232876
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "top3_order_change_rate": {
+      "value": 0.873015873015873,
+      "ci95": [
+        0.7540983606557377,
+        0.9682539682539683
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "mean_top3_overlap_count": {
+      "value": 1.7936507936507937,
+      "ci95": [
+        1.410692330210773,
+        2.1481481481481484
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "mean_top3_jaccard": {
+      "value": 0.5222222222222223,
+      "ci95": [
+        0.3875,
+        0.661290322580645
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "mean_absolute_rank_shift_at_10": {
+      "value": 2.227841853217793,
+      "ci95": [
+        1.6966634056075052,
+        2.8364299558046357
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "mean_kendall_tau_common_at_10": {
+      "value": 0.5208538587848932,
+      "ci95": [
+        0.41739835164835165,
+        0.6190737247135243
+      ],
+      "bootstrap_unit": "scenario",
+      "bootstrap_resamples": 10000
+    },
+    "hard_constraint_violation_rate": 0.16756756756756758,
+    "full_evidence_id_consistency_rate": 1.0,
+    "no_review_evidence_contract": "no evidence IDs or review contribution by construction",
+    "quality_claim_allowed": false
+  },
+  "oracle_analysis": {
+    "status": "secondary_evaluator_side_oracle",
+    "additional_llm_calls": 0,
+    "actual_input": "frozen Full Understanding and accumulated state output",
+    "oracle_input": "pre-run Gold State Diff/Final State IDs and expected hard filters",
+    "policy_accuracy": {
+      "actual_full": 0.8024691358024691,
+      "gold_state_oracle": 1.0,
+      "recovery": 0.19753086419753085
+    },
+    "recommendation_reach": {
+      "actual_full": 0.8076923076923077,
+      "gold_state_oracle": 1.0,
+      "recovery": 0.1923076923076923
+    },
+    "hard_filter_completion": {
+      "actual_full": 0.6296296296296297,
+      "gold_state_oracle": 1.0,
+      "recovery": 0.37037037037037035
+    },
+    "oracle_candidate_availability_rate": 0.9743589743589743,
+    "oracle_candidate_hard_violation_rate": 0.0,
+    "guardrail": "This is a deterministic diagnostic upper bound, not a recommendation relevance or end-to-end system score."
+  },
+  "trace_provenance": {
+    "full": {
+      "trace_record_count": 135,
+      "unmapped_trace_record_count": 0,
+      "trace_sha256": "119dc3ace2ec2deeb824463df23ad325d37f37c2675e1a4b80607e7e29ca9408"
+    },
+    "no_memory": {
+      "trace_record_count": 139,
+      "unmapped_trace_record_count": 0,
+      "trace_sha256": "b3159e0f3cdc6436ec734af76e235182196bbd8b4366f97ba7e05ea45d73bef1"
+    },
+    "no_review": {
+      "trace_record_count": 134,
+      "unmapped_trace_record_count": 0,
+      "trace_sha256": "368565093ae5dff4366dd6718b499051b17a145dab534cdfab5b14ba0e6a4d5c"
+    }
+  },
+  "hidden_intent_analysis": {
+    "situational_constraint_promotion_error": {
+      "status": "not_evaluable_with_current_holdout",
+      "reason": "the two gold rejection events are product_attribute cases; there is no situational_constraint positive case"
+    },
+    "unsupported_inference_rate": {
+      "status": "not_evaluable_with_current_holdout",
+      "observed_inferred_candidate_count": {
+        "full": 0,
+        "no_memory": 0,
+        "no_review": 0
+      },
+      "reason": "v2 disables latent subjective generation and the holdout has no hypothesis-level support gold"
+    },
+    "inference_restraint_rate": {
+      "status": "not_evaluable_with_current_holdout",
+      "reason": "the holdout has no candidate/inferred status gold or insufficient-evidence opportunity labels"
+    },
+    "current_to_persistent_scope_error": {
+      "status": "not_evaluable_with_current_holdout",
+      "reason": "gold_candidate_scopes distinguish facet/hard/soft targets, not temporal current-purchase versus persistent scope"
+    }
+  },
+  "not_officially_computed": {
+    "product_ndcg_at_3": "excluded_without_human_relevance_labels",
+    "review_ndcg_at_3": "excluded_without_human_relevance_labels",
+    "provenance_accuracy": "no per-candidate provenance gold in the frozen holdout",
+    "tradeoff_direction_compliance": "relation gold exists, but no gold product ranking direction exists"
+  },
+  "interpretation_guardrails": [
+    "This benchmark measures process fidelity against pre-run multi-turn gold annotations, not subjective product satisfaction or human relevance.",
+    "The fixed-upstream review ablation identifies ranking changes causally attributable to the frozen review score contribution, but does not establish a quality improvement.",
+    "The independent live No-review condition is retained only as an operational replay because its upstream Understanding output was not identical to Full.",
+    "Product NDCG@3 and Review NDCG@3 are not official automatic results.",
+    "Metrics unsupported by the frozen gold are explicitly marked not_evaluable_with_current_holdout."
+  ],
+  "source_artifacts": {
+    "gold": {
+      "path": "data/tablet_domain_multiturn_holdout_v1.json",
+      "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e"
+    },
+    "official_raw": {
+      "path": "reports/tablet_domain_holdout_official_v1.json",
+      "sha256": "87257652cab27c2608536bbd9846244c15a7fba4a7110c119728235fb07b6426"
+    },
+    "prior_analysis": {
+      "path": "reports/tablet_domain_holdout_official_v1_analysis.json",
+      "sha256": "4a72ed018e47e9729eff4d94a30105a4b9f0867e76a71297d7a5202475e2b979"
+    }
+  }
+}

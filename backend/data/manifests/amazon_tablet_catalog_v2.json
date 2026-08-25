@@ -1,0 +1,84 @@
+{
+  "schema_version": "amazon-tablet-catalog-report-v2",
+  "run_date": "2026-08-07",
+  "dataset": "McAuley-Lab/Amazon-Reviews-2023",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "category": "Electronics",
+  "sampling": {
+    "metadata_rows": 500000,
+    "metadata_strategy": "10 parquet shards에서 앞 50000행씩 균등 순회",
+    "review_rows": 8000000,
+    "review_strategy": "공식 gzip stream 앞 8000000행 순차 순회",
+    "min_rating_number": 20,
+    "min_reviews_per_product": 20,
+    "review_pool_per_product": 500,
+    "reviews_per_product": 100,
+    "max_products": 300
+  },
+  "classification": {
+    "checkpoint_input_candidates": 870,
+    "reprocessed_candidates": 870,
+    "rules": [
+      "title에 태블릿 본체 신호가 있어야 함",
+      "leaf category와 title을 함께 검사하고 액세서리 및 주 기기 노트북 신호를 제외",
+      "rating_number 20 이상, 설명 또는 feature, 이미지, 저장공간, 화면 크기를 요구",
+      "체크포인트 재사용 시 raw 행을 현행 규칙으로 다시 정규화"
+    ]
+  },
+  "review_scan": {
+    "candidate_parent_matches": 55699,
+    "products_with_matches": 677,
+    "invalid_or_short": 11303,
+    "pooled": 17438
+  },
+  "output": {
+    "product_count": 117,
+    "review_count": 7552,
+    "verified_purchase_count": 6990,
+    "sentiment_counts": {
+      "negative": 1507,
+      "neutral": 693,
+      "positive": 5352
+    },
+    "products_missing": {
+      "price_usd": 54,
+      "image_url": 0,
+      "storage_gb": 0,
+      "memory_gb": 44,
+      "screen_inches": 0,
+      "weight_grams": 50,
+      "operating_system": 49
+    }
+  },
+  "normalization": {
+    "schema_version": "amazon-tablet-quantiles-v1",
+    "missing_values_are_imputed": false,
+    "profile": {
+      "price_usd": {"non_null_count": 63, "p05": 46.389, "median": 164.0, "p95": 745.595},
+      "weight_grams": {"non_null_count": 67, "p05": 301.0, "median": 499.0, "p95": 956.0},
+      "storage_gb": {"non_null_count": 117, "p05": 8.0, "median": 32.0, "p95": 256.0},
+      "memory_gb": {"non_null_count": 73, "p05": 1.0, "median": 2.0, "p95": 6.8},
+      "screen_inches": {"non_null_count": 117, "p05": 7.0, "median": 9.7, "p95": 12.22}
+    }
+  },
+  "artifact_sha256": {
+    "candidate_metadata.jsonl.gz": "c8c49abaa4fa204e7053ae82149a4002a9a7b6d5e319a2b60adf549cb8a155e4",
+    "metadata_profile.json": "feed609c4126cdcb26c1541573176863f3d455f55b1e6dad635c77764ea6cc77",
+    "normalization.json": "7a000ab86002558246f37805f24d37a488a86c5f74e40f2ab093c8bd33667229",
+    "source_metadata.jsonl.gz": "b4e4d0fbe78c1559ae63b8128187a44efe750d440c22c7939a921795b484bb91",
+    "source_reviews.jsonl.gz": "b6b687f13b4adfe5f3d63aa2f13855db71fd226b6d21341e00b28ac55a664ec7",
+    "products.parquet": "5466e1a48b63ec7f13a53d825474fd02420b54ab9a7a65ecbb7865ae4fb3b72d",
+    "reviews.parquet": "726db5286c76db6ebfd6733786d5ec4c3fac38f258fdf77229d25470f4d702a0"
+  },
+  "privacy": {
+    "raw_sample_committed": false,
+    "processed_user_id_retained": false,
+    "processed_review_images_retained": false
+  },
+  "limitations": [
+    "전체 Electronics의 확률 표본이 아니라 shard별 metadata prefix와 review stream prefix 표본임",
+    "가격 54개, 무게 50개, RAM 44개, OS 49개 상품은 결측이며 보간하지 않음",
+    "배송일, 재고, 가용 색상은 원본에 없어 이 카탈로그에서 제공하거나 랭킹하지 않음",
+    "고정 embedding 및 cross-encoder 검색을 제공하지만 최초 소규모 관련성 기준선에서 token 방식보다 우수하지 않았음"
+  ]
+}

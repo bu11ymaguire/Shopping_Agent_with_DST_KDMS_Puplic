@@ -1,0 +1,51 @@
+{
+  "schema_version": "amazon-tablet-semantic-retrieval-summary-v1",
+  "generated_at": "2026-08-07T04:03:10.240617+00:00",
+  "catalog_schema_version": "amazon-tablet-pilot-v2",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "review_count": 7552,
+  "embedding_dimension": 384,
+  "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+  "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+  "reranker_model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+  "reranker_revision": "c5ee24cb16019beea0893ab7796b1df96625c6b8",
+  "retrieval_contract": {
+    "language": "English",
+    "hard_filter_first": true,
+    "bi_encoder_candidates_per_product": 5,
+    "cross_encoder_results_per_product": 3,
+    "combined_score": "round(100 * (0.35 * normalized_cosine + 0.65 * sigmoid(cross_encoder_logit)))",
+    "fallback": "deterministic token retrieval with a recorded reason"
+  },
+  "local_files": {
+    "catalog_manifest_sha256": "e6af26c276e9e05bef2b5328cf731ca9da805f0275fb95b11fba41f2de82c90d",
+    "catalog_reviews_sha256": "726db5286c76db6ebfd6733786d5ec4c3fac38f258fdf77229d25470f4d702a0",
+    "embeddings_sha256": "bb472974b535e7411a1e0270ad45461e0871b77eefae68bb8bf78229a98f644b",
+    "embeddings_bytes": 11600000,
+    "metadata_sha256": "178e565776cbb5440ce8a1058eed52b4ba122fe74b049b929c8e75dec0c2aba1",
+    "metadata_bytes": 400364,
+    "location": "data/amazon_reviews_2023/tablet_catalog_v2 (Git ignored)"
+  },
+  "smoke_verification": {
+    "twelve_product_query": {
+      "returned_reviews": 36,
+      "cold_start_latency_ms": 8081.7
+    },
+    "full_117_product_query": {
+      "returned_reviews": 351,
+      "cold_start_latency_ms": 14050
+    },
+    "missing_index_fallback_reason": "semantic_index_missing",
+    "note": "Latency is a single local CPU smoke measurement, not a benchmark or accuracy result."
+  },
+  "live_integration_smoke": {
+    "date": "2026-08-07",
+    "lane": "recommend-lane",
+    "candidate_products": 20,
+    "returned_reviews": 60,
+    "review_retrieval_method": "semantic_cross_encoder",
+    "fallback_reason": null,
+    "response_composer": "llm",
+    "visible_product_cards": 3
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "schema_version": "tablet-domain-holdout-freeze-manifest-v1",
+  "status": "frozen_before_first_system_run",
+  "holdout_freeze_git_tag": "tablet-domain-holdout-v1-freeze",
+  "created_after_v2_freeze_tag": "tablet-domain-v2.3-freeze",
+  "v2_freeze_commit": "bb45d554951736abc3874ca27ea120e1beb291ab",
+  "dataset_version": "tablet-domain-multiturn-holdout-v1.0",
+  "dataset_sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e",
+  "v2_freeze_manifest_sha256": "13aa1658f5f08b5b59fce41a930b7c9009eb756441b65abf56b3087c5892aa10",
+  "contract_sha256": "e3c5e7f26eb31a36ca8a4f6f7daec08371a4b32633d3ab8cb79abd6ee8678868",
+  "verifier_sha256": "e93c9ef4dc48bd0a14d65156ffdbbeb1150ee63d92987d20c59d583d18c9746c",
+  "frozen_runtime": {
+    "understanding_prompt_version": "spn-understanding-tablet-domain-en-v2.3-frozen",
+    "understanding_schema_version": "understanding-v3.1-tablet-domain-en",
+    "system_prompt_sha256": "0789b4180b3404c7832fd49d7e0762161e9984365dffdbc05945df0ddd7b5271",
+    "requested_model": "gpt-4o-mini",
+    "review_retrieval": {
+      "mode": "semantic",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+      "reranker_revision": "c5ee24cb16019beea0893ab7796b1df96625c6b8",
+      "bi_encoder_per_product": 5,
+      "reranked_per_product": 3,
+      "combined_score_weights": {
+        "normalized_cosine": 0.35,
+        "cross_encoder_sigmoid": 0.65
+      },
+      "tracked_semantic_manifest_sha256": "85cff05d69bb03e20592fe06508bc66a8c42a077850f40a8dfbadf98f48ef2b2"
+    },
+    "product_ranking_weights": {
+      "hard_constraint_match": 0.3,
+      "metadata_match": 0.3,
+      "subjective_need_match": 0.2,
+      "review_evidence_score": 0.15,
+      "evidence_reliability": 0.05
+    }
+  },
+  "evaluation_input": {
+    "scenario_count": 20,
+    "turn_count": 81,
+    "turns_per_scenario": {
+      "th01": 4,
+      "th02": 4,
+      "th03": 4,
+      "th04": 4,
+      "th05": 4,
+      "th06": 4,
+      "th07": 4,
+      "th08": 5,
+      "th09": 4,
+      "th10": 4,
+      "th11": 4,
+      "th12": 4,
+      "th13": 4,
+      "th14": 4,
+      "th15": 4,
+      "th16": 4,
+      "th17": 4,
+      "th18": 4,
+      "th19": 4,
+      "th20": 4
+    },
+    "gold_fields": [
+      "domain route",
+      "intent",
+      "canonical State Diff",
+      "policy lane and question target",
+      "item action",
+      "trade-off",
+      "hard constraints"
+    ],
+    "predefined_recommendation_products": false,
+    "predefined_rankings": false,
+    "predefined_human_relevance": false
+  },
+  "execution_protocol": {
+    "conditions": [
+      "full",
+      "no_memory",
+      "no_review"
+    ],
+    "same_input_all_conditions": true,
+    "run_each_condition_once": true,
+    "environment_category_all_conditions": "category_tablet",
+    "pool_after_execution": "union of condition top-k outputs",
+    "blind_before_human_annotation": true
+  },
+  "separation": {
+    "v1_gold_state_packet": "module-level retrieval/ranking evaluation",
+    "this_holdout": "end-to-end Understanding through ranking evaluation",
+    "must_not_merge_packets": true
+  }
+}

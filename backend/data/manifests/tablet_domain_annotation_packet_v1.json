@@ -1,0 +1,57 @@
+{
+  "schema_version": "tablet-domain-annotation-packet-tracked-manifest-v1",
+  "status": "frozen_blank_packet_before_human_annotation",
+  "official_run_id": "tablet-holdout-20260808T134819Z-9d786cf8",
+  "official_raw_sha256": "87257652cab27c2608536bbd9846244c15a7fba4a7110c119728235fb07b6426",
+  "official_analysis_sha256": "4a72ed018e47e9729eff4d94a30105a4b9f0867e76a71297d7a5202475e2b979",
+  "pool_contract": {
+    "unit": "final available recommendation per scenario",
+    "top_k": 3,
+    "systems": [
+      "full",
+      "no_memory",
+      "fixed_upstream_no_review"
+    ],
+    "union_and_deduplicate": true,
+    "blind_system_rank_and_score": true,
+    "annotator_count": 3,
+    "independent_candidate_order": true,
+    "product_grade": "0-3 suitability for final accumulated needs",
+    "review_grade": "0-3 usefulness as evidence for final accumulated needs",
+    "rationale_required": false
+  },
+  "workload_per_annotator": {
+    "pooled_scenarios": 17,
+    "skipped_no_output_scenarios": ["th08", "th11", "th20"],
+    "unique_products": 88,
+    "unique_reviews": 239,
+    "total_judgments": 327,
+    "sessions": {
+      "product": [88],
+      "review": [120, 119],
+      "max_items_per_session": 120
+    }
+  },
+  "git_excluded_packet": {
+    "root": "reports/tablet_domain_holdout_annotation_packet_v1",
+    "packet_manifest": {
+      "bytes": 1900,
+      "sha256": "9ebb70b2a7b34bb769e7b3bb5ad2c2b56b21a9c8748dac08a8cf478dd3a8f399"
+    },
+    "session_manifest": {
+      "bytes": 6154,
+      "sha256": "8fea6a4f304b244d5de62b888938d0877eef6447d9f0e35f90335ca963443c06"
+    },
+    "private_provenance_separate": true,
+    "all_grades_blank": true
+  },
+  "source_sha256_lf_normalized": {
+    "app/evaluation/tablet_domain_annotation.py": "c3db96b6fc6d621a000530e6da90ca6cd5a5a5dbb5a4e4ace32ad745f533a431",
+    "scripts/build_tablet_domain_annotation_packet.py": "5ed75cc8f93c9bf6a3d69cecae399e062bf29461e138595e3a632627d5ba2e1f",
+    "scripts/prepare_tablet_domain_annotation_sessions.py": "775d7cc1f2126b5b95f948e1cdd3f05bf93e772deb3c5b4a0fae4c5126e3fa02",
+    "scripts/verify_tablet_domain_annotation_packet.py": "1705f3da9ab2c4d8473529bb9b6da541411f49b48d19928514334f70b12fa00b"
+  },
+  "annotation_status": "not_started",
+  "human_grade_count": 0,
+  "next_step": "Give only each annotator's own sessions directory; retain private_provenance.json and manifests with the researcher."
+}

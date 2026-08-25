@@ -1,0 +1,523 @@
+{
+  "dataset_version": "actual-understanding-holdout-v1.0",
+  "schema_version": "understanding-v2-amazon-tablet-en",
+  "prompt_version_frozen_before_first_run": "spn-understanding-amazon-tablet-en-v1",
+  "description": "Thirty independently authored English tablet utterances. This holdout was frozen before its first Luxia run and must not be used to tune prompt v1.",
+  "cases": [
+    {
+      "id": "a01",
+      "tags": ["search", "vague", "category"],
+      "utterance": "I'm looking for a tablet, but I have no idea which features matter yet.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a02",
+      "tags": ["search", "note-taking", "study", "facets"],
+      "utterance": "I need a tablet for university lectures and handwritten notes.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "activity_note_taking", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "goal_work_study", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "note_taking", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a03",
+      "tags": ["search", "budget", "storage", "hard-constraints"],
+      "utterance": "Find me a tablet below $249.99 with at least 128 GB of storage.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["249.99"]]},
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["128"], ["storage"]]}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a04",
+      "tags": ["refine", "ram", "storage-negative-control"],
+      "utterance": "It must have 8 GB of RAM; I'm talking about memory, not storage.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "memory_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["8"], ["ram"]]}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["storage_capacity"]
+      }
+    },
+    {
+      "id": "a05",
+      "tags": ["refine", "weight", "unit-normalization"],
+      "utterance": "Keep the tablet at 1.5 pounds or lighter.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "max_weight", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["1.5"], ["lb", "pound"]]}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a06",
+      "tags": ["refine", "rating", "screen", "hard-constraints"],
+      "utterance": "Only show models rated 4.3 stars or better with a screen of at least 10.5 inches.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "min_rating", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["4.3"], ["star"]]},
+          {"canonical_id": "display", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["10.5"], ["inch"]]}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a07",
+      "tags": ["refine", "operating-system", "hard-constraint"],
+      "utterance": "Android is required; don't include Fire OS or iPadOS.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "operating_system", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["android"]]}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a08",
+      "tags": ["search", "multiple-soft-priorities", "no-subjective-facet"],
+      "utterance": "I want a tablet that is inexpensive and easy to carry.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "price_value", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["subjective_value", "subjective_portability"]
+      }
+    },
+    {
+      "id": "a09",
+      "tags": ["search", "video", "entertainment", "display", "audio"],
+      "utterance": "This tablet will mainly be for streaming movies, so the screen and speakers both matter.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "activity_video", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "goal_entertainment", "target_kind": "facet", "facet": "goal_purpose", "scope": null, "origin": "implicit", "value_must_contain": []},
+          {"canonical_id": "display", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "audio", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a10",
+      "tags": ["search", "child", "audience", "suitability"],
+      "utterance": "I need a tablet for my eight-year-old, and child-friendly controls are important.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "audience_child", "target_kind": "facet", "facet": "goal_audience", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "child_friendly", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a11",
+      "tags": ["search", "gaming", "performance"],
+      "utterance": "I need a tablet for games, and smooth performance is the main priority.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "activity_gaming", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "subjective_performance", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "performance", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a12",
+      "tags": ["search", "reading", "portability"],
+      "utterance": "Most of the time I'll read ebooks while commuting, and I care about portability.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "implicit", "value_must_contain": []},
+          {"canonical_id": "activity_reading", "target_kind": "facet", "facet": "activity", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "subjective_portability", "target_kind": "facet", "facet": "subjective_property", "scope": null, "origin": "explicit", "value_must_contain": []},
+          {"canonical_id": "portability", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a13",
+      "tags": ["refine", "review-signal", "social-proof"],
+      "utterance": "Owner feedback is more important to me than the spec sheet, so prioritize trustworthy reviews.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "review_signal", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a14",
+      "tags": ["refine", "budget-flexibility", "do-not-copy-state"],
+      "utterance": "I can stretch about fifty dollars beyond my existing $300 cap if the upgrade is worthwhile.",
+      "previous_state_summary": {"hard_constraints": {"budget": {"value_text": "$300 maximum", "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget_flexibility", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["budget"]
+      }
+    },
+    {
+      "id": "a15",
+      "tags": ["refine", "supersedes", "tradeoff", "battery-over-weight"],
+      "utterance": "Actually, it doesn't need to be light. I'd rather have longer battery life even if it is heavier.",
+      "previous_state_summary": {"soft_constraints": {"portability": {"origin": "inferred", "status": "unconfirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "battery", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": {"prioritized_ids": ["battery"], "compromised_ids": ["portability"], "origin": "explicit"},
+        "supersedes": ["portability"],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a16",
+      "tags": ["refine", "tradeoff", "budget-over-storage"],
+      "utterance": "I can live with less storage as long as the tablet stays under $180.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "budget", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["180"]]}
+        ],
+        "item_action": null,
+        "tradeoff": {"prioritized_ids": ["budget"], "compromised_ids": ["storage_capacity"], "origin": "explicit"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a17",
+      "tags": ["refine", "tradeoff", "ram-over-budget"],
+      "utterance": "Eight gigabytes of RAM is worth going over budget for.",
+      "previous_state_summary": {"category": {"canonical_id": "category_tablet", "status": "confirmed"}, "hard_constraints": {"budget": {"value_text": "$250 maximum", "status": "confirmed"}}},
+      "gold": {
+        "intents": ["refine"],
+        "candidates": [
+          {"canonical_id": "memory_capacity", "target_kind": "constraint", "facet": null, "scope": "hard", "origin": "explicit", "value_must_contain": [["8"], ["ram"]]},
+          {"canonical_id": "budget_flexibility", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": {"prioritized_ids": ["memory_capacity"], "compromised_ids": ["budget"], "origin": "explicit"},
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a18",
+      "tags": ["inspect", "rank-reference"],
+      "utterance": "Open the details for the second result.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["inspect"],
+        "candidates": [],
+        "item_action": {"name": "inspect_current", "target_rank": 2, "compare_rank": null, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a19",
+      "tags": ["inspect", "named-reference"],
+      "utterance": "Show me more about the Lenovo Tab M10.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["inspect"],
+        "candidates": [],
+        "item_action": {"name": "inspect_current", "target_rank": 3, "compare_rank": null, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a20",
+      "tags": ["compare", "rank-reference"],
+      "utterance": "Compare the first and third options.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["compare"],
+        "candidates": [],
+        "item_action": {"name": "compare_first_second", "target_rank": 1, "compare_rank": 3, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a21",
+      "tags": ["compare", "named-reference"],
+      "utterance": "Compare the Galaxy Tab A8 with the Lenovo Tab M10.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["compare"],
+        "candidates": [],
+        "item_action": {"name": "compare_first_second", "target_rank": 2, "compare_rank": 3, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a22",
+      "tags": ["reject", "rank-reference", "storage", "product-attribute"],
+      "utterance": "Remove the third one; 32 GB is too little storage for me.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "storage_capacity", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "implicit", "value_must_contain": [["32"], ["storage"]]}
+        ],
+        "item_action": {"name": "reject_first", "target_rank": 3, "compare_rank": null, "rejection_reason_id": "reject_storage", "reason_type": "product_attribute"},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a23",
+      "tags": ["reject", "battery", "review-negative-control"],
+      "utterance": "Drop the first result because owners report too many battery problems.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "battery", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "implicit", "value_must_contain": []}
+        ],
+        "item_action": {"name": "reject_first", "target_rank": 1, "compare_rank": null, "rejection_reason_id": "reject_battery", "reason_type": "product_attribute"},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["review_signal"]
+      }
+    },
+    {
+      "id": "a24",
+      "tags": ["reject", "price", "situational-constraint"],
+      "utterance": "The second option is too expensive for my situation, so take it out.",
+      "previous_state_summary": {"visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["reject"],
+        "candidates": [
+          {"canonical_id": "price_value", "target_kind": "constraint", "facet": null, "scope": "soft", "origin": "implicit", "value_must_contain": []}
+        ],
+        "item_action": {"name": "reject_first", "target_rank": 2, "compare_rank": null, "rejection_reason_id": "reject_price", "reason_type": "situational_constraint"},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a25",
+      "tags": ["purchase", "current-reference"],
+      "utterance": "I'll take this one.",
+      "previous_state_summary": {"current_item_rank_context": "B000CURRENT", "visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}]},
+      "gold": {
+        "intents": ["purchase"],
+        "candidates": [],
+        "item_action": {"name": "purchase_current", "target_rank": null, "compare_rank": null, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a26",
+      "tags": ["purchase", "rank-reference"],
+      "utterance": "I'll buy the second result instead.",
+      "previous_state_summary": {"current_item_rank_context": "B000CURRENT", "visible_ranked_products": [{"rank": 1, "product_reference_only": "Fire HD 10"}, {"rank": 2, "product_reference_only": "Galaxy Tab A8"}, {"rank": 3, "product_reference_only": "Lenovo Tab M10"}]},
+      "gold": {
+        "intents": ["purchase"],
+        "candidates": [],
+        "item_action": {"name": "purchase_current", "target_rank": 2, "compare_rank": null, "rejection_reason_id": null, "reason_type": null},
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a27",
+      "tags": ["unsupported-category", "laptop", "abstention"],
+      "utterance": "I need a laptop for compiling large software projects.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"],
+        "candidates": [],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "performance"]
+      }
+    },
+    {
+      "id": "a28",
+      "tags": ["unsupported-category", "phone", "budget-negative-control", "abstention"],
+      "utterance": "Find me a phone under $800 with a great camera.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["unknown"],
+        "candidates": [],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["category_tablet", "budget", "display"]
+      }
+    },
+    {
+      "id": "a29",
+      "tags": ["unsupported-fields", "delivery", "color", "abstention"],
+      "utterance": "I need a blue tablet delivered tomorrow.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": []
+      }
+    },
+    {
+      "id": "a30",
+      "tags": ["unsupported-currency", "budget-abstention", "category"],
+      "utterance": "Show me a tablet below £300; please don't convert the currency.",
+      "previous_state_summary": {},
+      "gold": {
+        "intents": ["search"],
+        "candidates": [
+          {"canonical_id": "category_tablet", "target_kind": "category", "facet": null, "scope": null, "origin": "explicit", "value_must_contain": []}
+        ],
+        "item_action": null,
+        "tradeoff": null,
+        "supersedes": [],
+        "residual_color_choice": false,
+        "forbidden_candidate_ids": ["budget"]
+      }
+    }
+  ]
+}

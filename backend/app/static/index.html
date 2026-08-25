@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="A local real-data SPN and RA-Rec tablet recommendation workflow" />
+    <title>KDMS · Real-Data Decision Memory Lab</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="brand-block">
+        <span class="brand-mark" aria-hidden="true">K</span>
+        <div>
+          <p class="eyebrow">KDMS REAL-DATA MVP</p>
+          <h1>Decision Memory Lab</h1>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <span id="connectionStatus" class="status-pill">Preparing local demo</span>
+        <button id="resetButton" class="ghost-button" type="button">New conversation</button>
+      </div>
+    </header>
+
+    <section class="scenario-bar" aria-label="Local runtime summary">
+      <div>
+        <span class="scenario-label">REAL AMAZON TABLET SAMPLE</span>
+        <span id="catalogSummary" class="scenario-help">Loading installed catalog…</span>
+      </div>
+      <span id="modelSummary" class="scenario-help">Checking LLM provider…</span>
+    </section>
+
+    <main class="workspace">
+      <section class="panel conversation-panel" aria-labelledby="conversationTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker spn-color">INPUT · LOOP</p>
+            <h2 id="conversationTitle">Conversation</h2>
+          </div>
+          <span id="turnCount" class="panel-count">0 turns</span>
+        </div>
+        <div id="messages" class="messages" aria-live="polite">
+          <div class="empty-state">
+            <strong>Describe the tablet you need in your own words.</strong>
+            <span>There is no scripted scenario in the live demo.</span>
+          </div>
+        </div>
+        <form id="messageForm" class="composer">
+          <label class="sr-only" for="messageInput">Shopping request</label>
+          <textarea id="messageInput" rows="3" maxlength="2000" placeholder="Example: I need a lightweight tablet under $350 for class notes and reading…" required></textarea>
+          <div class="composer-footer">
+            <span>Enter to send · Shift+Enter for a new line</span>
+            <button id="sendButton" type="submit">Send</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="panel decision-panel" aria-labelledby="decisionTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker">LIVE WORKFLOW</p>
+            <h2 id="decisionTitle">Decision trace</h2>
+          </div>
+          <span id="laneBadge" class="lane-badge muted">Waiting</span>
+        </div>
+        <div id="trace" class="trace-list">
+          <div class="empty-state compact">
+            <strong>No nodes have run yet.</strong>
+            <span>Your first message will execute PLAN → MEMORY → DECIDE.</span>
+          </div>
+        </div>
+        <div class="section-divider"></div>
+        <div class="result-heading">
+          <div>
+            <p class="panel-kicker rarec-color">RANKED EVIDENCE</p>
+            <h3>Recommendation cards</h3>
+          </div>
+          <span id="resultMeta" class="panel-count">No result</span>
+        </div>
+        <div id="productCards" class="product-cards">
+          <div class="empty-state compact"><span>Ranked products and exact review evidence will appear here.</span></div>
+        </div>
+      </section>
+
+      <aside class="panel inspector-panel" aria-labelledby="inspectorTitle">
+        <div class="panel-heading">
+          <div>
+            <p class="panel-kicker rarec-color">PIPELINE INSPECTOR</p>
+            <h2 id="inspectorTitle">State & evidence</h2>
+          </div>
+        </div>
+        <div class="tabs" role="tablist" aria-label="Inspector views">
+          <button class="tab active" data-tab="state" role="tab" aria-selected="true">State</button>
+          <button class="tab" data-tab="diff" role="tab" aria-selected="false">Diff</button>
+          <button class="tab" data-tab="policy" role="tab" aria-selected="false">Policy</button>
+          <button class="tab" data-tab="json" role="tab" aria-selected="false">JSON</button>
+        </div>
+        <div id="inspectorContent" class="inspector-content">
+          <div class="empty-state compact"><span>Dialogue state and provenance accumulate here.</span></div>
+        </div>
+        <div class="disclosure">
+          <strong>Data boundary</strong>
+          <span id="inventoryDisclosure">Loading the installed data disclosure…</span>
+        </div>
+      </aside>
+    </main>
+
+    <script src="/static/app.js" defer></script>
+  </body>
+</html>

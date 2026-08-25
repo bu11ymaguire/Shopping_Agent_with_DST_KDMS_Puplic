@@ -1,0 +1,65 @@
+{
+  "schema_version": "poster-annotation-packet-summary-v1",
+  "generated_at": "2026-08-07T04:41:25.798738+00:00",
+  "packet_base_id": "poster-v1-2fc174978a6dbbec",
+  "scenario_dataset": "data/poster_recommendation_scenarios_v1.json",
+  "scenario_dataset_sha256": "6241a74a9f678585ab97726e28683b5f4df09224712341a416110b6cee237934",
+  "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+  "catalog_manifest_sha256": "e6af26c276e9e05bef2b5328cf731ca9da805f0275fb95b11fba41f2de82c90d",
+  "semantic_manifest_sha256": "2e1a44306eb408b7e35987d2dad3334f73d9d3dae84edc0995312a31d569db10",
+  "randomization_seed": "poster-annotation-v1-frozen-20260807",
+  "scenario_count": 20,
+  "annotator_count": 3,
+  "hard_negatives_per_scenario": 2,
+  "product_judgment_count_per_annotator": 170,
+  "review_judgment_count_per_annotator": 302,
+  "blinding": {
+    "hidden_from_public_packets": [
+      "parent_asin",
+      "source_review_id",
+      "originating_system",
+      "original_rank",
+      "production_score",
+      "retrieval_score"
+    ],
+    "private_provenance_git_ignored": true,
+    "labels_prefilled": false,
+    "annotator_specific_order": true
+  },
+  "local_artifacts": {
+    "private_provenance.json": {
+      "bytes": 193971,
+      "sha256": "864b4788fb8e19530289063b8171e4214fdb6bc88c615cf82d3abbfc7d9c3929"
+    },
+    "annotator-01/product_annotations.json": {
+      "bytes": 360258,
+      "sha256": "b91f2a49037a434492dda80d8e63c7e7b384bb0c479cab98f68233570d76721d"
+    },
+    "annotator-01/review_annotations.json": {
+      "bytes": 485696,
+      "sha256": "510e8d184ec5823508b9a119e9ed8e39be1c470fe27de1b4f81025cbe78ce48d"
+    },
+    "annotator-02/product_annotations.json": {
+      "bytes": 360258,
+      "sha256": "1876564511a756932a2f967827078d034978659054a8b2616f49e3ba70f3ba07"
+    },
+    "annotator-02/review_annotations.json": {
+      "bytes": 485696,
+      "sha256": "b70bcd6b6b11bf465e150b6beefcedfb1954fbb0dbc5c9a6e8c8b245b63d8c8a"
+    },
+    "annotator-03/product_annotations.json": {
+      "bytes": 360258,
+      "sha256": "bb6d9919c857086d9f98ec311f44ee27fa6de92faaa115464d9b8cb677c9ddb2"
+    },
+    "annotator-03/review_annotations.json": {
+      "bytes": 485696,
+      "sha256": "cb766da23692d94458975ff0321861468777cfbb7595e2ee32a5b82dcc0c7693"
+    }
+  },
+  "limitations": [
+    "Scenario design is frozen, but no human relevance labels have been collected.",
+    "The generated packet is an annotation input, not an evaluation result.",
+    "Product and review workloads may be assigned to separate annotator groups while preserving at least two independent labels per item.",
+    "No-memory and no-review ablation outputs are not yet included in this packet version."
+  ]
+}
