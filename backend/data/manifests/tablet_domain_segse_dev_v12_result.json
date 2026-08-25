@@ -1,0 +1,77 @@
+{
+  "manifest_version": "tablet-domain-segse-dev-v1.2-result",
+  "status": "module_gate_passed_downstream_pending",
+  "confirmatory_evidence": false,
+  "selected_for_confirmatory": false,
+  "run_id": "segse-dev-v12-20260818T034024Z-d87b621e",
+  "started_at": "2026-08-18T03:40:24.131960+00:00",
+  "completed_at": "2026-08-18T03:41:07.435522+00:00",
+  "execution_branch": "codex/segse-lite-experiment",
+  "execution_commit": "b67e7bef39624cdd2543aa65641e1882fe5c57d7",
+  "baseline_source_sha256": "0e28f9e4f09b9aa5cb20edb79937732c7aa69440db033016e1915619c63f4e6f",
+  "new_logical_understanding_calls": 24,
+  "artifacts": {
+    "source_compact": {
+      "path": "data/results/tablet_domain_segse_dev_v12.json",
+      "sha256": "01d01424d93965e46abba07430a1e7cdef4a2506ab1d98e7486a2062f9880641",
+      "size_bytes": 99645,
+      "tracked": true,
+      "note": "Preserves the original frozen evaluator output before the case-local guardrail erratum."
+    },
+    "corrected_compact": {
+      "path": "data/results/tablet_domain_segse_dev_v12_corrected.json",
+      "sha256": "aa2ad5ffa6402637449fb16008a760e8a2c3069c4bd3231d9d171e79aff1ef31",
+      "size_bytes": 6941,
+      "tracked": true,
+      "primary_for_reporting": true
+    },
+    "analysis": {
+      "path": "docs/tablet_domain_segse_dev_result_v12.md",
+      "sha256_lf_normalized": "14cdcf747167c343f80594e3d9cad0a7ce6ae152e17bf764ea0a70fd74e5567d",
+      "tracked": true
+    },
+    "raw_report": {
+      "path": "reports/tablet_domain_segse_dev_v12.json",
+      "sha256": "dfcbfa069267098979fd81ec21684d40f990895a2c6683c8900ec6e93e6d4a51",
+      "size_bytes": 227695,
+      "tracked": false
+    }
+  },
+  "trace": {
+    "file": "tablet_segse_dev_segse-dev-v12-20260818T034024Z-d87b621e_d4_segse_lite_v12.jsonl",
+    "sha256": "4964fcb4cdcab62a1cb65c9344912182bb60101965c806d2e4ffaee4430d7c4d",
+    "size_bytes": 117608,
+    "logical_calls": 24,
+    "schema_repairs": 0,
+    "transport_retries": 0,
+    "fallbacks": 0
+  },
+  "erratum_sources_sha256_lf_normalized": {
+    "app/evaluation/tablet_domain_segse_corrected.py": "94e358b45ee1c41a38e2454f923dc9e307e411e2df3d63897aa6e1c9c4c8178d",
+    "scripts/build_tablet_domain_segse_dev_v12_corrected.py": "e338bdeb9ee8a6f332a6e1dec3e2282f211547ba93104ee648787707871c07c3",
+    "scripts/verify_tablet_domain_segse_dev_v12_result.py": "2e2b4e6b130481148640e3fc26a4197e9524fac6dea85a133e9ab1faf4803d8b"
+  },
+  "corrected_headline": {
+    "schema_completion": 1.0,
+    "raw_candidate_false_positive": 1,
+    "raw_candidate_recall": 0.769231,
+    "c2u_false_positive": 0,
+    "material_delta_f1": 0.857143,
+    "material_operation_f1": 0.714286,
+    "final_state_precision": 1.0,
+    "final_state_recall": 0.727273,
+    "final_state_f1": 0.842105,
+    "final_state_false_positive": 0,
+    "final_state_false_negative": 6,
+    "correction_recall_case_local": 0.5,
+    "retract_recall_case_local": 1.0,
+    "reactivation_recall_case_local": 1.0
+  },
+  "decision": {
+    "module_gate": "passed",
+    "downstream_hard_filter_guardrail": "pending",
+    "next_step": "small_frozen_end_to_end_development_check",
+    "do_not_tune_further_on_same_24_cases": true,
+    "do_not_create_confirmatory_claim_yet": true
+  }
+}

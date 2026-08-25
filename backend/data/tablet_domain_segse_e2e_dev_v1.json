@@ -1,0 +1,364 @@
+{
+  "dataset_version": "tablet-domain-segse-e2e-dev-v1.0",
+  "split": "development",
+  "status": "frozen_development_fixture_not_confirmatory_evidence",
+  "schema_version": "tablet-domain-segse-e2e-dev-v1",
+  "design_note": "Six new four-turn scenarios authored after the SEGSE v1.2 module result and before any end-to-end run. Gold separates typed current-turn events, material operations, accumulated state, policy, and hard filters. This is a development guardrail set, not untouched confirmatory evidence.",
+  "scenarios": [
+    {
+      "id": "se01",
+      "title": "Unchanged requirements amid accumulated reading state",
+      "tags": ["c2u_negative_control", "hard_filter_addition", "persistence"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "I need a tablet primarily for rehearsing from digital sheet music.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "activity_reading", "act": "assert", "scope_after": null, "value_after": "reading digital sheet music", "evidence_text": "rehearsing from digital sheet music"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {}
+        },
+        {
+          "turn": 2,
+          "utterance": "The checkout total must stay at or below $360.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$360 maximum", "evidence_text": "at or below $360"}
+          ],
+          "forbidden_event_ids": ["activity_reading"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 360}
+        },
+        {
+          "turn": 3,
+          "utterance": "Please refresh the tablet choices; none of my requirements have changed.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [],
+          "forbidden_event_ids": ["activity_reading", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 360}
+        },
+        {
+          "turn": 4,
+          "utterance": "Built-in internal storage must be at least 128 GB.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "storage_capacity", "act": "assert", "scope_after": "hard", "value_after": "at least 128 GB internal storage", "evidence_text": "at least 128 GB"}
+          ],
+          "forbidden_event_ids": ["memory_capacity", "activity_reading", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 360, "min_storage_gb": 128}
+        }
+      ],
+      "final_gold_active_tokens": ["activity_reading|facet", "budget|hard|360", "storage_capacity|hard|128"]
+    },
+    {
+      "id": "se02",
+      "title": "Confirm storage then revise its numeric value",
+      "tags": ["confirmation", "value_correction", "hard_filter_revision"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "It is mainly for movie nights, and the total cost must remain under $420.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "activity_video", "act": "assert", "scope_after": null, "value_after": "movie viewing", "evidence_text": "mainly for movie nights"},
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$420 maximum", "evidence_text": "under $420"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 420}
+        },
+        {
+          "turn": 2,
+          "utterance": "Set the built-in storage floor at 128 GB.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "storage_capacity", "act": "assert", "scope_after": "hard", "value_after": "at least 128 GB internal storage", "evidence_text": "128 GB"}
+          ],
+          "forbidden_event_ids": ["memory_capacity"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 420, "min_storage_gb": 128}
+        },
+        {
+          "turn": 3,
+          "utterance": "Keep that 128 GB internal-storage floor exactly as set.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "storage_capacity", "act": "confirm", "scope_after": null, "value_after": null, "evidence_text": "Keep that 128 GB internal-storage floor exactly as set"}
+          ],
+          "forbidden_event_ids": ["activity_video", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 420, "min_storage_gb": 128}
+        },
+        {
+          "turn": 4,
+          "utterance": "Actually make the internal-storage minimum 256 GB.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "storage_capacity", "act": "assert", "scope_after": "hard", "value_after": "at least 256 GB internal storage", "evidence_text": "256 GB"}
+          ],
+          "forbidden_event_ids": ["memory_capacity", "activity_video", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 420, "min_storage_gb": 256}
+        }
+      ],
+      "final_gold_active_tokens": ["activity_video|facet", "budget|hard|420", "storage_capacity|hard|256"]
+    },
+    {
+      "id": "se03",
+      "title": "Retract and reactivate an operating-system requirement",
+      "tags": ["retract", "reactivation", "tombstone"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "This is for office reports, and I cannot spend more than $520.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "goal_work_study", "act": "assert", "scope_after": null, "value_after": "office work", "evidence_text": "for office reports"},
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$520 maximum", "evidence_text": "cannot spend more than $520"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 520}
+        },
+        {
+          "turn": 2,
+          "utterance": "Android is mandatory for our work apps.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "operating_system", "act": "assert", "scope_after": "hard", "value_after": "Android required", "evidence_text": "Android is mandatory"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 520, "operating_system": "android"}
+        },
+        {
+          "turn": 3,
+          "utterance": "I no longer require any particular operating system.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "operating_system", "act": "retract", "scope_after": null, "value_after": null, "evidence_text": "no longer require any particular operating system"}
+          ],
+          "forbidden_event_ids": ["goal_work_study", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 520}
+        },
+        {
+          "turn": 4,
+          "utterance": "Android is mandatory again because of those apps.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "operating_system", "act": "assert", "scope_after": "hard", "value_after": "Android required", "evidence_text": "Android is mandatory again"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 520, "operating_system": "android"}
+        }
+      ],
+      "final_gold_active_tokens": ["budget|hard|520", "goal_work_study|facet", "operating_system|hard|android"]
+    },
+    {
+      "id": "se04",
+      "title": "Relax a quantitative display requirement to a preference",
+      "tags": ["scope_correction", "no_update_control", "hard_filter_removal"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "I read construction blueprints, and my spending ceiling is $480.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "activity_reading", "act": "assert", "scope_after": null, "value_after": "reading construction blueprints", "evidence_text": "read construction blueprints"},
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$480 maximum", "evidence_text": "spending ceiling is $480"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 480}
+        },
+        {
+          "turn": 2,
+          "utterance": "The screen must be at least 11 inches.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "display", "act": "assert", "scope_after": "hard", "value_after": "at least 11 inch screen", "evidence_text": "at least 11 inches"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 480, "min_screen_inches": 11}
+        },
+        {
+          "turn": 3,
+          "utterance": "An 11-inch display would be nice, but screen size is no longer a strict requirement.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "display", "act": "assert", "scope_after": "soft", "value_after": "11-inch display preferred", "evidence_text": "11-inch display would be nice"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 480}
+        },
+        {
+          "turn": 4,
+          "utterance": "Show me the current tablet choices.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [],
+          "forbidden_event_ids": ["activity_reading", "budget", "display"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 480}
+        }
+      ],
+      "final_gold_active_tokens": ["activity_reading|facet", "budget|hard|480", "display|soft"]
+    },
+    {
+      "id": "se05",
+      "title": "Unsupported preference dimensions remain silent",
+      "tags": ["negative_polarity", "storage_dimension", "no_update_control"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "For casual web browsing, keep the price at $300 or less.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "activity_general", "act": "assert", "scope_after": null, "value_after": "casual web browsing", "evidence_text": "casual web browsing"},
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$300 maximum", "evidence_text": "$300 or less"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 300}
+        },
+        {
+          "turn": 2,
+          "utterance": "A microSD slot that accepts large cards would be convenient.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [],
+          "forbidden_event_ids": ["storage_capacity", "memory_capacity", "activity_general", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 300}
+        },
+        {
+          "turn": 3,
+          "utterance": "Windows is the only system I do not want.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [],
+          "forbidden_event_ids": ["operating_system", "activity_general", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 300}
+        },
+        {
+          "turn": 4,
+          "utterance": "Continue with the same tablet search.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [],
+          "forbidden_event_ids": ["activity_general", "budget", "operating_system", "storage_capacity"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 300}
+        }
+      ],
+      "final_gold_active_tokens": ["activity_general|facet", "budget|hard|300"]
+    },
+    {
+      "id": "se06",
+      "title": "Retract one soft priority without losing the rest",
+      "tags": ["soft_retract", "new_soft_preference", "persistence"],
+      "turns": [
+        {
+          "turn": 1,
+          "utterance": "I play strategy games, with a maximum spend of $390.",
+          "gold_route": "in_domain",
+          "gold_intents": ["search"],
+          "gold_events": [
+            {"canonical_id": "activity_gaming", "act": "assert", "scope_after": null, "value_after": "strategy gaming", "evidence_text": "play strategy games"},
+            {"canonical_id": "budget", "act": "assert", "scope_after": "hard", "value_after": "$390 maximum", "evidence_text": "maximum spend of $390"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 390}
+        },
+        {
+          "turn": 2,
+          "utterance": "Long battery life is a priority.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "battery", "act": "assert", "scope_after": "soft", "value_after": "long battery life is a priority", "evidence_text": "Long battery life is a priority"}
+          ],
+          "forbidden_event_ids": [],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 390}
+        },
+        {
+          "turn": 3,
+          "utterance": "Battery life is no longer a priority for me.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "battery", "act": "retract", "scope_after": null, "value_after": null, "evidence_text": "no longer a priority"}
+          ],
+          "forbidden_event_ids": ["activity_gaming", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 390}
+        },
+        {
+          "turn": 4,
+          "utterance": "Low weight matters when I carry it on the train.",
+          "gold_route": "in_domain",
+          "gold_intents": ["refine"],
+          "gold_events": [
+            {"canonical_id": "portability", "act": "assert", "scope_after": "soft", "value_after": "low weight matters for train travel", "evidence_text": "Low weight matters"}
+          ],
+          "forbidden_event_ids": ["max_weight", "battery", "activity_gaming", "budget"],
+          "gold_policy_lane": "recommend-lane",
+          "gold_question_target": null,
+          "expected_hard_filters_after_turn": {"max_price_usd": 390}
+        }
+      ],
+      "final_gold_active_tokens": ["activity_gaming|facet", "budget|hard|390", "portability|soft"]
+    }
+  ]
+}

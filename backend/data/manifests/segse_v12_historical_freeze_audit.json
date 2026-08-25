@@ -1,0 +1,48 @@
+{
+  "schema_version": "segse-v12-historical-freeze-audit-v1",
+  "status": "expected_historical_mismatch_recorded_not_repaired",
+  "classification": "FAIL_AS_HISTORICAL_MISMATCH",
+  "must_not_be_reported_as": "PASS_CURRENT",
+  "subject": {
+    "historical_manifest": "data/manifests/tablet_domain_segse_dev_v12_protocol.json",
+    "historical_manifest_status": "provider_compatible_flat_contract_frozen_before_live_run",
+    "historical_manifest_written_at_commit": "b67e7bef39624cdd2543aa65641e1882fe5c57d7",
+    "historical_manifest_written_by": "Add provider-compatible SEGSE v1.2 arm",
+    "verifier": "scripts/verify_tablet_domain_segse_dev_v12.py",
+    "verifier_currently_fails": true,
+    "failing_assertion": "frozen v1.2 hash: app/segse_experiment_v12.py"
+  },
+  "hashes": {
+    "file": "app/segse_experiment_v12.py",
+    "original_frozen_expected_sha256_lf_normalized": "31cdff6ffa8ec3dfccb336f4c7c3143b90418190b6d1be1ac9cdf5e1d19b84d7",
+    "current_working_tree_sha256_lf_normalized": "5408f8a9a1a801bb61cb457050d9de571f27768e2144f6bdf23859686bddb907"
+  },
+  "source_change": {
+    "changed_at_commit": "9ea20639498435464001e5a985a113602c6eef46",
+    "changed_by": "Freeze SEGSE multi-turn development guardrail",
+    "changed_at": "2026-08-18T13:30:18+09:00",
+    "change_shape": "48 insertions, 0 deletions",
+    "occurred_after_the_v12_freeze": true
+  },
+  "interpretation": "The original v1.2 freeze manifest is historically preserved exactly as written. The current working-tree copy of app/segse_experiment_v12.py no longer matches that historical freeze because the source was modified in a later commit. The mismatch is therefore a true statement about history, not a defect to be silenced.",
+  "impact_on_v13_and_v14": {
+    "impact": "none",
+    "reason": "The v1.3 and v1.4 manifests independently pin the current hash 5408f8a9, and the v1.4 method freeze pins the same value, so those freezes are internally consistent.",
+    "v14_method_freeze_pins": "5408f8a9a1a801bb61cb457050d9de571f27768e2144f6bdf23859686bddb907"
+  },
+  "actions_taken": [
+    "recorded this audit note as a separate artifact"
+  ],
+  "actions_deliberately_not_taken": [
+    "changing the expected hash in the historical v1.2 manifest",
+    "adjusting the historical verifier so that it passes",
+    "moving or retagging any freeze tag",
+    "reverting the later source change",
+    "reclassifying the failure as a current pass"
+  ],
+  "provenance_rationale": "Leaving the mismatch visible is more trustworthy than editing a past freeze record. A freeze that can be rewritten after the fact is not a freeze.",
+  "expected_verifier_behaviour": {
+    "scripts/verify_tablet_domain_segse_dev_v12.py": "expected to fail with the recorded assertion until the historical record is retired",
+    "scripts/verify_segse_v12_historical_audit.py": "expected to pass, and it asserts that the mismatch still has exactly the recorded shape"
+  }
+}

@@ -1,0 +1,1103 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-v14-attribution-v1",
+  "status": "offline_attribution_diagnostic_not_confirmatory",
+  "additional_llm_calls": 0,
+  "method": "Each recorded raw proposal is replayed through both deterministic pipelines against that run's own recorded pre-turn state. Item actions are absent in this fixture, and sanitized controls are reused, so only state events are attributed.",
+  "v13_run_id": "segse-e2e-dev-v13-20260818T045252Z-ac1d5b",
+  "v14_run_id": "segse-e2e-dev-v14-20260818T154634Z-b44d0a",
+  "turn_count": 24,
+  "counts": {
+    "raw_proposal_identical": 19,
+    "raw_proposal_differed": 5,
+    "code_changed_outcome_on_v13_raw": 6,
+    "code_changed_outcome_on_v14_raw": 5,
+    "provider_changed_outcome_under_v14_code": 1
+  },
+  "turns_where_code_changed_outcome": [
+    "se02t1",
+    "se02t4",
+    "se03t1",
+    "se04t3",
+    "se05t1",
+    "se06t1"
+  ],
+  "turns_where_provider_changed_outcome": [
+    "se05t2"
+  ],
+  "turns": [
+    {
+      "turn_id": "se01t1",
+      "utterance": "I need a tablet primarily for rehearsing from digital sheet music.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        }
+      }
+    },
+    {
+      "turn_id": "se01t2",
+      "utterance": "The checkout total must stay at or below $360.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se01t3",
+      "utterance": "Please refresh the tablet choices; none of my requirements have changed.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se01t4",
+      "utterance": "Built-in internal storage must be at least 128 GB.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se02t1",
+      "utterance": "It is mainly for movie nights, and the total cost must remain under $420.",
+      "raw_proposal_identical_across_runs": false,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": true,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_video|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_video|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_video|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_video|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se02t2",
+      "utterance": "Set the built-in storage floor at 128 GB.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se02t3",
+      "utterance": "Keep that 128 GB internal-storage floor exactly as set.",
+      "raw_proposal_identical_across_runs": false,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|confirm"
+          ],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|confirm"
+          ],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|confirm"
+          ],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|confirm"
+          ],
+          "material_operations": [],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se02t4",
+      "utterance": "Actually make the internal-storage minimum 256 GB.",
+      "raw_proposal_identical_across_runs": false,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "storage_requires_internal_capacity_dimension"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|update_value"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|update_value"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "storage_capacity|assert"
+          ],
+          "material_operations": [
+            "storage_capacity|update_value"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se03t1",
+      "utterance": "This is for office reports, and I cannot spend more than $520.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": true,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "budget|assert",
+            "goal_work_study|assert"
+          ],
+          "material_operations": [
+            "budget|add",
+            "goal_work_study|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "budget|assert",
+            "goal_work_study|assert"
+          ],
+          "material_operations": [
+            "budget|add",
+            "goal_work_study|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se03t2",
+      "utterance": "Android is mandatory for our work apps.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se03t3",
+      "utterance": "I no longer require any particular operating system.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|retract"
+          ],
+          "material_operations": [
+            "operating_system|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|retract"
+          ],
+          "material_operations": [
+            "operating_system|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|retract"
+          ],
+          "material_operations": [
+            "operating_system|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|retract"
+          ],
+          "material_operations": [
+            "operating_system|retract"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se03t4",
+      "utterance": "Android is mandatory again because of those apps.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|reactivate"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|reactivate"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|reactivate"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "operating_system|assert"
+          ],
+          "material_operations": [
+            "operating_system|reactivate"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se04t1",
+      "utterance": "I read construction blueprints, and my spending ceiling is $480.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "activity_reading|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_reading|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_reading|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_reading|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "activity_reading|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_reading|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_reading|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_reading|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se04t2",
+      "utterance": "The screen must be at least 11 inches.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se04t3",
+      "utterance": "An 11-inch display would be nice, but screen size is no longer a strict requirement.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": true,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "display|retract"
+          ],
+          "material_operations": [
+            "display|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|update_scope"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "display|retract"
+          ],
+          "material_operations": [
+            "display|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "display|assert"
+          ],
+          "material_operations": [
+            "display|update_scope"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se04t4",
+      "utterance": "Show me the current tablet choices.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        }
+      }
+    },
+    {
+      "turn_id": "se05t1",
+      "utterance": "For casual web browsing, keep the price at $300 or less.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": true,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_general|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_general|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_general|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_general|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se05t2",
+      "utterance": "A microSD slot that accepts large cards would be convenient.",
+      "raw_proposal_identical_across_runs": false,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": true,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_scope_is_illegal_for_canonical_id"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "assert_scope_is_illegal_for_canonical_id"
+          ]
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "note_taking|assert"
+          ],
+          "material_operations": [
+            "note_taking|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "note_taking|assert"
+          ],
+          "material_operations": [
+            "note_taking|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se05t3",
+      "utterance": "Windows is the only system I do not want.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "retract_requires_active_prior_fact"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "retract_requires_active_prior_fact"
+          ]
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "retract_requires_active_prior_fact"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": [
+            "retract_requires_active_prior_fact"
+          ]
+        }
+      }
+    },
+    {
+      "turn_id": "se05t4",
+      "utterance": "Continue with the same tablet search.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [],
+          "material_operations": [],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se06t1",
+      "utterance": "I play strategy games, with a maximum spend of $390.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": true,
+      "code_changed_outcome_on_v14_raw": true,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_gaming|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_gaming|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "budget|assert"
+          ],
+          "material_operations": [
+            "budget|add"
+          ],
+          "rejection_reasons": [
+            "assert_requires_value_after"
+          ]
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "activity_gaming|assert",
+            "budget|assert"
+          ],
+          "material_operations": [
+            "activity_gaming|add",
+            "budget|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se06t2",
+      "utterance": "Long battery life is a priority.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "battery|assert"
+          ],
+          "material_operations": [
+            "battery|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "battery|assert"
+          ],
+          "material_operations": [
+            "battery|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "battery|assert"
+          ],
+          "material_operations": [
+            "battery|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "battery|assert"
+          ],
+          "material_operations": [
+            "battery|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se06t3",
+      "utterance": "Battery life is no longer a priority for me.",
+      "raw_proposal_identical_across_runs": true,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "battery|retract"
+          ],
+          "material_operations": [
+            "battery|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "battery|retract"
+          ],
+          "material_operations": [
+            "battery|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "battery|retract"
+          ],
+          "material_operations": [
+            "battery|retract"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "battery|retract"
+          ],
+          "material_operations": [
+            "battery|retract"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    },
+    {
+      "turn_id": "se06t4",
+      "utterance": "Low weight matters when I carry it on the train.",
+      "raw_proposal_identical_across_runs": false,
+      "code_changed_outcome_on_v13_raw": false,
+      "code_changed_outcome_on_v14_raw": false,
+      "provider_changed_outcome_under_v14_code": false,
+      "cells": {
+        "v13_raw|v13_code": {
+          "authorized_event_pairs": [
+            "portability|assert"
+          ],
+          "material_operations": [
+            "portability|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v13_raw|v14_code": {
+          "authorized_event_pairs": [
+            "portability|assert"
+          ],
+          "material_operations": [
+            "portability|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v13_code": {
+          "authorized_event_pairs": [
+            "portability|assert"
+          ],
+          "material_operations": [
+            "portability|add"
+          ],
+          "rejection_reasons": []
+        },
+        "v14_raw|v14_code": {
+          "authorized_event_pairs": [
+            "portability|assert"
+          ],
+          "material_operations": [
+            "portability|add"
+          ],
+          "rejection_reasons": []
+        }
+      }
+    }
+  ]
+}

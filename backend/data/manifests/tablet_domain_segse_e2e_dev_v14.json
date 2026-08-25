@@ -1,0 +1,90 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-v14-protocol-v1",
+  "status": "post_v13_development_protocol_frozen_before_first_v14_run",
+  "confirmatory_evidence": false,
+  "prompt_version": "segse-lite-tablet-domain-en-v1.4-dev",
+  "prompt_text_identical_to_v13": true,
+  "changed_layer": "deterministic_event_interpretation_only",
+  "selected_method_parent_commit": "d118a6cb3ae397ec78ff4db5c40d6dcfd2b71df6",
+  "dataset": {
+    "path": "data/tablet_domain_segse_e2e_dev_v1.json",
+    "sha256_lf_normalized": "5c1727b9d5dcbb106ce78db57d717ed3242b762d54f3e57578309160c472561c",
+    "scenario_count": 6,
+    "turn_count": 24,
+    "reuse_classification": "exposed_development_fixture_only"
+  },
+  "baseline_reference": {
+    "reuse": "tracked_frozen_summary",
+    "path": "data/results/tablet_domain_segse_e2e_dev_v1.json",
+    "sha256": "6d3ae7072799930be9bd78c7432e4f1d32d3affa93ad2fa6d865ee8c8fd834f9",
+    "additional_llm_calls": 0
+  },
+  "v13_reference": {
+    "reuse": "tracked_recorded_summary",
+    "path": "data/results/tablet_domain_segse_e2e_dev_v13.json",
+    "sha256": "572903fa8b9c540a082b3a65533e9334563fb289c07310af0c994223f7a4f1c5",
+    "additional_llm_calls": 0
+  },
+  "run_contract": {
+    "live_arm": "d4_segse_v14",
+    "run_live_arm_once": true,
+    "maximum_logical_calls": 24,
+    "understanding_calls_per_attempted_turn": 1,
+    "temperature": 0,
+    "response_composer": "deterministic_template",
+    "continue_after_failed_turn": true,
+    "missing_outputs_counted_as_failures": true
+  },
+  "development_gates": {
+    "gate_identical_to_v13": true,
+    "minimum_treatment_turn_output_completion": 0.95,
+    "candidate_fp_reduction_minimum": 0.3,
+    "c2u_fp_reduction_minimum": 0.5,
+    "candidate_recall_drop_maximum": 0.02,
+    "correction_recall_drop_maximum": 0.02,
+    "retract_recall_drop_maximum": 0.02,
+    "reactivation_recall_drop_maximum": 0.02,
+    "turnwise_state_f1_drop_maximum": 0.01,
+    "scenario_final_state_f1_drop_maximum": 0.01,
+    "hard_filter_completion_drop_maximum": 0.01,
+    "policy_lane_accuracy_drop_maximum": 0.02,
+    "recommendation_completion_drop_maximum": 0.02,
+    "no_event_false_assertions_must_not_increase": true,
+    "turnwise_final_fp_must_not_increase": true,
+    "scenario_final_fp_must_not_increase": true
+  },
+  "non_gating_regression_view": {
+    "reference": "recorded v1.3 treatment metrics",
+    "purpose": "expose the FP versus correction trade-off as explicit numbers",
+    "fields": [
+      "candidate_fp_count",
+      "c2u_fp_count",
+      "novel_candidate_fp_count",
+      "raw_candidate_recall",
+      "raw_candidate_precision",
+      "turnwise_final_fp",
+      "scenario_final_fp",
+      "turnwise_state_f1",
+      "scenario_final_state_f1",
+      "correction_recall",
+      "retract_recall",
+      "reactivation_recall",
+      "material_operation_f1",
+      "turn_output_completion_rate",
+      "hard_filter_completion_rate",
+      "policy_lane_accuracy",
+      "false_assertion_on_no_event_turn_count"
+    ]
+  },
+  "frozen_sources_sha256_lf_normalized": {
+    "app/evaluation/tablet_domain_segse_e2e.py": "fcdbedfefa5419e2cc892f462853abdf3245a41f83754f5867c2e0a91afa5b23",
+    "app/segse_experiment.py": "123bd75f11ae4ea659964ca8930cd2b22bba3bedbb758738fee093ca64aec41f",
+    "app/segse_experiment_v11.py": "29358f9c74d9f379b8be35296162711927785c32ba7045f6f48e7c50e393aca6",
+    "app/segse_experiment_v12.py": "5408f8a9a1a801bb61cb457050d9de571f27768e2144f6bdf23859686bddb907",
+    "app/segse_experiment_v13.py": "aa1a5284283c26601320504ed0c7775e82d7833db352dc877b37f3d3a4d757ef",
+    "app/segse_experiment_v14.py": "947933ef62f04fe2ca8b6b2780425dd61228573b65045f7bdb71d2139b907ff1",
+    "scripts/run_tablet_domain_segse_e2e_dev_v14.py": "6066d569e616e5cf66ee261465a64596ac0edcded021dfbb543f21135c021f8c",
+    "scripts/verify_segse_experiment_v14.py": "0bb34f96c0c79ff35b0d9d8c0e843facc9dcf4edce87c8dae71e44810ad06229"
+  },
+  "claim_boundary": "v1.4 is tuned on an exposed development fixture. Passing this gate cannot confirm generalization; it can only allow a later method freeze and a new untouched holdout."
+}

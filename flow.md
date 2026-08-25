@@ -97,21 +97,215 @@ schema failure 이후 미출력 turn도 실패로 집계한다. Full/No-memory�
 State difference는 +0.258 [0.172, 0.334], State Diff는 -0.138 [-0.222, -0.056]이다. persistent
 memory의 누적 보존 이점과 previous-state over-extraction을 함께 보고한다.
 
+2026-08-18에는 `codex/segse-lite-experiment` 격리 브랜치에서 Full-Memory의 read/write semantics를
+분리하는 SEGSE 개발 실험을 수행했다. 첫 v1은 24-case development fixture에서 Candidate FP
+6→2, C2U 2→1, Final State FP 8→3으로 줄였지만 schema completion 0.833과 12개 event rejection으로
+module gate에 실패했다. v1.1의 discriminated `oneOf` schema는 Luxia strict response format에서
+지원되지 않아 2건 동일 provider error 뒤 중단했고 performance result로 사용하지 않는다.
+
+Provider-compatible flat schema인 v1.2는 frozen B0 결과를 재사용하고 treatment만 24회 호출해
+24/24, schema repair/transport retry/fallback 0으로 완주했다. case-local evaluator erratum 기준
+Raw Candidate FP 6→1, C2U 2→0, Material Operation F1 .600→.714, Final State F1 .723→.842,
+Final State FP 8→0이다. correction recall은 양쪽 .500, retract는 .000→1.000, reactivation은
+1.000→1.000이다. v1.2의 Final recall은 .727이고 8개 authorization rejection과 false retraction이
+남아 있다. 따라서 판정은 `module_gate_passed_downstream_pending`이며 confirmatory 선택이 아니다.
+같은 24개에 더 맞추지 말고, 다음은 v1.2를 고정한 작은 multi-turn end-to-end development check에서
+hard-filter completion과 operation-exact correction을 확인한다. 정본은
+`backend/docs/tablet_domain_segse_dev_result_v12.md`와
+`backend/data/manifests/tablet_domain_segse_dev_v12_result.json`이다.
+
+그 다음 개발 단계는 `tablet_domain_segse_e2e_dev_v1.json`의 새 6개×4턴으로 동결했다. 이 세트는
+v1.2 module 결과를 본 뒤 작성했지만 end-to-end 실행 전 동결한 **development guardrail**이며,
+confirmatory evidence가 아니다. B0+C와 v1.2를 각 한 번 live 실행하고 raw Candidate,
+authorized Candidate, typed Material Operation, 매 턴 accumulated state, scenario final state의 FP를
+각각 분리해 본다. 특히 event-free negative control 5턴, confirm 1턴, retract 2턴, value/scope
+correction과 reactivation을 포함하며 missing output도 전 분모에 남긴다. Policy, recommendation
+pipeline, hard-filter completion과 top-3 hard-filter violation도 같은 run에서 평가한다. 프로토콜
+정본은 `backend/docs/tablet_domain_segse_e2e_dev_protocol.md`다.
+
+첫 실행 시도는 sandbox network 차단으로 두 arm 모두 provider 응답 전 `HTTP 0`이 발생해
+0/48 output이었으며 성능 결과가 아니다. raw/summary는 Git-ignored report로 보존하고
+`tablet_domain_segse_e2e_dev_v1_infrastructure_failure.json`에 hash와 실패 분류를 남겼다. 이때
+0-output 상대 비교가 gate를 통과하는 evaluator 결함도 발견해, 양쪽 각각 95% 이상의 절대 output
+completion을 실행 유효성 조건으로 추가했다. network 권한을 확보한 재실행만 semantic run으로 센다.
+
+Network-enabled v1.2 end-to-end 개발 실행은 B0 22/24, SEGSE 21/24로 둘 다 95% completion
+gate에 미달해 `development_run_invalid_insufficient_output`이다. 그럼에도 진단 방향은 분명하다.
+Candidate FP는 12→2, C2U는 8→0, turnwise/scenario-final FP는 15→0/6→0으로 줄었지만,
+Candidate recall은 .810→.619, material-operation recall은 .696→.522, turnwise accumulated-state
+recall은 .810→.500으로 하락했다. B0는 duplicate canonical ID schema 실패, SEGSE는
+`min_rating=11 inches`가 value dimension/range 검증 없이 Query까지 전파되어 한 시나리오가 중단됐다.
+따라서 v1.2는 confirmatory로 넘기지 않는다. 정본은
+`backend/docs/tablet_domain_segse_e2e_dev_result_v1.md`와
+`backend/data/manifests/tablet_domain_segse_e2e_dev_v1_result.json`이다.
+
+v1.3은 이 노출된 fixture에 대한 후속 development iteration으로만 정의했다. 변경 범위는
+(1) compound utterance의 모든 독립 fact와 activity/goal facet mapping을 prompt에 명시,
+(2) soft-only ID에 대한 illegal hard scope를 soft로 보수적으로 normalize하고 audit,
+(3) hard value의 dimension/range를 Understanding 경계에서 검증해 Query crash를 막는 것이다.
+v1.2의 provider-compatible flat schema, evidence authority, C, tombstone manager는 유지한다.
+B0는 새로 호출하지 않고 tracked v1 summary를 reference로 재사용하며, v1.3 treatment 24턴만
+실행한다. 이 결과가 통과해도 method freeze 후보일 뿐 confirmatory evidence가 아니다. 정본은
+`backend/docs/tablet_domain_segse_e2e_dev_protocol_v13.md`다.
+
+v1.3 live treatment는 24/24로 완주했고 Candidate recall .905, Candidate FP 3, C2U 0,
+hard-filter completion .958로 v1.2의 completion·acquisition 문제를 크게 회복했다. 그러나 correction
+recall이 .000이고 turnwise accumulated-state F1이 .745로 frozen B0 .783보다 .039 낮아 gate에
+실패했다. 최종 FP 1개는 128→256 GB correction이 dimension evidence 부족으로 reject되어 stale
+128 GB가 남은 경우다. 또한 다섯 facet proposal이 `value_after=null`이라 reject되었고, display
+hard→soft를 RETRACT로 잘못 해석했다. v1.3은 freeze하지 않는다. 정본은
+`backend/docs/tablet_domain_segse_e2e_dev_result_v13.md`와
+`backend/data/manifests/tablet_domain_segse_e2e_dev_v13_result.json`이다.
+
+v1.4는 v1.3의 prompt text와 v1.2 schema를 그대로 두고 deterministic interpretation만 바꾼
+iteration이다. 변경 범위는 (1) 현재 evidence anchor가 해당 facet의 canonical dimension을
+가리킬 때만 null facet value를 보완하고 facet scope/relation을 null로 normalize,
+(2) hard value의 dimension 근거를 anchor 우선으로 보고 anchor에 없으면 competing dimension이
+없는 조건에서만 현재 발화 전체로 확장, (3) active hard fact에 대한 RETRACT가 obligation 부정과
+같은 발화의 동일 dimension positive preference 절을 함께 가질 때만 `assert(scope_after=soft)`로
+재해석하는 것이다. 숫자·단위·범위는 anchor에 고정하고 C, evidence authority, negative polarity,
+microSD, negative OS 차단은 유지한다. hard-only ID는 soft 대응 canonical ID가 없어 relaxation도
+retract로 남으며 이는 vocabulary 한계로 기록한다.
+
+v1.4 live treatment는 24/24 완주에 correction recall 1.000(v1.3 .000), material operation
+F1 .957(v1.3 .800), turnwise accumulated-state F1 .939(B0 .783, v1.3 .745), scenario-final
+F1 .941, hard-filter completion 1.000이었고 Candidate FP 3·C2U 0·Candidate recall
+.905·evidence-span validity 1.000은 v1.3과 동일하다. 15개 predeclared gate check를 모두
+통과했다. development decision은 `PASS - freeze v1.4 for confirmatory evaluation`이며
+system adoption이 아니다. accumulated-state 상승은 persistence amplification을 포함한다.
+turnwise TP 19 증가와 FN 19 감소는 event 수준 correction 6건에서 파생된 것이므로 per-decision
+주장에는 material delta/operation F1을 함께 인용한다. 새로 생긴 Final FP는 `note_taking|soft`
+1종이며 scenario-final FP는 1 유지, turnwise FP만 1→3으로 늘었다. LLM 호출 0회의 offline
+attribution replay는 raw proposal이 24턴 중 5턴에서 달랐고, code 변경이 결과를 바꾼 6턴은 모두
+복구(se02t1, se03t1, se05t1, se06t1 facet, se02t4 value correction, se04t3 scope correction)이며
+se05t2의 새 FP는 v1.3·v1.4 두 pipeline이 동일하게 내는 provider variance임을 보인다. 이 FP는
+carryover도 no-op도 아니고 실제 현재 발화 신호를 잘못된 canonical dimension으로 사상한
+경우이므로 `novel candidate grounding / dimension attribution`이라는 별개 계층으로 기록한다.
+soft preference 전반의 dimension gate는 노출된 fixture에 사후 적합을 피하려고 이번에는 추가하지
+않는다. provenance accuracy는 현재 evaluator가 계산하지 않아
+`not_evaluable_with_current_evaluator`다. 정본은
+`backend/docs/tablet_domain_segse_e2e_dev_protocol_v14.md`,
+`backend/docs/tablet_domain_segse_e2e_dev_result_v14.md`,
+`backend/data/manifests/tablet_domain_segse_e2e_dev_v14_result.json`이다.
+
+method는 `segse-v1.4-freeze` tag와 `backend/data/manifests/segse_v14_method_freeze.json`에
+동결했다. prompt text, strict schema, canonical dimension vocabulary, deterministic repair
+contract, validator·State Manager·Policy·Query·retrieval source hash, model, temperature,
+retrieval/ranking 설정을 모두 pin하고 `scripts/verify_segse_v14_freeze.py`가 재계산해 검증한다.
+freeze 이후 v1.4는 더 tuning하지 않는다.
+
+confirmatory 단계는 `backend/docs/tablet_domain_segse_confirmatory_protocol_v1.md`와
+`backend/data/manifests/tablet_domain_segse_confirmatory_v1_protocol.json`을 정본으로 한다.
+holdout 데이터와 실행 결과가 아직 없는 동안에만 protocol을 수정하며 변경은 manifest의
+`amendment_history`에 남긴다. 현재 revision 2다.
+
+primary question은 "SEGSE v1.4가 false current-turn state update를 줄이면서 실제 value/scope
+correction과 accumulated state를 보존하는가" 하나다. secondary question은 "dimension attribution이
+이제 지배적 잔여 오류인가"이며 descriptive로 고정해 사후에 primary로 승격하지 않는다.
+
+분석은 Analysis A(untouched holdout에 대한 live end-to-end 1회)와 Analysis B(같은 저장된 raw
+proposal을 v1.3·v1.4 deterministic pipeline에 재생하는 fixed-upstream paired 비교, 추가 LLM 호출
+0회)로 분리한다. A는 frozen v1.4 전체 시스템의 실제 성능을, B는 동일 raw proposal 조건에서
+v1.3→v1.4 deterministic contract 변경의 효과만 말한다. B는 `deterministic interpretation-layer
+effect`이며 method 전체의 causal effect가 아니고, upstream이 그 proposal을 얼마나 자주 내는지는
+말하지 않는다. provider variation은 이 protocol에서 추정하지 않는다. holdout에는 live v1.3 run이
+없고 동일 method 두 번째 live run도 금지되므로 end-to-end version difference를 만들 수 없다.
+dev에서 관측한 24턴 중 5턴 차이는 현상의 존재만 기록하며, holdout의 어떤 차이도 provider
+variance로 귀속하지 않는다. 필요하면 첫 실행 전에 `test_retest_second_live_v14_run` 옵션을
+활성화해야 하고 현재는 비활성이다.
+
+primary outcome은 **Final DST가 Gold State에 얼마나 가까운가**이며 graded per-episode 점수다.
+episode마다 error tokens(`|predicted △ gold|` = FP+FN)와 Jaccard를 재고, exact match는 보고하되
+headline이 아니다. dev fixture에서 v1.3은 exact 0/6인데 mean Jaccard가 .569였고 v1.4의 미스 2건은
+각각 1토큰(그중 1건은 provider variance)이었다. 단일 토큰이 headline을 흔들면 안 되므로 exact
+match 단독 성공 선언은 금지한다. 두 번째 primary는 **동일 raw proposal에서 v1.3 대비 closeness
+개선**이며 Analysis B로 측정한다(추가 LLM 호출 0회, 20 episode paired).
+
+decision rule은 absolute가 아니라 comparative다. PASS 조건은 paired mean Jaccard 개선의 95% paired
+bootstrap CI 하한 > 0, 악화 episode ≤ 2/20, 개선 episode ≥ 8/20, correction recall이 v1.3 paired
+값보다 엄격히 큼, guardrail 전부 유지다. absolute Jaccard·error token·micro F1·exact match는
+threshold 없이 서술적으로만 보고한다. untouched 측정이 없는 상태에서 absolute bar는 근거가 없다.
+
+그 외 primary는 Candidate FP·C2U FP·novel candidate FP, value/scope correction recall, material
+State Diff와 material operation P/R/F1이고 turnwise Final State는 persistence-amplified로 표기한다.
+guardrail은 Candidate recall, retract/delete recall, hard-filter completion, schema/turn
+completion이며 guardrail 회귀는 primary가 좋아져도 claim 실패다. 80턴은 correction 지표에 작은
+표본이므로 모든 correction·retract 수치는 operation별 numerator/denominator로 적는다.
+closeness 지표는 `app/evaluation/segse_final_state_closeness.py`에 코드로 고정했고
+`scripts/verify_segse_final_state_closeness.py`가 dev calibration 수치까지 재계산해 검증한다.
+
+test-retest는 활성화했다. Run A는 유일한 primary confirmatory 실행으로 PASS/FAIL과 headline을
+결정하고, Run B는 사전 등록된 provider nondeterminism 측정 전용이며 Run A를 대체·평균·사후
+재정의하지 않는다. **Run A 결과를 열기 전에 Run B까지 연속 실행한다.** 두 run은 같은 80턴의 반복
+측정이므로 독립 표본처럼 합쳐 CI를 계산하지 않고, 평균내거나 더 좋은 쪽을 보고하지 않는다.
+Analysis C가 이 안정성 분석이다.
+
+holdout은 20 scenario × 4턴 = 80턴이다. composition 최소치는 turn quota가 아니라 coverage
+constraint이며, 자연스러운 4턴 episode 20개가 여러 transition family를 섞는 형태여야 한다. 단일
+family로만 구성한 scenario는 거부하고 scenario마다 최소 2개 family를 포함한다. dimension
+attribution negative는 4턴에서 6턴으로 올렸고, dev 문장의 paraphrase 6개가 아니라 expandable
+storage, external accessories, display feature, connectivity feature, port/charging feature,
+stylus accessory 여섯 개의 서로 다른 dimension-confusion family여야 한다. `microSD slot that
+accepts large cards would be convenient.`는 금지 문장이다.
+
+authoring 순서는 protocol freeze → utterance 작성 → gold annotation → static consistency
+validation → manifest/hash → holdout freeze → 첫 v1.4 실행 → 결과 확인으로 고정한다. 작성 중에는
+v1.4를 한 번도 실행하지 않고 v1.4 출력을 보지 않으며 frozen semantic contract만으로 annotation한다.
+
+frozen v1.4를 원래 결함이 관측된 official 20-scenario/81턴 holdout에 1회 측정했다. 0.562/0.758을
+만든 것과 같은 집계 함수와 같은 분모(81턴 전체, 미출력 turn 실패)를 재사용했다. State Diff micro
+F1 0.562→0.816(FP 57→4), Final State micro F1 0.758→0.866이며 Full<No-memory 역설이 뒤집혀
+0.816>0.700이 됐다. official Full이 5개 시나리오를 완주하지 못한 completion confound를 제거해
+공통 15개로만 보면 State Diff 0.620→0.809, Final State 0.803→0.853이다. 같은 조건에서 recall은
+state diff 0.770→0.716, final state 0.797→0.772로 소폭 하락했다. 이 holdout은 이미 소모됐고 official
+Full은 v2.3 prompt였으므로 untouched 증거도 단일 변수 비교도 아니다. 정본은
+`backend/data/results/official_holdout_segse_v14.json`이다.
+
+새 untouched confirmatory holdout 20 scenario/80턴을 두 freeze 이후에 작성해
+`segse-confirmatory-holdout-v1-freeze`로 동결했다. 같은 117개 상품·7,552개 리뷰 catalog를 쓰고
+기존 fixture·holdout과 발화 중복 0이며, hard filter·policy·final token을 결정론 코드로 재도출해
+불일치 0으로 검증했다. Run A와 Run B를 결과 열람 없이 연속 실행하고 두 run 모두 80/80 완주했다.
+
+**confirmatory 결과는 pre-registered decision rule 실패다.** 5개 check 중 3개 통과, 2개 실패:
+`regression_is_bounded`(악화 3/20, 허용 2)와 `correction_recall_recovered`(v1.4 8/14 = v1.3 8/14).
+Run A Final State는 TP 40·FP 11·FN 12, P .784·R .769·F1 .777, exact 10/20, mean Jaccard .713이다.
+Analysis B의 동일 proposal 조건에서 v1.3 exact 0/20·Jaccard .477 → v1.4 exact 10/20·Jaccard .713이고
+13 improved/4 unchanged/3 worsened, mean Jaccard +0.237, paired bootstrap 95% CI [0.137, 0.333]로
+accumulated state 개선은 재현된다. 그러나 value+scope correction recall이 v1.3과 완전히 동일해
+개선의 원인은 correction repair가 아니라 **facet null-value repair**다. scope correction은 3/8이고
+hard→soft 3건(sc13·sc16·sc19)이 display를 hard로 남겼다. 개발 fixture 대비 C2U FP 0→7,
+Candidate FP 3→17로 sparse-grounding precision도 약화됐다. 사전 선언한 secondary question은 yes로
+답해졌다. dimension-confusion negative 6개 전부 오염되고 final FP 원인 중 novel_extraction이 8로
+최다다. Analysis C는 raw proposal 불일치 6/80(7.5%), Final State F1 차 −0.019로 provider 변동이
+실패를 설명하지 못함을 보인다. 이 holdout은 이제 노출됐으므로 v1.4를 여기에 맞춰 수정하거나
+재실행하지 않는다. 정본은 `backend/docs/segse_confirmatory_v1_result.md`,
+`backend/docs/segse_confirmatory_v1_tables.md`,
+`backend/data/manifests/segse_confirmatory_v1_result.json`이다.
+
+protocol은 `segse-confirmatory-v1-protocol-freeze` tag와
+`backend/data/manifests/tablet_domain_segse_confirmatory_v1_freeze.json`으로 hash 동결했다.
+protocol 문서·manifest·verifier와 closeness 모듈·테스트를 pin하며
+`scripts/verify_segse_confirmatory_protocol_freeze.py`가 재계산한다. 이 freeze 이후 primary
+outcome, decision rule, run 역할, composition, authoring 순서는 바꾸지 않는다.
+
+frozen v1.4는 다시 수정하지 않는다. 다음 개입은 v1.5(semantic dimension grounding / attribution
+gate)로 분기해 별도 development iteration, 별도 freeze, 별도 untouched confirmatory를 갖는다.
+
+v1.2 historical freeze는 수정하지 않는다. `tablet_domain_segse_dev_v12_protocol.json`이 pin한
+`31cdff6f…`와 현재 파일 `5408f8a9…`가 다른 이유는 freeze 이후 `9ea2063`에서 v1.2 소스를 48줄
+수정했기 때문이다. 과거 freeze 기록을 사후 수정하거나 verifier를 통과하도록 조정하지 않고
+`FAIL_AS_HISTORICAL_MISMATCH`로 분류해 audit note만 남긴다. 따라서
+`scripts/verify_tablet_domain_segse_dev_v12.py`는 설계상 계속 실패하며,
+`scripts/verify_segse_v12_historical_audit.py`가 그 불일치가 기록된 형태를 유지하는지 검증한다.
+v1.3·v1.4와 v1.4 method freeze는 현재 hash를 독립적으로 pin하므로 영향이 없다. 정본은
+`backend/docs/segse_v12_historical_freeze_audit.md`와
+`backend/data/manifests/segse_v12_historical_freeze_audit.json`이다.
+
 독립 No-review는 GPT upstream identity가 0.721이라 causal comparison으로 사용하지 않는다.
 Full의 state/query/candidate set을 고정하고 review score/reliability만 제거한 결과 top-1은 55.6%,
 top-3 order는 87.3% 바뀌고 mean top-3 Jaccard는 0.522였다. 이 변화는 review contribution을
 보여주지만 human relevance가 없으므로 품질 향상이라고 주장하지 않는다. evaluator-side Gold-State
 oracle은 Policy/reach/hard-filter를 각각 1.0으로 회복했지만 diagnostic upper bound다.
-
-포스터 제출 뒤인 2026-08-16에는 이 Gold-State oracle을 에피소드 종료 추천 리스트까지 확장한
-**post-hoc secondary diagnostic**을 별도로 실행했다. `final_gold_state_ids`와 턴별 Gold scope,
-`final_expected_hard_filters`로 최종 상태를 재구성한 뒤 기존 Query, 실제 catalog filter, 고정
-semantic review retrieval/Cross-Encoder, 결정론적 Rank만 실행했으며 추가 LLM 호출은 0회다.
-20개 중 19개에서 추천이 생성됐고 Oracle Top-3 54개의 Gold hard-filter 위반은 0건, review
-fallback은 0건이었다. Oracle 대비 Full/No-memory의 비교 가능 에피소드는 15/13개, Top-1
-일치율은 0.333/0.077, exact Top-3 order는 0.333/0.000, mean Jaccard는 0.540/0.133이다.
-이는 state-to-ranking 전달 충실도이지 Gold 상품이나 인간 relevance 정답이 아니다. 기존 official
-raw와 primary 결과는 수정하거나 재실행하지 않았으며 별도 post-hoc report/manifest에 보존한다.
 
 기존 두 종류의 3인용 blind packet, private provenance, agreement/NDCG 코드는 삭제하지 않고
 **Optional / Future Human Relevance Evaluation**으로 보존한다. Product/Review NDCG는 이번

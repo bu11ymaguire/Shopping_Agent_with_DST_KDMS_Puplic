@@ -1,0 +1,45 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-infrastructure-failure-v1",
+  "status": "non_evaluable_infrastructure_attempt_preserved",
+  "confirmatory_evidence": false,
+  "performance_result": false,
+  "run_id": "segse-e2e-dev-20260818T043053Z-4945a7",
+  "execution_commit": "9ea20639498435464001e5a985a113602c6eef46",
+  "attempted_at_utc": "2026-08-18T04:30:53Z",
+  "classification": "sandbox_network_blocked_before_provider_response",
+  "common_error": {
+    "type": "LLMHTTPError",
+    "status_code": 0,
+    "message": "All connection attempts failed"
+  },
+  "arms": {
+    "b0_c_semantic_noop": {
+      "completed_turns": 0,
+      "expected_turns": 24,
+      "logical_first-turn_attempts": 6,
+      "transport_attempts_including_retries": 18,
+      "trace_created": false
+    },
+    "d4_segse_v12": {
+      "completed_turns": 0,
+      "expected_turns": 24,
+      "logical_first-turn_attempts": 6,
+      "transport_attempts_including_retries": 18,
+      "trace_created": false
+    }
+  },
+  "archived_artifacts": {
+    "raw_report": {
+      "git_ignored_path": "reports/tablet_domain_segse_e2e_dev_v1_infrastructure_failure.json",
+      "size_bytes": 196935,
+      "sha256": "e92cc2425c65c23fd9fde155642734d56e4c2c307a7b39572e9b669bd40b8f94"
+    },
+    "summary_report": {
+      "git_ignored_path": "reports/tablet_domain_segse_e2e_dev_v1_summary_infrastructure_failure.json",
+      "size_bytes": 9005,
+      "sha256": "875d106a4f21af8ed64d46fae4ab23bef0668ebd1e2aeee14285d46cd49ac329"
+    }
+  },
+  "decision": "Ignore the generated relative gate result because neither arm produced a semantic output. The evaluator now requires at least 95% output completion per arm. This infrastructure-only attempt does not consume the frozen single semantic run and may be repeated with network access.",
+  "secrets_recorded": false
+}

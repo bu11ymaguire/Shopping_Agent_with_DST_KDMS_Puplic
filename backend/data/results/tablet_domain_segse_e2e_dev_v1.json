@@ -1,0 +1,342 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-summary-v1",
+  "study_status": "frozen_development_guardrail_not_confirmatory",
+  "run_id": "segse-e2e-dev-20260818T043715Z-248dcf",
+  "version_control": {
+    "branch": "codex/segse-lite-experiment",
+    "execution_commit": "993ab9e4d80ee2e234f0ef91a74210362c7fa01f",
+    "tracked_worktree_clean": true,
+    "selected_method_commit": "62c103b"
+  },
+  "dataset": {
+    "path": "C:\\Users\\jwkim\\.codex\\visualizations\\2026\\08\\17\\01a0103c-3550-72e2-8d66-7ed38e56b927\\KDMS_Prepare_SEGSE\\backend\\data\\tablet_domain_segse_e2e_dev_v1.json",
+    "sha256_lf_normalized": "5c1727b9d5dcbb106ce78db57d717ed3242b762d54f3e57578309160c472561c",
+    "scenario_count": 6,
+    "turn_count": 24,
+    "reuse_classification": "new_frozen_development_fixture"
+  },
+  "runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "baseline_prompt_version": "spn-understanding-tablet-domain-en-v2.3-frozen",
+    "treatment_prompt_version": "segse-lite-tablet-domain-en-v1.2-dev"
+  },
+  "catalog": {
+    "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\amazon_reviews_2023\\tablet_catalog_v2",
+    "schema_version": "amazon-tablet-pilot-v2",
+    "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+    "product_count": 117,
+    "review_count": 7552
+  },
+  "arms": {
+    "b0_c_semantic_noop": {
+      "status": "completed",
+      "trace_sha256": "78d68fe7f6361a2db637a1cebbea93a4436d803f5740a66ae55e701d34217fa3",
+      "metrics": {
+        "scenario_count": 6,
+        "expected_turn_count": 24,
+        "completed_turn_count": 22,
+        "turn_output_completion_rate": 0.916667,
+        "route_accuracy": 0.916667,
+        "intent_exact_accuracy": 0.75,
+        "raw_candidate": {
+          "true_positive": 17,
+          "false_positive": 12,
+          "false_negative": 4,
+          "precision": 0.586207,
+          "recall": 0.809524,
+          "f1": 0.68
+        },
+        "authorized_candidate": null,
+        "raw_typed_event": null,
+        "authorized_typed_event": null,
+        "material_delta": {
+          "true_positive": 16,
+          "false_positive": 4,
+          "false_negative": 7,
+          "precision": 0.8,
+          "recall": 0.695652,
+          "f1": 0.744186
+        },
+        "material_operation": {
+          "true_positive": 16,
+          "false_positive": 4,
+          "false_negative": 7,
+          "precision": 0.8,
+          "recall": 0.695652,
+          "f1": 0.744186
+        },
+        "turnwise_accumulated_state": {
+          "true_positive": 47,
+          "false_positive": 15,
+          "false_negative": 11,
+          "precision": 0.758065,
+          "recall": 0.810345,
+          "f1": 0.783333
+        },
+        "scenario_final_state": {
+          "true_positive": 13,
+          "false_positive": 6,
+          "false_negative": 4,
+          "precision": 0.684211,
+          "recall": 0.764706,
+          "f1": 0.722222
+        },
+        "candidate_fp_count": 12,
+        "c2u_fp_count": 8,
+        "novel_candidate_fp_count": 4,
+        "forbidden_prediction_count": 7,
+        "no_event_turn_count": 5,
+        "false_assertion_on_no_event_turn_count": 3,
+        "no_material_turn_count": 6,
+        "false_assertion_on_no_material_turn_count": 3,
+        "first_final_fp_origins": [
+          {
+            "scenario_id": "se01",
+            "turn": 1,
+            "token": "goal_entertainment|facet",
+            "canonical_id": "goal_entertainment",
+            "cause": "novel_extraction"
+          },
+          {
+            "scenario_id": "se03",
+            "turn": 3,
+            "token": "operating_system|hard|android",
+            "canonical_id": "operating_system",
+            "cause": "failed_retract"
+          },
+          {
+            "scenario_id": "se04",
+            "turn": 3,
+            "token": "display|hard|11",
+            "canonical_id": "display",
+            "cause": "incorrect_value_or_scope"
+          },
+          {
+            "scenario_id": "se05",
+            "turn": 2,
+            "token": "storage_capacity|soft",
+            "canonical_id": "storage_capacity",
+            "cause": "novel_extraction"
+          },
+          {
+            "scenario_id": "se05",
+            "turn": 3,
+            "token": "operating_system|hard|windows",
+            "canonical_id": "operating_system",
+            "cause": "novel_extraction"
+          },
+          {
+            "scenario_id": "se06",
+            "turn": 3,
+            "token": "battery|soft",
+            "canonical_id": "battery",
+            "cause": "failed_retract"
+          },
+          {
+            "scenario_id": "se06",
+            "turn": 4,
+            "token": "max_weight|hard|500",
+            "canonical_id": "max_weight",
+            "cause": "novel_extraction"
+          }
+        ],
+        "first_final_fp_origin_counts": {
+          "failed_retract": 2,
+          "incorrect_value_or_scope": 1,
+          "novel_extraction": 4
+        },
+        "lexical_evidence_validity": {
+          "predicted_count": 29,
+          "exact_current_substring_count": 22,
+          "rate": 0.758621
+        },
+        "correction_recall": {
+          "target_count": 2,
+          "true_positive": 1,
+          "recall": 0.5
+        },
+        "retract_recall": {
+          "target_count": 2,
+          "true_positive": 0,
+          "recall": 0.0
+        },
+        "reactivation_recall": {
+          "target_count": 1,
+          "true_positive": 0,
+          "recall": 0.0
+        },
+        "confirmation_metadata_recall": {
+          "status": "not_supported_by_arm"
+        },
+        "event_rejection_count": 0,
+        "policy_lane_accuracy": 0.916667,
+        "question_target_accuracy": 0.916667,
+        "recommendation_pipeline_completion_rate": 0.916667,
+        "hard_filter_completion_rate": 0.75,
+        "top3_hard_constraint_violation_rate": 0.0
+      }
+    },
+    "d4_segse_v12": {
+      "status": "completed",
+      "trace_sha256": "adc8b20e6edf6f192aa14f20135a236562a4d7c6f0115ed720b4cc21429d257e",
+      "metrics": {
+        "scenario_count": 6,
+        "expected_turn_count": 24,
+        "completed_turn_count": 21,
+        "turn_output_completion_rate": 0.875,
+        "route_accuracy": 0.875,
+        "intent_exact_accuracy": 0.708333,
+        "raw_candidate": {
+          "true_positive": 13,
+          "false_positive": 2,
+          "false_negative": 8,
+          "precision": 0.866667,
+          "recall": 0.619048,
+          "f1": 0.722222
+        },
+        "authorized_candidate": {
+          "true_positive": 11,
+          "false_positive": 0,
+          "false_negative": 8,
+          "precision": 1.0,
+          "recall": 0.578947,
+          "f1": 0.733333
+        },
+        "raw_typed_event": {
+          "true_positive": 15,
+          "false_positive": 4,
+          "false_negative": 7,
+          "precision": 0.789474,
+          "recall": 0.681818,
+          "f1": 0.731707
+        },
+        "authorized_typed_event": {
+          "true_positive": 13,
+          "false_positive": 0,
+          "false_negative": 9,
+          "precision": 1.0,
+          "recall": 0.590909,
+          "f1": 0.742857
+        },
+        "material_delta": {
+          "true_positive": 12,
+          "false_positive": 0,
+          "false_negative": 11,
+          "precision": 1.0,
+          "recall": 0.521739,
+          "f1": 0.685714
+        },
+        "material_operation": {
+          "true_positive": 12,
+          "false_positive": 0,
+          "false_negative": 11,
+          "precision": 1.0,
+          "recall": 0.521739,
+          "f1": 0.685714
+        },
+        "turnwise_accumulated_state": {
+          "true_positive": 29,
+          "false_positive": 0,
+          "false_negative": 29,
+          "precision": 1.0,
+          "recall": 0.5,
+          "f1": 0.666667
+        },
+        "scenario_final_state": {
+          "true_positive": 9,
+          "false_positive": 0,
+          "false_negative": 8,
+          "precision": 1.0,
+          "recall": 0.529412,
+          "f1": 0.692308
+        },
+        "candidate_fp_count": 2,
+        "c2u_fp_count": 0,
+        "novel_candidate_fp_count": 2,
+        "forbidden_prediction_count": 2,
+        "no_event_turn_count": 5,
+        "false_assertion_on_no_event_turn_count": 1,
+        "no_material_turn_count": 6,
+        "false_assertion_on_no_material_turn_count": 1,
+        "first_final_fp_origins": [],
+        "first_final_fp_origin_counts": {},
+        "lexical_evidence_validity": {
+          "predicted_count": 19,
+          "exact_current_substring_count": 19,
+          "rate": 1.0
+        },
+        "correction_recall": {
+          "target_count": 2,
+          "true_positive": 1,
+          "recall": 0.5
+        },
+        "retract_recall": {
+          "target_count": 2,
+          "true_positive": 1,
+          "recall": 0.5
+        },
+        "reactivation_recall": {
+          "target_count": 1,
+          "true_positive": 1,
+          "recall": 1.0
+        },
+        "confirmation_metadata_recall": {
+          "target_count": 1,
+          "true_positive": 1,
+          "recall": 1.0
+        },
+        "event_rejection_count": 6,
+        "policy_lane_accuracy": 0.833333,
+        "question_target_accuracy": 0.833333,
+        "recommendation_pipeline_completion_rate": 0.833333,
+        "hard_filter_completion_rate": 0.875,
+        "top3_hard_constraint_violation_rate": 0.0
+      }
+    }
+  },
+  "decision": {
+    "status": "development_run_invalid_insufficient_output",
+    "execution_valid": false,
+    "candidate_fp_reduction_fraction": 0.833333,
+    "c2u_fp_reduction_fraction": 1.0,
+    "metric_deltas": {
+      "raw_candidate_recall": -0.190476,
+      "correction_recall": 0.0,
+      "retract_recall": 0.5,
+      "reactivation_recall": 1.0,
+      "turnwise_state_f1": -0.116666,
+      "scenario_final_state_f1": -0.029914,
+      "hard_filter_completion": 0.125,
+      "policy_lane_accuracy": -0.083334,
+      "recommendation_pipeline_completion": -0.083334,
+      "turn_output_completion": -0.041667
+    },
+    "checks": {
+      "baseline_turn_output_completion_at_least_95_percent": false,
+      "treatment_turn_output_completion_at_least_95_percent": false,
+      "candidate_fp_reduction_at_least_30_percent": true,
+      "c2u_fp_reduction_at_least_50_percent": true,
+      "no_event_false_assertions_not_increased": true,
+      "turnwise_final_fp_not_increased": true,
+      "scenario_final_fp_not_increased": true,
+      "raw_candidate_recall_drop_at_most_2pp": false,
+      "correction_recall_drop_at_most_2pp": true,
+      "retract_recall_drop_at_most_2pp": true,
+      "reactivation_recall_drop_at_most_2pp": true,
+      "turnwise_state_f1_drop_at_most_001": false,
+      "scenario_final_state_f1_drop_at_most_001": false,
+      "hard_filter_completion_drop_at_most_1pp": true,
+      "policy_lane_accuracy_drop_at_most_2pp": false,
+      "recommendation_completion_drop_at_most_2pp": false,
+      "turn_output_completion_drop_at_most_05pp": false
+    },
+    "claim_boundary": "This frozen development guardrail can reject or revise v1.2, but cannot serve as untouched confirmatory evidence."
+  },
+  "limitations": [
+    "This is a small development guardrail, not untouched confirmatory evidence.",
+    "Independent live arms can differ because provider outputs are not bitwise deterministic.",
+    "Human relevance and natural-language response quality are outside this state experiment."
+  ]
+}

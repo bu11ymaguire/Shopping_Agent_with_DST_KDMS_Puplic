@@ -1,0 +1,89 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-v14-result-manifest-v1",
+  "status": "development_gate_passed_confirmatory_method_freeze_allowed",
+  "confirmatory_evidence": false,
+  "run_id": "segse-e2e-dev-v14-20260818T154634Z-b44d0a",
+  "execution_commit": "bea0ce19940959961f5e1ec91a5cc51e4e56a454",
+  "prompt_text_identical_to_v13": true,
+  "changed_layer": "deterministic_event_interpretation_only",
+  "tracked_summary": {
+    "path": "data/results/tablet_domain_segse_e2e_dev_v14.json",
+    "size_bytes": 16961,
+    "sha256": "42775e6cbf4a97604a7548e3e97ecf1cf78b75dd7665052f1c95e9be03b28e23"
+  },
+  "tracked_attribution": {
+    "path": "data/results/tablet_domain_segse_e2e_dev_v14_attribution.json",
+    "size_bytes": 33078,
+    "sha256": "25cbcde0457c283c20b40f946390d7986b76c324b2f191a00769f5fab18b4b95",
+    "additional_llm_calls": 0,
+    "generator": "scripts/analyze_tablet_domain_segse_v14_attribution.py",
+    "generator_sha256_lf_normalized": "a086175bf2bca36a649a44e017148e0d69686510c45352142dcf0a91e4717fe7"
+  },
+  "git_ignored_artifacts": {
+    "raw_report": {
+      "path": "reports/tablet_domain_segse_e2e_dev_v14.json",
+      "size_bytes": 2608292,
+      "sha256": "1898f785fd9f675518884ed4581b1d69085ce2218bec59c72f63b880ced2a8cc"
+    },
+    "trace": {
+      "path": "logs/segse-e2e-dev-v14-20260818T154634Z-b44d0a_d4_segse_v14.jsonl",
+      "size_bytes": 143621,
+      "sha256": "a03f873e26d0a92b3b3cb521558dcb139947a9b6c211400135ae31b2d18087c6"
+    }
+  },
+  "headline": {
+    "completed_turns": 24,
+    "candidate_precision": 0.863636,
+    "candidate_recall": 0.904762,
+    "candidate_fp": 3,
+    "c2u_fp": 0,
+    "material_operation_f1": 0.956522,
+    "turnwise_state_f1": 0.93913,
+    "turnwise_final_fp": 3,
+    "scenario_final_state_f1": 0.941176,
+    "scenario_final_fp": 1,
+    "correction_recall": 1.0,
+    "retract_recall": 1.0,
+    "reactivation_recall": 1.0,
+    "confirmation_metadata_recall": 1.0,
+    "hard_filter_completion": 1.0,
+    "evidence_span_validity": 1.0,
+    "top3_hard_constraint_violation_rate": 0.0
+  },
+  "dimension_evidence_validity": {
+    "accepted_hard_values": 12,
+    "anchor_dimension_evidence": 12,
+    "current_utterance_fallback_used": 0,
+    "note": "The utterance-level fallback did not fire in the live run because the provider placed the dimension word inside the anchor for se02t4. Its effect is shown by the offline attribution replay and by scripts/verify_segse_experiment_v14.py."
+  },
+  "attribution": {
+    "raw_proposal_identical_turns": 19,
+    "raw_proposal_differed_turns": 5,
+    "code_attributed_turns": [
+      "se02t1",
+      "se02t4",
+      "se03t1",
+      "se04t3",
+      "se05t1",
+      "se06t1"
+    ],
+    "provider_attributed_turns": ["se05t2"],
+    "new_final_fp_tokens": ["note_taking|soft"],
+    "new_final_fp_attribution": "provider_variance_not_code_change"
+  },
+  "not_evaluable": {
+    "provenance_accuracy": "the frozen evaluator scores confirmation metadata only",
+    "soft_to_hard_scope_correction": "no soft-to-hard turn exists in this fixture; covered by unit test",
+    "hard_to_soft_on_hard_only_ids": "the closed vocabulary has no soft counterpart for those canonical IDs"
+  },
+  "development_decision": "PASS - freeze v1.4 for confirmatory evaluation. All fifteen predeclared gate checks pass, correction recall recovered from .000 to 1.000 with no loss of v1.3 candidate precision, C2U FP, or turn completion, and the only new Final FP is attributable to provider variance rather than to the deterministic change. This is not a system adoption decision.",
+  "state_metric_interpretation": "Turnwise and scenario-final state gains are amplified by persistence: one corrected event repairs every later snapshot of that scenario. The 19 recovered turnwise TP and 19 removed turnwise FN trace back to 6 event-level corrections. Quote material delta and material operation F1 as the per-decision view.",
+  "open_failure_layer": {
+    "name": "novel_candidate_grounding_and_dimension_attribution",
+    "distinct_from": ["carryover_to_update", "material_no_op", "correction_semantics"],
+    "example": "an expansion-storage utterance canonicalized to the note_taking soft preference",
+    "status": "recorded as the next research step, deliberately not patched on this exposed fixture"
+  },
+  "claim_boundary": "Exposed development fixture. A method freeze is permitted; no generalization claim is permitted until a new untouched confirmatory holdout runs.",
+  "secrets_recorded": false
+}

@@ -1,0 +1,37 @@
+{
+  "schema_version": "tablet-domain-segse-confirmatory-v1-freeze-manifest-v1",
+  "status": "protocol_closed_before_holdout_authoring",
+  "freeze_git_tag": "segse-confirmatory-v1-protocol-freeze",
+  "frozen_at": "2026-08-19T03:53:38.994491+00:00",
+  "base_commit_before_freeze_changes": "9d9612374e5bb5d2f38c4bd5fda9852733ebad57",
+  "evaluated_method_freeze": {
+    "manifest": "data/manifests/segse_v14_method_freeze.json",
+    "freeze_git_tag": "segse-v1.4-freeze",
+    "combined_method_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25"
+  },
+  "protocol_revision": 2,
+  "pinned_sha256_lf_normalized": {
+    "docs/tablet_domain_segse_confirmatory_protocol_v1.md": "6aa4c3d14792c23ffec1187481e8af0f441098540549404ba05c76f818f33bd3",
+    "data/manifests/tablet_domain_segse_confirmatory_v1_protocol.json": "016987f3599053427253e792ca10d6240736263bbb3e602318ea7bff1e20f743",
+    "scripts/verify_tablet_domain_segse_confirmatory_protocol.py": "8a8dcf8cc51aecc1be06ea13c5dd104de73d0cecaedd807bc33e98e16f077c24",
+    "app/evaluation/segse_final_state_closeness.py": "d9fad977645989fc8be79971d58769d4dab2ad8d3aca29e09c79637938a08acd",
+    "scripts/verify_segse_final_state_closeness.py": "86da6ac2c87e3c597909c1079c8cb9235b1e55e42e0a826de5514cd745b07334"
+  },
+  "combined_protocol_sha256": "4c02daf203f7f6eeb127b404e38d452ae6963b0a2588aba8e1c45b24bea99caf",
+  "closed_decisions": {
+    "primary_outcome": "final_dst_closeness_to_gold_state",
+    "primary_is_graded_not_binary": true,
+    "exact_match_is_the_headline": false,
+    "second_primary": "final_state_closeness_improvement_over_v13",
+    "decision_rule_is_comparative": true,
+    "holdout_scenarios": 20,
+    "holdout_turns": 80,
+    "dimension_attribution_negative_turns": 6,
+    "test_retest_enabled": true,
+    "run_b_decides_pass_or_fail": false
+  },
+  "next_step": "author the 20 scenario by 4 turn untouched holdout, annotate gold from the contract only, validate, hash-freeze the holdout, then execute Run A and Run B back to back",
+  "holdout_exists": false,
+  "any_confirmatory_run_completed": false,
+  "confirmatory_evidence": false
+}

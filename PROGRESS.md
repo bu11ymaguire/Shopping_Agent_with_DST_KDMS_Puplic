@@ -1,6 +1,6 @@
 # ShoppingAgent_with_DST_KDMS 진행상황
 
-기준일: 2026-08-16 (primary automatic benchmark는 2026-08-09에 동결)
+기준일: 2026-08-09
 
 이 문서는 현재 검증된 구현과 포스터에서 주장 가능한 평가 범위를 구분한다. 세부 평가 계약은
 `backend/docs/poster_evaluation_protocol.md`, 지표 분모는
@@ -97,20 +97,6 @@ Review contribution이 ranking을 materially 바꾼다는 것은 측정했지만
 Oracle candidate availability는 0.974, candidate hard violation은 0이다. 이는 upstream state error를
 제거했을 때의 deterministic diagnostic upper bound이며 추천 relevance 결과가 아니다.
 
-### Post-hoc Gold-State oracle ranking diagnostic
-
-포스터 제출 뒤인 2026-08-16에 위 oracle을 에피소드 종료 추천 리스트까지 확장해 별도로 실행했다.
-official raw와 primary 결과는 재실행하거나 수정하지 않았다.
-
-- 최종 Gold-State를 동결된 Query → catalog filter → semantic review retrieval → Cross-Encoder →
-  Rank에만 주입한다. Understanding과 Response Composer는 실행하지 않으므로 추가 LLM 호출은 0회다.
-- 20개 중 19개에서 추천이 생성됐고 Oracle Top-3 54개의 Gold hard-filter 위반과 review fallback은
-  모두 0건이다. th17은 `$380 이하 + RAM 8GB 이상`을 함께 만족하는 후보가 없어 빈 리스트다.
-- Oracle 대비 비교 가능 에피소드는 Full 15개·No-memory 13개이고, Top-1 일치율은 0.333/0.077,
-  exact Top-3 order는 0.333/0.000, mean Top-3 Jaccard는 0.540/0.133이다.
-
-이는 state-to-ranking 전달 충실도 진단이며 Gold 추천 상품이나 human relevance 정답이 아니다.
-
 ## 계산하지 않은 지표
 
 - Product NDCG@3 / Review NDCG@3: human relevance label이 없어 official automatic result에서 제외
@@ -140,9 +126,6 @@ official raw와 primary 결과는 재실행하거나 수정하지 않았다.
 - `backend/docs/tablet_domain_automatic_benchmark_v1.md`
 - `backend/docs/tablet_domain_automatic_metric_definitions.md`
 - `backend/data/manifests/tablet_domain_automatic_benchmark_v1.json`
-- `backend/data/results/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json`
-- `backend/docs/tablet_domain_gold_state_oracle_rankings_posthoc_v1.md`
-- `backend/data/manifests/tablet_domain_gold_state_oracle_rankings_posthoc_v1.json`
 
 ## 아직 하지 않은 것
 
@@ -167,7 +150,6 @@ cd backend
 .\.venv\Scripts\python.exe scripts\verify_tablet_domain_official.py
 .\.venv\Scripts\python.exe scripts\verify_tablet_domain_annotation_packet.py
 .\.venv\Scripts\python.exe scripts\verify_tablet_domain_automatic.py
-.\.venv\Scripts\python.exe scripts\verify_tablet_domain_gold_oracle_rankings.py
 .\.venv\Scripts\python.exe scripts\verify_actual_demo.py
 ```
 

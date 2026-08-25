@@ -1,0 +1,271 @@
+{
+  "dataset_version": "tablet-domain-m0-c-confirmatory-holdout-v1.0",
+  "split": "untouched_holdout",
+  "schema_version": "tablet-domain-multiturn-holdout-v1",
+  "frozen_prompt_version": "spn-understanding-tablet-domain-en-v2.3-frozen",
+  "created_after_freeze_tag": "tablet-domain-v2.3-freeze",
+  "frozen_before_first_run": true,
+  "design_note": "Twenty new English four-turn scenarios authored after exploratory M0/A/B/C/D/E selection and before any confirmatory system run. Gold covers current-turn candidates, material State Diff, policy/action, and hard filters. Eight hard-value correction turns test no-op safety; no product IDs, rankings, system outputs, or human relevance labels are included.",
+  "scenarios": [
+    {
+      "id": "th21",
+      "title": "Self-directed journal reader with budget revision",
+      "tags": ["reading", "storage", "correction", "budget"],
+      "turns": [
+        {"turn": 1, "utterance": "I am shopping for myself, mainly to read scanned journals.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["audience_self", "activity_reading"], "gold_candidate_scopes": {"audience_self": "facet", "activity_reading": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:audience_self", "upsert:activity_reading"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Keep the checkout price at or below $310.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 310}},
+        {"turn": 3, "utterance": "Built-in capacity must be at least 128 gigabytes.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 310, "min_storage_gb": 128}},
+        {"turn": 4, "utterance": "I can raise the ceiling from $310 to $345.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 345, "min_storage_gb": 128}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "audience_self", "activity_reading", "budget", "storage_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 345, "min_storage_gb": 128}
+    },
+    {
+      "id": "th22",
+      "title": "Long-term study storage revision",
+      "tags": ["long-term", "storage", "correction", "study"],
+      "turns": [
+        {"turn": 1, "utterance": "I want a tablet that can remain useful through several years of study.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["goal_long_term_use"], "gold_candidate_scopes": {"goal_long_term_use": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:goal_long_term_use"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Do not spend more than $290.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 290}},
+        {"turn": 3, "utterance": "Start with 64 GB of internal space.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 290, "min_storage_gb": 64}},
+        {"turn": 4, "utterance": "On second thought, raise that storage minimum to 128 GB.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 290, "min_storage_gb": 128}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "goal_long_term_use", "budget", "storage_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 290, "min_storage_gb": 128}
+    },
+    {
+      "id": "th23",
+      "title": "Gaming RAM revision",
+      "tags": ["gaming", "ram", "correction", "performance"],
+      "turns": [
+        {"turn": 1, "utterance": "Turn-based games are my main use, and frame-rate stability matters.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_gaming", "performance"], "gold_candidate_scopes": {"activity_gaming": "facet", "performance": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_gaming", "upsert:performance"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "The absolute price limit is $460.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 460}},
+        {"turn": 3, "utterance": "Four gigabytes of RAM will be enough.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["memory_capacity"], "gold_candidate_scopes": {"memory_capacity": "hard"}, "forbidden_candidate_ids": ["storage_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:memory_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 460, "min_memory_gb": 4}},
+        {"turn": 4, "utterance": "Revise the RAM requirement upward to 6 GB.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["memory_capacity"], "gold_candidate_scopes": {"memory_capacity": "hard"}, "forbidden_candidate_ids": ["storage_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:memory_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 460, "min_memory_gb": 6}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_gaming", "performance", "budget", "memory_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 460, "min_memory_gb": 6}
+    },
+    {
+      "id": "th24",
+      "title": "Kitchen tablet rating revision",
+      "tags": ["general", "rating", "correction", "budget"],
+      "turns": [
+        {"turn": 1, "utterance": "It will sit in the kitchen for calls, browsing, and recipes.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_general"], "gold_candidate_scopes": {"activity_general": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_general"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "My spending limit for it is $180.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 180}},
+        {"turn": 3, "utterance": "A four-star average is the minimum.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["min_rating"], "gold_candidate_scopes": {"min_rating": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:min_rating"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 180, "min_rating": 4.0}},
+        {"turn": 4, "utterance": "Tighten that: I only want 4.4 stars or better.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["min_rating"], "gold_candidate_scopes": {"min_rating": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:min_rating"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 180, "min_rating": 4.4}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_general", "budget", "min_rating"],
+      "final_expected_hard_filters": {"max_price_usd": 180, "min_rating": 4.4}
+    },
+    {
+      "id": "th25",
+      "title": "Mobile clinic reader weight revision",
+      "tags": ["reading", "portability", "correction", "weight"],
+      "turns": [
+        {"turn": 1, "utterance": "I carry it between clinics and read reference PDFs.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_reading", "portability"], "gold_candidate_scopes": {"activity_reading": "facet", "portability": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_reading", "upsert:portability"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "I will not go over $360.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 360}},
+        {"turn": 3, "utterance": "Anything up to 700 grams is acceptable.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["max_weight"], "gold_candidate_scopes": {"max_weight": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:max_weight"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 360, "max_weight_grams": 700}},
+        {"turn": 4, "utterance": "Seven hundred grams is too generous; cap it at 520 grams.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["max_weight"], "gold_candidate_scopes": {"max_weight": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:max_weight"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 360, "max_weight_grams": 520}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_reading", "portability", "budget", "max_weight"],
+      "final_expected_hard_filters": {"max_price_usd": 360, "max_weight_grams": 520}
+    },
+    {
+      "id": "th26",
+      "title": "Large-screen video revision",
+      "tags": ["video", "display", "correction", "budget"],
+      "turns": [
+        {"turn": 1, "utterance": "The tablet is mainly for films and recorded lectures.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_video"], "gold_candidate_scopes": {"activity_video": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_video"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Set a hard maximum of $400.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 400}},
+        {"turn": 3, "utterance": "Set ten inches as the minimum screen diagonal.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["display"], "gold_candidate_scopes": {"display": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:display"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 400, "min_screen_inches": 10.0}},
+        {"turn": 4, "utterance": "Change the display floor from 10 inches to 11 inches.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["display"], "gold_candidate_scopes": {"display": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:display"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 400, "min_screen_inches": 11.0}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_video", "budget", "display"],
+      "final_expected_hard_filters": {"max_price_usd": 400, "min_screen_inches": 11.0}
+    },
+    {
+      "id": "th27",
+      "title": "Office operating-system revision",
+      "tags": ["work", "operating-system", "correction", "contradiction"],
+      "turns": [
+        {"turn": 1, "utterance": "I need it for office documents and remote-work dashboards.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["goal_work_study"], "gold_candidate_scopes": {"goal_work_study": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:goal_work_study"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "For now, restrict the results to Android.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["operating_system"], "gold_candidate_scopes": {"operating_system": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:operating_system"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"operating_system": "android"}},
+        {"turn": 3, "utterance": "The budget can reach $520.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 520, "operating_system": "android"}},
+        {"turn": 4, "utterance": "Switch the operating-system requirement from Android to Windows.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["operating_system"], "gold_candidate_scopes": {"operating_system": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:operating_system"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 520, "operating_system": "windows"}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "goal_work_study", "operating_system", "budget"],
+      "final_expected_hard_filters": {"max_price_usd": 520, "operating_system": "windows"}
+    },
+    {
+      "id": "th28",
+      "title": "Diagram note-taking budget revision",
+      "tags": ["note-taking", "display", "correction", "budget"],
+      "turns": [
+        {"turn": 1, "utterance": "I will handwrite project diagrams and annotate meeting notes.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_note_taking", "note_taking"], "gold_candidate_scopes": {"activity_note_taking": "facet", "note_taking": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_note_taking", "upsert:note_taking"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Begin with a firm $230 ceiling.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 230}},
+        {"turn": 3, "utterance": "A crisp display matters for fine lines and diagrams.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["display"], "gold_candidate_scopes": {"display": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:display"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 230}},
+        {"turn": 4, "utterance": "Increase the price ceiling to $275 rather than $230.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 275}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_note_taking", "note_taking", "budget", "display"],
+      "final_expected_hard_filters": {"max_price_usd": 275}
+    },
+    {
+      "id": "th29",
+      "title": "Reader with operating-system negation",
+      "tags": ["reading", "negation", "battery", "no-op"],
+      "turns": [
+        {"turn": 1, "utterance": "I mostly read ebooks and technical manuals.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_reading"], "gold_candidate_scopes": {"activity_reading": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_reading"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Please hold the price under $260.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 260}},
+        {"turn": 3, "utterance": "Do not assume that I need an Apple operating system.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": ["operating_system"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": [], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 260}},
+        {"turn": 4, "utterance": "Long battery life is still important to me.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["battery"], "gold_candidate_scopes": {"battery": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:battery"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 260}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_reading", "budget", "battery"],
+      "final_expected_hard_filters": {"max_price_usd": 260}
+    },
+    {
+      "id": "th30",
+      "title": "Shared household tablet with unsupported keyboard field",
+      "tags": ["family", "unsupported-field", "durability", "no-op"],
+      "turns": [
+        {"turn": 1, "utterance": "Everyone at home will share it for browsing and household tasks.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["audience_family", "activity_general"], "gold_candidate_scopes": {"audience_family": "facet", "activity_general": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:audience_family", "upsert:activity_general"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "The family budget stops at $205.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 205}},
+        {"turn": 3, "utterance": "A bundled keyboard would be nice, but it is not a requirement.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": ["note_taking"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": [], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 205}},
+        {"turn": 4, "utterance": "Use detailed owner reports to favor a durable build.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["durability", "review_signal"], "gold_candidate_scopes": {"durability": "soft", "review_signal": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:durability", "upsert:review_signal"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 205}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "audience_family", "activity_general", "budget", "durability", "review_signal"],
+      "final_expected_hard_filters": {"max_price_usd": 205}
+    },
+    {
+      "id": "th31",
+      "title": "Laptop request recovered to tablet reading",
+      "tags": ["unsupported-category", "recovery", "reading", "storage"],
+      "turns": [
+        {"turn": 1, "utterance": "Could you find me a lightweight laptop for travel?", "gold_domain_route": "unsupported_category", "gold_intents": ["unknown"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["route:unsupported_category"], "gold_policy_lane": "clarify-lane", "gold_question_target": "supported category", "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "No—keep this search within tablets after all.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["route:in_domain"], "gold_policy_lane": "clarify-lane", "gold_question_target": "budget", "expected_hard_filters_after_turn": {}},
+        {"turn": 3, "utterance": "For tablets, I will read travel guides and spend no more than $280.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["activity_reading", "budget"], "gold_candidate_scopes": {"activity_reading": "facet", "budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_reading", "upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 280}},
+        {"turn": 4, "utterance": "Require at least 64 GB built in.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 280, "min_storage_gb": 64}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_reading", "budget", "storage_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 280, "min_storage_gb": 64}
+    },
+    {
+      "id": "th32",
+      "title": "Gift search with temporary camera diversion",
+      "tags": ["gift", "unsupported-category", "recovery", "child"],
+      "turns": [
+        {"turn": 1, "utterance": "This is a graduation present for my teenager.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["event_gift", "audience_child"], "gold_candidate_scopes": {"event_gift": "facet", "audience_child": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:event_gift", "upsert:audience_child"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "The tablet budget is $250.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 250}},
+        {"turn": 3, "utterance": "Actually show me cameras instead.", "gold_domain_route": "unsupported_category", "gold_intents": ["unknown"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["route:unsupported_category"], "gold_policy_lane": "clarify-lane", "gold_question_target": "supported category", "expected_hard_filters_after_turn": {"max_price_usd": 250}},
+        {"turn": 4, "utterance": "Ignore cameras and resume the tablet shortlist.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["route:in_domain"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 250}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "event_gift", "audience_child", "budget"],
+      "final_expected_hard_filters": {"max_price_usd": 250}
+    },
+    {
+      "id": "th33",
+      "title": "Battery over weight trade-off",
+      "tags": ["video", "tradeoff", "battery", "weight"],
+      "turns": [
+        {"turn": 1, "utterance": "I stream long classes and downloaded shows while traveling.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_video"], "gold_candidate_scopes": {"activity_video": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_video"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Keep the purchase within $320.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 320}},
+        {"turn": 3, "utterance": "The device cannot weigh more than 650 grams.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["max_weight"], "gold_candidate_scopes": {"max_weight": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:max_weight"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 320, "max_weight_grams": 650}},
+        {"turn": 4, "utterance": "Long battery life matters more than shaving off a little weight.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["battery"], "gold_candidate_scopes": {"battery": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": {"prioritized_ids": ["battery"], "compromised_ids": ["max_weight"], "origin": "explicit"}, "gold_state_diff": ["upsert:battery", "tradeoff:battery>max_weight"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 320, "max_weight_grams": 650}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_video", "budget", "max_weight", "battery"],
+      "final_expected_hard_filters": {"max_price_usd": 320, "max_weight_grams": 650}
+    },
+    {
+      "id": "th34",
+      "title": "Rugged child gift over speed",
+      "tags": ["gift", "child", "tradeoff", "durability"],
+      "turns": [
+        {"turn": 1, "utterance": "I am buying it as a holiday gift for a nine-year-old.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["event_gift", "audience_child"], "gold_candidate_scopes": {"event_gift": "facet", "audience_child": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:event_gift", "upsert:audience_child"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "I can spend up to $190.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 190}},
+        {"turn": 3, "utterance": "The interface should be appropriate for a child.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["child_friendly"], "gold_candidate_scopes": {"child_friendly": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:child_friendly"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 190}},
+        {"turn": 4, "utterance": "A rugged build matters more than getting the fastest hardware.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["durability"], "gold_candidate_scopes": {"durability": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": {"prioritized_ids": ["durability"], "compromised_ids": ["performance"], "origin": "explicit"}, "gold_state_diff": ["upsert:durability", "tradeoff:durability>performance"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 190}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "event_gift", "audience_child", "budget", "child_friendly", "durability"],
+      "final_expected_hard_filters": {"max_price_usd": 190}
+    },
+    {
+      "id": "th35",
+      "title": "Work tablet comparison",
+      "tags": ["work", "storage", "compare", "rank-reference"],
+      "turns": [
+        {"turn": 1, "utterance": "The main tasks are reviewing proposals and editing spreadsheets.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["goal_work_study"], "gold_candidate_scopes": {"goal_work_study": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:goal_work_study"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "The top of my range is $375.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 375}},
+        {"turn": 3, "utterance": "I need no less than 128 GB of device storage.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 375, "min_storage_gb": 128}},
+        {"turn": 4, "utterance": "Compare the second result with the third one.", "gold_domain_route": "in_domain", "gold_intents": ["compare"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": {"name": "compare_first_second", "target_rank": 2, "compare_rank": 3}, "gold_tradeoff": null, "gold_state_diff": ["action:compare_first_second"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 375, "min_storage_gb": 128}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "goal_work_study", "budget", "storage_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 375, "min_storage_gb": 128}
+    },
+    {
+      "id": "th36",
+      "title": "Note-taking tablet inspection",
+      "tags": ["note-taking", "rating", "inspect", "rank-reference"],
+      "turns": [
+        {"turn": 1, "utterance": "I need to write lecture notes directly on the screen.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_note_taking", "note_taking"], "gold_candidate_scopes": {"activity_note_taking": "facet", "note_taking": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_note_taking", "upsert:note_taking"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Please stay at $340 or below.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 340}},
+        {"turn": 3, "utterance": "Filter out anything rated below 4.1 stars.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["min_rating"], "gold_candidate_scopes": {"min_rating": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:min_rating"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 340, "min_rating": 4.1}},
+        {"turn": 4, "utterance": "Open the specifications for result number three.", "gold_domain_route": "in_domain", "gold_intents": ["inspect"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": {"name": "inspect_current", "target_rank": 3}, "gold_tradeoff": null, "gold_state_diff": ["action:inspect_current"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 340, "min_rating": 4.1}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_note_taking", "note_taking", "budget", "min_rating"],
+      "final_expected_hard_filters": {"max_price_usd": 340, "min_rating": 4.1}
+    },
+    {
+      "id": "th37",
+      "title": "Reject weak audio from ranked video options",
+      "tags": ["video", "reject", "audio", "rank-reference"],
+      "turns": [
+        {"turn": 1, "utterance": "I will use it for music videos and streaming performances.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["activity_video"], "gold_candidate_scopes": {"activity_video": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:activity_video"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "The hard budget boundary is $430.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 430}},
+        {"turn": 3, "utterance": "Require a screen of at least 10.5 inches.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["display"], "gold_candidate_scopes": {"display": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:display"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 430, "min_screen_inches": 10.5}},
+        {"turn": 4, "utterance": "Reject option two; owners describe its speakers as thin, so audio quality matters.", "gold_domain_route": "in_domain", "gold_intents": ["reject", "refine"], "gold_candidate_ids": ["audio"], "gold_candidate_scopes": {"audio": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": {"name": "reject_first", "target_rank": 2, "rejection_reason_id": "reject_audio", "reason_type": "product_attribute"}, "gold_tradeoff": null, "gold_state_diff": ["upsert:audio", "action:reject_first"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 430, "min_screen_inches": 10.5}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "activity_video", "budget", "display", "audio"],
+      "final_expected_hard_filters": {"max_price_usd": 430, "min_screen_inches": 10.5}
+    },
+    {
+      "id": "th38",
+      "title": "Inspect and purchase a basic tablet",
+      "tags": ["general", "inspect", "purchase", "rank-reference"],
+      "turns": [
+        {"turn": 1, "utterance": "I need a basic personal tablet for email and the web.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["audience_self", "activity_general"], "gold_candidate_scopes": {"audience_self": "facet", "activity_general": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:audience_self", "upsert:activity_general"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Keep it within two hundred dollars.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 200}},
+        {"turn": 3, "utterance": "Let me inspect the first recommendation in detail.", "gold_domain_route": "in_domain", "gold_intents": ["inspect"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": {"name": "inspect_current", "target_rank": 1}, "gold_tradeoff": null, "gold_state_diff": ["action:inspect_current"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 200}},
+        {"turn": 4, "utterance": "That inspected one works for me; purchase it.", "gold_domain_route": "in_domain", "gold_intents": ["purchase"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": {"name": "purchase_current"}, "gold_tradeoff": null, "gold_state_diff": ["action:purchase_current"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 200}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "audience_self", "activity_general", "budget"],
+      "final_expected_hard_filters": {"max_price_usd": 200}
+    },
+    {
+      "id": "th39",
+      "title": "First tablet with color negation",
+      "tags": ["first-purchase", "negation", "reviews", "no-op"],
+      "turns": [
+        {"turn": 1, "utterance": "I have never owned a tablet before and need help choosing one.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["event_first_purchase"], "gold_candidate_scopes": {"event_first_purchase": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:event_first_purchase"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "I would like to stay below $270.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 270}},
+        {"turn": 3, "utterance": "Color is not a requirement; leave it out of the search.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": [], "gold_candidate_scopes": {}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": [], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 270}},
+        {"turn": 4, "utterance": "I do want decisions backed by detailed owner reviews.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["review_signal"], "gold_candidate_scopes": {"review_signal": "soft"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:review_signal"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 270}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "event_first_purchase", "budget", "review_signal"],
+      "final_expected_hard_filters": {"max_price_usd": 270}
+    },
+    {
+      "id": "th40",
+      "title": "Family streaming tablet with storage and RAM",
+      "tags": ["family", "video", "storage", "ram"],
+      "turns": [
+        {"turn": 1, "utterance": "Our family will share it for streaming series and weekend movies.", "gold_domain_route": "in_domain", "gold_intents": ["search"], "gold_candidate_ids": ["audience_family", "activity_video"], "gold_candidate_scopes": {"audience_family": "facet", "activity_video": "facet"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:audience_family", "upsert:activity_video"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {}},
+        {"turn": 2, "utterance": "Use $350 as the maximum price.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["budget"], "gold_candidate_scopes": {"budget": "hard"}, "forbidden_candidate_ids": [], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:budget"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 350}},
+        {"turn": 3, "utterance": "Built-in storage has to be 128 GB or greater.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["storage_capacity"], "gold_candidate_scopes": {"storage_capacity": "hard"}, "forbidden_candidate_ids": ["memory_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:storage_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 350, "min_storage_gb": 128}},
+        {"turn": 4, "utterance": "It also needs a minimum of 6 GB RAM.", "gold_domain_route": "in_domain", "gold_intents": ["refine"], "gold_candidate_ids": ["memory_capacity"], "gold_candidate_scopes": {"memory_capacity": "hard"}, "forbidden_candidate_ids": ["storage_capacity"], "gold_item_action": null, "gold_tradeoff": null, "gold_state_diff": ["upsert:memory_capacity"], "gold_policy_lane": "recommend-lane", "gold_question_target": null, "expected_hard_filters_after_turn": {"max_price_usd": 350, "min_storage_gb": 128, "min_memory_gb": 6}}
+      ],
+      "final_gold_state_ids": ["category_tablet", "audience_family", "activity_video", "budget", "storage_capacity", "memory_capacity"],
+      "final_expected_hard_filters": {"max_price_usd": 350, "min_storage_gb": 128, "min_memory_gb": 6}
+    }
+  ]
+}

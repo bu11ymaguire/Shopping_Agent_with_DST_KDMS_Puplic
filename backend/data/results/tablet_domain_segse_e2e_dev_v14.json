@@ -1,0 +1,561 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-v14-summary-v1",
+  "study_status": "post_v13_exposed_fixture_development_not_confirmatory",
+  "run_id": "segse-e2e-dev-v14-20260818T154634Z-b44d0a",
+  "version_control": {
+    "branch": "codex/segse-lite-experiment",
+    "execution_commit": "bea0ce19940959961f5e1ec91a5cc51e4e56a454",
+    "tracked_worktree_clean": true
+  },
+  "dataset": {
+    "path": "C:\\Users\\jwkim\\.codex\\visualizations\\2026\\08\\17\\01a0103c-3550-72e2-8d66-7ed38e56b927\\KDMS_Prepare_SEGSE\\backend\\data\\tablet_domain_segse_e2e_dev_v1.json",
+    "sha256_lf_normalized": "5c1727b9d5dcbb106ce78db57d717ed3242b762d54f3e57578309160c472561c",
+    "scenario_count": 6,
+    "turn_count": 24,
+    "reuse_classification": "exposed_development_fixture_reused_for_v14_iteration"
+  },
+  "runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "prompt_version": "segse-lite-tablet-domain-en-v1.4-dev",
+    "prompt_text_identical_to_v13": true
+  },
+  "catalog": {
+    "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\amazon_reviews_2023\\tablet_catalog_v2",
+    "schema_version": "amazon-tablet-pilot-v2",
+    "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+    "product_count": 117,
+    "review_count": 7552
+  },
+  "baseline_reference": {
+    "run_id": "segse-e2e-dev-20260818T043715Z-248dcf",
+    "summary_sha256": "6d3ae7072799930be9bd78c7432e4f1d32d3affa93ad2fa6d865ee8c8fd834f9",
+    "metrics": {
+      "scenario_count": 6,
+      "expected_turn_count": 24,
+      "completed_turn_count": 22,
+      "turn_output_completion_rate": 0.916667,
+      "route_accuracy": 0.916667,
+      "intent_exact_accuracy": 0.75,
+      "raw_candidate": {
+        "true_positive": 17,
+        "false_positive": 12,
+        "false_negative": 4,
+        "precision": 0.586207,
+        "recall": 0.809524,
+        "f1": 0.68
+      },
+      "authorized_candidate": null,
+      "raw_typed_event": null,
+      "authorized_typed_event": null,
+      "material_delta": {
+        "true_positive": 16,
+        "false_positive": 4,
+        "false_negative": 7,
+        "precision": 0.8,
+        "recall": 0.695652,
+        "f1": 0.744186
+      },
+      "material_operation": {
+        "true_positive": 16,
+        "false_positive": 4,
+        "false_negative": 7,
+        "precision": 0.8,
+        "recall": 0.695652,
+        "f1": 0.744186
+      },
+      "turnwise_accumulated_state": {
+        "true_positive": 47,
+        "false_positive": 15,
+        "false_negative": 11,
+        "precision": 0.758065,
+        "recall": 0.810345,
+        "f1": 0.783333
+      },
+      "scenario_final_state": {
+        "true_positive": 13,
+        "false_positive": 6,
+        "false_negative": 4,
+        "precision": 0.684211,
+        "recall": 0.764706,
+        "f1": 0.722222
+      },
+      "candidate_fp_count": 12,
+      "c2u_fp_count": 8,
+      "novel_candidate_fp_count": 4,
+      "forbidden_prediction_count": 7,
+      "no_event_turn_count": 5,
+      "false_assertion_on_no_event_turn_count": 3,
+      "no_material_turn_count": 6,
+      "false_assertion_on_no_material_turn_count": 3,
+      "first_final_fp_origins": [
+        {
+          "scenario_id": "se01",
+          "turn": 1,
+          "token": "goal_entertainment|facet",
+          "canonical_id": "goal_entertainment",
+          "cause": "novel_extraction"
+        },
+        {
+          "scenario_id": "se03",
+          "turn": 3,
+          "token": "operating_system|hard|android",
+          "canonical_id": "operating_system",
+          "cause": "failed_retract"
+        },
+        {
+          "scenario_id": "se04",
+          "turn": 3,
+          "token": "display|hard|11",
+          "canonical_id": "display",
+          "cause": "incorrect_value_or_scope"
+        },
+        {
+          "scenario_id": "se05",
+          "turn": 2,
+          "token": "storage_capacity|soft",
+          "canonical_id": "storage_capacity",
+          "cause": "novel_extraction"
+        },
+        {
+          "scenario_id": "se05",
+          "turn": 3,
+          "token": "operating_system|hard|windows",
+          "canonical_id": "operating_system",
+          "cause": "novel_extraction"
+        },
+        {
+          "scenario_id": "se06",
+          "turn": 3,
+          "token": "battery|soft",
+          "canonical_id": "battery",
+          "cause": "failed_retract"
+        },
+        {
+          "scenario_id": "se06",
+          "turn": 4,
+          "token": "max_weight|hard|500",
+          "canonical_id": "max_weight",
+          "cause": "novel_extraction"
+        }
+      ],
+      "first_final_fp_origin_counts": {
+        "failed_retract": 2,
+        "incorrect_value_or_scope": 1,
+        "novel_extraction": 4
+      },
+      "lexical_evidence_validity": {
+        "predicted_count": 29,
+        "exact_current_substring_count": 22,
+        "rate": 0.758621
+      },
+      "correction_recall": {
+        "target_count": 2,
+        "true_positive": 1,
+        "recall": 0.5
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 0,
+        "recall": 0.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 0,
+        "recall": 0.0
+      },
+      "confirmation_metadata_recall": {
+        "status": "not_supported_by_arm"
+      },
+      "event_rejection_count": 0,
+      "policy_lane_accuracy": 0.916667,
+      "question_target_accuracy": 0.916667,
+      "recommendation_pipeline_completion_rate": 0.916667,
+      "hard_filter_completion_rate": 0.75,
+      "top3_hard_constraint_violation_rate": 0.0
+    }
+  },
+  "v13_reference": {
+    "run_id": "segse-e2e-dev-v13-20260818T045252Z-ac1d5b",
+    "summary_sha256": "572903fa8b9c540a082b3a65533e9334563fb289c07310af0c994223f7a4f1c5",
+    "metrics": {
+      "scenario_count": 6,
+      "expected_turn_count": 24,
+      "completed_turn_count": 24,
+      "turn_output_completion_rate": 1.0,
+      "route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.916667,
+      "raw_candidate": {
+        "true_positive": 19,
+        "false_positive": 3,
+        "false_negative": 2,
+        "precision": 0.863636,
+        "recall": 0.904762,
+        "f1": 0.883721
+      },
+      "authorized_candidate": {
+        "true_positive": 14,
+        "false_positive": 0,
+        "false_negative": 7,
+        "precision": 1.0,
+        "recall": 0.666667,
+        "f1": 0.8
+      },
+      "raw_typed_event": {
+        "true_positive": 20,
+        "false_positive": 7,
+        "false_negative": 4,
+        "precision": 0.740741,
+        "recall": 0.833333,
+        "f1": 0.784314
+      },
+      "authorized_typed_event": {
+        "true_positive": 17,
+        "false_positive": 1,
+        "false_negative": 7,
+        "precision": 0.944444,
+        "recall": 0.708333,
+        "f1": 0.809524
+      },
+      "material_delta": {
+        "true_positive": 17,
+        "false_positive": 0,
+        "false_negative": 6,
+        "precision": 1.0,
+        "recall": 0.73913,
+        "f1": 0.85
+      },
+      "material_operation": {
+        "true_positive": 16,
+        "false_positive": 1,
+        "false_negative": 7,
+        "precision": 0.941176,
+        "recall": 0.695652,
+        "f1": 0.8
+      },
+      "turnwise_accumulated_state": {
+        "true_positive": 35,
+        "false_positive": 1,
+        "false_negative": 23,
+        "precision": 0.972222,
+        "recall": 0.603448,
+        "f1": 0.744681
+      },
+      "scenario_final_state": {
+        "true_positive": 10,
+        "false_positive": 1,
+        "false_negative": 7,
+        "precision": 0.909091,
+        "recall": 0.588235,
+        "f1": 0.714286
+      },
+      "candidate_fp_count": 3,
+      "c2u_fp_count": 0,
+      "novel_candidate_fp_count": 3,
+      "forbidden_prediction_count": 2,
+      "no_event_turn_count": 5,
+      "false_assertion_on_no_event_turn_count": 2,
+      "no_material_turn_count": 6,
+      "false_assertion_on_no_material_turn_count": 2,
+      "first_final_fp_origins": [
+        {
+          "scenario_id": "se02",
+          "turn": 4,
+          "token": "storage_capacity|hard|128",
+          "canonical_id": "storage_capacity",
+          "cause": "incorrect_value_or_scope"
+        }
+      ],
+      "first_final_fp_origin_counts": {
+        "incorrect_value_or_scope": 1
+      },
+      "lexical_evidence_validity": {
+        "predicted_count": 27,
+        "exact_current_substring_count": 27,
+        "rate": 1.0
+      },
+      "correction_recall": {
+        "target_count": 2,
+        "true_positive": 0,
+        "recall": 0.0
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 2,
+        "recall": 1.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "event_rejection_count": 9,
+      "policy_lane_accuracy": 0.958333,
+      "question_target_accuracy": 0.958333,
+      "recommendation_pipeline_completion_rate": 0.958333,
+      "hard_filter_completion_rate": 0.958333,
+      "top3_hard_constraint_violation_rate": 0.044118
+    }
+  },
+  "treatment": {
+    "status": "completed",
+    "trace_sha256": "a03f873e26d0a92b3b3cb521558dcb139947a9b6c211400135ae31b2d18087c6",
+    "metrics": {
+      "scenario_count": 6,
+      "expected_turn_count": 24,
+      "completed_turn_count": 24,
+      "turn_output_completion_rate": 1.0,
+      "route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.916667,
+      "raw_candidate": {
+        "true_positive": 19,
+        "false_positive": 3,
+        "false_negative": 2,
+        "precision": 0.863636,
+        "recall": 0.904762,
+        "f1": 0.883721
+      },
+      "authorized_candidate": {
+        "true_positive": 20,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.952381,
+        "recall": 0.952381,
+        "f1": 0.952381
+      },
+      "raw_typed_event": {
+        "true_positive": 19,
+        "false_positive": 8,
+        "false_negative": 5,
+        "precision": 0.703704,
+        "recall": 0.791667,
+        "f1": 0.745098
+      },
+      "authorized_typed_event": {
+        "true_positive": 23,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.958333,
+        "recall": 0.958333,
+        "f1": 0.958333
+      },
+      "material_delta": {
+        "true_positive": 22,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.956522,
+        "recall": 0.956522,
+        "f1": 0.956522
+      },
+      "material_operation": {
+        "true_positive": 22,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.956522,
+        "recall": 0.956522,
+        "f1": 0.956522
+      },
+      "turnwise_accumulated_state": {
+        "true_positive": 54,
+        "false_positive": 3,
+        "false_negative": 4,
+        "precision": 0.947368,
+        "recall": 0.931034,
+        "f1": 0.93913
+      },
+      "scenario_final_state": {
+        "true_positive": 16,
+        "false_positive": 1,
+        "false_negative": 1,
+        "precision": 0.941176,
+        "recall": 0.941176,
+        "f1": 0.941176
+      },
+      "candidate_fp_count": 3,
+      "c2u_fp_count": 0,
+      "novel_candidate_fp_count": 3,
+      "forbidden_prediction_count": 1,
+      "no_event_turn_count": 5,
+      "false_assertion_on_no_event_turn_count": 2,
+      "no_material_turn_count": 6,
+      "false_assertion_on_no_material_turn_count": 2,
+      "first_final_fp_origins": [
+        {
+          "scenario_id": "se05",
+          "turn": 2,
+          "token": "note_taking|soft",
+          "canonical_id": "note_taking",
+          "cause": "novel_extraction"
+        }
+      ],
+      "first_final_fp_origin_counts": {
+        "novel_extraction": 1
+      },
+      "lexical_evidence_validity": {
+        "predicted_count": 27,
+        "exact_current_substring_count": 27,
+        "rate": 1.0
+      },
+      "correction_recall": {
+        "target_count": 2,
+        "true_positive": 2,
+        "recall": 1.0
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 2,
+        "recall": 1.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "event_rejection_count": 3,
+      "policy_lane_accuracy": 0.958333,
+      "question_target_accuracy": 0.958333,
+      "recommendation_pipeline_completion_rate": 0.958333,
+      "hard_filter_completion_rate": 1.0,
+      "top3_hard_constraint_violation_rate": 0.0
+    }
+  },
+  "decision": {
+    "status": "development_gate_passed_confirmatory_method_freeze_allowed",
+    "baseline_reuse": "frozen v1 B0+C live output; no new baseline calls",
+    "candidate_fp_reduction_fraction": 0.75,
+    "c2u_fp_reduction_fraction": 1.0,
+    "metric_deltas": {
+      "raw_candidate_recall": 0.095238,
+      "correction_recall": 0.5,
+      "retract_recall": 1.0,
+      "reactivation_recall": 1.0,
+      "turnwise_state_f1": 0.155797,
+      "scenario_final_state_f1": 0.218954,
+      "hard_filter_completion": 0.25,
+      "policy_lane_accuracy": 0.041666,
+      "recommendation_completion": 0.041666
+    },
+    "checks": {
+      "treatment_turn_output_completion_at_least_95_percent": true,
+      "candidate_fp_reduction_at_least_30_percent": true,
+      "c2u_fp_reduction_at_least_50_percent": true,
+      "no_event_false_assertions_not_increased": true,
+      "turnwise_final_fp_not_increased": true,
+      "scenario_final_fp_not_increased": true,
+      "raw_candidate_recall_drop_at_most_2pp": true,
+      "correction_recall_drop_at_most_2pp": true,
+      "retract_recall_drop_at_most_2pp": true,
+      "reactivation_recall_drop_at_most_2pp": true,
+      "turnwise_state_f1_drop_at_most_001": true,
+      "scenario_final_state_f1_drop_at_most_001": true,
+      "hard_filter_completion_drop_at_most_1pp": true,
+      "policy_lane_accuracy_drop_at_most_2pp": true,
+      "recommendation_completion_drop_at_most_2pp": true
+    },
+    "claim_boundary": "v1.3 was developed after exposure to this fixture. Passing only permits a later method freeze and a new untouched confirmatory holdout."
+  },
+  "regression_versus_v13": {
+    "candidate_fp_count": {
+      "v13": 3,
+      "v14": 3,
+      "delta": 0
+    },
+    "c2u_fp_count": {
+      "v13": 0,
+      "v14": 0,
+      "delta": 0
+    },
+    "novel_candidate_fp_count": {
+      "v13": 3,
+      "v14": 3,
+      "delta": 0
+    },
+    "raw_candidate_recall": {
+      "v13": 0.904762,
+      "v14": 0.904762,
+      "delta": 0.0
+    },
+    "raw_candidate_precision": {
+      "v13": 0.863636,
+      "v14": 0.863636,
+      "delta": 0.0
+    },
+    "turnwise_final_fp": {
+      "v13": 1,
+      "v14": 3,
+      "delta": 2
+    },
+    "scenario_final_fp": {
+      "v13": 1,
+      "v14": 1,
+      "delta": 0
+    },
+    "turnwise_state_f1": {
+      "v13": 0.744681,
+      "v14": 0.93913,
+      "delta": 0.194449
+    },
+    "scenario_final_state_f1": {
+      "v13": 0.714286,
+      "v14": 0.941176,
+      "delta": 0.22689
+    },
+    "correction_recall": {
+      "v13": 0.0,
+      "v14": 1.0,
+      "delta": 1.0
+    },
+    "retract_recall": {
+      "v13": 1.0,
+      "v14": 1.0,
+      "delta": 0.0
+    },
+    "reactivation_recall": {
+      "v13": 1.0,
+      "v14": 1.0,
+      "delta": 0.0
+    },
+    "material_operation_f1": {
+      "v13": 0.8,
+      "v14": 0.956522,
+      "delta": 0.156522
+    },
+    "turn_output_completion_rate": {
+      "v13": 1.0,
+      "v14": 1.0,
+      "delta": 0.0
+    },
+    "hard_filter_completion_rate": {
+      "v13": 0.958333,
+      "v14": 1.0,
+      "delta": 0.041667
+    },
+    "policy_lane_accuracy": {
+      "v13": 0.958333,
+      "v14": 0.958333,
+      "delta": 0.0
+    },
+    "false_assertion_on_no_event_turn_count": {
+      "v13": 2,
+      "v14": 2,
+      "delta": 0
+    }
+  },
+  "limitations": [
+    "The fixture was exposed during v1.3 and v1.4 design and is development-only.",
+    "The B0 reference is reused from the v1 run and has 22/24 completion.",
+    "The v1.3 reference is a single recorded live run, so provider variance between v1.3 and v1.4 is not separated from the deterministic change.",
+    "Human relevance and response wording are outside this state experiment."
+  ]
+}

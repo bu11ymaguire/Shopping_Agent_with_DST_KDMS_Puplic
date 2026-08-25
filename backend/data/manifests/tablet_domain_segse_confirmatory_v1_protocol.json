@@ -1,0 +1,467 @@
+{
+  "schema_version": "tablet-domain-segse-confirmatory-v1-protocol-v1",
+  "status": "protocol_frozen_before_holdout_authoring_and_before_any_confirmatory_run",
+  "confirmatory_evidence": false,
+  "holdout_exists": false,
+  "any_confirmatory_run_completed": false,
+  "amendment_history": [
+    {
+      "revision": 2,
+      "amended_at_commit": "18e58b96e4b0b3e8b4bfa5a8d5c4a5f0bd8b6a4c",
+      "holdout_existed_at_amendment": false,
+      "any_run_completed_at_amendment": false,
+      "changes": [
+        "made final DST closeness to Gold State the primary outcome as a graded per-episode score, and demoted exact match to a reported strictest cut",
+        "added the paired final-state closeness improvement over the v1.3 contract on identical raw proposals as the second primary",
+        "pre-registered a comparative decision rule and recorded why no absolute threshold is set",
+        "enabled the pre-registered test-retest run as Analysis C and fixed the Run A primary versus Run B robustness roles",
+        "required Run A and Run B to execute back to back before either result is opened",
+        "forbade averaging, cherry-picking, or pooling Run A and Run B",
+        "fixed the holdout size at 20 scenarios by 4 turns",
+        "raised dimension_attribution_negative from 4 to 6 turns and required six distinct dimension-confusion families rather than paraphrases of the development sentence",
+        "reframed the composition minimums as coverage constraints rather than turn quotas and added episode-naturalness rules",
+        "required per-operation numerator and denominator reporting for every correction and retract metric",
+        "restated what Analysis B proves as a deterministic interpretation-layer effect rather than a whole-method causal effect",
+        "declared provider-variance decomposition out of scope under the single-run design and recorded the pre-registered option that would make it measurable",
+        "fixed the holdout authoring sequence and forbade executing v1.4 or reading its output while authoring",
+        "recorded that the next method change forks to v1.5 instead of editing frozen v1.4"
+      ],
+      "reason": "The protocol is amendable only while no holdout data and no run exist. Both conditions held at amendment time."
+    }
+  ],
+  "evaluated_method": {
+    "freeze_manifest": "data/manifests/segse_v14_method_freeze.json",
+    "freeze_git_tag": "segse-v1.4-freeze",
+    "combined_method_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25",
+    "reverify_before_and_after_run": true
+  },
+  "primary_question": "Can SEGSE v1.4 reduce false current-turn state updates while preserving genuine value and scope corrections and the resulting accumulated state?",
+  "analyses": {
+    "A_end_to_end": {
+      "purpose": "measure the frozen method as deployed",
+      "upstream": "live gpt-4o-mini, temperature 0, one call per attempted turn",
+      "downstream": "frozen v1.4 deterministic pipeline",
+      "runs": 1,
+      "supports": "all absolute numbers"
+    },
+    "B_fixed_upstream_paired": {
+      "purpose": "isolate the deterministic interpretation layer from LLM run variation",
+      "upstream": "raw structured proposals recorded during Analysis A",
+      "downstream": ["v1.3 deterministic pipeline", "v1.4 deterministic pipeline"],
+      "additional_llm_calls": 0,
+      "valid_because": "v1.3 and v1.4 share the prompt text and output schema byte-for-byte",
+      "supports": "the deterministic interpretation-layer effect: how much the downstream contract change moves the outcome when the same LLM proposal is given, paired per turn and bootstrappable over scenarios",
+      "does_not_support": [
+        "the causal effect of the whole v1.4 method",
+        "how often the upstream emits the proposal that makes the contract matter"
+      ]
+    },
+    "claims_must_state_which_analysis": true,
+    "claim_boundaries": {
+      "A_end_to_end": "the actual confirmatory performance of the whole frozen v1.4 system",
+      "B_fixed_upstream": "the effect of the v1.3 to v1.4 deterministic contract change under an identical raw proposal",
+      "provider_variation": "not estimated by this protocol"
+    },
+    "C_test_retest_provider_stability": {
+      "purpose": "measure how much the identical frozen method moves on identical data because of provider nondeterminism",
+      "upstream": "a second live run of the same frozen v1.4 method on the same holdout",
+      "runs": 1,
+      "role": "pre-registered robustness analysis only",
+      "supports": "the provider-level stability of the frozen method",
+      "does_not_support": [
+        "any primary PASS or FAIL decision",
+        "a better or averaged performance number",
+        "a retroactive redefinition of Run A"
+      ]
+    },
+    "claims_must_state_which_analysis": true,
+    "claim_boundaries": {
+      "A_end_to_end": "the actual confirmatory performance of the whole frozen v1.4 system",
+      "B_fixed_upstream": "the effect of the v1.3 to v1.4 deterministic contract change under an identical raw proposal",
+      "C_test_retest": "the provider-level nondeterminism of the frozen method on identical data"
+    },
+    "provider_variation_decomposition": {
+      "in_scope": true,
+      "measured_by": "C_test_retest_provider_stability",
+      "reason_it_needs_a_second_run": "No live v1.3 run on the holdout exists, so an end-to-end version difference is not computable. Provider variation can only be observed by repeating the identical frozen method on the identical data.",
+      "known_magnitude_from_development": "raw proposals differed on 5 of 24 development turns at temperature 0",
+      "forbidden_inference": "attributing any holdout difference to provider variance without a measurement of it"
+    }
+  },
+  "run_roles": {
+    "governing_statement": "Run A is the sole primary confirmatory evaluation. Run B is a pre-registered test-retest analysis of provider-level nondeterminism and shall not replace, average with, or retroactively redefine Run A.",
+    "run_a": {
+      "name": "primary_confirmatory_run",
+      "decides_pass_or_fail": true,
+      "is_the_reported_headline": true
+    },
+    "run_b": {
+      "name": "test_retest_second_live_v14_run",
+      "enabled": true,
+      "decides_pass_or_fail": false,
+      "is_the_reported_headline": false,
+      "identical_method_and_data_as_run_a": true
+    },
+    "execution_order_rule": {
+      "statement": "Run A and Run B execute back to back before any result of either is opened.",
+      "ordered": [
+        "holdout freeze",
+        "execute Run A",
+        "do not open Run A results",
+        "execute Run B",
+        "both runs complete",
+        "open and analyse results"
+      ],
+      "reason": "Deciding whether to do Run B after seeing Run A would be a selection bias.",
+      "open_run_a_before_run_b_completes": false
+    },
+    "forbidden_operations": [
+      "averaging Run A and Run B into one reported number",
+      "reporting whichever run is better",
+      "pooling Run A and Run B as independent samples for a confidence interval",
+      "replacing a Run A number with a Run B number",
+      "using Run B to redefine the Run A decision after the fact"
+    ],
+    "pooling_rule": "Run A and Run B are repeated measurements of the same 80 turns. They are used only for stability analysis, never as independent samples.",
+    "reported_disagreements_between_runs": [
+      "raw_structured_proposal_exact_match_disagreement",
+      "candidate_set_disagreement",
+      "material_operation_disagreement",
+      "candidate_fp_difference",
+      "c2u_fp_difference",
+      "correction_recall_difference",
+      "material_state_diff_f1_difference",
+      "final_state_f1_difference",
+      "final_state_exact_match_difference",
+      "schema_and_turn_completion_difference"
+    ]
+  },
+  "denominator_rule": {
+    "count_every_authored_turn": true,
+    "missing_output_is_failure": true,
+    "schema_failure_is_failure": true,
+    "successful_turn_only_denominator_forbidden": true,
+    "failed_turn_does_not_suppress_later_turns": true
+  },
+  "primary_outcome": {
+    "name": "final_dst_closeness_to_gold_state",
+    "statement": "How close is the final accumulated DialogueState produced by frozen v1.4 to the frozen Gold State, and is it closer than the v1.3 contract on the identical raw proposals?",
+    "graded_not_binary": true,
+    "unit": "one graded score per episode",
+    "denominator": 20,
+    "comparison_unit": "the active final-state token set: hard facts as canonical_id|hard|normalized_value, qualitative facts as canonical_id|scope, superseded facts excluded",
+    "closeness_measures": {
+      "error_tokens": "|predicted symmetric-difference gold| per episode, that is FP + FN, lower is better",
+      "jaccard": "|predicted intersect gold| / |predicted union gold| per episode, 1.0 means identical",
+      "micro_f1": "token-level precision, recall, F1 pooled across episodes"
+    },
+    "exact_match_role": {
+      "reported": true,
+      "is_the_headline": false,
+      "reason_demoted": "Exact match is all-or-nothing and has poor resolution. On the development fixture v1.3 scored 0/6 exact while its mean Jaccard was .569, and both v1.4 misses were single-token, one of them from provider variance. A single token should not move the headline.",
+      "reported_as": "strictest cut, exact match count out of 20"
+    },
+    "why_graded": "The research claim is that false updates fall while genuine corrections survive, which is a graded movement of the final state toward gold, not a demand for token-perfect episodes.",
+    "supporting_decompositions": {
+      "where_it_fails": "per-episode token-level false positives and false negatives with their origin cause",
+      "turn_level": "turnwise accumulated state precision, recall, F1, labelled persistence-amplified",
+      "per_decision": "material State Diff and material operation precision, recall, F1"
+    }
+  },
+  "paired_improvement_primary": {
+    "name": "final_state_closeness_improvement_over_v13",
+    "analysis": "B_fixed_upstream_paired",
+    "why_this_analysis": "The holdout has no live v1.3 run, but Analysis B replays the identical recorded raw proposals through the v1.3 and the v1.4 deterministic pipelines, which yields a paired v1.3 final state on the same data with zero extra LLM calls.",
+    "what_it_isolates": "the deterministic contract change only, with the LLM held identical by construction",
+    "paired_unit": "one episode, 20 pairs",
+    "reported": [
+      "mean per-episode error-token reduction",
+      "mean per-episode Jaccard improvement",
+      "episodes improved, unchanged, and worsened",
+      "paired bootstrap 95 percent confidence interval over the 20 episodes"
+    ],
+    "reference_ladder_optional": {
+      "enabled": false,
+      "description": "The base SEGSE pipeline without the v1.3 and v1.4 repairs can be replayed on the same proposals to give a three-point ladder. Offline and free, but not required for the primary claim.",
+      "note": "If enabled it must be enabled before the run."
+    }
+  },
+  "decision_rule": {
+    "the_confirmatory_claim_is_comparative_not_absolute": true,
+    "pass_requires_all_of": {
+      "paired_final_state_closeness_improves": "mean per-episode Jaccard improvement over v1.3 is positive and the paired bootstrap 95 percent CI lower bound is above 0",
+      "regression_is_bounded": "at most 2 of 20 episodes get worse in error-token count",
+      "improvement_is_broad": "at least 8 of 20 episodes improve in error-token count",
+      "correction_recall_recovered": "combined value and scope correction recall is strictly greater than the v1.3 paired value on the same proposals",
+      "guardrails_hold": [
+        "raw_candidate_recall",
+        "retract_recall",
+        "hard_filter_completion_rate",
+        "turn_output_completion_rate"
+      ]
+    },
+    "reported_without_a_threshold": [
+      "absolute mean per-episode Jaccard",
+      "absolute mean per-episode error tokens",
+      "absolute scenario final-state micro precision, recall, F1",
+      "exact match count out of 20"
+    ],
+    "why_no_absolute_threshold": "No untouched measurement of this method exists, so any absolute bar would be invented rather than justified. The pre-registered decision therefore rests on the paired improvement and the guardrails, and the absolute numbers are reported descriptively.",
+    "forbidden": [
+      "declaring success from exact match alone",
+      "declaring success from an aggregate F1 alone",
+      "moving a threshold after seeing the result"
+    ]
+  },
+  "primary_metrics": {
+    "final_state_closeness": [
+      "mean_per_episode_error_tokens",
+      "mean_per_episode_jaccard",
+      "scenario_final_state_precision",
+      "scenario_final_state_recall",
+      "scenario_final_state_f1",
+      "scenario_final_state_false_positive",
+      "scenario_final_state_false_negative",
+      "final_state_exact_match_count_over_20"
+    ],
+    "final_state_closeness_improvement_over_v13": [
+      "mean_per_episode_error_token_reduction",
+      "mean_per_episode_jaccard_improvement",
+      "episodes_improved",
+      "episodes_unchanged",
+      "episodes_worsened",
+      "paired_bootstrap_95_ci"
+    ],
+    "false_update": [
+      "candidate_fp_count",
+      "c2u_fp_count",
+      "novel_candidate_fp_count"
+    ],
+    "correction": [
+      "value_correction_recall",
+      "scope_correction_recall",
+      "combined_correction_recall"
+    ],
+    "material_behavior": [
+      "material_delta_precision",
+      "material_delta_recall",
+      "material_delta_f1",
+      "material_operation_precision",
+      "material_operation_recall",
+      "material_operation_f1"
+    ],
+    "persistence": [
+      "turnwise_accumulated_state_precision",
+      "turnwise_accumulated_state_recall",
+      "turnwise_accumulated_state_f1",
+      "scenario_final_state_precision",
+      "scenario_final_state_recall",
+      "scenario_final_state_f1"
+    ]
+  },
+  "guardrail_metrics": [
+    "raw_candidate_recall",
+    "retract_recall",
+    "hard_filter_completion_rate",
+    "turn_output_completion_rate"
+  ],
+  "guardrail_rule": "A guardrail regression fails the confirmatory claim even when a primary metric improves.",
+  "development_calibration_reference": {
+    "purpose": "context for why the primary is graded, not a threshold and not evidence",
+    "fixture": "exposed 6-episode development fixture",
+    "per_episode_final_state": {
+      "b0_c": {"exact": "2/6", "mean_error_tokens": 1.667, "mean_jaccard": 0.608},
+      "v13": {"exact": "0/6", "mean_error_tokens": 1.333, "mean_jaccard": 0.569},
+      "v14": {"exact": "4/6", "mean_error_tokens": 0.333, "mean_jaccard": 0.889}
+    },
+    "paired_v13_to_v14": {"improved": 4, "unchanged": 2, "worsened": 0},
+    "observation": "v1.3 scored 0/6 exact yet .569 mean Jaccard, and both v1.4 misses were single-token with one caused by provider variance. Exact match alone would have reported v1.3 as a total failure and would let one token move the v1.4 headline.",
+    "not_a_threshold": true,
+    "not_confirmatory_evidence": true
+  },
+  "reported_not_claimed": [
+    "policy_lane_accuracy",
+    "question_target_accuracy",
+    "recommendation_pipeline_completion_rate",
+    "lexical_evidence_validity",
+    "dimension_evidence_scope_distribution",
+    "top3_hard_constraint_violation_rate",
+    "confirmation_metadata_recall",
+    "reactivation_recall"
+  ],
+  "not_evaluable": {
+    "provenance_accuracy": "the evaluator does not compute explicit/implicit/inferred agreement",
+    "product_relevance": "out of scope for a state experiment",
+    "review_relevance": "out of scope for a state experiment",
+    "human_perceived_quality": "no human grades are collected in this protocol"
+  },
+  "persistence_amplification_disclosure": {
+    "required": true,
+    "statement": "Final-state improvement is amplified by persistence across subsequent turns. One corrected event repairs every later snapshot of its scenario, so accumulated-state deltas exceed the number of event-level decisions that produced them. Material delta and material operation metrics are the per-decision view and must be quoted with any accumulated-state claim."
+  },
+  "holdout_authoring_rules": {
+    "author_after_method_freeze": true,
+    "freeze_before_execution": [
+      "utterances",
+      "gold typed state events",
+      "gold material operations",
+      "gold accumulated state",
+      "gold policy lane and question target",
+      "expected hard constraints"
+    ],
+    "never_authored": [
+      "recommended products",
+      "system rankings",
+      "human relevance grades"
+    ],
+    "forbidden_utterance_sources": [
+      "data/tablet_domain_segse_dev_v1.json",
+      "data/tablet_domain_segse_e2e_dev_v1.json",
+      "data/tablet_domain_understanding_dev_v1.json",
+      "data/tablet_domain_multiturn_holdout_v1.json",
+      "data/tablet_domain_m0_c_confirmatory_holdout_v1.json"
+    ],
+    "deterministic_overlap_check_before_freeze": true,
+    "development_failure_families_included_as_new_surface_forms_only": true,
+    "explicitly_forbidden_sentence": "A microSD slot that accepts large cards would be convenient.",
+    "expansion_storage_family_gold_rule": "no note_taking event and no storage_capacity event",
+    "gold_authored_from_contract_not_from_system_output": true,
+    "environment_category_invariant": "category_tablet",
+    "machine_checked_before_freeze": [
+      "declared hard filters equal the deterministic query generator on the gold state",
+      "declared policy lane and question target equal the deterministic policy",
+      "gold evidence text is an exact current-utterance substring",
+      "gold and forbidden IDs do not overlap"
+    ]
+  },
+  "holdout_size": {
+    "scenarios": 20,
+    "turns_per_scenario": 4,
+    "total_turns": 80,
+    "rationale": "Matches the scale of the earlier official and confirmatory tablet holdouts so comparisons are straightforward, and leaves headroom above the 56 constrained turns. A smaller set would let one or two cases dominate value-correction, scope-correction, and retract or reactivation recall."
+  },
+  "composition_semantics": "coverage_constraint_not_turn_quota",
+  "composition_note": "These are minimum coverage counts, not a template list. The holdout is 20 coherent four-turn shopping episodes that happen to cover these transitions, not 80 independent unit tests. An episode built from one family only is rejected.",
+  "composition_minimums_in_turns": {
+    "value_correction_hard_numeric": 6,
+    "scope_correction_hard_to_soft": 4,
+    "scope_correction_soft_to_hard": 4,
+    "retract_hard_fact": 4,
+    "retract_soft_fact": 3,
+    "reactivation_after_retract": 3,
+    "confirmation_no_material_change": 4,
+    "unchanged_requirement_zero_event": 6,
+    "dimension_attribution_negative": 6,
+    "negative_polarity": 3,
+    "tradeoff_compromised_side": 3,
+    "compound_two_or_more_facts": 6,
+    "relaxation_on_hard_only_id_gold_is_retract": 3
+  },
+  "episode_design_rules": {
+    "each_scenario_is_one_coherent_user_episode": true,
+    "minimum_distinct_transition_families_per_scenario": 2,
+    "single_family_scenario_forbidden": true,
+    "families_distributed_across_scenarios_not_concentrated": true,
+    "turn_order_must_read_as_natural_dialogue": true,
+    "forbidden_shape": "an 80-entry list of independent failure templates"
+  },
+  "dimension_attribution_negative_design": {
+    "minimum_turns": 6,
+    "purpose": "a pre-declared generalization test of a residual failure family already found in development, not an adversarial attempt to fail v1.4",
+    "must_be_distinct_semantic_families_not_paraphrases": true,
+    "families": [
+      "expandable storage",
+      "external accessories",
+      "display feature",
+      "connectivity feature",
+      "port or charging feature",
+      "stylus accessory"
+    ],
+    "requirement": "six dimension-confusion opportunities across six different families, each testing whether a real current-utterance signal is over-canonicalized into an unrelated subjective facet or preference ID",
+    "forbidden": "six paraphrases of the development microSD sentence, or six turns that repeat one family",
+    "gold_rule": "gold contains no preference or facet ID that the utterance does not lexically support; the unsupported IDs are listed in forbidden_event_ids"
+  },
+  "reporting_requirements": {
+    "headline_is_graded_closeness_and_paired_improvement": {
+      "required": true,
+      "format_example": "Final-state error tokens per episode 1.35 -> 0.45 versus the v1.3 contract on identical proposals; 14/20 episodes improved, 0 worsened; mean Jaccard .62 -> .88; exact match 11/20",
+      "exact_match_may_not_stand_alone": true,
+      "must_be_accompanied_by": [
+        "per-episode error tokens and Jaccard for both contracts",
+        "the count of episodes improved, unchanged, and worsened",
+        "the failing episodes with their token-level FP and FN",
+        "the origin cause of every final-state false positive"
+      ]
+    },
+    "per_operation_numerator_and_denominator": {
+      "required": true,
+      "applies_to": [
+        "value_correction_recall",
+        "scope_correction_hard_to_soft_recall",
+        "scope_correction_soft_to_hard_recall",
+        "retract_recall",
+        "reactivation_recall",
+        "confirmation_metadata_recall"
+      ],
+      "format_example": "scope correction 7/8, value correction 6/6",
+      "reason": "80 turns is still small for correction metrics; an aggregate rate hides how few targets support it"
+    },
+    "aggregate_correction_recall_alone_is_insufficient": true,
+    "persistence_amplified_label_required_on_final_state": true,
+    "every_claim_names_its_analysis": true
+  },
+  "authoring_sequence": {
+    "ordered_steps": [
+      "protocol freeze",
+      "author holdout utterances",
+      "annotate gold events, material operations, and accumulated state",
+      "static consistency validation",
+      "build holdout manifest and hashes",
+      "holdout freeze",
+      "first v1.4 execution",
+      "read results"
+    ],
+    "no_step_may_be_reordered": true,
+    "execute_v14_during_authoring": false,
+    "read_v14_output_while_annotating": false,
+    "annotate_from_frozen_semantic_contract_only": true,
+    "rationale": "Running v1.4 on a candidate utterance to see whether it behaves converts that utterance into development data. Gold must come from the contract, never from an observed output."
+  },
+  "execution_contract": {
+    "analysis_a_runs": 1,
+    "test_retest_runs": 1,
+    "total_live_runs": 2,
+    "both_runs_execute_before_any_result_is_opened": true,
+    "rerun_allowed_only_when": "no turn produced a scored output",
+    "no_intermediate_aggregation_before_completion": true,
+    "record_raw_report_and_trace_hashes": true,
+    "raw_report_and_trace_stay_out_of_git": true,
+    "reverify_method_freeze_before_and_after": true
+  },
+  "next_change_policy": {
+    "frozen_v14_is_not_edited_again": true,
+    "next_intervention_forks_a_new_version": "v1.5",
+    "planned_v15_scope": "semantic dimension grounding / attribution gate",
+    "required_cycle_for_v15": [
+      "separate development iteration",
+      "its own method freeze",
+      "its own untouched confirmatory holdout"
+    ],
+    "reason": "Folding a dimension gate into v1.4 would blur which failure layer v1.4 resolved."
+  },
+  "secondary_question": {
+    "question": "Is dimension attribution now the dominant residual error?",
+    "status": "secondary_and_descriptive",
+    "evidence": "the distribution of Final FP origin causes on the holdout, with carryover_to_update separated from novel_extraction and incorrect_value_or_scope",
+    "cannot_be_promoted_to_primary_after_the_run": true,
+    "consequence_if_confirmed": "v1.5 becomes a semantic dimension grounding / attribution gate as an independent intervention"
+  },
+  "interpretation_limits": [
+    "v1.4 was tuned on an exposed development fixture; development numbers never evidence generalization.",
+    "The dimension-attribution weakness is known and unfixed. Exposure by the holdout is a recorded limitation, not a reason to patch and re-run.",
+    "Analysis B holds the upstream identical, so it measures the deterministic interpretation-layer effect only. It is not the causal effect of the whole method and it says nothing about how often the upstream emits the proposal that makes the contract matter.",
+    "Provider variation is not estimated on the holdout, so no holdout difference may be attributed to it.",
+    "Eighty turns is small for correction metrics. Every correction and retract number is reported as a numerator over a denominator.",
+    "Passing supports a state-update correctness claim only, not recommendation quality or human relevance."
+  ]
+}

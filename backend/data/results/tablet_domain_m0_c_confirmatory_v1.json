@@ -1,0 +1,846 @@
+{
+  "schema_version": "tablet-domain-m0-c-confirmatory-summary-v1",
+  "study_status": "confirmatory_frozen_untouched_holdout",
+  "generated_at": "2026-08-17T10:27:34.294257+00:00",
+  "run_id": "m0c-confirmatory-20260817T100554Z-8fb67f98",
+  "raw_report_sha256": "5288cb5081b74be66c52bcbddab4a8e88f508af7d6cf9ec04d16803ec7e4bafc",
+  "dataset": {
+    "path": "C:\\Users\\jwkim\\.codex\\visualizations\\2026\\08\\16\\01a009ab-a8ac-7a72-8d6f-e53f641b9803\\KDMS_Prepare_Extended\\backend\\data\\tablet_domain_m0_c_confirmatory_holdout_v1.json",
+    "sha256_lf_normalized": "09101347675cdca0186c6bc9bccfedb5395a9cd013ba3372fa6040db86a8d008",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "reuse_classification": "new_untouched_confirmatory_holdout"
+  },
+  "version_control": {
+    "branch": "Extended_Experiment",
+    "execution_commit": "4d1936cbd6f2d6f562a5647f2f31a837709d89b8",
+    "tracked_worktree_clean": true,
+    "selected_method_commit": "cb6bcf2683f622e3c44edc6672b7167ae1b2171a"
+  },
+  "protocol": {
+    "live_strategy_order": [
+      "m0_baseline",
+      "c_semantic_noop"
+    ],
+    "run_each_live_strategy_once": true,
+    "aggregate_only_after_both_live_strategies": true,
+    "fixed_upstream_replay": "M0 Understanding outputs replayed through C State Manager",
+    "understanding_llm_calls_per_attempted_live_turn": 1,
+    "response_composer": "deterministic_template",
+    "correction_turns": [
+      "th21:4",
+      "th22:4",
+      "th23:4",
+      "th24:4",
+      "th25:4",
+      "th26:4",
+      "th27:4",
+      "th28:4"
+    ],
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260817
+  },
+  "catalog": {
+    "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\amazon_reviews_2023\\tablet_catalog_v2",
+    "schema_version": "amazon-tablet-pilot-v2",
+    "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+    "product_count": 117,
+    "review_count": 7552
+  },
+  "condition_metrics": {
+    "m0_baseline": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.65,
+      "completed_scenario_count": 13,
+      "turn_output_completion_rate": 0.7,
+      "completed_turn_count": 56,
+      "expected_turn_count": 80,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9821428571428571,
+      "canonical_id_exact_accuracy": 0.2625,
+      "canonical_id_micro": {
+        "precision": 0.5,
+        "recall": 0.5679012345679012,
+        "f1": 0.5317919075144509
+      },
+      "matched_scope_accuracy": 0.9565217391304348,
+      "forbidden_candidate_violation_rate": 0.0,
+      "item_action_exact_accuracy": 0.9821428571428571,
+      "tradeoff_exact_accuracy": 0.9642857142857143,
+      "state_diff_exact_accuracy": 0.2625,
+      "state_diff_micro": {
+        "precision": 0.53,
+        "recall": 0.5760869565217391,
+        "f1": 0.5520833333333334
+      },
+      "final_state_micro": {
+        "precision": 0.8611111111111112,
+        "recall": 0.6666666666666666,
+        "f1": 0.7515151515151516
+      },
+      "policy_lane_accuracy": 0.9821428571428571,
+      "question_target_accuracy": 0.9821428571428571,
+      "recommendation_lane_reach_rate": 0.9814814814814815,
+      "recommendation_pipeline_completion_rate": 0.9814814814814815,
+      "hard_constraint_completion_rate": 0.5125,
+      "hard_constraint_violation_rate": 0.15723270440251572,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.03773584905660377,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 8738.0,
+        "p95": 15982.7,
+        "max": 22013.1
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 3263.483,
+          "p95": 7303.496
+        },
+        "state_and_policy": {
+          "median": 0.21150000000000002,
+          "p95": 0.268
+        },
+        "query_generation": {
+          "median": 0.049,
+          "p95": 0.071
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3605.6435,
+          "p95": 9598.073
+        },
+        "product_ranking": {
+          "median": 6.386,
+          "p95": 17.586
+        },
+        "response_composer_llm": {
+          "median": 0.061,
+          "p95": 0.091
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th22",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['candidates.0: Value error, preference IDs require scope and facet IDs require null scope; candidates.1: Value error, preference IDs require scope and facet IDs require null scope', 'candidates.0: Value error, preference IDs require scope and facet IDs require null scope; candidates.1: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th26",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th27",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th30",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['candidates.0: Value error, preference IDs require scope and facet IDs require null scope', 'candidates.0: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th32",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, unsupported category requests must not mutate tablet preferences', '(root): Value error, unsupported category requests must not mutate tablet preferences']"
+        },
+        {
+          "scenario_id": "th36",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th40",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 24,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.5,
+            "recall": 0.7931034482758621,
+            "f1": 0.6133333333333334
+          },
+          "state_diff_micro": {
+            "precision": 0.53,
+            "recall": 0.803030303030303,
+            "f1": 0.6385542168674698
+          },
+          "hard_constraint_completion_rate": 0.7321428571428571
+        },
+        "candidate_micro": {
+          "precision": 0.5,
+          "recall": 0.5679012345679012,
+          "f1": 0.5317919075144509
+        },
+        "candidate_false_positive_count": 46,
+        "carryover_to_update_false_positive_count": 35,
+        "carryover_false_update_rate_per_active_slot": 0.3645833333333333,
+        "prior_active_slot_exposure": 96,
+        "material_state_diff_false_positive_count": 47,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 5,
+        "correction_candidate_recall": 0.5,
+        "understanding_latency_ms_median": 3263.483
+      }
+    },
+    "c_semantic_noop": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.65,
+      "completed_scenario_count": 13,
+      "turn_output_completion_rate": 0.7,
+      "completed_turn_count": 56,
+      "expected_turn_count": 80,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9821428571428571,
+      "canonical_id_exact_accuracy": 0.3,
+      "canonical_id_micro": {
+        "precision": 0.5454545454545454,
+        "recall": 0.5925925925925926,
+        "f1": 0.5680473372781065
+      },
+      "matched_scope_accuracy": 0.9583333333333334,
+      "forbidden_candidate_violation_rate": 0.0,
+      "item_action_exact_accuracy": 0.9821428571428571,
+      "tradeoff_exact_accuracy": 0.9821428571428571,
+      "state_diff_exact_accuracy": 0.4625,
+      "state_diff_micro": {
+        "precision": 0.8307692307692308,
+        "recall": 0.5869565217391305,
+        "f1": 0.6878980891719746
+      },
+      "final_state_micro": {
+        "precision": 0.8611111111111112,
+        "recall": 0.6666666666666666,
+        "f1": 0.7515151515151516
+      },
+      "policy_lane_accuracy": 0.9821428571428571,
+      "question_target_accuracy": 0.9821428571428571,
+      "recommendation_lane_reach_rate": 0.9814814814814815,
+      "recommendation_pipeline_completion_rate": 0.9814814814814815,
+      "hard_constraint_completion_rate": 0.55,
+      "hard_constraint_violation_rate": 0.1069182389937107,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.03773584905660377,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 6244.3,
+        "p95": 14938.4,
+        "max": 15344.2
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 2531.0175,
+          "p95": 5914.291
+        },
+        "state_and_policy": {
+          "median": 0.199,
+          "p95": 0.252
+        },
+        "query_generation": {
+          "median": 0.05,
+          "p95": 0.065
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3562.0085,
+          "p95": 9518.678
+        },
+        "product_ranking": {
+          "median": 5.5165,
+          "p95": 17.352
+        },
+        "response_composer_llm": {
+          "median": 0.058,
+          "p95": 0.078
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th22",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['candidates.0: Value error, preference IDs require scope and facet IDs require null scope', 'candidates.0: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th27",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th30",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['candidates.0: Value error, preference IDs require scope and facet IDs require null scope', 'candidates.0: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th32",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, unsupported category requests must not mutate tablet preferences', '(root): Value error, unsupported category requests must not mutate tablet preferences']"
+        },
+        {
+          "scenario_id": "th35",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th36",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th40",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 24,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.5454545454545454,
+            "recall": 0.8135593220338984,
+            "f1": 0.653061224489796
+          },
+          "state_diff_micro": {
+            "precision": 0.8307692307692308,
+            "recall": 0.8181818181818182,
+            "f1": 0.8244274809160306
+          },
+          "hard_constraint_completion_rate": 0.7857142857142857
+        },
+        "candidate_micro": {
+          "precision": 0.5454545454545454,
+          "recall": 0.5925925925925926,
+          "f1": 0.5680473372781065
+        },
+        "candidate_false_positive_count": 40,
+        "carryover_to_update_false_positive_count": 30,
+        "carryover_false_update_rate_per_active_slot": 0.3157894736842105,
+        "prior_active_slot_exposure": 95,
+        "material_state_diff_false_positive_count": 11,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 6,
+        "correction_candidate_recall": 0.75,
+        "understanding_latency_ms_median": 2531.0175
+      }
+    },
+    "c_fixed_upstream_replay": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.0,
+      "completed_scenario_count": 0,
+      "turn_output_completion_rate": 0.7,
+      "completed_turn_count": 56,
+      "expected_turn_count": 80,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9821428571428571,
+      "canonical_id_exact_accuracy": 0.2625,
+      "canonical_id_micro": {
+        "precision": 0.5,
+        "recall": 0.5679012345679012,
+        "f1": 0.5317919075144509
+      },
+      "matched_scope_accuracy": 0.9565217391304348,
+      "forbidden_candidate_violation_rate": 0.0,
+      "item_action_exact_accuracy": 0.9821428571428571,
+      "tradeoff_exact_accuracy": 0.9642857142857143,
+      "state_diff_exact_accuracy": 0.4375,
+      "state_diff_micro": {
+        "precision": 0.803030303030303,
+        "recall": 0.5760869565217391,
+        "f1": 0.6708860759493671
+      },
+      "final_state_micro": {
+        "precision": 0.8611111111111112,
+        "recall": 0.6666666666666666,
+        "f1": 0.7515151515151516
+      },
+      "policy_lane_accuracy": 0.9821428571428571,
+      "question_target_accuracy": 0.9821428571428571,
+      "recommendation_lane_reach_rate": 0.9814814814814815,
+      "recommendation_pipeline_completion_rate": 0.9814814814814815,
+      "hard_constraint_completion_rate": 0.5125,
+      "hard_constraint_violation_rate": 0.15723270440251572,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.03773584905660377,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 3641.8500000000004,
+        "p95": 9798.4,
+        "max": 10041.4
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 44.1695,
+          "p95": 57.198
+        },
+        "state_and_policy": {
+          "median": 0.24,
+          "p95": 0.376
+        },
+        "query_generation": {
+          "median": 0.053,
+          "p95": 0.079
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3610.0805,
+          "p95": 9763.368
+        },
+        "product_ranking": {
+          "median": 7.0085,
+          "p95": 17.21
+        },
+        "response_composer_llm": {
+          "median": 0.0615,
+          "p95": 0.081
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th21",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th22",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th23",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th24",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th25",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th26",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th27",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th28",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th29",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th30",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th31",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th32",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th33",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th34",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th35",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th36",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th37",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th38",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th39",
+          "error_type": null,
+          "error_message": null
+        },
+        {
+          "scenario_id": "th40",
+          "error_type": null,
+          "error_message": null
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 24,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.5,
+            "recall": 0.7931034482758621,
+            "f1": 0.6133333333333334
+          },
+          "state_diff_micro": {
+            "precision": 0.803030303030303,
+            "recall": 0.803030303030303,
+            "f1": 0.803030303030303
+          },
+          "hard_constraint_completion_rate": 0.7321428571428571
+        },
+        "candidate_micro": {
+          "precision": 0.5,
+          "recall": 0.5679012345679012,
+          "f1": 0.5317919075144509
+        },
+        "candidate_false_positive_count": 46,
+        "carryover_to_update_false_positive_count": 35,
+        "carryover_false_update_rate_per_active_slot": 0.3645833333333333,
+        "prior_active_slot_exposure": 96,
+        "material_state_diff_false_positive_count": 13,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 5,
+        "correction_candidate_recall": 0.5,
+        "understanding_latency_ms_median": 44.1695
+      }
+    }
+  },
+  "live_trace_summaries": {
+    "m0_baseline": {
+      "record_count": 63,
+      "understanding_call_count": 63,
+      "understanding_schema_validation_rate": 0.8888888888888888,
+      "schema_repair_count": 29,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 63
+      },
+      "structured_modes": {
+        "json_schema": 63
+      },
+      "input_tokens": 197403,
+      "output_tokens": 9899,
+      "http_attempt_count": 92
+    },
+    "c_semantic_noop": {
+      "record_count": 63,
+      "understanding_call_count": 63,
+      "understanding_schema_validation_rate": 0.8888888888888888,
+      "schema_repair_count": 28,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 63
+      },
+      "structured_modes": {
+        "json_schema": 63
+      },
+      "input_tokens": 197121,
+      "output_tokens": 9806,
+      "http_attempt_count": 91
+    }
+  },
+  "live_trace_sha256": {
+    "m0_baseline": "cdd4f31148cc9743f4207efea2dc2e94a0203f3a40ef80484839a5936178c658",
+    "c_semantic_noop": "d4ea6b22bbca4126ff95886a1089174d8c6f8229e96b791d49d30b86aaefadec"
+  },
+  "paired_bootstrap": {
+    "fixed_upstream_replay": {
+      "estimand": "paired mean scenario State Diff F1 difference (C minus M0)",
+      "scenario_count": 20,
+      "resamples": 10000,
+      "seed": 20260817,
+      "observed_difference": 0.10015262515262516,
+      "confidence_interval_95": [
+        0.057689532689532697,
+        0.14565767565767568
+      ],
+      "per_scenario": {
+        "th21": {
+          "m0": 0.5454545454545454,
+          "c": 0.6666666666666666,
+          "difference": 0.12121212121212122
+        },
+        "th22": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th23": {
+          "m0": 0.9090909090909091,
+          "c": 1.0,
+          "difference": 0.09090909090909094
+        },
+        "th24": {
+          "m0": 0.5,
+          "c": 0.8,
+          "difference": 0.30000000000000004
+        },
+        "th25": {
+          "m0": 0.5,
+          "c": 0.6666666666666666,
+          "difference": 0.16666666666666663
+        },
+        "th26": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th27": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th28": {
+          "m0": 0.6666666666666666,
+          "c": 0.8,
+          "difference": 0.13333333333333341
+        },
+        "th29": {
+          "m0": 0.6666666666666666,
+          "c": 0.8,
+          "difference": 0.13333333333333341
+        },
+        "th30": {
+          "m0": 0.6666666666666666,
+          "c": 0.6666666666666666,
+          "difference": 0.0
+        },
+        "th31": {
+          "m0": 0.9090909090909091,
+          "c": 0.9090909090909091,
+          "difference": 0.0
+        },
+        "th32": {
+          "m0": 0.5,
+          "c": 0.5714285714285714,
+          "difference": 0.0714285714285714
+        },
+        "th33": {
+          "m0": 0.6153846153846154,
+          "c": 0.7272727272727273,
+          "difference": 0.11188811188811187
+        },
+        "th34": {
+          "m0": 0.4444444444444444,
+          "c": 0.7272727272727273,
+          "difference": 0.2828282828282829
+        },
+        "th35": {
+          "m0": 0.6153846153846154,
+          "c": 0.8888888888888888,
+          "difference": 0.2735042735042734
+        },
+        "th36": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th37": {
+          "m0": 0.6666666666666666,
+          "c": 0.8,
+          "difference": 0.13333333333333341
+        },
+        "th38": {
+          "m0": 0.6153846153846154,
+          "c": 0.8,
+          "difference": 0.18461538461538463
+        },
+        "th39": {
+          "m0": 0.8,
+          "c": 0.8,
+          "difference": 0.0
+        },
+        "th40": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        }
+      }
+    },
+    "independent_live_replication": {
+      "estimand": "paired mean scenario State Diff F1 difference (C minus M0)",
+      "scenario_count": 20,
+      "resamples": 10000,
+      "seed": 20260817,
+      "observed_difference": 0.11272838272838273,
+      "confidence_interval_95": [
+        0.004420301920301917,
+        0.2172144522144522
+      ],
+      "per_scenario": {
+        "th21": {
+          "m0": 0.5454545454545454,
+          "c": 0.9090909090909091,
+          "difference": 0.36363636363636365
+        },
+        "th22": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th23": {
+          "m0": 0.9090909090909091,
+          "c": 1.0,
+          "difference": 0.09090909090909094
+        },
+        "th24": {
+          "m0": 0.5,
+          "c": 0.6666666666666666,
+          "difference": 0.16666666666666663
+        },
+        "th25": {
+          "m0": 0.5,
+          "c": 0.75,
+          "difference": 0.25
+        },
+        "th26": {
+          "m0": 0.0,
+          "c": 0.75,
+          "difference": 0.75
+        },
+        "th27": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th28": {
+          "m0": 0.6666666666666666,
+          "c": 0.8,
+          "difference": 0.13333333333333341
+        },
+        "th29": {
+          "m0": 0.6666666666666666,
+          "c": 0.8,
+          "difference": 0.13333333333333341
+        },
+        "th30": {
+          "m0": 0.6666666666666666,
+          "c": 0.6666666666666666,
+          "difference": 0.0
+        },
+        "th31": {
+          "m0": 0.9090909090909091,
+          "c": 0.9090909090909091,
+          "difference": 0.0
+        },
+        "th32": {
+          "m0": 0.5,
+          "c": 0.5714285714285714,
+          "difference": 0.0714285714285714
+        },
+        "th33": {
+          "m0": 0.6153846153846154,
+          "c": 0.7272727272727273,
+          "difference": 0.11188811188811187
+        },
+        "th34": {
+          "m0": 0.4444444444444444,
+          "c": 0.7272727272727273,
+          "difference": 0.2828282828282829
+        },
+        "th35": {
+          "m0": 0.6153846153846154,
+          "c": 0.0,
+          "difference": -0.6153846153846154
+        },
+        "th36": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        },
+        "th37": {
+          "m0": 0.6666666666666666,
+          "c": 0.8888888888888888,
+          "difference": 0.2222222222222222
+        },
+        "th38": {
+          "m0": 0.6153846153846154,
+          "c": 0.9090909090909091,
+          "difference": 0.29370629370629364
+        },
+        "th39": {
+          "m0": 0.8,
+          "c": 0.8,
+          "difference": 0.0
+        },
+        "th40": {
+          "m0": 0.0,
+          "c": 0.0,
+          "difference": 0.0
+        }
+      }
+    }
+  },
+  "decision": {
+    "status": "confirmatory_prespecified",
+    "primary_estimand": "paired mean scenario State Diff F1 difference (C minus M0)",
+    "non_inferiority_margins": {
+      "final_state_f1": 0.02,
+      "correction_recall": 0.05,
+      "hard_filter_completion": 0.02,
+      "turn_output_completion": 0.02
+    },
+    "fixed_upstream_replay": {
+      "passed": true,
+      "checks": {
+        "paired_state_diff_f1_superiority": true,
+        "paired_bootstrap_lower_bound_above_zero": true,
+        "material_state_diff_fp_reduction": true,
+        "retention_final_state_f1": true,
+        "retention_correction_recall": true,
+        "retention_hard_filter_completion": true,
+        "retention_turn_output_completion": true
+      }
+    },
+    "independent_live_replication": {
+      "passed": true,
+      "checks": {
+        "paired_state_diff_f1_superiority": true,
+        "paired_bootstrap_lower_bound_above_zero": true,
+        "material_state_diff_fp_reduction": true,
+        "retention_final_state_f1": true,
+        "retention_correction_recall": true,
+        "retention_hard_filter_completion": true,
+        "retention_turn_output_completion": true
+      }
+    },
+    "confirmed": true,
+    "decision_rule": "Confirm C only if fixed-upstream causal replay and independent live replication both show State Diff superiority with a positive paired bootstrap lower bound, fewer material false positives, and all four retention gates."
+  },
+  "limitations": [
+    "Product relevance and natural-language response quality are outside this state experiment.",
+    "Independent live arms can differ because GPT-4o-mini calls are not bitwise deterministic.",
+    "The fixed-upstream replay is the causal State Manager comparison; independent live is operational replication."
+  ]
+}

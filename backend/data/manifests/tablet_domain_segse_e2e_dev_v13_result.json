@@ -1,0 +1,42 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-v13-result-manifest-v1",
+  "status": "development_gate_failed",
+  "confirmatory_evidence": false,
+  "run_id": "segse-e2e-dev-v13-20260818T045252Z-ac1d5b",
+  "execution_commit": "1192d943b33c365f7cca5569e0c2e9c349d8d38d",
+  "tracked_summary": {
+    "path": "data/results/tablet_domain_segse_e2e_dev_v13.json",
+    "size_bytes": 11298,
+    "sha256": "572903fa8b9c540a082b3a65533e9334563fb289c07310af0c994223f7a4f1c5"
+  },
+  "git_ignored_artifacts": {
+    "raw_report": {
+      "path": "reports/tablet_domain_segse_e2e_dev_v13.json",
+      "size_bytes": 2774096,
+      "sha256": "66f7c4694a56d329fef5140766cf118561d3be17c09ef3487605861dd064a3dd"
+    },
+    "trace": {
+      "path": "logs/segse-e2e-dev-v13-20260818T045252Z-ac1d5b_d4_segse_v13.jsonl",
+      "size_bytes": 142914,
+      "sha256": "77729ba8b85c6d9642662b1c1187cde0fe3deb8eb1f241aa1f2f41ab61e60a02"
+    }
+  },
+  "headline": {
+    "completed_turns": 24,
+    "candidate_precision": 0.863636,
+    "candidate_recall": 0.904762,
+    "candidate_fp": 3,
+    "c2u_fp": 0,
+    "material_operation_f1": 0.8,
+    "turnwise_state_f1": 0.744681,
+    "turnwise_final_fp": 1,
+    "scenario_final_state_f1": 0.714286,
+    "scenario_final_fp": 1,
+    "correction_recall": 0.0,
+    "retract_recall": 1.0,
+    "reactivation_recall": 1.0,
+    "hard_filter_completion": 0.958333
+  },
+  "decision": "Do not freeze v1.3. Completion and acquisition recall recovered, but correction recall and turnwise state F1 failed the development gate.",
+  "secrets_recorded": false
+}

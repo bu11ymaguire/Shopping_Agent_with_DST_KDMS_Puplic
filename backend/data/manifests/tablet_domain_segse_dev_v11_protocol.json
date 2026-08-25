@@ -1,0 +1,29 @@
+{
+  "manifest_version": "tablet-domain-segse-dev-v1.1-protocol",
+  "status": "post_v1_development_contract_frozen_before_live_run",
+  "confirmatory_evidence": false,
+  "development_branch": "codex/segse-lite-experiment",
+  "design_parent_commit": "34619af",
+  "prompt_version": "segse-lite-tablet-domain-en-v1.1-dev",
+  "proposal_schema_version": "segse-proposal-output-v1.1",
+  "fixture_reuse": "same_exposed_24_case_development_fixture",
+  "baseline_reuse": "v1_first_run_b0_scores_no_new_calls",
+  "frozen_baseline_result_sha256": "0e28f9e4f09b9aa5cb20edb79937732c7aa69440db033016e1915619c63f4e6f",
+  "treatment_live_logical_call_count": 24,
+  "module_only_no_catalog_calls": true,
+  "missing_output_as_empty_prediction": true,
+  "live_run_completed": false,
+  "frozen_sources_sha256_lf_normalized": {
+    "app/segse_experiment_v11.py": "29358f9c74d9f379b8be35296162711927785c32ba7045f6f48e7c50e393aca6",
+    "data/tablet_domain_segse_dev_v1.json": "bf447d9f914cd495f9601ee7ca5b6256de6ea53b61d370acfb95fd561f4db2ab",
+    "docs/tablet_domain_segse_lite_dev_protocol_v11.md": "f01148222c5d12620ccec54e325516c9f909350a28ce436636ce94ba603fda9d",
+    "scripts/run_tablet_domain_segse_dev_v11.py": "1ceab6ba495025e0d17108ca4ac5e58333d398bae68f81e8dc96f4da8f5cd00d",
+    "scripts/verify_tablet_domain_segse_dev_v11.py": "622c9f5846af1185feabcae49c38265885765902658e0f1c1c36b2e909f8cf2f"
+  },
+  "claims_not_authorized": [
+    "untouched_generalization",
+    "component_level_causality",
+    "confirmatory_success",
+    "downstream_hard_filter_noninferiority"
+  ]
+}

@@ -1,0 +1,1373 @@
+{
+  "schema_version": "segse-confirmatory-v1-summary-v1",
+  "run_id": "segse-confirmatory-20260819T052732Z-f0427757",
+  "study_status": "untouched_confirmatory_holdout_first_system_run",
+  "version_control": {
+    "execution_commit": "5eafc310afdeff741fbf0615fb1d347e5ac985e1",
+    "method_freeze_tag": "segse-v1.4-freeze",
+    "protocol_freeze_tag": "segse-confirmatory-v1-protocol-freeze",
+    "holdout_freeze_tag": "segse-confirmatory-holdout-v1-freeze",
+    "tracked_worktree_clean": true
+  },
+  "freezes_verified_before_run": {
+    "holdout_combined_sha256": "5105f6288b0eb27233af3c293df85677de7cbaca405cc28a92250ca36cbff60c",
+    "method_combined_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25",
+    "protocol_revision": 2
+  },
+  "freezes_verified_after_run": {
+    "holdout_combined_sha256": "5105f6288b0eb27233af3c293df85677de7cbaca405cc28a92250ca36cbff60c",
+    "method_combined_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25",
+    "protocol_revision": 2
+  },
+  "holdout": {
+    "path": "data/tablet_domain_segse_confirmatory_holdout_v1.json",
+    "sha256_lf_normalized": "3930268cef7c5459f8b95f99cac232faa4103cb26fa62830c516bb8de121400a",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "split": "untouched_holdout"
+  },
+  "runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0.0,
+    "prompt_version": "segse-lite-tablet-domain-en-v1.4-dev",
+    "understanding_calls_per_attempted_turn": 1
+  },
+  "catalog": {
+    "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\amazon_reviews_2023\\tablet_catalog_v2",
+    "schema_version": "amazon-tablet-pilot-v2",
+    "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+    "product_count": 117,
+    "review_count": 7552
+  },
+  "run_roles": {
+    "run_a_primary": "sole primary confirmatory evaluation; decides pass or fail",
+    "run_b_test_retest": "pre-registered provider-nondeterminism analysis only",
+    "governing_statement": "Run A is the sole primary confirmatory evaluation. Run B is a pre-registered test-retest analysis of provider-level nondeterminism and shall not replace, average with, or retroactively redefine Run A.",
+    "both_runs_execute_before_any_result_is_opened": true
+  },
+  "analysis_a_end_to_end": {
+    "claim": "the actual confirmatory performance of the whole frozen v1.4 system",
+    "final_state_table": {
+      "tp": 40,
+      "fp": 11,
+      "fn": 12,
+      "precision": 0.784314,
+      "recall": 0.769231,
+      "f1": 0.776699
+    },
+    "final_state_closeness": {
+      "episode_count": 20,
+      "exact_match_count": 10,
+      "exact_match_rate": 0.5,
+      "mean_error_tokens": 1.15,
+      "mean_jaccard": 0.713333,
+      "micro": {
+        "true_positive": 40,
+        "false_positive": 11,
+        "false_negative": 12,
+        "precision": 0.784314,
+        "recall": 0.769231,
+        "f1": 0.776699
+      }
+    },
+    "per_episode_closeness": {
+      "sc01": {
+        "gold": [
+          "activity_reading|facet",
+          "budget|hard|340",
+          "storage_capacity|hard|256"
+        ],
+        "predicted": [
+          "activity_reading|facet",
+          "budget|hard|340",
+          "storage_capacity|hard|256"
+        ],
+        "true_positive": 3,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc02": {
+        "gold": [
+          "activity_video|facet",
+          "budget|hard|520"
+        ],
+        "predicted": [
+          "activity_video|facet",
+          "budget|hard|520"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc03": {
+        "gold": [
+          "budget|hard|560",
+          "goal_work_study|facet",
+          "operating_system|hard|android"
+        ],
+        "predicted": [
+          "budget|hard|560",
+          "goal_work_study|facet",
+          "operating_system|hard|android"
+        ],
+        "true_positive": 3,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc04": {
+        "gold": [
+          "activity_gaming|facet",
+          "budget|hard|410"
+        ],
+        "predicted": [
+          "activity_gaming|facet",
+          "budget|hard|410"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc05": {
+        "gold": [
+          "audience_family|facet",
+          "budget|hard|300",
+          "max_weight|hard|450"
+        ],
+        "predicted": [
+          "budget|hard|300",
+          "max_weight|hard|450"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 1,
+        "error_tokens": 1,
+        "jaccard": 0.666667,
+        "exact": false
+      },
+      "sc06": {
+        "gold": [
+          "activity_general|facet",
+          "budget|hard|260"
+        ],
+        "predicted": [
+          "activity_general|facet",
+          "budget|hard|260"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc07": {
+        "gold": [
+          "audio|soft",
+          "budget|hard|480",
+          "goal_entertainment|facet"
+        ],
+        "predicted": [
+          "activity_video|facet",
+          "audio|soft",
+          "budget|hard|480"
+        ],
+        "true_positive": 2,
+        "false_positive": 1,
+        "false_negative": 1,
+        "error_tokens": 2,
+        "jaccard": 0.5,
+        "exact": false
+      },
+      "sc08": {
+        "gold": [
+          "activity_reading|facet",
+          "budget|hard|390"
+        ],
+        "predicted": [
+          "activity_reading|facet",
+          "budget|hard|390"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc09": {
+        "gold": [
+          "budget|hard|600",
+          "goal_work_study|facet",
+          "memory_capacity|hard|8"
+        ],
+        "predicted": [
+          "budget|hard|600",
+          "memory_capacity|hard|8"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 1,
+        "error_tokens": 1,
+        "jaccard": 0.666667,
+        "exact": false
+      },
+      "sc10": {
+        "gold": [
+          "activity_note_taking|facet",
+          "budget|hard|450",
+          "display|hard|10"
+        ],
+        "predicted": [
+          "activity_note_taking|facet",
+          "budget|hard|450",
+          "display|hard|10"
+        ],
+        "true_positive": 3,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc11": {
+        "gold": [
+          "audience_child|facet",
+          "budget|hard|220",
+          "child_friendly|soft"
+        ],
+        "predicted": [
+          "budget|hard|220",
+          "note_taking|soft"
+        ],
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 2,
+        "error_tokens": 3,
+        "jaccard": 0.25,
+        "exact": false
+      },
+      "sc12": {
+        "gold": [
+          "activity_video|facet",
+          "budget|hard|330"
+        ],
+        "predicted": [
+          "budget|hard|330",
+          "performance|soft"
+        ],
+        "true_positive": 1,
+        "false_positive": 1,
+        "false_negative": 1,
+        "error_tokens": 2,
+        "jaccard": 0.333333,
+        "exact": false
+      },
+      "sc13": {
+        "gold": [
+          "activity_gaming|facet",
+          "budget|hard|420",
+          "display|soft"
+        ],
+        "predicted": [
+          "activity_gaming|facet",
+          "budget|hard|420",
+          "display|hard|12"
+        ],
+        "true_positive": 2,
+        "false_positive": 1,
+        "false_negative": 1,
+        "error_tokens": 2,
+        "jaccard": 0.5,
+        "exact": false
+      },
+      "sc14": {
+        "gold": [
+          "budget|hard|500",
+          "goal_long_term_use|facet"
+        ],
+        "predicted": [
+          "budget|hard|500",
+          "goal_long_term_use|facet"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc15": {
+        "gold": [
+          "activity_general|facet",
+          "budget|hard|290",
+          "display|hard|10"
+        ],
+        "predicted": [
+          "activity_general|facet",
+          "budget|hard|290",
+          "display|hard|10"
+        ],
+        "true_positive": 3,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc16": {
+        "gold": [
+          "budget|hard|310",
+          "display|soft",
+          "goal_entertainment|facet"
+        ],
+        "predicted": [
+          "activity_video|facet",
+          "budget|hard|310",
+          "display|hard|10"
+        ],
+        "true_positive": 1,
+        "false_positive": 2,
+        "false_negative": 2,
+        "error_tokens": 4,
+        "jaccard": 0.2,
+        "exact": false
+      },
+      "sc17": {
+        "gold": [
+          "activity_reading|facet",
+          "budget|hard|250"
+        ],
+        "predicted": [
+          "activity_reading|facet",
+          "budget|hard|250"
+        ],
+        "true_positive": 2,
+        "false_positive": 0,
+        "false_negative": 0,
+        "error_tokens": 0,
+        "jaccard": 1.0,
+        "exact": true
+      },
+      "sc18": {
+        "gold": [
+          "audience_other|facet",
+          "budget|hard|350",
+          "storage_capacity|hard|128"
+        ],
+        "predicted": [
+          "audience_other|facet",
+          "budget|hard|350",
+          "portability|soft"
+        ],
+        "true_positive": 2,
+        "false_positive": 1,
+        "false_negative": 1,
+        "error_tokens": 2,
+        "jaccard": 0.5,
+        "exact": false
+      },
+      "sc19": {
+        "gold": [
+          "activity_note_taking|facet",
+          "budget|hard|640",
+          "display|soft"
+        ],
+        "predicted": [
+          "activity_note_taking|facet",
+          "budget|hard|640",
+          "display|hard|13",
+          "note_taking|soft"
+        ],
+        "true_positive": 2,
+        "false_positive": 2,
+        "false_negative": 1,
+        "error_tokens": 3,
+        "jaccard": 0.4,
+        "exact": false
+      },
+      "sc20": {
+        "gold": [
+          "budget|hard|270",
+          "goal_replace_device|facet"
+        ],
+        "predicted": [
+          "budget|hard|270",
+          "event_replacement|facet",
+          "min_rating|hard|4"
+        ],
+        "true_positive": 1,
+        "false_positive": 2,
+        "false_negative": 1,
+        "error_tokens": 3,
+        "jaccard": 0.25,
+        "exact": false
+      }
+    },
+    "material_state_diff": {
+      "true_positive": 67,
+      "false_positive": 11,
+      "false_negative": 19,
+      "precision": 0.858974,
+      "recall": 0.77907,
+      "f1": 0.817073
+    },
+    "material_operation": {
+      "true_positive": 64,
+      "false_positive": 14,
+      "false_negative": 22,
+      "precision": 0.820513,
+      "recall": 0.744186,
+      "f1": 0.780488
+    },
+    "turnwise_accumulated_state": {
+      "true_positive": 168,
+      "false_positive": 32,
+      "false_negative": 41,
+      "precision": 0.84,
+      "recall": 0.803828,
+      "f1": 0.821516
+    },
+    "candidate": {
+      "true_positive": 67,
+      "false_positive": 17,
+      "false_negative": 9,
+      "precision": 0.797619,
+      "recall": 0.881579,
+      "f1": 0.8375
+    },
+    "candidate_fp_count": 17,
+    "c2u_fp_count": 7,
+    "novel_candidate_fp_count": 10,
+    "forbidden_prediction_count": 9,
+    "correction_recall_by_operation": {
+      "value_correction": {
+        "numerator": 5,
+        "denominator": 6,
+        "recall": 0.833333,
+        "reported_as": "5/6"
+      },
+      "scope_correction": {
+        "numerator": 3,
+        "denominator": 8,
+        "recall": 0.375,
+        "reported_as": "3/8"
+      },
+      "refinement": {
+        "numerator": 0,
+        "denominator": 0,
+        "recall": null,
+        "reported_as": "0/0"
+      },
+      "retract": {
+        "numerator": 5,
+        "denominator": 10,
+        "recall": 0.5,
+        "reported_as": "5/10"
+      },
+      "reactivation": {
+        "numerator": 2,
+        "denominator": 4,
+        "recall": 0.5,
+        "reported_as": "2/4"
+      }
+    },
+    "combined_value_and_scope_correction": {
+      "numerator": 8,
+      "denominator": 14,
+      "recall": 0.571429,
+      "reported_as": "8/14"
+    },
+    "confirmation_metadata_recall": {
+      "target_count": 4,
+      "true_positive": 4,
+      "recall": 1.0
+    },
+    "evidence_span_validity": {
+      "predicted_count": 105,
+      "exact_current_substring_count": 104,
+      "rate": 0.990476
+    },
+    "policy_lane_accuracy": 1.0,
+    "hard_filter_completion_rate": 0.8375,
+    "turn_output_completion_rate": 1.0,
+    "recommendation_pipeline_completion_rate": 1.0,
+    "top3_hard_constraint_violation_rate": 0.027907,
+    "final_fp_origin_counts": {
+      "failed_retract": 3,
+      "incorrect_value_or_scope": 3,
+      "novel_extraction": 8
+    },
+    "dimension_attribution_turns": [
+      {
+        "turn_id": "sc04t4",
+        "confusion_family": "stylus accessory",
+        "forbidden_predicted_ids": [],
+        "candidate_fp_ids": [
+          "activity_general"
+        ],
+        "clean": false
+      },
+      {
+        "turn_id": "sc08t4",
+        "confusion_family": "expandable storage",
+        "forbidden_predicted_ids": [
+          "storage_capacity"
+        ],
+        "candidate_fp_ids": [
+          "storage_capacity"
+        ],
+        "clean": false
+      },
+      {
+        "turn_id": "sc12t2",
+        "confusion_family": "connectivity feature",
+        "forbidden_predicted_ids": [
+          "performance"
+        ],
+        "candidate_fp_ids": [
+          "performance"
+        ],
+        "clean": false
+      },
+      {
+        "turn_id": "sc16t2",
+        "confusion_family": "display feature",
+        "forbidden_predicted_ids": [
+          "display"
+        ],
+        "candidate_fp_ids": [
+          "display"
+        ],
+        "clean": false
+      },
+      {
+        "turn_id": "sc18t2",
+        "confusion_family": "port or charging feature",
+        "forbidden_predicted_ids": [],
+        "candidate_fp_ids": [
+          "portability"
+        ],
+        "clean": false
+      },
+      {
+        "turn_id": "sc19t4",
+        "confusion_family": "external accessories",
+        "forbidden_predicted_ids": [
+          "note_taking"
+        ],
+        "candidate_fp_ids": [
+          "note_taking"
+        ],
+        "clean": false
+      }
+    ]
+  },
+  "analysis_b_fixed_upstream": {
+    "claim": "the deterministic interpretation-layer effect of the v1.3 to v1.4 contract change under identical raw proposals",
+    "does_not_claim": [
+      "the causal effect of the whole v1.4 method",
+      "how often the upstream emits the proposal that makes the contract matter"
+    ],
+    "additional_llm_calls": 0,
+    "v13_final_state_closeness": {
+      "episode_count": 20,
+      "exact_match_count": 0,
+      "exact_match_rate": 0.0,
+      "mean_error_tokens": 1.65,
+      "mean_jaccard": 0.476667,
+      "micro": {
+        "true_positive": 27,
+        "false_positive": 8,
+        "false_negative": 25,
+        "precision": 0.771429,
+        "recall": 0.519231,
+        "f1": 0.62069
+      }
+    },
+    "v14_final_state_closeness": {
+      "episode_count": 20,
+      "exact_match_count": 10,
+      "exact_match_rate": 0.5,
+      "mean_error_tokens": 1.15,
+      "mean_jaccard": 0.713333,
+      "micro": {
+        "true_positive": 40,
+        "false_positive": 11,
+        "false_negative": 12,
+        "precision": 0.784314,
+        "recall": 0.769231,
+        "f1": 0.776699
+      }
+    },
+    "paired_improvement": {
+      "episode_count": 20,
+      "episodes_improved": 13,
+      "episodes_unchanged": 4,
+      "episodes_worsened": 3,
+      "mean_error_token_reduction": 0.5,
+      "mean_jaccard_improvement": 0.236667,
+      "pairing_note": "Repeated measurements on the same episodes. Paired analysis only; never pooled as independent samples."
+    },
+    "per_episode": [
+      {
+        "episode_id": "sc01",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.333333,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc02",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc03",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.333333,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc04",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc05",
+        "error_tokens_before": 1,
+        "error_tokens_after": 1,
+        "error_token_reduction": 0,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 0.666667,
+        "jaccard_improvement": 0.0,
+        "direction": "unchanged"
+      },
+      {
+        "episode_id": "sc06",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc07",
+        "error_tokens_before": 1,
+        "error_tokens_after": 2,
+        "error_token_reduction": -1,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 0.5,
+        "jaccard_improvement": -0.166667,
+        "direction": "worsened"
+      },
+      {
+        "episode_id": "sc08",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc09",
+        "error_tokens_before": 1,
+        "error_tokens_after": 1,
+        "error_token_reduction": 0,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 0.666667,
+        "jaccard_improvement": 0.0,
+        "direction": "unchanged"
+      },
+      {
+        "episode_id": "sc10",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.333333,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc11",
+        "error_tokens_before": 3,
+        "error_tokens_after": 3,
+        "error_token_reduction": 0,
+        "jaccard_before": 0.25,
+        "jaccard_after": 0.25,
+        "jaccard_improvement": 0.0,
+        "direction": "unchanged"
+      },
+      {
+        "episode_id": "sc12",
+        "error_tokens_before": 2,
+        "error_tokens_after": 2,
+        "error_token_reduction": 0,
+        "jaccard_before": 0.333333,
+        "jaccard_after": 0.333333,
+        "jaccard_improvement": 0.0,
+        "direction": "unchanged"
+      },
+      {
+        "episode_id": "sc13",
+        "error_tokens_before": 3,
+        "error_tokens_after": 2,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.25,
+        "jaccard_after": 0.5,
+        "jaccard_improvement": 0.25,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc14",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc15",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.666667,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.333333,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc16",
+        "error_tokens_before": 3,
+        "error_tokens_after": 4,
+        "error_token_reduction": -1,
+        "jaccard_before": 0.25,
+        "jaccard_after": 0.2,
+        "jaccard_improvement": -0.05,
+        "direction": "worsened"
+      },
+      {
+        "episode_id": "sc17",
+        "error_tokens_before": 1,
+        "error_tokens_after": 0,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.5,
+        "jaccard_after": 1.0,
+        "jaccard_improvement": 0.5,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc18",
+        "error_tokens_before": 3,
+        "error_tokens_after": 2,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.25,
+        "jaccard_after": 0.5,
+        "jaccard_improvement": 0.25,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc19",
+        "error_tokens_before": 4,
+        "error_tokens_after": 3,
+        "error_token_reduction": 1,
+        "jaccard_before": 0.2,
+        "jaccard_after": 0.4,
+        "jaccard_improvement": 0.2,
+        "direction": "improved"
+      },
+      {
+        "episode_id": "sc20",
+        "error_tokens_before": 2,
+        "error_tokens_after": 3,
+        "error_token_reduction": -1,
+        "jaccard_before": 0.333333,
+        "jaccard_after": 0.25,
+        "jaccard_improvement": -0.083333,
+        "direction": "worsened"
+      }
+    ],
+    "paired_bootstrap_jaccard": {
+      "point": 0.236667,
+      "ci_lower_95": 0.136667,
+      "ci_upper_95": 0.3325,
+      "samples": 10000,
+      "seed": 20260819,
+      "episodes": 20
+    },
+    "paired_bootstrap_error_token_reduction": {
+      "point": 0.5,
+      "ci_lower_95": 0.15,
+      "ci_upper_95": 0.8,
+      "samples": 10000,
+      "seed": 20260819,
+      "episodes": 20
+    },
+    "value_and_scope_correction_recall": {
+      "v13": {
+        "numerator": 8,
+        "denominator": 14,
+        "recall": 0.571429,
+        "reported_as": "8/14"
+      },
+      "v14": {
+        "numerator": 8,
+        "denominator": 14,
+        "recall": 0.571429,
+        "reported_as": "8/14"
+      }
+    }
+  },
+  "analysis_c_test_retest": {
+    "claim": "provider-level nondeterminism of the frozen method on identical data",
+    "does_not_claim": [
+      "any primary pass or fail decision",
+      "a better or averaged performance number"
+    ],
+    "run_b_final_state_table": {
+      "tp": 39,
+      "fp": 12,
+      "fn": 13,
+      "precision": 0.764706,
+      "recall": 0.75,
+      "f1": 0.757282
+    },
+    "run_b_final_state_closeness": {
+      "episode_count": 20,
+      "exact_match_count": 7,
+      "exact_match_rate": 0.35,
+      "mean_error_tokens": 1.25,
+      "mean_jaccard": 0.663333,
+      "micro": {
+        "true_positive": 39,
+        "false_positive": 12,
+        "false_negative": 13,
+        "precision": 0.764706,
+        "recall": 0.75,
+        "f1": 0.757282
+      }
+    },
+    "disagreement": {
+      "compared_turns": 80,
+      "raw_structured_proposal_exact_match_disagreement": 6,
+      "candidate_set_disagreement": 3,
+      "material_operation_disagreement": 4,
+      "candidate_fp_difference": -2,
+      "c2u_fp_difference": -2,
+      "correction_recall_difference": 0.0,
+      "material_state_diff_f1_difference": -0.012195,
+      "final_state_f1_difference": -0.019417,
+      "turn_completion_difference": 0.0,
+      "pooling_rule": "Repeated measurements of the same 80 turns. Stability analysis only; never averaged, never pooled as independent samples, never used to redefine Run A."
+    }
+  },
+  "decision": {
+    "rule": {
+      "paired_final_state_closeness_improves": "mean per-episode Jaccard improvement over v1.3 is positive and the paired bootstrap 95 percent CI lower bound is above 0",
+      "regression_is_bounded": "at most 2 of 20 episodes get worse in error-token count",
+      "improvement_is_broad": "at least 8 of 20 episodes improve in error-token count",
+      "correction_recall_recovered": "combined value and scope correction recall is strictly greater than the v1.3 paired value on the same proposals",
+      "guardrails_hold": [
+        "raw_candidate_recall",
+        "retract_recall",
+        "hard_filter_completion_rate",
+        "turn_output_completion_rate"
+      ]
+    },
+    "checks": {
+      "paired_final_state_closeness_improves": true,
+      "regression_is_bounded": false,
+      "improvement_is_broad": true,
+      "correction_recall_recovered": false,
+      "guardrails_hold": true
+    },
+    "guardrail_values": {
+      "raw_candidate_recall": 0.881579,
+      "retract_recall": 0.5,
+      "hard_filter_completion_rate": 0.8375,
+      "turn_output_completion_rate": 1.0
+    },
+    "status": "confirmatory_fail",
+    "claim_boundary": "Untouched holdout, method and protocol frozen by hash before the run. Supports a state-update correctness claim only."
+  },
+  "run_a_metrics": {
+    "scenario_count": 20,
+    "expected_turn_count": 80,
+    "completed_turn_count": 80,
+    "turn_output_completion_rate": 1.0,
+    "route_accuracy": 1.0,
+    "intent_exact_accuracy": 0.875,
+    "raw_candidate": {
+      "true_positive": 67,
+      "false_positive": 17,
+      "false_negative": 9,
+      "precision": 0.797619,
+      "recall": 0.881579,
+      "f1": 0.8375
+    },
+    "authorized_candidate": {
+      "true_positive": 60,
+      "false_positive": 9,
+      "false_negative": 16,
+      "precision": 0.869565,
+      "recall": 0.789474,
+      "f1": 0.827586
+    },
+    "raw_typed_event": {
+      "true_positive": 73,
+      "false_positive": 32,
+      "false_negative": 17,
+      "precision": 0.695238,
+      "recall": 0.811111,
+      "f1": 0.748718
+    },
+    "authorized_typed_event": {
+      "true_positive": 69,
+      "false_positive": 15,
+      "false_negative": 21,
+      "precision": 0.821429,
+      "recall": 0.766667,
+      "f1": 0.793103
+    },
+    "material_delta": {
+      "true_positive": 67,
+      "false_positive": 11,
+      "false_negative": 19,
+      "precision": 0.858974,
+      "recall": 0.77907,
+      "f1": 0.817073
+    },
+    "material_operation": {
+      "true_positive": 64,
+      "false_positive": 14,
+      "false_negative": 22,
+      "precision": 0.820513,
+      "recall": 0.744186,
+      "f1": 0.780488
+    },
+    "turnwise_accumulated_state": {
+      "true_positive": 168,
+      "false_positive": 32,
+      "false_negative": 41,
+      "precision": 0.84,
+      "recall": 0.803828,
+      "f1": 0.821516
+    },
+    "scenario_final_state": {
+      "true_positive": 40,
+      "false_positive": 11,
+      "false_negative": 12,
+      "precision": 0.784314,
+      "recall": 0.769231,
+      "f1": 0.776699
+    },
+    "candidate_fp_count": 17,
+    "c2u_fp_count": 7,
+    "novel_candidate_fp_count": 10,
+    "forbidden_prediction_count": 9,
+    "no_event_turn_count": 18,
+    "false_assertion_on_no_event_turn_count": 8,
+    "no_material_turn_count": 22,
+    "false_assertion_on_no_material_turn_count": 8,
+    "first_final_fp_origins": [
+      {
+        "scenario_id": "sc07",
+        "turn": 1,
+        "token": "activity_video|facet",
+        "canonical_id": "activity_video",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc08",
+        "turn": 3,
+        "token": "storage_capacity|hard|256",
+        "canonical_id": "storage_capacity",
+        "cause": "failed_retract"
+      },
+      {
+        "scenario_id": "sc11",
+        "turn": 2,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc11",
+        "turn": 4,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc12",
+        "turn": 2,
+        "token": "performance|soft",
+        "canonical_id": "performance",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc13",
+        "turn": 2,
+        "token": "display|hard|12",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc16",
+        "turn": 1,
+        "token": "activity_video|facet",
+        "canonical_id": "activity_video",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc16",
+        "turn": 3,
+        "token": "display|hard|10",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc17",
+        "turn": 2,
+        "token": "budget|hard|250",
+        "canonical_id": "budget",
+        "cause": "failed_retract"
+      },
+      {
+        "scenario_id": "sc18",
+        "turn": 2,
+        "token": "portability|soft",
+        "canonical_id": "portability",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc19",
+        "turn": 3,
+        "token": "display|hard|13",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc19",
+        "turn": 4,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc20",
+        "turn": 1,
+        "token": "event_replacement|facet",
+        "canonical_id": "event_replacement",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc20",
+        "turn": 3,
+        "token": "min_rating|hard|4",
+        "canonical_id": "min_rating",
+        "cause": "failed_retract"
+      }
+    ],
+    "first_final_fp_origin_counts": {
+      "failed_retract": 3,
+      "incorrect_value_or_scope": 3,
+      "novel_extraction": 8
+    },
+    "lexical_evidence_validity": {
+      "predicted_count": 105,
+      "exact_current_substring_count": 104,
+      "rate": 0.990476
+    },
+    "correction_recall": {
+      "target_count": 14,
+      "true_positive": 8,
+      "recall": 0.571429
+    },
+    "retract_recall": {
+      "target_count": 10,
+      "true_positive": 5,
+      "recall": 0.5
+    },
+    "reactivation_recall": {
+      "target_count": 4,
+      "true_positive": 2,
+      "recall": 0.5
+    },
+    "confirmation_metadata_recall": {
+      "target_count": 4,
+      "true_positive": 4,
+      "recall": 1.0
+    },
+    "event_rejection_count": 21,
+    "policy_lane_accuracy": 1.0,
+    "question_target_accuracy": 1.0,
+    "recommendation_pipeline_completion_rate": 1.0,
+    "hard_filter_completion_rate": 0.8375,
+    "top3_hard_constraint_violation_rate": 0.027907
+  },
+  "run_b_metrics": {
+    "scenario_count": 20,
+    "expected_turn_count": 80,
+    "completed_turn_count": 80,
+    "turn_output_completion_rate": 1.0,
+    "route_accuracy": 1.0,
+    "intent_exact_accuracy": 0.875,
+    "raw_candidate": {
+      "true_positive": 68,
+      "false_positive": 15,
+      "false_negative": 8,
+      "precision": 0.819277,
+      "recall": 0.894737,
+      "f1": 0.855346
+    },
+    "authorized_candidate": {
+      "true_positive": 59,
+      "false_positive": 10,
+      "false_negative": 17,
+      "precision": 0.855072,
+      "recall": 0.776316,
+      "f1": 0.813793
+    },
+    "raw_typed_event": {
+      "true_positive": 74,
+      "false_positive": 29,
+      "false_negative": 16,
+      "precision": 0.718447,
+      "recall": 0.822222,
+      "f1": 0.766839
+    },
+    "authorized_typed_event": {
+      "true_positive": 68,
+      "false_positive": 16,
+      "false_negative": 22,
+      "precision": 0.809524,
+      "recall": 0.755556,
+      "f1": 0.781609
+    },
+    "material_delta": {
+      "true_positive": 66,
+      "false_positive": 12,
+      "false_negative": 20,
+      "precision": 0.846154,
+      "recall": 0.767442,
+      "f1": 0.804878
+    },
+    "material_operation": {
+      "true_positive": 63,
+      "false_positive": 15,
+      "false_negative": 23,
+      "precision": 0.807692,
+      "recall": 0.732558,
+      "f1": 0.768293
+    },
+    "turnwise_accumulated_state": {
+      "true_positive": 164,
+      "false_positive": 35,
+      "false_negative": 45,
+      "precision": 0.824121,
+      "recall": 0.784689,
+      "f1": 0.803922
+    },
+    "scenario_final_state": {
+      "true_positive": 39,
+      "false_positive": 12,
+      "false_negative": 13,
+      "precision": 0.764706,
+      "recall": 0.75,
+      "f1": 0.757282
+    },
+    "candidate_fp_count": 15,
+    "c2u_fp_count": 5,
+    "novel_candidate_fp_count": 10,
+    "forbidden_prediction_count": 9,
+    "no_event_turn_count": 18,
+    "false_assertion_on_no_event_turn_count": 7,
+    "no_material_turn_count": 22,
+    "false_assertion_on_no_material_turn_count": 7,
+    "first_final_fp_origins": [
+      {
+        "scenario_id": "sc07",
+        "turn": 1,
+        "token": "activity_video|facet",
+        "canonical_id": "activity_video",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc08",
+        "turn": 3,
+        "token": "storage_capacity|hard|256",
+        "canonical_id": "storage_capacity",
+        "cause": "failed_retract"
+      },
+      {
+        "scenario_id": "sc11",
+        "turn": 2,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc11",
+        "turn": 4,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc12",
+        "turn": 2,
+        "token": "performance|soft",
+        "canonical_id": "performance",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc13",
+        "turn": 2,
+        "token": "display|hard|12",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc16",
+        "turn": 1,
+        "token": "activity_video|facet",
+        "canonical_id": "activity_video",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc16",
+        "turn": 3,
+        "token": "display|hard|10",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc17",
+        "turn": 2,
+        "token": "budget_flexibility|soft",
+        "canonical_id": "budget_flexibility",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc17",
+        "turn": 2,
+        "token": "budget|hard|250",
+        "canonical_id": "budget",
+        "cause": "failed_retract"
+      },
+      {
+        "scenario_id": "sc18",
+        "turn": 2,
+        "token": "portability|soft",
+        "canonical_id": "portability",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc19",
+        "turn": 3,
+        "token": "display|hard|13",
+        "canonical_id": "display",
+        "cause": "incorrect_value_or_scope"
+      },
+      {
+        "scenario_id": "sc19",
+        "turn": 4,
+        "token": "note_taking|soft",
+        "canonical_id": "note_taking",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc20",
+        "turn": 1,
+        "token": "event_replacement|facet",
+        "canonical_id": "event_replacement",
+        "cause": "novel_extraction"
+      },
+      {
+        "scenario_id": "sc20",
+        "turn": 3,
+        "token": "min_rating|hard|4",
+        "canonical_id": "min_rating",
+        "cause": "failed_retract"
+      }
+    ],
+    "first_final_fp_origin_counts": {
+      "failed_retract": 3,
+      "incorrect_value_or_scope": 3,
+      "novel_extraction": 9
+    },
+    "lexical_evidence_validity": {
+      "predicted_count": 103,
+      "exact_current_substring_count": 100,
+      "rate": 0.970874
+    },
+    "correction_recall": {
+      "target_count": 14,
+      "true_positive": 8,
+      "recall": 0.571429
+    },
+    "retract_recall": {
+      "target_count": 10,
+      "true_positive": 5,
+      "recall": 0.5
+    },
+    "reactivation_recall": {
+      "target_count": 4,
+      "true_positive": 2,
+      "recall": 0.5
+    },
+    "confirmation_metadata_recall": {
+      "target_count": 4,
+      "true_positive": 4,
+      "recall": 1.0
+    },
+    "event_rejection_count": 19,
+    "policy_lane_accuracy": 1.0,
+    "question_target_accuracy": 1.0,
+    "recommendation_pipeline_completion_rate": 1.0,
+    "hard_filter_completion_rate": 0.8375,
+    "top3_hard_constraint_violation_rate": 0.027907
+  },
+  "limitations": [
+    "One primary run; Run B measures provider nondeterminism and is not a second evaluation.",
+    "Run A and Run B are repeated measurements of the same 80 turns and are never pooled as independent samples.",
+    "Product and review relevance are out of scope for this state experiment."
+  ]
+}

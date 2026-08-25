@@ -1,0 +1,180 @@
+{
+  "schema_version": "tablet-domain-m0-c-confirmatory-result-manifest-v1",
+  "status": "confirmatory_result_frozen",
+  "study_label": "confirmatory_full_memory_semantic_noop_comparison",
+  "run_id": "m0c-confirmatory-20260817T100554Z-8fb67f98",
+  "branch": "Extended_Experiment",
+  "execution_commit": "4d1936cbd6f2d6f562a5647f2f31a837709d89b8",
+  "selected_method_commit": "cb6bcf2683f622e3c44edc6672b7167ae1b2171a",
+  "exploratory_result_commit": "37c2924f0572108246a2963fb87ca053e874d689",
+  "dataset": {
+    "path": "data/tablet_domain_m0_c_confirmatory_holdout_v1.json",
+    "sha256_lf_normalized": "09101347675cdca0186c6bc9bccfedb5395a9cd013ba3372fa6040db86a8d008",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "scenario_ids": [
+      "th21", "th22", "th23", "th24", "th25",
+      "th26", "th27", "th28", "th29", "th30",
+      "th31", "th32", "th33", "th34", "th35",
+      "th36", "th37", "th38", "th39", "th40"
+    ],
+    "reuse_classification": "new_untouched_confirmatory_holdout"
+  },
+  "protocol": {
+    "path": "data/manifests/tablet_domain_m0_c_confirmatory_protocol_v1.json",
+    "sha256_lf_normalized": "ad3536d5868867893a1b78f27db2f8cbf62cedf0ba906ae77c31969cc8548ef0",
+    "freeze_commit": "4d1936cbd6f2d6f562a5647f2f31a837709d89b8",
+    "status_at_execution": "protocol_frozen_before_first_confirmatory_run",
+    "bootstrap_resamples": 10000,
+    "bootstrap_seed": 20260817
+  },
+  "artifacts": {
+    "compact_result": {
+      "path": "data/results/tablet_domain_m0_c_confirmatory_v1.json",
+      "sha256_lf_normalized": "0b4cf3315cabcef4afba30968f64340cd73de3b132003fee1a908fb1eafeaad5",
+      "size_bytes": 30196,
+      "tracked": true
+    },
+    "analysis_report": {
+      "path": "docs/tablet_domain_m0_c_confirmatory_results_v1.md",
+      "sha256_lf_normalized": "d5833a80b6e80dad79f87375fdd87af998d4f244f19446d53e1c35b5c3d025ca",
+      "size_bytes": 6291,
+      "tracked": true
+    },
+    "result_verifier": {
+      "path": "scripts/verify_tablet_domain_m0_c_confirmatory_results.py",
+      "sha256_lf_normalized": "61990a1e5df0a03c6f17fc2b3717622051c916cc55f4138afbee5a2f4002d7c1",
+      "size_bytes": 11875,
+      "tracked": true
+    },
+    "raw_report": {
+      "path": "reports/tablet_domain_m0_c_confirmatory_v1.json",
+      "sha256": "5288cb5081b74be66c52bcbddab4a8e88f508af7d6cf9ec04d16803ec7e4bafc",
+      "size_bytes": 18776951,
+      "tracked": false
+    }
+  },
+  "live_strategy_order": [
+    "m0_baseline",
+    "c_semantic_noop"
+  ],
+  "execution": {
+    "started_at": "2026-08-17T19:05:54.890087+09:00",
+    "completed_at": "2026-08-17T19:27:33.890748+09:00",
+    "run_each_live_strategy_once": true,
+    "aggregate_only_after_both_live_strategies": true,
+    "fixed_upstream_replay_source": "m0_baseline",
+    "response_composer": "deterministic_template"
+  },
+  "llm_audit": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "reported_model": "gpt-4o-mini-2024-07-18",
+    "prompt_version": "spn-understanding-tablet-domain-en-v2.3-frozen",
+    "temperature": 0.0,
+    "structured_mode": "json_schema",
+    "logical_understanding_calls": 126,
+    "schema_repair_attempts": 57,
+    "structured_generation_http_attempts": 183,
+    "transport_retries": 0,
+    "fallbacks": 0,
+    "fixed_replay_additional_llm_calls": 0,
+    "trace_reported_input_tokens": 394524,
+    "trace_reported_output_tokens": 19705
+  },
+  "traces": {
+    "m0_baseline": {
+      "file": "tablet_confirmatory_m0c-confirmatory-20260817T100554Z-8fb67f98_m0_baseline.jsonl",
+      "sha256": "cdd4f31148cc9743f4207efea2dc2e94a0203f3a40ef80484839a5936178c658",
+      "size_bytes": 767090,
+      "logical_calls": 63,
+      "schema_repairs": 29,
+      "http_attempts": 92
+    },
+    "c_semantic_noop": {
+      "file": "tablet_confirmatory_m0c-confirmatory-20260817T100554Z-8fb67f98_c_semantic_noop.jsonl",
+      "sha256": "d4ea6b22bbca4126ff95886a1089174d8c6f8229e96b791d49d30b86aaefadec",
+      "size_bytes": 762927,
+      "logical_calls": 63,
+      "schema_repairs": 28,
+      "http_attempts": 91
+    }
+  },
+  "key_metrics": {
+    "m0_baseline": {
+      "completed_scenarios": 13,
+      "completed_turns": 56,
+      "turn_output_completion": 0.7,
+      "candidate_f1": 0.5317919075144509,
+      "candidate_false_positives": 46,
+      "carryover_to_update_false_positives": 35,
+      "state_diff_f1": 0.5520833333333334,
+      "material_state_diff_false_positives": 47,
+      "final_state_f1": 0.7515151515151516,
+      "correction_recall": 0.5,
+      "hard_filter_completion": 0.5125
+    },
+    "c_fixed_upstream_replay": {
+      "completed_turns": 56,
+      "turn_output_completion": 0.7,
+      "candidate_f1": 0.5317919075144509,
+      "candidate_false_positives": 46,
+      "carryover_to_update_false_positives": 35,
+      "state_diff_f1": 0.6708860759493671,
+      "material_state_diff_false_positives": 13,
+      "final_state_f1": 0.7515151515151516,
+      "correction_recall": 0.5,
+      "hard_filter_completion": 0.5125
+    },
+    "c_semantic_noop_live": {
+      "completed_scenarios": 13,
+      "completed_turns": 56,
+      "turn_output_completion": 0.7,
+      "candidate_f1": 0.5680473372781065,
+      "candidate_false_positives": 40,
+      "carryover_to_update_false_positives": 30,
+      "state_diff_f1": 0.6878980891719746,
+      "material_state_diff_false_positives": 11,
+      "final_state_f1": 0.7515151515151516,
+      "correction_recall": 0.75,
+      "hard_filter_completion": 0.55
+    }
+  },
+  "paired_bootstrap": {
+    "fixed_upstream_replay": {
+      "estimand": "paired mean scenario State Diff F1 difference (C minus M0)",
+      "observed_difference": 0.10015262515262516,
+      "confidence_interval_95": [
+        0.057689532689532697,
+        0.14565767565767568
+      ]
+    },
+    "independent_live_replication": {
+      "estimand": "paired mean scenario State Diff F1 difference (C minus M0)",
+      "observed_difference": 0.11272838272838273,
+      "confidence_interval_95": [
+        0.004420301920301917,
+        0.2172144522144522
+      ]
+    }
+  },
+  "decision": {
+    "confirmed": true,
+    "fixed_upstream_replay_passed": true,
+    "independent_live_replication_passed": true,
+    "all_prespecified_checks_passed": true
+  },
+  "known_measurement_artifact": {
+    "field": "c_fixed_upstream_replay.scenario_completion_rate",
+    "reported_value": 0.0,
+    "cause": "The replay records use status completed_to_m0_boundary while the common aggregator counts only status completed.",
+    "decision_impact": "none; the frozen retention endpoint is completed turns at the identical M0 boundary (56/80)"
+  },
+  "claim_boundaries": [
+    "C is confirmed for suppressing material State Diff false positives under the prespecified M0-versus-C protocol.",
+    "The fixed-upstream replay identifies the deterministic State Manager effect; independent live calls are operational replication.",
+    "C does not improve the candidate extractor in the fixed-upstream comparison.",
+    "Upstream strict-schema completion remains limited at 56 of 80 turns in both live arms.",
+    "Gold product relevance, human recommendation quality, natural-language response quality, E, and C-plus-E are not evaluated."
+  ]
+}

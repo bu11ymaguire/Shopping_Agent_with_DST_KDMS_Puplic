@@ -1,0 +1,229 @@
+{
+  "dataset_version": "tablet-domain-segse-dev-v1",
+  "split": "development",
+  "status": "development_fixture_not_confirmatory_evidence",
+  "domain": "tablet_shopping",
+  "notes": [
+    "This fixture is for contract development and method selection only.",
+    "It must not be reported as untouched confirmatory performance.",
+    "Gold events describe user semantic acts; the State Manager derives add/update/no-op effects."
+  ],
+  "cases": [
+    {
+      "id": "sg01",
+      "family": "new_assertion_vs_unrelated_memory",
+      "utterance": "Set a firm ceiling of $315 for this search.",
+      "prior_facts": [{"canonical_id":"activity_reading","scope":null,"value_text":"reading use","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"budget","act":"assert","scope_after":"hard","value_after":"$315 maximum","relation":"require","evidence_text":"ceiling of $315","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": ["activity_reading"]
+    },
+    {
+      "id": "sg02",
+      "family": "new_assertion_vs_unrelated_memory",
+      "utterance": "For now, I only want to compare the displayed options.",
+      "prior_facts": [{"canonical_id":"activity_reading","scope":null,"value_text":"reading use","origin":"explicit","status":"confirmed"},{"canonical_id":"battery","scope":"soft","value_text":"battery matters","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["activity_reading","battery"]
+    },
+    {
+      "id": "sg03",
+      "family": "confirm_vs_change",
+      "utterance": "Leave my existing price cap exactly as it is.",
+      "prior_facts": [{"canonical_id":"budget","scope":"hard","value_text":"$280 maximum","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"budget","act":"confirm","scope_after":null,"value_after":null,"relation":null,"evidence_text":"Leave my existing price cap exactly as it is","value_source":"prior_state_reference","source_ref":"budget"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg04",
+      "family": "confirm_vs_change",
+      "utterance": "Replace the old cap with a $340 maximum.",
+      "prior_facts": [{"canonical_id":"budget","scope":"hard","value_text":"$280 maximum","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"budget","act":"assert","scope_after":"hard","value_after":"$340 maximum","relation":"require","evidence_text":"$340 maximum","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg05",
+      "family": "provenance_confirmation",
+      "utterance": "Yes—battery endurance is definitely a real priority for me.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery may matter","origin":"inferred","status":"unconfirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"battery","act":"confirm","scope_after":null,"value_after":null,"relation":null,"evidence_text":"battery endurance is definitely a real priority","value_source":"prior_state_reference","source_ref":"battery"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg06",
+      "family": "provenance_confirmation",
+      "utterance": "That earlier battery guess was not something I meant to confirm.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery may matter","origin":"inferred","status":"unconfirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["battery"]
+    },
+    {
+      "id": "sg07",
+      "family": "retract_vs_reactivate",
+      "utterance": "I no longer care about having a storage minimum.",
+      "prior_facts": [{"canonical_id":"storage_capacity","scope":"hard","value_text":"at least 128 GB storage","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"storage_capacity","act":"retract","scope_after":null,"value_after":null,"relation":null,"evidence_text":"no longer care about having a storage minimum","value_source":"prior_state_reference","source_ref":"storage_capacity"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg08",
+      "family": "retract_vs_reactivate",
+      "utterance": "Storage matters again, and 256 GB internal is the new floor.",
+      "prior_facts": [{"canonical_id":"storage_capacity","scope":"hard","value_text":"at least 128 GB storage","origin":"explicit","status":"superseded"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"storage_capacity","act":"assert","scope_after":"hard","value_after":"at least 256 GB storage","relation":"require","evidence_text":"256 GB internal is the new floor","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg09",
+      "family": "negative_polarity",
+      "utterance": "Windows is the one system I do not want.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["operating_system"]
+    },
+    {
+      "id": "sg10",
+      "family": "negative_polarity",
+      "utterance": "Android is required for the apps I use.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"operating_system","act":"assert","scope_after":"hard","value_after":"Android required","relation":"require","evidence_text":"Android is required","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg11",
+      "family": "no_minimum_vs_minimum",
+      "utterance": "There is no minimum storage requirement anymore.",
+      "prior_facts": [{"canonical_id":"storage_capacity","scope":"hard","value_text":"at least 64 GB storage","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"storage_capacity","act":"retract","scope_after":null,"value_after":null,"relation":null,"evidence_text":"no minimum storage requirement anymore","value_source":"prior_state_reference","source_ref":"storage_capacity"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg12",
+      "family": "no_minimum_vs_minimum",
+      "utterance": "Internal storage must be at least 128 GB.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"storage_capacity","act":"assert","scope_after":"hard","value_after":"at least 128 GB storage","relation":"require","evidence_text":"at least 128 GB","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg13",
+      "family": "tradeoff_direction",
+      "utterance": "Long battery life matters more than low weight; I can accept something heavier.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"battery","act":"assert","scope_after":"soft","value_after":"long battery life is prioritized","relation":"prefer","evidence_text":"Long battery life matters more","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": ["portability","max_weight"]
+    },
+    {
+      "id": "sg14",
+      "family": "tradeoff_direction",
+      "utterance": "Both long battery life and low weight are important to me.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"battery","act":"assert","scope_after":"soft","value_after":"long battery life matters","relation":"prefer","evidence_text":"long battery life","value_source":"current_utterance","source_ref":null},{"canonical_id":"portability","act":"assert","scope_after":"soft","value_after":"low weight matters","relation":"prefer","evidence_text":"low weight","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg15",
+      "family": "storage_dimension",
+      "utterance": "A microSD slot that accepts a 1 TB card would be useful.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["storage_capacity"]
+    },
+    {
+      "id": "sg16",
+      "family": "storage_dimension",
+      "utterance": "I need 256 GB of built-in internal storage.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"storage_capacity","act":"assert","scope_after":"hard","value_after":"at least 256 GB storage","relation":"require","evidence_text":"256 GB of built-in internal storage","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg17",
+      "family": "refine_vs_repeat",
+      "utterance": "More specifically, battery endurance during long gaming sessions matters most.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery life matters","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"battery","act":"refine","scope_after":"soft","value_after":"battery endurance during long gaming sessions matters most","relation":"prefer","evidence_text":"battery endurance during long gaming sessions matters most","value_source":"current_utterance","source_ref":"battery"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg18",
+      "family": "refine_vs_repeat",
+      "utterance": "The battery preference is still the same.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery life matters","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"battery","act":"confirm","scope_after":null,"value_after":null,"relation":null,"evidence_text":"battery preference is still the same","value_source":"prior_state_reference","source_ref":"battery"}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg19",
+      "family": "scope_change",
+      "utterance": "A large screen is preferred now, but it is no longer a strict minimum.",
+      "prior_facts": [{"canonical_id":"display","scope":"hard","value_text":"at least 11 inch screen","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"display","act":"assert","scope_after":"soft","value_after":"large screen preferred","relation":"prefer","evidence_text":"large screen is preferred now","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg20",
+      "family": "scope_change",
+      "utterance": "Make the screen requirement a hard minimum of 11 inches.",
+      "prior_facts": [{"canonical_id":"display","scope":"soft","value_text":"large screen preferred","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"display","act":"assert","scope_after":"hard","value_after":"at least 11 inch screen","relation":"require","evidence_text":"hard minimum of 11 inches","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": []
+    },
+    {
+      "id": "sg21",
+      "family": "domain_excursion",
+      "utterance": "Switch the search to lightweight laptops instead.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery life matters","origin":"explicit","status":"confirmed"}],
+      "gold_route": "unsupported_category",
+      "gold_events": [],
+      "forbidden_event_ids": ["battery"]
+    },
+    {
+      "id": "sg22",
+      "family": "domain_excursion",
+      "utterance": "Return to the tablet options we were discussing.",
+      "prior_facts": [{"canonical_id":"battery","scope":"soft","value_text":"battery life matters","origin":"explicit","status":"confirmed"}],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["battery"]
+    },
+    {
+      "id": "sg23",
+      "family": "action_preference_boundary",
+      "utterance": "Reject the second option because it is too heavy for my commute.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [{"canonical_id":"portability","act":"assert","scope_after":"soft","value_after":"low weight matters for commuting","relation":"prefer","evidence_text":"too heavy for my commute","value_source":"current_utterance","source_ref":null}],
+      "forbidden_event_ids": ["max_weight"]
+    },
+    {
+      "id": "sg24",
+      "family": "action_preference_boundary",
+      "utterance": "Remove the second option; I simply do not like it.",
+      "prior_facts": [],
+      "gold_route": "in_domain",
+      "gold_events": [],
+      "forbidden_event_ids": ["portability","performance","display","battery","audio"]
+    }
+  ]
+}

@@ -1,0 +1,3202 @@
+{
+  "schema_version": "tablet-domain-extended-posthoc-summary-v1",
+  "study_status": "posthoc_exploratory_not_confirmatory",
+  "generated_at": "2026-08-17T08:10:53.658197+00:00",
+  "run_id": "extended-20260817T072917Z-fa9cd2af",
+  "raw_report_sha256": "c2e147a7dfc9785a71ff427f167174bbcbed3d1704ef1b33125acf031e77f371",
+  "dataset": {
+    "path": "C:\\Users\\jwkim\\.codex\\visualizations\\2026\\08\\16\\01a009ab-a8ac-7a72-8d6f-e53f641b9803\\KDMS_Prepare_Extended\\backend\\data\\tablet_domain_multiturn_holdout_v1.json",
+    "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e",
+    "reuse_classification": "previously_observed_official_holdout_posthoc"
+  },
+  "version_control": {
+    "branch": "Extended_Experiment",
+    "execution_commit": "cb6bcf2683f622e3c44edc6672b7167ae1b2171a",
+    "tracked_worktree_clean": true,
+    "official_base_commit": "92d70c21993a6780d1078e77af64750c3629410d"
+  },
+  "protocol": {
+    "strategy_order": [
+      "m0_baseline",
+      "a_som_operation",
+      "b_sparse_delta",
+      "c_semantic_noop",
+      "d_full_state_diff",
+      "e_compact_context"
+    ],
+    "run_each_strategy_once": true,
+    "aggregate_only_after_all_strategies": true,
+    "understanding_llm_calls_per_turn": 1,
+    "response_composer": "deterministic_template",
+    "shared_downstream": [
+      "DialogueState contract",
+      "Policy",
+      "Query",
+      "catalog filtering",
+      "semantic review retrieval",
+      "Cross-Encoder",
+      "Rank"
+    ],
+    "correction_turns": [
+      "th03:4",
+      "th17:3",
+      "th18:3"
+    ]
+  },
+  "catalog": {
+    "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\amazon_reviews_2023\\tablet_catalog_v2",
+    "schema_version": "amazon-tablet-pilot-v2",
+    "dataset_revision": "2b6d039ed471f2ba5fd2acb718bf33b0a7e5598e",
+    "product_count": 117,
+    "review_count": 7552
+  },
+  "strategy_metrics": {
+    "m0_baseline": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.85,
+      "completed_scenario_count": 17,
+      "turn_output_completion_rate": 0.8518518518518519,
+      "completed_turn_count": 69,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9565217391304348,
+      "canonical_id_exact_accuracy": 0.32098765432098764,
+      "canonical_id_micro": {
+        "precision": 0.5238095238095238,
+        "recall": 0.6470588235294118,
+        "f1": 0.5789473684210527
+      },
+      "matched_scope_accuracy": 0.9818181818181818,
+      "forbidden_candidate_violation_rate": 0.07246376811594203,
+      "item_action_exact_accuracy": 0.9855072463768116,
+      "tradeoff_exact_accuracy": 0.9710144927536232,
+      "state_diff_exact_accuracy": 0.32098765432098764,
+      "state_diff_micro": {
+        "precision": 0.5614035087719298,
+        "recall": 0.6464646464646465,
+        "f1": 0.6009389671361501
+      },
+      "final_state_micro": {
+        "precision": 0.8131868131868132,
+        "recall": 0.7184466019417476,
+        "f1": 0.7628865979381445
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.6790123456790124,
+      "hard_constraint_violation_rate": 0.09947643979057591,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 8177.0,
+        "p95": 13449.1,
+        "max": 20020.0
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 2318.695,
+          "p95": 5122.38
+        },
+        "state_and_policy": {
+          "median": 0.198,
+          "p95": 0.24
+        },
+        "query_generation": {
+          "median": 0.049,
+          "p95": 0.062
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 4120.53,
+          "p95": 9731.147
+        },
+        "product_ranking": {
+          "median": 6.082,
+          "p95": 14.938
+        },
+        "response_composer_llm": {
+          "median": 0.062,
+          "p95": 0.081
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th08",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th11",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 12,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.5238095238095238,
+            "recall": 0.7432432432432432,
+            "f1": 0.6145251396648044
+          },
+          "state_diff_micro": {
+            "precision": 0.5614035087719298,
+            "recall": 0.7529411764705882,
+            "f1": 0.6432160804020101
+          },
+          "hard_constraint_completion_rate": 0.7971014492753623
+        },
+        "candidate_micro": {
+          "precision": 0.5238095238095238,
+          "recall": 0.6470588235294118,
+          "f1": 0.5789473684210527
+        },
+        "candidate_false_positive_count": 50,
+        "carryover_to_update_false_positive_count": 31,
+        "carryover_false_update_rate_per_active_slot": 0.25833333333333336,
+        "prior_active_slot_exposure": 120,
+        "material_state_diff_false_positive_count": 50,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 3,
+        "correction_candidate_recall": 1.0,
+        "understanding_latency_ms_median": 2318.695
+      }
+    },
+    "a_som_operation": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.2,
+      "completed_scenario_count": 4,
+      "turn_output_completion_rate": 0.38271604938271603,
+      "completed_turn_count": 31,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 1.0,
+      "canonical_id_exact_accuracy": 0.2716049382716049,
+      "canonical_id_micro": {
+        "precision": 0.7804878048780488,
+        "recall": 0.3764705882352941,
+        "f1": 0.5079365079365079
+      },
+      "matched_scope_accuracy": 1.0,
+      "forbidden_candidate_violation_rate": 0.03225806451612903,
+      "item_action_exact_accuracy": 1.0,
+      "tradeoff_exact_accuracy": 1.0,
+      "state_diff_exact_accuracy": 0.2716049382716049,
+      "state_diff_micro": {
+        "precision": 0.7906976744186046,
+        "recall": 0.3434343434343434,
+        "f1": 0.47887323943661964
+      },
+      "final_state_micro": {
+        "precision": 0.8947368421052632,
+        "recall": 0.49514563106796117,
+        "f1": 0.6375000000000001
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.38271604938271603,
+      "hard_constraint_violation_rate": 0.0,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 5452.7,
+        "p95": 12993.5,
+        "max": 13962.8
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 1785.822,
+          "p95": 4087.529
+        },
+        "state_and_policy": {
+          "median": 0.187,
+          "p95": 0.238
+        },
+        "query_generation": {
+          "median": 0.05,
+          "p95": 0.062
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3498.508,
+          "p95": 9407.789
+        },
+        "product_ranking": {
+          "median": 4.799,
+          "p95": 15.413
+        },
+        "response_composer_llm": {
+          "median": 0.063,
+          "p95": 0.079
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th01",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th02",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null; slot_operations.1: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th04",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th06",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th07",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, unsupported-category output must not mutate tablet state', '(root): Value error, unsupported-category output must not mutate tablet state']"
+        },
+        {
+          "scenario_id": "th08",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.2: Value error, carryover/delete operations must not include update payload; slot_operations.3: Value error, carryover/delete operations must not include update payload', 'slot_operations.2: Value error, carryover/delete operations must not include update payload; slot_operations.3: Value error, carryover/delete operations must not include update payload']"
+        },
+        {
+          "scenario_id": "th09",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th11",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th12",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, carryover/delete operations must not include update payload; slot_operations.1: Value error, carryover/delete operations must not include update payload; slot_operations.2: Value error, carryover/delete operations must not include update payload', 'slot_operations.0: Value error, carryover/delete operations must not include update payload; slot_operations.1: Value error, carryover/delete operations must not include updat"
+        },
+        {
+          "scenario_id": "th13",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, carryover/delete operations must not include update payload', 'slot_operations.0: Value error, carryover/delete operations must not include update payload']"
+        },
+        {
+          "scenario_id": "th16",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th17",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th18",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.1: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.1: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th19",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, carryover/delete operations must not include update payload; slot_operations.1: Value error, carryover/delete operations must not include update payload; slot_operations.2: Value error, carryover/delete operations must not include update payload', 'slot_operations.2: Value error, carryover/delete operations must not include update payload']"
+        },
+        {
+          "scenario_id": "th20",
+          "error_type": "StructuredOutputError",
+          "error_message": "SOMOperationOutput 검증에 실패했습니다. 시도 2회, 사유: ['slot_operations.0: Value error, preference upserts require scope; facet upserts require null', 'slot_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 50,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.7804878048780488,
+            "recall": 0.8648648648648649,
+            "f1": 0.8205128205128206
+          },
+          "state_diff_micro": {
+            "precision": 0.7906976744186046,
+            "recall": 0.8717948717948718,
+            "f1": 0.8292682926829267
+          },
+          "hard_constraint_completion_rate": 1.0
+        },
+        "candidate_micro": {
+          "precision": 0.7804878048780488,
+          "recall": 0.3764705882352941,
+          "f1": 0.5079365079365079
+        },
+        "candidate_false_positive_count": 9,
+        "carryover_to_update_false_positive_count": 0,
+        "carryover_false_update_rate_per_active_slot": 0.0,
+        "prior_active_slot_exposure": 57,
+        "material_state_diff_false_positive_count": 9,
+        "delete_operation_count": 2,
+        "operation_contract_violation_count": 50,
+        "correction_turn_count": 1,
+        "correction_candidate_recall": 0.3333333333333333,
+        "understanding_latency_ms_median": 1785.822
+      }
+    },
+    "b_sparse_delta": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.3,
+      "completed_scenario_count": 6,
+      "turn_output_completion_rate": 0.38271604938271603,
+      "completed_turn_count": 31,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 1.0,
+      "canonical_id_exact_accuracy": 0.2222222222222222,
+      "canonical_id_micro": {
+        "precision": 0.7,
+        "recall": 0.32941176470588235,
+        "f1": 0.448
+      },
+      "matched_scope_accuracy": 0.9642857142857143,
+      "forbidden_candidate_violation_rate": 0.03225806451612903,
+      "item_action_exact_accuracy": 0.967741935483871,
+      "tradeoff_exact_accuracy": 0.967741935483871,
+      "state_diff_exact_accuracy": 0.2222222222222222,
+      "state_diff_micro": {
+        "precision": 0.717391304347826,
+        "recall": 0.3333333333333333,
+        "f1": 0.4551724137931034
+      },
+      "final_state_micro": {
+        "precision": 0.8103448275862069,
+        "recall": 0.4563106796116505,
+        "f1": 0.5838509316770186
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.38271604938271603,
+      "hard_constraint_violation_rate": 0.0,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 5579.1,
+        "p95": 13502.3,
+        "max": 13654.3
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 1861.517,
+          "p95": 3949.98
+        },
+        "state_and_policy": {
+          "median": 0.19,
+          "p95": 0.229
+        },
+        "query_generation": {
+          "median": 0.051,
+          "p95": 0.062
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3540.862,
+          "p95": 9663.656
+        },
+        "product_ranking": {
+          "median": 5.508,
+          "p95": 15.884
+        },
+        "response_composer_llm": {
+          "median": 0.062,
+          "p95": 0.084
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th01",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th02",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null; state_operations.1: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th03",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.1: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th04",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th06",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, state_operations must contain each canonical ID at most once', '(root): Value error, state_operations must contain each canonical ID at most once']"
+        },
+        {
+          "scenario_id": "th07",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, unsupported-category output must not mutate tablet state', '(root): Value error, unsupported-category output must not mutate tablet state']"
+        },
+        {
+          "scenario_id": "th08",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.1: Value error, preference upserts require scope; facet upserts require null', 'state_operations.1: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th09",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th10",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, carryover/delete operations must not include update payload', 'state_operations.0: Value error, carryover/delete operations must not include update payload']"
+        },
+        {
+          "scenario_id": "th11",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th17",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.1: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th18",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.1: Value error, preference upserts require scope; facet upserts require null', 'state_operations.1: Value error, preference upserts require scope; facet upserts require null']"
+        },
+        {
+          "scenario_id": "th20",
+          "error_type": "StructuredOutputError",
+          "error_message": "SparseDeltaOutput 검증에 실패했습니다. 시도 2회, 사유: ['state_operations.0: Value error, preference upserts require scope; facet upserts require null', 'state_operations.0: Value error, preference upserts require scope; facet upserts require null']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 50,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.7,
+            "recall": 0.8,
+            "f1": 0.7466666666666666
+          },
+          "state_diff_micro": {
+            "precision": 0.717391304347826,
+            "recall": 0.8048780487804879,
+            "f1": 0.7586206896551724
+          },
+          "hard_constraint_completion_rate": 1.0
+        },
+        "candidate_micro": {
+          "precision": 0.7,
+          "recall": 0.32941176470588235,
+          "f1": 0.448
+        },
+        "candidate_false_positive_count": 12,
+        "carryover_to_update_false_positive_count": 0,
+        "carryover_false_update_rate_per_active_slot": 0.0,
+        "prior_active_slot_exposure": 59,
+        "material_state_diff_false_positive_count": 13,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 0,
+        "correction_candidate_recall": 0.0,
+        "understanding_latency_ms_median": 1861.517
+      }
+    },
+    "c_semantic_noop": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.8,
+      "completed_scenario_count": 16,
+      "turn_output_completion_rate": 0.8765432098765432,
+      "completed_turn_count": 71,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9577464788732394,
+      "canonical_id_exact_accuracy": 0.3333333333333333,
+      "canonical_id_micro": {
+        "precision": 0.5175438596491229,
+        "recall": 0.6941176470588235,
+        "f1": 0.592964824120603
+      },
+      "matched_scope_accuracy": 0.9830508474576272,
+      "forbidden_candidate_violation_rate": 0.07042253521126761,
+      "item_action_exact_accuracy": 0.9859154929577465,
+      "tradeoff_exact_accuracy": 0.971830985915493,
+      "state_diff_exact_accuracy": 0.5555555555555556,
+      "state_diff_micro": {
+        "precision": 0.8,
+        "recall": 0.6868686868686869,
+        "f1": 0.7391304347826086
+      },
+      "final_state_micro": {
+        "precision": 0.8387096774193549,
+        "recall": 0.7572815533980582,
+        "f1": 0.7959183673469389
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.7407407407407407,
+      "hard_constraint_violation_rate": 0.1,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 6459.9,
+        "p95": 14043.6,
+        "max": 15224.6
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 2238.115,
+          "p95": 5462.977
+        },
+        "state_and_policy": {
+          "median": 0.20099999999999998,
+          "p95": 0.26
+        },
+        "query_generation": {
+          "median": 0.051,
+          "p95": 0.064
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3570.096,
+          "p95": 9535.518
+        },
+        "product_ranking": {
+          "median": 5.835,
+          "p95": 17.252
+        },
+        "response_composer_llm": {
+          "median": 0.062,
+          "p95": 0.082
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th08",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th11",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th20",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, item_action requires its matching intent', '(root): Value error, item_action requires its matching intent']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 10,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.5175438596491229,
+            "recall": 0.7866666666666666,
+            "f1": 0.6243386243386244
+          },
+          "state_diff_micro": {
+            "precision": 0.8,
+            "recall": 0.7906976744186046,
+            "f1": 0.7953216374269007
+          },
+          "hard_constraint_completion_rate": 0.8450704225352113
+        },
+        "candidate_micro": {
+          "precision": 0.5175438596491229,
+          "recall": 0.6941176470588235,
+          "f1": 0.592964824120603
+        },
+        "candidate_false_positive_count": 55,
+        "carryover_to_update_false_positive_count": 38,
+        "carryover_false_update_rate_per_active_slot": 0.27941176470588236,
+        "prior_active_slot_exposure": 136,
+        "material_state_diff_false_positive_count": 17,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 3,
+        "correction_candidate_recall": 1.0,
+        "understanding_latency_ms_median": 2238.115
+      }
+    },
+    "d_full_state_diff": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.25,
+      "completed_scenario_count": 5,
+      "turn_output_completion_rate": 0.30864197530864196,
+      "completed_turn_count": 25,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 1.0,
+      "canonical_id_exact_accuracy": 0.19753086419753085,
+      "canonical_id_micro": {
+        "precision": 0.7575757575757576,
+        "recall": 0.29411764705882354,
+        "f1": 0.423728813559322
+      },
+      "matched_scope_accuracy": 1.0,
+      "forbidden_candidate_violation_rate": 0.12,
+      "item_action_exact_accuracy": 1.0,
+      "tradeoff_exact_accuracy": 0.96,
+      "state_diff_exact_accuracy": 0.13580246913580246,
+      "state_diff_micro": {
+        "precision": 0.5,
+        "recall": 0.2828282828282828,
+        "f1": 0.36129032258064514
+      },
+      "final_state_micro": {
+        "precision": 0.9375,
+        "recall": 0.2912621359223301,
+        "f1": 0.4444444444444445
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.20987654320987653,
+      "hard_constraint_violation_rate": 0.2028985507246377,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.21739130434782608,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 5852.1,
+        "p95": 12262.1,
+        "max": 13365.9
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 2054.512,
+          "p95": 3916.399
+        },
+        "state_and_policy": {
+          "median": 0.194,
+          "p95": 0.248
+        },
+        "query_generation": {
+          "median": 0.049,
+          "p95": 0.057
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3577.317,
+          "p95": 8720.099
+        },
+        "product_ranking": {
+          "median": 6.912,
+          "p95": 17.434
+        },
+        "response_composer_llm": {
+          "median": 0.061,
+          "p95": 0.085
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th01",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th02",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th04",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th06",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th08",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th09",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th11",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null; full_state.1: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null; full_state.1: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th12",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null; full_state.1: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null; full_state.1: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th15",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.1: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th16",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th17",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th18",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th19",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        },
+        {
+          "scenario_id": "th20",
+          "error_type": "StructuredOutputError",
+          "error_message": "FullStateOutput 검증에 실패했습니다. 시도 2회, 사유: ['full_state.0: Value error, preference values require scope; facet values require null', 'full_state.0: Value error, preference values require scope; facet values require null']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 56,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.7575757575757576,
+            "recall": 0.8620689655172413,
+            "f1": 0.8064516129032258
+          },
+          "state_diff_micro": {
+            "precision": 0.5,
+            "recall": 0.8484848484848485,
+            "f1": 0.6292134831460674
+          },
+          "hard_constraint_completion_rate": 0.68
+        },
+        "candidate_micro": {
+          "precision": 0.7575757575757576,
+          "recall": 0.29411764705882354,
+          "f1": 0.423728813559322
+        },
+        "candidate_false_positive_count": 8,
+        "carryover_to_update_false_positive_count": 0,
+        "carryover_false_update_rate_per_active_slot": 0.0,
+        "prior_active_slot_exposure": 40,
+        "material_state_diff_false_positive_count": 28,
+        "delete_operation_count": 19,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 1,
+        "correction_candidate_recall": 0.3333333333333333,
+        "understanding_latency_ms_median": 2054.512
+      }
+    },
+    "e_compact_context": {
+      "scenario_count": 20,
+      "scenario_completion_rate": 0.9,
+      "completed_scenario_count": 18,
+      "turn_output_completion_rate": 0.9259259259259259,
+      "completed_turn_count": 75,
+      "expected_turn_count": 81,
+      "domain_route_accuracy": 1.0,
+      "intent_exact_accuracy": 0.9333333333333333,
+      "canonical_id_exact_accuracy": 0.5555555555555556,
+      "canonical_id_micro": {
+        "precision": 0.6666666666666666,
+        "recall": 0.7294117647058823,
+        "f1": 0.696629213483146
+      },
+      "matched_scope_accuracy": 0.9838709677419355,
+      "forbidden_candidate_violation_rate": 0.09333333333333334,
+      "item_action_exact_accuracy": 0.96,
+      "tradeoff_exact_accuracy": 0.9733333333333334,
+      "state_diff_exact_accuracy": 0.5555555555555556,
+      "state_diff_micro": {
+        "precision": 0.6990291262135923,
+        "recall": 0.7272727272727273,
+        "f1": 0.712871287128713
+      },
+      "final_state_micro": {
+        "precision": 0.7735849056603774,
+        "recall": 0.7961165048543689,
+        "f1": 0.7846889952153109
+      },
+      "policy_lane_accuracy": 1.0,
+      "question_target_accuracy": 1.0,
+      "recommendation_lane_reach_rate": 1.0,
+      "recommendation_pipeline_completion_rate": 1.0,
+      "hard_constraint_completion_rate": 0.8271604938271605,
+      "hard_constraint_violation_rate": 0.024271844660194174,
+      "response_template_fallback_rate": 0.0,
+      "review_retrieval_fallback_rate": 0.0,
+      "evidence_consistency_rate": 1.0,
+      "no_review_contract_accuracy": null,
+      "turn_wall_latency_ms": {
+        "median": 6083.8,
+        "p95": 14659.5,
+        "max": 16640.7
+      },
+      "phase_latency_ms": {
+        "understanding_llm": {
+          "median": 2337.234,
+          "p95": 6220.467
+        },
+        "state_and_policy": {
+          "median": 0.201,
+          "p95": 0.241
+        },
+        "query_generation": {
+          "median": 0.054,
+          "p95": 0.076
+        },
+        "retrieval_and_cross_encoder": {
+          "median": 3605.437,
+          "p95": 10166.391
+        },
+        "product_ranking": {
+          "median": 4.601,
+          "p95": 18.577
+        },
+        "response_composer_llm": {
+          "median": 0.062,
+          "p95": 0.088
+        }
+      },
+      "error_scenarios": [
+        {
+          "scenario_id": "th05",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['facets.activity: Value error, preference IDs require scope and facet IDs require null scope', 'facets.activity: Value error, preference IDs require scope and facet IDs require null scope']"
+        },
+        {
+          "scenario_id": "th18",
+          "error_type": "StructuredOutputError",
+          "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['(root): Value error, unsupported category requests must not mutate tablet preferences', '(root): Value error, unsupported category requests must not mutate tablet preferences']"
+        }
+      ],
+      "extended_diagnostics": {
+        "missing_turns_counted_as_failures": 6,
+        "completed_output_metrics": {
+          "canonical_id_micro": {
+            "precision": 0.6666666666666666,
+            "recall": 0.7848101265822784,
+            "f1": 0.7209302325581395
+          },
+          "state_diff_micro": {
+            "precision": 0.6990291262135923,
+            "recall": 0.7741935483870968,
+            "f1": 0.7346938775510204
+          },
+          "hard_constraint_completion_rate": 0.8933333333333333
+        },
+        "candidate_micro": {
+          "precision": 0.6666666666666666,
+          "recall": 0.7294117647058823,
+          "f1": 0.696629213483146
+        },
+        "candidate_false_positive_count": 31,
+        "carryover_to_update_false_positive_count": 4,
+        "carryover_false_update_rate_per_active_slot": 0.025,
+        "prior_active_slot_exposure": 160,
+        "material_state_diff_false_positive_count": 31,
+        "delete_operation_count": 0,
+        "operation_contract_violation_count": 0,
+        "correction_turn_count": 2,
+        "correction_candidate_recall": 0.6666666666666666,
+        "understanding_latency_ms_median": 2337.234
+      }
+    }
+  },
+  "strategy_trace_summaries": {
+    "m0_baseline": {
+      "record_count": 72,
+      "understanding_call_count": 72,
+      "understanding_schema_validation_rate": 0.9583333333333334,
+      "schema_repair_count": 28,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 72
+      },
+      "structured_modes": {
+        "json_schema": 72
+      },
+      "input_tokens": 224704,
+      "output_tokens": 10945
+    },
+    "a_som_operation": {
+      "record_count": 47,
+      "understanding_call_count": 47,
+      "understanding_schema_validation_rate": 0.6595744680851063,
+      "schema_repair_count": 21,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 47
+      },
+      "structured_modes": {
+        "json_schema": 47
+      },
+      "input_tokens": 144844,
+      "output_tokens": 6448
+    },
+    "b_sparse_delta": {
+      "record_count": 45,
+      "understanding_call_count": 45,
+      "understanding_schema_validation_rate": 0.6888888888888889,
+      "schema_repair_count": 20,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 45
+      },
+      "structured_modes": {
+        "json_schema": 45
+      },
+      "input_tokens": 135400,
+      "output_tokens": 5869
+    },
+    "c_semantic_noop": {
+      "record_count": 75,
+      "understanding_call_count": 75,
+      "understanding_schema_validation_rate": 0.9466666666666667,
+      "schema_repair_count": 26,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 75
+      },
+      "structured_modes": {
+        "json_schema": 75
+      },
+      "input_tokens": 234197,
+      "output_tokens": 11591
+    },
+    "d_full_state_diff": {
+      "record_count": 40,
+      "understanding_call_count": 40,
+      "understanding_schema_validation_rate": 0.625,
+      "schema_repair_count": 18,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 40
+      },
+      "structured_modes": {
+        "json_schema": 40
+      },
+      "input_tokens": 117182,
+      "output_tokens": 4984
+    },
+    "e_compact_context": {
+      "record_count": 77,
+      "understanding_call_count": 77,
+      "understanding_schema_validation_rate": 0.974025974025974,
+      "schema_repair_count": 20,
+      "transport_retry_count": 0,
+      "fallback_count": 0,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 77
+      },
+      "structured_modes": {
+        "json_schema": 77
+      },
+      "input_tokens": 232534,
+      "output_tokens": 10954
+    }
+  },
+  "selection": {
+    "status": "exploratory_posthoc_only",
+    "thresholds": {
+      "final_state_f1_non_inferiority_margin": 0.02,
+      "correction_recall_non_inferiority_margin": 0.05,
+      "hard_filter_completion_non_inferiority_margin": 0.02,
+      "turn_output_completion_non_inferiority_margin": 0.02
+    },
+    "baseline": "m0_baseline",
+    "gates": {
+      "m0_baseline": {
+        "passed": true,
+        "checks": {
+          "final_state_f1": true,
+          "correction_recall": true,
+          "hard_filter_completion": true,
+          "turn_output_completion": true
+        }
+      },
+      "a_som_operation": {
+        "passed": false,
+        "checks": {
+          "final_state_f1": false,
+          "correction_recall": false,
+          "hard_filter_completion": false,
+          "turn_output_completion": false
+        }
+      },
+      "b_sparse_delta": {
+        "passed": false,
+        "checks": {
+          "final_state_f1": false,
+          "correction_recall": false,
+          "hard_filter_completion": false,
+          "turn_output_completion": false
+        }
+      },
+      "c_semantic_noop": {
+        "passed": true,
+        "checks": {
+          "final_state_f1": true,
+          "correction_recall": true,
+          "hard_filter_completion": true,
+          "turn_output_completion": true
+        }
+      },
+      "d_full_state_diff": {
+        "passed": false,
+        "checks": {
+          "final_state_f1": false,
+          "correction_recall": false,
+          "hard_filter_completion": false,
+          "turn_output_completion": false
+        }
+      },
+      "e_compact_context": {
+        "passed": false,
+        "checks": {
+          "final_state_f1": true,
+          "correction_recall": false,
+          "hard_filter_completion": true,
+          "turn_output_completion": true
+        }
+      }
+    },
+    "eligible_strategies_in_rank_order": [
+      "c_semantic_noop",
+      "m0_baseline"
+    ],
+    "exploratory_selected_strategy": "c_semantic_noop",
+    "claim_boundary": "Selection uses a previously observed holdout and requires confirmation on a newly frozen untouched holdout."
+  },
+  "gold_state_oracle_comparison": {
+    "analysis_label": "secondary_posthoc_gold_state_oracle_fidelity",
+    "source": {
+      "path": "C:\\Users\\jwkim\\OneDrive\\Desktop\\KDMS_Prepare\\backend\\data\\results\\tablet_domain_gold_state_oracle_rankings_posthoc_v1.json",
+      "sha256": "ec7dae3c2d603a348b1b45731cf16963d5a6bb9de3dac556cba57018ab15bcff"
+    },
+    "guardrail": "Oracle-conditioned rankings are deterministic recommender outputs, not Gold products or human relevance labels.",
+    "strategies": {
+      "m0_baseline": {
+        "comparable_scenario_count": 16,
+        "top1_agreement_rate": 0.3125,
+        "ordered_top3_exact_rate": 0.1875,
+        "top3_set_exact_rate": 0.4375,
+        "mean_top3_overlap_count": 1.5625,
+        "mean_top3_jaccard": 0.5375,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B08BH87FPJ",
+              "B0B7B53HM4",
+              "B07CFWLW3G"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": true,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B0134RE54W",
+              "B01N13866H"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": true,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 1,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [
+              "B09TVR1YBQ",
+              "B0C62BKQL3",
+              "B08F69779X"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [
+              "B017TK4H6G",
+              "B01N13866H",
+              "B00G6D6HBG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": true,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B01N24N9TH",
+              "B08NWY6LQ4",
+              "B09XM8QVKC"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": true,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B087BC4DJH"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": false,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [
+              "B08JBXX49X",
+              "B08NWY6LQ4",
+              "B00KIWWUFI"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4",
+              "B09Q4RTSLX",
+              "B09HTM917T"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B07H8ZCSL9",
+              "B08YXW4CNS",
+              "B00G6D6HBG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": true,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 2,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B01N24N9TH",
+              "B00G6D6HBG",
+              "B017TK4H6G"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": true,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [
+              "B06XTT46WQ",
+              "B012DTDBI8",
+              "B012DTEMQ8"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": true,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [
+              "B012DTEMQ8",
+              "B08N6T81FB",
+              "B08BH87FPJ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B0CFRDP7FX",
+              "B06XTT46WQ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          }
+        ]
+      },
+      "a_som_operation": {
+        "comparable_scenario_count": 4,
+        "top1_agreement_rate": 0.5,
+        "ordered_top3_exact_rate": 0.5,
+        "top3_set_exact_rate": 0.5,
+        "mean_top3_overlap_count": 1.25,
+        "mean_top3_jaccard": 0.625,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": false,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": true,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 1,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": false,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": true,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [
+              "B09832Q4VK",
+              "B0BLTXYYF1",
+              "B00G6D6HBG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": false,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B09WYFWH2Y",
+              "B09XM8QVKC",
+              "B087BC4DJH"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": true,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 2,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": false,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": false,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          }
+        ]
+      },
+      "b_sparse_delta": {
+        "comparable_scenario_count": 6,
+        "top1_agreement_rate": 0.5,
+        "ordered_top3_exact_rate": 0.16666666666666666,
+        "top3_set_exact_rate": 0.3333333333333333,
+        "mean_top3_overlap_count": 1.6666666666666667,
+        "mean_top3_jaccard": 0.5333333333333333,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": false,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": false,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": false,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": false,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": false,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [
+              "B09WYFWH2Y",
+              "B09XM8QVKC",
+              "B087BC4DJH"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B0BRJ8M7SK",
+              "B09TVR1YBQ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": true,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 2,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B017TK4H6G",
+              "B01N24N9TH",
+              "B00G6D6HBG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": false,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": true,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B017TK4H6G"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          }
+        ]
+      },
+      "c_semantic_noop": {
+        "comparable_scenario_count": 15,
+        "top1_agreement_rate": 0.5333333333333333,
+        "ordered_top3_exact_rate": 0.3333333333333333,
+        "top3_set_exact_rate": 0.4666666666666667,
+        "mean_top3_overlap_count": 1.6666666666666667,
+        "mean_top3_jaccard": 0.58,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B08BH87FPJ",
+              "B0B7B53HM4",
+              "B07CFWLW3G"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": true,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B0134RE54W",
+              "B01N13866H"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": true,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 1,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [
+              "B09TVR1YBQ",
+              "B0C62BKQL3",
+              "B08F69779X"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [
+              "B017TK4H6G",
+              "B01N13866H",
+              "B00G6D6HBG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": true,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B012DTDBI8",
+              "B012DTEMQ8",
+              "B06XTT46WQ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": true,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [
+              "B09HTM917T",
+              "B07KLF7G8J",
+              "B07PTVBKHM"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": false,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B08NWY6LQ4",
+              "B09XM8QVKC"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": true,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 2,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B01N24N9TH"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [
+              "B09HTM917T",
+              "B07K89WHJH",
+              "B09Q4RTSLX"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": true,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [
+              "B06XTT46WQ",
+              "B012DTDBI8",
+              "B012DTEMQ8"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": true,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [
+              "B012DTEMQ8",
+              "B08N6T81FB",
+              "B08BH87FPJ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          }
+        ]
+      },
+      "d_full_state_diff": {
+        "comparable_scenario_count": 5,
+        "top1_agreement_rate": 0.0,
+        "ordered_top3_exact_rate": 0.0,
+        "top3_set_exact_rate": 0.0,
+        "mean_top3_overlap_count": 0.6,
+        "mean_top3_jaccard": 0.16666666666666666,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": false,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": true,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [
+              "B09HTM917T",
+              "B09Q4RTSLX",
+              "B086QQNRT4"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.3333333333333333
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [
+              "B017TK4H6G",
+              "B01N13866H",
+              "B07CFWLW3G"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": false,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": true,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [
+              "B0045FM6SU",
+              "B00P2N01CW",
+              "B01CPZB0ZG"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": false,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B09HTM917T",
+              "B09Q4RTSLX",
+              "B086QQNRT4"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B09HTM917T",
+              "B09Q4RTSLX",
+              "B07K89WHJH"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": false,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": false,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": false,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": false,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          }
+        ]
+      },
+      "e_compact_context": {
+        "comparable_scenario_count": 17,
+        "top1_agreement_rate": 0.4117647058823529,
+        "ordered_top3_exact_rate": 0.17647058823529413,
+        "top3_set_exact_rate": 0.17647058823529413,
+        "mean_top3_overlap_count": 1.0588235294117647,
+        "mean_top3_jaccard": 0.3411764705882353,
+        "scenarios": [
+          {
+            "scenario_id": "th01",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B08BH87FPJ",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B07CFWLW3G",
+              "B0B7B53HM4",
+              "B08BH87FPJ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th02",
+            "comparable": true,
+            "oracle_top3": [
+              "B0134RE54W",
+              "B07G9QNT6P",
+              "B07HRYDNLZ"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B0134RE54W",
+              "B01N13866H"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th03",
+            "comparable": true,
+            "oracle_top3": [
+              "B086QQNRT4"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 1,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th04",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B09TVR1YBQ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 3,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th05",
+            "comparable": false,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th06",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B017TK4H6G"
+            ],
+            "strategy_top3": [
+              "B09TVR1YBQ",
+              "B0C62BKQL3",
+              "B08F69779X"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th07",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th08",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B08KFHS3QQ",
+              "B09MP3D4D6"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th09",
+            "comparable": true,
+            "oracle_top3": [
+              "B08NWY6LQ4",
+              "B09XM8QVKC",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B012DTDBI8",
+              "B012DTEMQ8",
+              "B06XTT46WQ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th10",
+            "comparable": true,
+            "oracle_top3": [
+              "B087BC4DJH",
+              "B09832Q4VK",
+              "B0BLTXYYF1"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B087BC4DJH",
+              "B09832Q4VK"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th11",
+            "comparable": true,
+            "oracle_top3": [
+              "B07HRYDNLZ",
+              "B07SPHMZF5",
+              "B08NWY6LQ4"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B07HRYDNLZ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          },
+          {
+            "scenario_id": "th12",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B08BH87FPJ"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N13866H"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th13",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B0BQDTZDP6",
+              "B0BRJ8M7SK"
+            ],
+            "strategy_top3": [
+              "B086QQNRT4",
+              "B09Q4RTSLX",
+              "B09HTM917T"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th14",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B09832Q4VK",
+              "B0B8VH98G3"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B09TVR1YBQ",
+              "B0BRJ8M7SK"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th15",
+            "comparable": true,
+            "oracle_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "strategy_top3": [
+              "B07PTVBKHM",
+              "B08N6T81FB"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": true,
+            "top3_set_exact": true,
+            "overlap_count": 2,
+            "jaccard": 1.0
+          },
+          {
+            "scenario_id": "th16",
+            "comparable": true,
+            "oracle_top3": [
+              "B00G6D6HBG",
+              "B017TK4H6G",
+              "B01N24N9TH"
+            ],
+            "strategy_top3": [
+              "B00G6D6HBG",
+              "B01N13866H",
+              "B01N24N9TH"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 2,
+            "jaccard": 0.5
+          },
+          {
+            "scenario_id": "th17",
+            "comparable": false,
+            "oracle_top3": [],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th18",
+            "comparable": false,
+            "oracle_top3": [
+              "B06XTT46WQ",
+              "B012DTEMQ8",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": null,
+            "jaccard": null
+          },
+          {
+            "scenario_id": "th19",
+            "comparable": true,
+            "oracle_top3": [
+              "B01N13866H",
+              "B00G6D6HBG",
+              "B09XGVPJV2"
+            ],
+            "strategy_top3": [
+              "B012DTEMQ8",
+              "B08N6T81FB",
+              "B08BH87FPJ"
+            ],
+            "top1_same": false,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 0,
+            "jaccard": 0.0
+          },
+          {
+            "scenario_id": "th20",
+            "comparable": true,
+            "oracle_top3": [
+              "B0B7B53HM4",
+              "B09XM8QVKC",
+              "B012DTDBI8"
+            ],
+            "strategy_top3": [
+              "B0B7B53HM4",
+              "B06XTT46WQ",
+              "B08BH87FPJ"
+            ],
+            "top1_same": true,
+            "ordered_top3_exact": false,
+            "top3_set_exact": false,
+            "overlap_count": 1,
+            "jaccard": 0.2
+          }
+        ]
+      }
+    }
+  },
+  "limitations": [
+    "The 20-scenario dataset was observed before this strategy study.",
+    "Any selected strategy is exploratory until a new untouched holdout is frozen and run once.",
+    "Gold-State Oracle agreement is recommender fidelity, not human product relevance.",
+    "Template responses isolate state behavior; natural-language response quality is not compared."
+  ]
+}

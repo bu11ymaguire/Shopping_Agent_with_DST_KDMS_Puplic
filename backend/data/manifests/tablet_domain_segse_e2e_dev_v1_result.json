@@ -1,0 +1,52 @@
+{
+  "schema_version": "tablet-domain-segse-e2e-dev-result-manifest-v1",
+  "status": "development_run_invalid_insufficient_output",
+  "confirmatory_evidence": false,
+  "run_id": "segse-e2e-dev-20260818T043715Z-248dcf",
+  "execution_commit": "993ab9e4d80ee2e234f0ef91a74210362c7fa01f",
+  "dataset_sha256_lf_normalized": "5c1727b9d5dcbb106ce78db57d717ed3242b762d54f3e57578309160c472561c",
+  "tracked_summary": {
+    "path": "data/results/tablet_domain_segse_e2e_dev_v1.json",
+    "size_bytes": 11811,
+    "sha256": "6d3ae7072799930be9bd78c7432e4f1d32d3affa93ad2fa6d865ee8c8fd834f9"
+  },
+  "git_ignored_artifacts": {
+    "raw_report": {
+      "path": "reports/tablet_domain_segse_e2e_dev_v1.json",
+      "size_bytes": 4906086,
+      "sha256": "4bf1705aa588c0b8e84753d2bf1d4c3e422461c258082d3fb0779de3b8cfc926"
+    },
+    "b0_trace": {
+      "path": "logs/segse-e2e-dev-20260818T043715Z-248dcf_b0_c_semantic_noop.jsonl",
+      "size_bytes": 271439,
+      "sha256": "78d68fe7f6361a2db637a1cebbea93a4436d803f5740a66ae55e701d34217fa3"
+    },
+    "v12_trace": {
+      "path": "logs/segse-e2e-dev-20260818T043715Z-248dcf_d4_segse_v12.jsonl",
+      "size_bytes": 115215,
+      "sha256": "adc8b20e6edf6f192aa14f20135a236562a4d7c6f0115ed720b4cc21429d257e"
+    }
+  },
+  "headline": {
+    "b0_completed_turns": 22,
+    "v12_completed_turns": 21,
+    "b0_candidate_fp": 12,
+    "v12_candidate_fp": 2,
+    "b0_c2u_fp": 8,
+    "v12_c2u_fp": 0,
+    "b0_turnwise_final_fp": 15,
+    "v12_turnwise_final_fp": 0,
+    "b0_scenario_final_fp": 6,
+    "v12_scenario_final_fp": 0,
+    "b0_raw_candidate_recall": 0.809524,
+    "v12_raw_candidate_recall": 0.619048,
+    "b0_turnwise_state_f1": 0.783333,
+    "v12_turnwise_state_f1": 0.666667,
+    "b0_scenario_final_state_f1": 0.722222,
+    "v12_scenario_final_state_f1": 0.692308,
+    "b0_hard_filter_completion": 0.75,
+    "v12_hard_filter_completion": 0.875
+  },
+  "decision": "Do not select v1.2 for confirmation. FP suppression worked, but output completion and recall guards failed. Continue only as a new development version and preserve this result unchanged.",
+  "secrets_recorded": false
+}

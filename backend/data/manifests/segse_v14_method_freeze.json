@@ -1,0 +1,382 @@
+{
+  "schema_version": "segse-v14-method-freeze-manifest-v1",
+  "status": "frozen_before_untouched_confirmatory_holdout_authoring",
+  "freeze_git_tag": "segse-v1.4-freeze",
+  "frozen_at": "2026-08-18T23:54:11.191520+00:00",
+  "base_commit_before_freeze_changes": "0e130df796f7495bbe7bb972b84ec34df7f8e9c2",
+  "development_decision": "PASS - freeze v1.4 for confirmatory evaluation. This is not a system adoption decision and carries no generalization claim.",
+  "method": {
+    "prompt_version": "segse-lite-tablet-domain-en-v1.4-dev",
+    "prompt_sha256": "337490a89d53a33ab31a9ffb83c0b88940c09a472955fa6fed823fa9028d1513",
+    "schema_version": "segse-proposal-output-v1.2",
+    "strict_schema_sha256": "98eb2a007511b90bf68d677c70ad939b2950f6f1e0df817015f56b975381cde7",
+    "canonical_vocabulary_sha256": "ca754b1f517cc3da67cb1591fa7361e2aedb2c9f1f0ad1c94265095f722eb75e",
+    "deterministic_repair_contract_sha256": "1658bd92f543186e4a014300b76cd0a86a57c31869b0faafec3730a6f57463fe",
+    "source_sha256_lf_normalized": {
+      "app/segse_experiment.py": "123bd75f11ae4ea659964ca8930cd2b22bba3bedbb758738fee093ca64aec41f",
+      "app/segse_experiment_v11.py": "29358f9c74d9f379b8be35296162711927785c32ba7045f6f48e7c50e393aca6",
+      "app/segse_experiment_v12.py": "5408f8a9a1a801bb61cb457050d9de571f27768e2144f6bdf23859686bddb907",
+      "app/segse_experiment_v13.py": "aa1a5284283c26601320504ed0c7775e82d7833db352dc877b37f3d3a4d757ef",
+      "app/segse_experiment_v14.py": "947933ef62f04fe2ca8b6b2780425dd61228573b65045f7bdb71d2139b907ff1",
+      "app/models/actual_demo.py": "a990ab1ffad98662aa55ccbea9a045435a6f9ce12074681576bc1c10f2dfa94d",
+      "app/models/pipeline.py": "8038119e5ca87d4199515219b533d92982b337b2de48bb19af3cb26bbb69f87e",
+      "app/nodes/actual_state_manager.py": "1a63cfc410e6bc4ec1c7e6fef8e3ce7a1a19d0ca7ceebb635d5341e0d27b7bab",
+      "app/nodes/actual_policy.py": "b4e6b1e46d67df9b2f591830789da7d292d34c3c14ee1a1671de9ee07a6433da",
+      "app/nodes/actual_recommendation.py": "27949cf356b3b199eb66aef14696ed83e9f5ec1e551c032c141b080454fcb350",
+      "app/nodes/actual_response.py": "d0d4829f17aa02ceb46d9f46116a77ff1e2c9dc088a08025f0c21d5b64531d49",
+      "app/review_retrieval.py": "e6b80a7e9081106b0417b6d43f8a0655822b27e95add0c32d59ffaf651fe3213",
+      "app/experimental_catalog.py": "05b4209711a17fd3e58aa6c343a314a07ae2e2958708e778ab693ffc1b4a6d0d"
+    },
+    "combined_method_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25"
+  },
+  "canonical_vocabulary": {
+    "canonical_ids": [
+      "activity_gaming",
+      "activity_general",
+      "activity_note_taking",
+      "activity_reading",
+      "activity_video",
+      "audience_child",
+      "audience_family",
+      "audience_other",
+      "audience_self",
+      "audio",
+      "battery",
+      "budget",
+      "budget_flexibility",
+      "child_friendly",
+      "display",
+      "durability",
+      "event_device_failure",
+      "event_first_purchase",
+      "event_gift",
+      "event_replacement",
+      "goal_entertainment",
+      "goal_long_term_use",
+      "goal_replace_device",
+      "goal_work_study",
+      "max_weight",
+      "memory_capacity",
+      "min_rating",
+      "note_taking",
+      "operating_system",
+      "performance",
+      "portability",
+      "price_value",
+      "review_signal",
+      "storage_capacity"
+    ],
+    "facet_ids": [
+      "activity_gaming",
+      "activity_general",
+      "activity_note_taking",
+      "activity_reading",
+      "activity_video",
+      "audience_child",
+      "audience_family",
+      "audience_other",
+      "audience_self",
+      "event_device_failure",
+      "event_first_purchase",
+      "event_gift",
+      "event_replacement",
+      "goal_entertainment",
+      "goal_long_term_use",
+      "goal_replace_device",
+      "goal_work_study"
+    ],
+    "allowed_scopes": {
+      "audio": [
+        "soft"
+      ],
+      "battery": [
+        "soft"
+      ],
+      "budget": [
+        "hard"
+      ],
+      "budget_flexibility": [
+        "soft"
+      ],
+      "child_friendly": [
+        "soft"
+      ],
+      "display": [
+        "hard",
+        "soft"
+      ],
+      "durability": [
+        "soft"
+      ],
+      "max_weight": [
+        "hard"
+      ],
+      "memory_capacity": [
+        "hard"
+      ],
+      "min_rating": [
+        "hard"
+      ],
+      "note_taking": [
+        "soft"
+      ],
+      "operating_system": [
+        "hard"
+      ],
+      "performance": [
+        "soft"
+      ],
+      "portability": [
+        "soft"
+      ],
+      "price_value": [
+        "soft"
+      ],
+      "review_signal": [
+        "soft"
+      ],
+      "storage_capacity": [
+        "hard"
+      ]
+    },
+    "soft_only_ids": [
+      "audio",
+      "battery",
+      "budget_flexibility",
+      "child_friendly",
+      "durability",
+      "note_taking",
+      "performance",
+      "portability",
+      "price_value",
+      "review_signal"
+    ],
+    "operating_system_labels": [
+      "android",
+      "chrome os",
+      "fire os",
+      "ipados",
+      "windows"
+    ],
+    "facet_dimension_terms": {
+      "activity_gaming": "game|games|gaming|gamer|play|playing|emulat\\w*",
+      "activity_general": "general|generally|casual|casually|browse|browsing|web|internet|surf\\w*|everyday|every day|day-to-day|basic|light use|mixed use|email|e-mail|social media|messaging",
+      "activity_note_taking": "note|notes|notetaking|note-taking|handwrit\\w*|hand-writ\\w*|annotat\\w*|stylus|pen|pencil|sketch\\w*|draw\\w*|writ\\w*|scribbl\\w*|markup|mark up",
+      "activity_reading": "read|reads|reading|reader|book|books|ebook|ebooks|e-book|pdf|pdfs|magazine|magazines|comic|comics|manga|article|articles|document|documents|blueprint|blueprints|journal|journals|sheet music|score|scores|textbook|textbooks|novel|novels",
+      "activity_video": "video|videos|movie|movies|film|films|cinema|watch|watching|stream\\w*|series|episode|episodes|netflix|youtube|lecture|lectures",
+      "audience_child": "child|children|kid|kids|son|daughter|toddler|teen|teens|teenager|teenagers|grandchild|grandchildren|grandson|granddaughter|baby|school-age|classroom",
+      "audience_family": "family|families|wife|husband|spouse|partner|parent|parents|mother|father|mom|mum|dad|household|shared|we all|everyone at home",
+      "audience_other": "colleague|colleagues|coworker|coworkers|co-worker|co-workers|friend|friends|employee|employees|team|staff|student|students|patient|patients|client|clients",
+      "audience_self": "myself|my own|for me|personal use|personally|just me",
+      "event_device_failure": "broke|broken|break|cracked|crack|shattered|died|dead|dying|stopped working|no longer works|failed|failing|damaged|damage|unusable|malfunction\\w*",
+      "event_first_purchase": "first tablet|first device|first one|my first|first time|first-time|never owned|never had|new to tablets|starting out",
+      "event_gift": "gift|gifts|gifting|present for|birthday|christmas|holiday|anniversary|graduation|surprise for",
+      "event_replacement": "replace\\w*|upgrad\\w*|old one|old tablet|current one|existing one|aging|ageing|outdated|hand-me-down|trade in|trade-in",
+      "goal_entertainment": "entertain\\w*|fun|leisure|relax\\w*|hobby|hobbies|media|movie|movies|music|game|games|watch|watching",
+      "goal_long_term_use": "long term|long-term|years|longevity|future proof|future-proof|futureproof|last for|lasting|keep it for|keep using",
+      "goal_replace_device": "replace\\w*|upgrad\\w*|swap|retire|retiring|move on from|old device",
+      "goal_work_study": "work|working|office|business|professional|job|career|client|clients|report|reports|presentation|presentations|meeting|meetings|study|studying|student|students|school|college|university|class|classes|course|courses|lecture|lectures|homework|assignment|assignments|research|exam|exams"
+    },
+    "hard_value_contracts": {
+      "budget": {
+        "reason": "budget_requires_price_dimension",
+        "unit_pattern": null,
+        "anchor_dimension": "\\b(?:price|cost|spend|budget|ceiling|cap|total|maximum|under|below)\\b|\\$",
+        "utterance_dimension": "\\b(?:price|prices|cost|costs|spend|spending|budget|dollar|dollars)\\b|\\$",
+        "competing_ids": [],
+        "numeric_range": null
+      },
+      "display": {
+        "reason": "hard_display_requires_screen_size_dimension",
+        "unit_pattern": null,
+        "anchor_dimension": "\\b(?:screen|display|inch|inches|in)\\b",
+        "utterance_dimension": "\\b(?:screen|display|inch|inches)\\b",
+        "competing_ids": [
+          "min_rating"
+        ],
+        "numeric_range": null
+      },
+      "max_weight": {
+        "reason": "max_weight_requires_weight_dimension",
+        "unit_pattern": null,
+        "anchor_dimension": "\\b(?:gram|grams|g|kg|kilogram|kilograms|lb|lbs|pound|pounds|oz|ounce|ounces)\\b",
+        "utterance_dimension": "\\b(?:gram|grams|kg|kilogram|kilograms|lb|lbs|pound|pounds|oz|ounce|ounces)\\b",
+        "competing_ids": [],
+        "numeric_range": null
+      },
+      "memory_capacity": {
+        "reason": "memory_requires_ram_dimension",
+        "unit_pattern": "\\b(?:gb|gigabyte)s?\\b",
+        "anchor_dimension": "\\b(?:ram|memory)\\b",
+        "utterance_dimension": "\\bram\\b",
+        "competing_ids": [
+          "storage_capacity"
+        ],
+        "numeric_range": null
+      },
+      "min_rating": {
+        "reason": "min_rating_requires_zero_to_five_star_dimension",
+        "unit_pattern": null,
+        "anchor_dimension": "\\b(?:star|stars|rating|rated)\\b",
+        "utterance_dimension": "\\b(?:star|stars|rating|rated)\\b",
+        "competing_ids": [
+          "display"
+        ],
+        "numeric_range": [
+          0.0,
+          5.0
+        ]
+      },
+      "storage_capacity": {
+        "reason": "storage_requires_internal_capacity_dimension",
+        "unit_pattern": "\\b(?:gb|tb|gigabyte|terabyte)s?\\b",
+        "anchor_dimension": "\\b(?:storage|built[ -]?in|internal|capacity)\\b",
+        "utterance_dimension": "\\b(?:storage|built[ -]?in|internal|capacity)\\b",
+        "competing_ids": [
+          "memory_capacity"
+        ],
+        "numeric_range": null
+      }
+    },
+    "relaxation_patterns": {
+      "requirement_relaxation": "\\bno longer\\s+(?:a\\s+|an\\s+)?(?:strict\\s+|hard\\s+|firm\\s+|absolute\\s+|real\\s+)?(?:requirement|required|require|mandatory|must|necessary|deal ?breaker)\\b|\\b(?:does not|doesn't|do not|don't|did not|didn't)\\s+have to\\b|\\bis(?:n't|\\s+not)\\s+(?:a\\s+|an\\s+)?(?:strict\\s+|hard\\s+|firm\\s+|absolute\\s+)?(?:requirement|required|mandatory|necessary|must|deal ?breaker)\\b|\\bnot\\s+(?:a\\s+|an\\s+)?(?:strict\\s+|hard\\s+|firm\\s+|absolute\\s+)?(?:requirement|required|mandatory|necessary|must have)\\b|\\bnot\\s+set in stone\\b|\\b(?:flexible|lenient)\\s+(?:on|about)\\b",
+      "positive_preference": "\\bwould be\\s+(?:really\\s+|very\\s+|quite\\s+)?(?:nice|great|good|ideal|preferable|preferred|helpful|welcome|handy)\\b|\\bnice to have\\b|\\bwould\\s+(?:still\\s+)?(?:like|prefer|love|appreciate|enjoy)\\b|\\bprefer(?:s|red|ably)?\\b|\\bideally\\b|\\bif possible\\b|\\bstill\\s+(?:want|like|prefer|care about)\\b",
+      "clause_split": ",\\s*|;\\s*|\\.\\s+|\\s+but\\s+|\\s+though\\s+|\\s+although\\s+|\\s+however\\s+|\\s+while\\s+"
+    }
+  },
+  "deterministic_repair_contract": {
+    "facet_repair": {
+      "applies_to": "facet canonical IDs with act assert or refine",
+      "clears_scope_and_relation": true,
+      "value_source": "current evidence anchor",
+      "requires_dimension_evidence_in": "anchor",
+      "on_missing_dimension_evidence": "leave value null so the frozen authorization contract rejects it"
+    },
+    "hard_dimension_evidence": {
+      "tier_1": "v1.3 dimension pattern inside value_after plus anchor",
+      "tier_2": "narrower unambiguous pattern anywhere in the current utterance",
+      "tier_2_refused_when": "a competing canonical dimension shares the utterance",
+      "anchored_regardless_of_tier": [
+        "number",
+        "unit",
+        "numeric_range"
+      ]
+    },
+    "scope_relaxation": {
+      "input_act": "retract",
+      "output_act": "assert",
+      "output_scope": "soft",
+      "all_conditions_required": [
+        "active prior fact for the same canonical ID",
+        "prior scope is hard",
+        "closed vocabulary admits soft scope for that ID",
+        "obligation negation present in the current utterance",
+        "a separate clause states a positive preference",
+        "that clause names the same canonical dimension"
+      ],
+      "value_and_anchor_source": "the positive preference clause"
+    },
+    "unchanged_lower_layer": [
+      "C semantic no-op suppression in update_segse_dialogue_state",
+      "previous state is read-only reference memory",
+      "exact current-utterance anchor requirement",
+      "negative polarity rejection",
+      "microSD expansion rejection under storage_capacity",
+      "negative operating system remains unrepresentable",
+      "trade-off compromised side is never a positive preference"
+    ]
+  },
+  "frozen_runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0,
+    "understanding_calls_per_attempted_turn": 1,
+    "response_composer": "deterministic_template",
+    "review_retrieval": {
+      "mode": "semantic",
+      "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+      "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+      "reranker_model": "cross-encoder/ms-marco-MiniLM-L6-v2",
+      "reranker_revision": "c5ee24cb16019beea0893ab7796b1df96625c6b8",
+      "bi_encoder_per_product": 5,
+      "reranked_per_product": 3
+    },
+    "product_ranking_weights": {
+      "hard_constraint_match": 0.3,
+      "metadata_match": 0.3,
+      "subjective_need_match": 0.2,
+      "review_evidence_score": 0.15,
+      "evidence_reliability": 0.05
+    },
+    "catalog": {
+      "products": 117,
+      "reviews": 7552,
+      "environment_category": "category_tablet"
+    }
+  },
+  "selected_development_evidence": {
+    "run_id": "segse-e2e-dev-v14-20260818T154634Z-b44d0a",
+    "execution_commit": "bea0ce19940959961f5e1ec91a5cc51e4e56a454",
+    "summary_path": "data/results/tablet_domain_segse_e2e_dev_v14.json",
+    "summary_sha256": "42775e6cbf4a97604a7548e3e97ecf1cf78b75dd7665052f1c95e9be03b28e23",
+    "attribution_path": "data/results/tablet_domain_segse_e2e_dev_v14_attribution.json",
+    "attribution_sha256": "25cbcde0457c283c20b40f946390d7986b76c324b2f191a00769f5fab18b4b95",
+    "gate_status": "development_gate_passed_confirmatory_method_freeze_allowed",
+    "headline": {
+      "completed_turns": 24,
+      "candidate_precision": 0.863636,
+      "candidate_recall": 0.904762,
+      "candidate_fp": 3,
+      "c2u_fp": 0,
+      "material_operation_f1": 0.956522,
+      "turnwise_state_f1": 0.93913,
+      "turnwise_final_fp": 3,
+      "scenario_final_state_f1": 0.941176,
+      "scenario_final_fp": 1,
+      "correction_recall": 1.0,
+      "retract_recall": 1.0,
+      "reactivation_recall": 1.0,
+      "confirmation_metadata_recall": 1.0,
+      "hard_filter_completion": 1.0,
+      "evidence_span_validity": 1.0,
+      "top3_hard_constraint_violation_rate": 0.0
+    },
+    "not_a_holdout_result": true,
+    "fixture": "exposed six-scenario / 24-turn development fixture"
+  },
+  "known_open_weakness": {
+    "layer": "semantic_dimension_attribution",
+    "observation": "An expansion-storage utterance was canonicalized to the note_taking soft preference, which has no lexical support in that utterance. The existing microSD guard is keyed to storage_capacity only, so it does not cover other soft preference IDs.",
+    "attribution": "provider variance in the v1.4 run, not the v1.4 code change",
+    "deliberately_unfixed_reason": "Adding a soft-preference dimension gate after observing this run would fit the method to an already exposed fixture.",
+    "resolution_path": "Decide the gate on contract grounds before the confirmatory run, or measure the weakness on the untouched holdout as authored."
+  },
+  "confirmatory_requirements": {
+    "author_holdout_after_this_freeze": true,
+    "reuse_any_frozen_utterance": false,
+    "freeze_before_execution": [
+      "utterances",
+      "gold typed state events",
+      "gold material operations",
+      "gold accumulated state",
+      "gold policy lane and question target",
+      "expected hard constraints"
+    ],
+    "do_not_freeze": [
+      "recommended products",
+      "system rankings",
+      "human relevance grades"
+    ],
+    "run_each_analysis_once": true,
+    "analyses": [
+      "A: end-to-end live understanding through the frozen v1.4 pipeline",
+      "B: fixed-upstream paired replay of the same recorded raw proposals through the v1.3 and v1.4 deterministic pipelines"
+    ]
+  },
+  "limitations": [
+    "The v1.4 evidence comes from an exposed development fixture of 24 turns.",
+    "Raw proposals differed on 5 of 24 turns between the v1.3 and v1.4 runs, so end-to-end comparisons of the two versions mix method effect with provider variation. Analysis B exists to remove that confound.",
+    "Final-state gains are amplified by persistence across later turns and are not independent per-turn discoveries.",
+    "Provenance accuracy is not computed by the current evaluator."
+  ]
+}

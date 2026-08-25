@@ -1,0 +1,68 @@
+{
+  "schema_version": "tablet-domain-segse-confirmatory-holdout-v1-freeze-v1",
+  "status": "frozen_before_first_system_run",
+  "freeze_git_tag": "segse-confirmatory-holdout-v1-freeze",
+  "frozen_at": "2026-08-19T05:25:47.860518+00:00",
+  "base_commit_before_freeze_changes": "d7963e14a6decff325d84f21a57915480c048bf8",
+  "dataset": {
+    "path": "data/tablet_domain_segse_confirmatory_holdout_v1.json",
+    "sha256_lf_normalized": "3930268cef7c5459f8b95f99cac232faa4103cb26fa62830c516bb8de121400a",
+    "dataset_version": "tablet-domain-segse-confirmatory-holdout-v1.0",
+    "split": "untouched_holdout",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "catalog_scope": "same frozen tablet catalog and review corpus as the official holdout"
+  },
+  "pinned_sha256_lf_normalized": {
+    "data/tablet_domain_segse_confirmatory_holdout_v1.json": "3930268cef7c5459f8b95f99cac232faa4103cb26fa62830c516bb8de121400a",
+    "app/evaluation/tablet_domain_segse_confirmatory.py": "c753806021d1a7c7457393e7f90e4d72b034d242401c39d98b76634a20384701",
+    "scripts/verify_segse_confirmatory_holdout.py": "c195129a11421a90d9bcdbf9d0e8843c5bf3b23f3cdd36a955bb9909a3417e87"
+  },
+  "combined_holdout_sha256": "5105f6288b0eb27233af3c293df85677de7cbaca405cc28a92250ca36cbff60c",
+  "evaluated_method": {
+    "freeze_git_tag": "segse-v1.4-freeze",
+    "combined_method_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25"
+  },
+  "protocol": {
+    "freeze_git_tag": "segse-confirmatory-v1-protocol-freeze",
+    "manifest": "data/manifests/tablet_domain_segse_confirmatory_v1_protocol.json"
+  },
+  "coverage_counts": {
+    "value_correction_hard_numeric": 6,
+    "scope_correction_hard_to_soft": 4,
+    "scope_correction_soft_to_hard": 4,
+    "retract_hard_fact": 4,
+    "retract_soft_fact": 3,
+    "reactivation_after_retract": 4,
+    "confirmation_no_material_change": 4,
+    "unchanged_requirement_zero_event": 6,
+    "dimension_attribution_negative": 6,
+    "negative_polarity": 3,
+    "tradeoff_compromised_side": 3,
+    "compound_two_or_more_facts": 20,
+    "relaxation_on_hard_only_id_gold_is_retract": 3
+  },
+  "dimension_confusion_families": {
+    "stylus accessory": 1,
+    "expandable storage": 1,
+    "connectivity feature": 1,
+    "display feature": 1,
+    "port or charging feature": 1,
+    "external accessories": 1
+  },
+  "gold_self_consistency": {
+    "hard_filters_rederived_from_query_generator": true,
+    "policy_rederived_from_deterministic_policy": true,
+    "final_tokens_rederived_from_gold_trajectory": true,
+    "problems": 0
+  },
+  "authoring_discipline": {
+    "v14_executed_during_authoring": false,
+    "v14_output_read_while_annotating": false,
+    "gold_authored_from_frozen_contract_only": true,
+    "products_rankings_human_grades_authored": false
+  },
+  "any_system_run_completed": false,
+  "confirmatory_evidence": false,
+  "next_step": "execute Run A then Run B back to back without opening either result"
+}

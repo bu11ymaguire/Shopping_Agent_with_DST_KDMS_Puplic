@@ -1,0 +1,3571 @@
+{
+  "schema_version": "tablet-domain-segse-dev-v12-run-v1",
+  "study_status": "post_v1_development_not_confirmatory",
+  "run_id": "segse-dev-v12-20260818T034024Z-d87b621e",
+  "status": "completed",
+  "started_at": "2026-08-18T03:40:24.131960+00:00",
+  "completed_at": "2026-08-18T03:41:07.435522+00:00",
+  "version_control": {
+    "branch": "codex/segse-lite-experiment",
+    "execution_commit": "b67e7bef39624cdd2543aa65641e1882fe5c57d7",
+    "tracked_worktree_clean_before_run": true
+  },
+  "dataset": {
+    "path": "C:\\Users\\jwkim\\.codex\\visualizations\\2026\\08\\17\\01a0103c-3550-72e2-8d66-7ed38e56b927\\KDMS_Prepare_SEGSE\\backend\\data\\tablet_domain_segse_dev_v1.json",
+    "case_count": 24,
+    "reuse_classification": "same_exposed_development_fixture"
+  },
+  "runtime": {
+    "provider": "luxia",
+    "requested_model": "gpt-4o-mini",
+    "temperature": 0.0
+  },
+  "protocol": {
+    "baseline_reused_from_run_id": "segse-dev-20260818T031459Z-a4cafb11",
+    "baseline_additional_llm_calls": 0,
+    "treatment_live_logical_calls_expected": 24,
+    "provider_schema_preflight": "flat_schema_without_oneOf",
+    "missing_output_as_empty_prediction": true,
+    "catalog_calls": 0,
+    "confirmatory_evidence": false
+  },
+  "baseline": {
+    "arm": "b0_c_semantic_noop",
+    "source_result_sha256": "0e28f9e4f09b9aa5cb20edb79937732c7aa69440db033016e1915619c63f4e6f",
+    "metrics": {
+      "case_count": 24,
+      "completed_case_count": 23,
+      "schema_completion_rate": 0.958333,
+      "route_accuracy": 0.958333,
+      "raw_candidate": {
+        "true_positive": 10,
+        "false_positive": 6,
+        "false_negative": 3,
+        "precision": 0.625,
+        "recall": 0.769231,
+        "f1": 0.689655
+      },
+      "authorized_candidate": null,
+      "raw_typed_event": null,
+      "authorized_typed_event": null,
+      "material_delta": {
+        "true_positive": 9,
+        "false_positive": 6,
+        "false_negative": 6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "f1": 0.6
+      },
+      "material_operation_exact": {
+        "true_positive": 9,
+        "false_positive": 6,
+        "false_negative": 6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "f1": 0.6
+      },
+      "final_state": {
+        "true_positive": 17,
+        "false_positive": 8,
+        "false_negative": 5,
+        "precision": 0.68,
+        "recall": 0.772727,
+        "f1": 0.723404
+      },
+      "c2u_fp_count": 2,
+      "novel_candidate_fp_count": 4,
+      "forbidden_prediction_count": 2,
+      "lexical_evidence_validity": {
+        "predicted_count": 16,
+        "exact_current_substring_count": 15,
+        "rate": 0.9375
+      },
+      "correction_recall": {
+        "target_count": 4,
+        "true_positive": 3,
+        "recall": 0.75
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 0,
+        "recall": 0.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "status": "not_supported_by_arm"
+      },
+      "event_rejection_count": 0
+    },
+    "case_scores": [
+      {
+        "case_id": "sg01",
+        "family": "new_assertion_vs_unrelated_memory",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "budget|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "activity_reading",
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [
+          "activity_reading"
+        ],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [
+          "activity_reading"
+        ],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "budget|add"
+        ],
+        "actual_material_operations": [
+          "budget|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "activity_reading|facet",
+            "budget|hard|315"
+          ],
+          "predicted": [
+            "activity_reading|facet",
+            "budget|hard|315"
+          ],
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg02",
+        "family": "new_assertion_vs_unrelated_memory",
+        "completed": false,
+        "error_type": "StructuredOutputError",
+        "error_message": "TabletDomainUnderstandingOutput 검증에 실패했습니다. 시도 2회, 사유: ['item_action: Value error, compare_first_second requires compare_rank', 'item_action: Value error, compare_first_second requires compare_rank']",
+        "route_expected": "in_domain",
+        "route_actual": null,
+        "route_exact": false,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "activity_reading|facet",
+            "battery|soft"
+          ],
+          "predicted": [
+            "activity_reading|facet",
+            "battery|soft"
+          ],
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg03",
+        "family": "confirm_vs_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "budget|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "budget|hard|280"
+          ],
+          "predicted": [
+            "budget|hard|280"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "budget"
+        ],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg04",
+        "family": "confirm_vs_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "budget|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "budget|update_value"
+        ],
+        "actual_material_operations": [
+          "budget|update_value"
+        ],
+        "material_delta": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "budget|hard|340"
+          ],
+          "predicted": [
+            "budget|hard|340"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg05",
+        "family": "provenance_confirmation",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "battery|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [
+          "battery"
+        ],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [
+          "battery|update_value"
+        ],
+        "material_delta": {
+          "gold": [],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "battery"
+        ],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg06",
+        "family": "provenance_confirmation",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [
+          "battery|retract"
+        ],
+        "material_delta": {
+          "gold": [],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg07",
+        "family": "retract_vs_reactivate",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [
+            "storage_capacity|hard|128"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg08",
+        "family": "retract_vs_reactivate",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|reactivate"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|reactivate"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|256"
+          ],
+          "predicted": [
+            "storage_capacity|hard|256"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg09",
+        "family": "negative_polarity",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg10",
+        "family": "negative_polarity",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "operating_system|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "operating_system"
+          ],
+          "predicted": [
+            "operating_system"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "operating_system|add"
+        ],
+        "actual_material_operations": [
+          "operating_system|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "operating_system"
+          ],
+          "predicted": [
+            "operating_system"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "operating_system|hard|android"
+          ],
+          "predicted": [
+            "operating_system|hard|android"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg11",
+        "family": "no_minimum_vs_minimum",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [
+            "storage_capacity|hard|64"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg12",
+        "family": "no_minimum_vs_minimum",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|add"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|128"
+          ],
+          "predicted": [
+            "storage_capacity|hard|128"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg13",
+        "family": "tradeoff_direction",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "battery|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery",
+            "max_weight"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [
+          "max_weight"
+        ],
+        "forbidden_predicted_ids": [
+          "max_weight"
+        ],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 2
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "battery|add"
+        ],
+        "actual_material_operations": [
+          "battery|add",
+          "max_weight|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery",
+            "max_weight"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|hard|long battery life",
+            "max_weight|soft"
+          ],
+          "true_positive": 0,
+          "false_positive": 2,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg14",
+        "family": "tradeoff_direction",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "battery|assert",
+          "portability|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery",
+            "portability"
+          ],
+          "predicted": [
+            "battery",
+            "max_weight"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [
+          "max_weight"
+        ],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 2
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "battery|add",
+          "portability|add"
+        ],
+        "actual_material_operations": [
+          "battery|add",
+          "max_weight|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "battery",
+            "portability"
+          ],
+          "predicted": [
+            "battery",
+            "max_weight"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft",
+            "portability|soft"
+          ],
+          "predicted": [
+            "battery|soft",
+            "max_weight|hard|low weight"
+          ],
+          "true_positive": 1,
+          "false_positive": 1,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg15",
+        "family": "storage_dimension",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg16",
+        "family": "storage_dimension",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|add"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|256"
+          ],
+          "predicted": [
+            "storage_capacity|hard|256"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg17",
+        "family": "refine_vs_repeat",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "battery|refine"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "activity_gaming",
+            "performance"
+          ],
+          "true_positive": 0,
+          "false_positive": 2,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [
+          "activity_gaming",
+          "performance"
+        ],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 2
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "battery|refine"
+        ],
+        "actual_material_operations": [
+          "activity_gaming|add",
+          "performance|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "activity_gaming",
+            "performance"
+          ],
+          "true_positive": 0,
+          "false_positive": 2,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "activity_gaming|facet",
+            "battery|soft",
+            "performance|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 2,
+          "false_negative": 0,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg18",
+        "family": "refine_vs_repeat",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "battery|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "battery"
+        ],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg19",
+        "family": "scope_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "display|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "display|update_scope"
+        ],
+        "actual_material_operations": [
+          "display|update_scope"
+        ],
+        "material_delta": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "display|soft"
+          ],
+          "predicted": [
+            "display|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg20",
+        "family": "scope_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "display|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "display|update_scope"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "display|hard|11"
+          ],
+          "predicted": [
+            "display|soft"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg21",
+        "family": "domain_excursion",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "unsupported_category",
+        "route_actual": "unsupported_category",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg22",
+        "family": "domain_excursion",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg23",
+        "family": "action_preference_boundary",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [
+          "portability|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "portability"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "portability|add"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "portability"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "portability|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      },
+      {
+        "case_id": "sg24",
+        "family": "action_preference_boundary",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": null,
+        "authorized_event_pairs": null,
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": null,
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": null
+      }
+    ]
+  },
+  "development_gate": {
+    "status": "module_gate_passed_downstream_pending",
+    "c2u_fp_reduction_fraction": 1.0,
+    "raw_candidate_fp_reduction_fraction": 0.833333,
+    "metric_deltas": {
+      "raw_candidate_recall": 0.0,
+      "correction_recall": 0.0,
+      "retract_recall": 1.0,
+      "final_state_f1": 0.118701,
+      "schema_completion_rate": 0.041667
+    },
+    "checks": {
+      "c2u_fp_reduction_at_least_50_percent": true,
+      "raw_candidate_fp_reduction_at_least_30_percent": true,
+      "raw_candidate_recall_drop_at_most_2pp": true,
+      "correction_recall_drop_at_most_2pp": true,
+      "retract_recall_drop_at_most_2pp": true,
+      "final_state_f1_drop_at_most_001": true,
+      "schema_completion_drop_at_most_05pp": true,
+      "hard_filter_completion_drop_at_most_1pp": null
+    },
+    "limitations": [
+      "This is a development fixture, not untouched confirmatory evidence.",
+      "B0 has no typed confirm/refine event schema, so typed-event metrics are treatment-only.",
+      "Hard-filter completion is not evaluable in the module-level 1-turn fixture."
+    ]
+  },
+  "limitations": [
+    "V1.2 was designed after inspecting v1 and v1.1 preflight outcomes on this development fixture.",
+    "Only v1.2 receives new calls; B0 is frozen and reused.",
+    "No downstream hard-filter evaluation is included."
+  ],
+  "treatment": {
+    "arm": "d4_segse_lite_v12",
+    "status": "completed",
+    "metrics": {
+      "case_count": 24,
+      "completed_case_count": 24,
+      "schema_completion_rate": 1.0,
+      "route_accuracy": 1.0,
+      "raw_candidate": {
+        "true_positive": 10,
+        "false_positive": 1,
+        "false_negative": 3,
+        "precision": 0.909091,
+        "recall": 0.769231,
+        "f1": 0.833333
+      },
+      "authorized_candidate": {
+        "true_positive": 8,
+        "false_positive": 0,
+        "false_negative": 5,
+        "precision": 1.0,
+        "recall": 0.615385,
+        "f1": 0.761905
+      },
+      "raw_typed_event": {
+        "true_positive": 15,
+        "false_positive": 9,
+        "false_negative": 3,
+        "precision": 0.625,
+        "recall": 0.833333,
+        "f1": 0.714286
+      },
+      "authorized_typed_event": {
+        "true_positive": 13,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.8125,
+        "recall": 0.722222,
+        "f1": 0.764706
+      },
+      "material_delta": {
+        "true_positive": 12,
+        "false_positive": 1,
+        "false_negative": 3,
+        "precision": 0.923077,
+        "recall": 0.8,
+        "f1": 0.857143
+      },
+      "material_operation_exact": {
+        "true_positive": 10,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.769231,
+        "recall": 0.666667,
+        "f1": 0.714286
+      },
+      "final_state": {
+        "true_positive": 16,
+        "false_positive": 0,
+        "false_negative": 6,
+        "precision": 1.0,
+        "recall": 0.727273,
+        "f1": 0.842105
+      },
+      "c2u_fp_count": 0,
+      "novel_candidate_fp_count": 1,
+      "forbidden_prediction_count": 1,
+      "lexical_evidence_validity": {
+        "predicted_count": 24,
+        "exact_current_substring_count": 23,
+        "rate": 0.958333
+      },
+      "correction_recall": {
+        "target_count": 4,
+        "true_positive": 3,
+        "recall": 0.75
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 2,
+        "recall": 1.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "target_count": 3,
+        "true_positive": 3,
+        "recall": 1.0
+      },
+      "event_rejection_count": 8
+    },
+    "trace_summary": {
+      "logical_call_count": 24,
+      "validation_success_count": 24,
+      "schema_repair_count": 0,
+      "transport_retry_count": 0,
+      "http_attempt_count": 24,
+      "fallback_count": 0,
+      "input_tokens": 38068,
+      "output_tokens": 2420,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 24
+      },
+      "structured_modes": {
+        "json_schema": 24
+      },
+      "sha256": "4964fcb4cdcab62a1cb65c9344912182bb60101965c806d2e4ffaee4430d7c4d",
+      "size_bytes": 117608
+    },
+    "case_scores": [
+      {
+        "case_id": "sg01",
+        "family": "new_assertion_vs_unrelated_memory",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "budget|assert"
+        ],
+        "authorized_event_pairs": [
+          "budget|assert"
+        ],
+        "gold_event_pairs": [
+          "budget|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "budget|add"
+        ],
+        "actual_material_operations": [
+          "budget|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "activity_reading|facet",
+            "budget|hard|315"
+          ],
+          "predicted": [
+            "activity_reading|facet",
+            "budget|hard|315"
+          ],
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg02",
+        "family": "new_assertion_vs_unrelated_memory",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "activity_reading|facet",
+            "battery|soft"
+          ],
+          "predicted": [
+            "activity_reading|facet",
+            "battery|soft"
+          ],
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg03",
+        "family": "confirm_vs_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "budget|confirm"
+        ],
+        "authorized_event_pairs": [
+          "budget|confirm"
+        ],
+        "gold_event_pairs": [
+          "budget|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "budget|hard|280"
+          ],
+          "predicted": [
+            "budget|hard|280"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "budget"
+        ],
+        "metadata_confirmation_ids": [
+          "budget"
+        ]
+      },
+      {
+        "case_id": "sg04",
+        "family": "confirm_vs_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "budget|retract"
+        ],
+        "authorized_event_pairs": [
+          "budget|retract"
+        ],
+        "gold_event_pairs": [
+          "budget|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "budget|update_value"
+        ],
+        "actual_material_operations": [
+          "budget|retract"
+        ],
+        "material_delta": {
+          "gold": [
+            "budget"
+          ],
+          "predicted": [
+            "budget"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "budget|hard|340"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg05",
+        "family": "provenance_confirmation",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|confirm"
+        ],
+        "authorized_event_pairs": [
+          "battery|confirm"
+        ],
+        "gold_event_pairs": [
+          "battery|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "battery"
+        ],
+        "metadata_confirmation_ids": [
+          "battery"
+        ]
+      },
+      {
+        "case_id": "sg06",
+        "family": "provenance_confirmation",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|retract"
+        ],
+        "authorized_event_pairs": [
+          "battery|retract"
+        ],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [
+          "battery|retract"
+        ],
+        "material_delta": {
+          "gold": [],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg07",
+        "family": "retract_vs_reactivate",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "authorized_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "gold_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg08",
+        "family": "retract_vs_reactivate",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "authorized_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|reactivate"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|reactivate"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|256"
+          ],
+          "predicted": [
+            "storage_capacity|hard|256"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg09",
+        "family": "negative_polarity",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "operating_system|retract"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "operating_system",
+            "reason": "retract_requires_active_prior_fact"
+          }
+        ],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg10",
+        "family": "negative_polarity",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "operating_system|assert"
+        ],
+        "authorized_event_pairs": [
+          "operating_system|assert"
+        ],
+        "gold_event_pairs": [
+          "operating_system|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "operating_system"
+          ],
+          "predicted": [
+            "operating_system"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "operating_system"
+          ],
+          "predicted": [
+            "operating_system"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "operating_system|add"
+        ],
+        "actual_material_operations": [
+          "operating_system|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "operating_system"
+          ],
+          "predicted": [
+            "operating_system"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "operating_system|hard|android"
+          ],
+          "predicted": [
+            "operating_system|hard|android"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg11",
+        "family": "no_minimum_vs_minimum",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "authorized_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "gold_event_pairs": [
+          "storage_capacity|retract"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|retract"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg12",
+        "family": "no_minimum_vs_minimum",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "authorized_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|add"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|128"
+          ],
+          "predicted": [
+            "storage_capacity|hard|128"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg13",
+        "family": "tradeoff_direction",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|assert",
+          "portability|retract"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [
+          "battery|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 2
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "battery",
+            "reason": "assert_scope_is_illegal_for_canonical_id"
+          },
+          {
+            "event_index": 1,
+            "canonical_id": "portability",
+            "reason": "retract_requires_active_prior_fact"
+          }
+        ],
+        "gold_material_operations": [
+          "battery|add"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg14",
+        "family": "tradeoff_direction",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|assert",
+          "portability|assert"
+        ],
+        "authorized_event_pairs": [
+          "portability|assert"
+        ],
+        "gold_event_pairs": [
+          "battery|assert",
+          "portability|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery",
+            "portability"
+          ],
+          "predicted": [
+            "battery",
+            "portability"
+          ],
+          "true_positive": 2,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "battery",
+            "portability"
+          ],
+          "predicted": [
+            "portability"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 2,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "battery",
+            "reason": "trigger_evidence_not_exact_current_substring"
+          }
+        ],
+        "gold_material_operations": [
+          "battery|add",
+          "portability|add"
+        ],
+        "actual_material_operations": [
+          "portability|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "battery",
+            "portability"
+          ],
+          "predicted": [
+            "portability"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft",
+            "portability|soft"
+          ],
+          "predicted": [
+            "portability|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg15",
+        "family": "storage_dimension",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 0,
+          "false_positive": 1,
+          "false_negative": 0,
+          "exact": false
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [
+          "storage_capacity"
+        ],
+        "forbidden_predicted_ids": [
+          "storage_capacity"
+        ],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "storage_capacity",
+            "reason": "assert_scope_is_illegal_for_canonical_id"
+          }
+        ],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg16",
+        "family": "storage_dimension",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "authorized_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "gold_event_pairs": [
+          "storage_capacity|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "storage_capacity|add"
+        ],
+        "actual_material_operations": [
+          "storage_capacity|add"
+        ],
+        "material_delta": {
+          "gold": [
+            "storage_capacity"
+          ],
+          "predicted": [
+            "storage_capacity"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "storage_capacity|hard|256"
+          ],
+          "predicted": [
+            "storage_capacity|hard|256"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg17",
+        "family": "refine_vs_repeat",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|refine"
+        ],
+        "authorized_event_pairs": [
+          "battery|refine"
+        ],
+        "gold_event_pairs": [
+          "battery|refine"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "battery|refine"
+        ],
+        "actual_material_operations": [
+          "battery|refine"
+        ],
+        "material_delta": {
+          "gold": [
+            "battery"
+          ],
+          "predicted": [
+            "battery"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg18",
+        "family": "refine_vs_repeat",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "battery|confirm"
+        ],
+        "authorized_event_pairs": [
+          "battery|confirm"
+        ],
+        "gold_event_pairs": [
+          "battery|confirm"
+        ],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [
+          "battery"
+        ],
+        "metadata_confirmation_ids": [
+          "battery"
+        ]
+      },
+      {
+        "case_id": "sg19",
+        "family": "scope_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "display|retract"
+        ],
+        "authorized_event_pairs": [
+          "display|retract"
+        ],
+        "gold_event_pairs": [
+          "display|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "display|update_scope"
+        ],
+        "actual_material_operations": [
+          "display|retract"
+        ],
+        "material_delta": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "display|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg20",
+        "family": "scope_change",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "display|assert"
+        ],
+        "authorized_event_pairs": [
+          "display|assert"
+        ],
+        "gold_event_pairs": [
+          "display|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [],
+        "gold_material_operations": [
+          "display|update_scope"
+        ],
+        "actual_material_operations": [
+          "display|update_scope"
+        ],
+        "material_delta": {
+          "gold": [
+            "display"
+          ],
+          "predicted": [
+            "display"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "display|hard|11"
+          ],
+          "predicted": [
+            "display|hard|11"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg21",
+        "family": "domain_excursion",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "unsupported_category",
+        "route_actual": "unsupported_category",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "event_device_failure|retract"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "event_device_failure",
+            "reason": "unsupported_category_forbids_state_event"
+          }
+        ],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg22",
+        "family": "domain_excursion",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 0,
+          "exact_current_substring_count": 0
+        },
+        "rejected_events": [],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [
+            "battery|soft"
+          ],
+          "predicted": [
+            "battery|soft"
+          ],
+          "true_positive": 1,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg23",
+        "family": "action_preference_boundary",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "event_device_failure|retract"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [
+          "portability|assert"
+        ],
+        "raw_candidate": {
+          "gold": [
+            "portability"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "authorized_candidate": {
+          "gold": [
+            "portability"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "event_device_failure",
+            "reason": "retract_requires_active_prior_fact"
+          }
+        ],
+        "gold_material_operations": [
+          "portability|add"
+        ],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [
+            "portability"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "final_state": {
+          "gold": [
+            "portability|soft"
+          ],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 1,
+          "exact": false
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      },
+      {
+        "case_id": "sg24",
+        "family": "action_preference_boundary",
+        "completed": true,
+        "error_type": null,
+        "error_message": null,
+        "route_expected": "in_domain",
+        "route_actual": "in_domain",
+        "route_exact": true,
+        "raw_event_pairs": [
+          "event_first_purchase|retract"
+        ],
+        "authorized_event_pairs": [],
+        "gold_event_pairs": [],
+        "raw_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "authorized_candidate": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "c2u_fp_ids": [],
+        "novel_candidate_fp_ids": [],
+        "forbidden_predicted_ids": [],
+        "evidence": {
+          "predicted_count": 1,
+          "exact_current_substring_count": 1
+        },
+        "rejected_events": [
+          {
+            "event_index": 0,
+            "canonical_id": "event_first_purchase",
+            "reason": "retract_requires_active_prior_fact"
+          }
+        ],
+        "gold_material_operations": [],
+        "actual_material_operations": [],
+        "material_delta": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "final_state": {
+          "gold": [],
+          "predicted": [],
+          "true_positive": 0,
+          "false_positive": 0,
+          "false_negative": 0,
+          "exact": true
+        },
+        "gold_confirmation_ids": [],
+        "metadata_confirmation_ids": []
+      }
+    ]
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "schema_version": "tablet-domain-extended-experiment-protocol-v1",
+  "status": "protocol_frozen_before_extended_live_run",
+  "study_label": "posthoc_exploratory_full_memory_false_update_comparison",
+  "branch": "Extended_Experiment",
+  "official_base_commit": "92d70c21993a6780d1078e77af64750c3629410d",
+  "dataset": {
+    "path": "data/tablet_domain_multiturn_holdout_v1.json",
+    "sha256": "b301277577957f4115e0692d63057064ac291c6f6dfab0780407fdd52e67669e",
+    "scenario_count": 20,
+    "turn_count": 81,
+    "reuse_classification": "previously_observed_official_holdout_posthoc"
+  },
+  "strategy_order": [
+    "m0_baseline",
+    "a_som_operation",
+    "b_sparse_delta",
+    "c_semantic_noop",
+    "d_full_state_diff",
+    "e_compact_context"
+  ],
+  "expected_understanding_call_count": 486,
+  "response_composer": "deterministic_template",
+  "frozen_sources_sha256_lf_normalized": {
+    "app/actual_workflow.py": "eb0a94341e5ac0ec3d5675506077c7b3850626b67aa48bf160bea551e2dfcf92",
+    "app/extended_experiment.py": "aaf41c6af20a5ac3f2935b56194f97f89fd39867fdc4384b8135d69447feb93a",
+    "app/evaluation/tablet_domain_extended.py": "c140819fd56d05fb8fb817a8d947bc7d994dc71821fae2b61b1f3e8d71337f40",
+    "scripts/run_tablet_domain_extended_experiment.py": "b66a6445d5623ffada6f36258930d69607b911e215be925dc3e2dba917d1f5e5",
+    "docs/tablet_domain_extended_experiment_protocol_v1.md": "5294e995543a5861e624b07929c13a5902a9b98ad4ce85565fdca6d97df54a64"
+  },
+  "correction_turns": ["th03:4", "th17:3", "th18:3"],
+  "selection": {
+    "baseline": "m0_baseline",
+    "retention_gates": {
+      "final_state_f1_non_inferiority_margin": 0.02,
+      "correction_recall_non_inferiority_margin": 0.05,
+      "hard_filter_completion_non_inferiority_margin": 0.02,
+      "turn_output_completion_non_inferiority_margin": 0.02
+    },
+    "lexicographic_objectives": [
+      "state_diff_micro_f1_desc",
+      "carryover_to_update_false_positive_count_asc",
+      "understanding_latency_median_asc",
+      "strategy_id_asc"
+    ],
+    "result_label": "exploratory_selected_strategy"
+  },
+  "claim_boundaries": [
+    "No confirmatory claim from the reused 20-scenario holdout.",
+    "A newly frozen untouched holdout is required before final method claims.",
+    "Gold-State Oracle agreement is recommender fidelity, not human relevance.",
+    "No combined A+B+C architecture is tested in this first comparison."
+  ]
+}

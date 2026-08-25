@@ -1,0 +1,134 @@
+{
+  "schema_version": "segse-confirmatory-v1-result-manifest-v1",
+  "status": "confirmatory_fail",
+  "study_status": "untouched_confirmatory_holdout_first_system_run",
+  "confirmatory_evidence": true,
+  "run_id": "segse-confirmatory-20260819T052732Z-f0427757",
+  "execution_commit": "5eafc310afdeff741fbf0615fb1d347e5ac985e1",
+  "freezes": {
+    "method": {"tag": "segse-v1.4-freeze", "combined_method_sha256": "960ba072bd7c5afa0b3ef10141e0c0a6714126eed57dc014057f67b48875fb25"},
+    "protocol": {"tag": "segse-confirmatory-v1-protocol-freeze", "combined_protocol_sha256": "4c02daf203f7f6eeb127b404e38d452ae6963b0a2588aba8e1c45b24bea99caf"},
+    "holdout": {"tag": "segse-confirmatory-holdout-v1-freeze", "combined_holdout_sha256": "5105f6288b0eb27233af3c293df85677de7cbaca405cc28a92250ca36cbff60c"},
+    "verified_before_run": true,
+    "verified_after_run": true
+  },
+  "holdout": {
+    "path": "data/tablet_domain_segse_confirmatory_holdout_v1.json",
+    "scenario_count": 20,
+    "turn_count": 80,
+    "split": "untouched_holdout",
+    "catalog_scope": "same frozen tablet catalog and review corpus as the official holdout",
+    "utterance_overlap_with_earlier_fixtures": 0
+  },
+  "tracked_summary": {
+    "path": "data/results/segse_confirmatory_v1.json",
+    "size_bytes": 38882,
+    "sha256": "ef34f91dad48e29488bd6f70319f4e673eccfbdd6576f91ea4c83364ec369d4f"
+  },
+  "tracked_documents": {
+    "result": "docs/segse_confirmatory_v1_result.md",
+    "tables": "docs/segse_confirmatory_v1_tables.md",
+    "result_sha256_lf_normalized": "f2802ca51e4b93a6e7568b44dcc20cf5d1a9e43ff94113457159a0584602796d",
+    "tables_sha256_lf_normalized": "c92492ad63155d3d079a34f6fa5670b8ee2ccbe19aeadeec28e57efcf797305c"
+  },
+  "git_ignored_artifacts": {
+    "raw_report": {"path": "reports/segse_confirmatory_v1.json", "size_bytes": 18162303, "sha256": "b92c3fb96257c3204d740545294f69a0019c9cbc13d1b3e3eab69790a747e995"},
+    "run_a_trace": {"path": "logs/segse-confirmatory-20260819T052732Z-f0427757_run_a_primary.jsonl", "size_bytes": 490898, "sha256": "faf5d9fd460f33074948224e84ad0ad535c79f9ff49fc0bd31eafac892b3ee6f"},
+    "run_b_trace": {"path": "logs/segse-confirmatory-20260819T052732Z-f0427757_run_b_test_retest.jsonl", "size_bytes": 489885, "sha256": "f258416f3e12dfd256d8516494b843aeefa50c9245e3cdafd1633a9220c06157"}
+  },
+  "run_roles": {
+    "run_a_primary": "sole primary confirmatory evaluation",
+    "run_b_test_retest": "pre-registered provider-nondeterminism analysis only",
+    "both_runs_executed_before_any_result_opened": true,
+    "runs_averaged_or_pooled": false
+  },
+  "analysis_a_run_a_primary": {
+    "final_state": {"tp": 40, "fp": 11, "fn": 12, "precision": 0.784314, "recall": 0.769231, "f1": 0.776699},
+    "final_state_exact_match": "10/20",
+    "final_state_mean_error_tokens": 1.15,
+    "final_state_mean_jaccard": 0.713333,
+    "material_state_diff_f1": 0.817073,
+    "material_operation_f1": 0.780488,
+    "turnwise_accumulated_state_f1": 0.821516,
+    "candidate_precision": 0.797619,
+    "candidate_recall": 0.881579,
+    "candidate_fp_count": 17,
+    "c2u_fp_count": 7,
+    "novel_candidate_fp_count": 10,
+    "forbidden_prediction_count": 9,
+    "evidence_span_validity": 0.990476,
+    "policy_lane_accuracy": 1.0,
+    "hard_filter_completion_rate": 0.8375,
+    "turn_output_completion_rate": 1.0,
+    "confirmation_metadata_recall": "4/4",
+    "top3_hard_constraint_violation_rate": 0.0,
+    "correction_recall_by_operation": {
+      "value_correction": "5/6",
+      "scope_correction": "3/8",
+      "retract": "5/10",
+      "reactivation": "2/4",
+      "value_and_scope_combined": "8/14"
+    },
+    "final_fp_origin_counts": {"novel_extraction": 8, "failed_retract": 3, "incorrect_value_or_scope": 3},
+    "dimension_attribution_negatives_clean": "0/6"
+  },
+  "analysis_b_fixed_upstream": {
+    "additional_llm_calls": 0,
+    "v13_final_state": {"exact_match": "0/20", "mean_error_tokens": 1.65, "mean_jaccard": 0.476667},
+    "v14_final_state": {"exact_match": "10/20", "mean_error_tokens": 1.15, "mean_jaccard": 0.713333},
+    "episodes_improved": 13,
+    "episodes_unchanged": 4,
+    "episodes_worsened": 3,
+    "worsened_episodes": ["sc07", "sc16", "sc20"],
+    "mean_jaccard_improvement": 0.236667,
+    "paired_bootstrap_95_ci": [0.136667, 0.3325],
+    "mean_error_token_reduction": 0.5,
+    "value_and_scope_correction_recall": {"v13": "8/14", "v14": "8/14", "identical": true},
+    "attribution": "The accumulated-state gain is attributable to the facet null-value repair. The two correction repairs contributed nothing measurable on this holdout."
+  },
+  "analysis_c_test_retest": {
+    "run_b_final_state": {"tp": 39, "fp": 12, "fn": 13, "precision": 0.764706, "recall": 0.75, "f1": 0.757282},
+    "run_b_exact_match": "7/20",
+    "compared_turns": 80,
+    "raw_structured_proposal_exact_match_disagreement": 6,
+    "candidate_set_disagreement": 3,
+    "material_operation_disagreement": 4,
+    "final_state_f1_difference": -0.019417,
+    "correction_recall_difference": 0.0,
+    "conclusion": "Provider nondeterminism is about 7.5 percent of turns and does not account for the failed checks."
+  },
+  "decision": {
+    "status": "confirmatory_fail",
+    "checks": {
+      "paired_final_state_closeness_improves": true,
+      "regression_is_bounded": false,
+      "improvement_is_broad": true,
+      "correction_recall_recovered": false,
+      "guardrails_hold": true
+    },
+    "failed_checks": ["regression_is_bounded", "correction_recall_recovered"],
+    "threshold_moved_after_seeing_the_result": false
+  },
+  "what_replicates": [
+    "accumulated final state moves substantially closer to gold under the v1.4 contract, paired CI excludes zero",
+    "turn completion, policy lane accuracy, evidence-span validity, confirmation recall, and top-3 hard-constraint compliance"
+  ],
+  "what_does_not_replicate": [
+    "the correction story: combined value and scope correction recall is identical to v1.3 at 8/14",
+    "scope correction specifically, at 3/8, with three hard-to-soft episodes leaving the display hard",
+    "sparse-grounding precision off the development fixture: C2U FP 0 to 7 and Candidate FP 3 to 17"
+  ],
+  "newly_established": {
+    "dominant_residual_failure": "semantic dimension attribution",
+    "evidence": "0 of 6 pre-declared dimension-confusion negatives clean, and novel_extraction is the largest final-state false-positive cause at 8",
+    "secondary_question_answer": "yes, dimension attribution is now the dominant residual error"
+  },
+  "forbidden_next_actions": [
+    "patching v1.4 against this holdout",
+    "re-running this holdout for a better number",
+    "moving the pre-registered threshold",
+    "averaging or pooling Run A and Run B"
+  ],
+  "next_step": "v1.5 targets the dimension-attribution layer with its own development iteration, its own freeze, and a new untouched holdout. The scope-correction dependency on upstream event emission is a prompt-or-schema question, not a deterministic-repair question.",
+  "secrets_recorded": false
+}

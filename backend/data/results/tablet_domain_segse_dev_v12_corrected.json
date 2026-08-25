@@ -1,0 +1,230 @@
+{
+  "schema_version": "tablet-domain-segse-dev-v12-corrected-result-v1",
+  "study_status": "development_erratum_not_confirmatory",
+  "source_run_id": "segse-dev-v12-20260818T034024Z-d87b621e",
+  "source_execution_commit": "b67e7bef39624cdd2543aa65641e1882fe5c57d7",
+  "evaluator_erratum": {
+    "bug": "operation guardrails were matched globally instead of within each case",
+    "affected_fields": [
+      "correction_recall",
+      "retract_recall",
+      "reactivation_recall"
+    ],
+    "unaffected_fields": "all candidate, typed-event, material ID, material-operation PRF, final-state, route, evidence, completion, FP/FN counts"
+  },
+  "baseline": {
+    "arm": "b0_c_semantic_noop",
+    "metrics": {
+      "case_count": 24,
+      "completed_case_count": 23,
+      "schema_completion_rate": 0.958333,
+      "route_accuracy": 0.958333,
+      "raw_candidate": {
+        "true_positive": 10,
+        "false_positive": 6,
+        "false_negative": 3,
+        "precision": 0.625,
+        "recall": 0.769231,
+        "f1": 0.689655
+      },
+      "authorized_candidate": null,
+      "raw_typed_event": null,
+      "authorized_typed_event": null,
+      "material_delta": {
+        "true_positive": 9,
+        "false_positive": 6,
+        "false_negative": 6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "f1": 0.6
+      },
+      "material_operation_exact": {
+        "true_positive": 9,
+        "false_positive": 6,
+        "false_negative": 6,
+        "precision": 0.6,
+        "recall": 0.6,
+        "f1": 0.6
+      },
+      "final_state": {
+        "true_positive": 17,
+        "false_positive": 8,
+        "false_negative": 5,
+        "precision": 0.68,
+        "recall": 0.772727,
+        "f1": 0.723404
+      },
+      "c2u_fp_count": 2,
+      "novel_candidate_fp_count": 4,
+      "forbidden_prediction_count": 2,
+      "lexical_evidence_validity": {
+        "predicted_count": 16,
+        "exact_current_substring_count": 15,
+        "rate": 0.9375
+      },
+      "correction_recall": {
+        "target_count": 4,
+        "true_positive": 2,
+        "recall": 0.5
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 0,
+        "recall": 0.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "status": "not_supported_by_arm"
+      },
+      "event_rejection_count": 0
+    }
+  },
+  "treatment": {
+    "arm": "d4_segse_lite_v12",
+    "metrics": {
+      "case_count": 24,
+      "completed_case_count": 24,
+      "schema_completion_rate": 1.0,
+      "route_accuracy": 1.0,
+      "raw_candidate": {
+        "true_positive": 10,
+        "false_positive": 1,
+        "false_negative": 3,
+        "precision": 0.909091,
+        "recall": 0.769231,
+        "f1": 0.833333
+      },
+      "authorized_candidate": {
+        "true_positive": 8,
+        "false_positive": 0,
+        "false_negative": 5,
+        "precision": 1.0,
+        "recall": 0.615385,
+        "f1": 0.761905
+      },
+      "raw_typed_event": {
+        "true_positive": 15,
+        "false_positive": 9,
+        "false_negative": 3,
+        "precision": 0.625,
+        "recall": 0.833333,
+        "f1": 0.714286
+      },
+      "authorized_typed_event": {
+        "true_positive": 13,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.8125,
+        "recall": 0.722222,
+        "f1": 0.764706
+      },
+      "material_delta": {
+        "true_positive": 12,
+        "false_positive": 1,
+        "false_negative": 3,
+        "precision": 0.923077,
+        "recall": 0.8,
+        "f1": 0.857143
+      },
+      "material_operation_exact": {
+        "true_positive": 10,
+        "false_positive": 3,
+        "false_negative": 5,
+        "precision": 0.769231,
+        "recall": 0.666667,
+        "f1": 0.714286
+      },
+      "final_state": {
+        "true_positive": 16,
+        "false_positive": 0,
+        "false_negative": 6,
+        "precision": 1.0,
+        "recall": 0.727273,
+        "f1": 0.842105
+      },
+      "c2u_fp_count": 0,
+      "novel_candidate_fp_count": 1,
+      "forbidden_prediction_count": 1,
+      "lexical_evidence_validity": {
+        "predicted_count": 24,
+        "exact_current_substring_count": 23,
+        "rate": 0.958333
+      },
+      "correction_recall": {
+        "target_count": 4,
+        "true_positive": 2,
+        "recall": 0.5
+      },
+      "retract_recall": {
+        "target_count": 2,
+        "true_positive": 2,
+        "recall": 1.0
+      },
+      "reactivation_recall": {
+        "target_count": 1,
+        "true_positive": 1,
+        "recall": 1.0
+      },
+      "confirmation_metadata_recall": {
+        "target_count": 3,
+        "true_positive": 3,
+        "recall": 1.0
+      },
+      "event_rejection_count": 8
+    },
+    "trace_summary": {
+      "logical_call_count": 24,
+      "validation_success_count": 24,
+      "schema_repair_count": 0,
+      "transport_retry_count": 0,
+      "http_attempt_count": 24,
+      "fallback_count": 0,
+      "input_tokens": 38068,
+      "output_tokens": 2420,
+      "reported_models": {
+        "gpt-4o-mini-2024-07-18": 24
+      },
+      "structured_modes": {
+        "json_schema": 24
+      },
+      "sha256": "4964fcb4cdcab62a1cb65c9344912182bb60101965c806d2e4ffaee4430d7c4d",
+      "size_bytes": 117608
+    }
+  },
+  "development_gate": {
+    "status": "module_gate_passed_downstream_pending",
+    "c2u_fp_reduction_fraction": 1.0,
+    "raw_candidate_fp_reduction_fraction": 0.833333,
+    "metric_deltas": {
+      "raw_candidate_recall": 0.0,
+      "correction_recall": 0.0,
+      "retract_recall": 1.0,
+      "final_state_f1": 0.118701,
+      "schema_completion_rate": 0.041667
+    },
+    "checks": {
+      "c2u_fp_reduction_at_least_50_percent": true,
+      "raw_candidate_fp_reduction_at_least_30_percent": true,
+      "raw_candidate_recall_drop_at_most_2pp": true,
+      "correction_recall_drop_at_most_2pp": true,
+      "retract_recall_drop_at_most_2pp": true,
+      "final_state_f1_drop_at_most_001": true,
+      "schema_completion_drop_at_most_05pp": true,
+      "hard_filter_completion_drop_at_most_1pp": null
+    },
+    "limitations": [
+      "This is a development fixture, not untouched confirmatory evidence.",
+      "B0 has no typed confirm/refine event schema, so typed-event metrics are treatment-only.",
+      "Hard-filter completion is not evaluable in the module-level 1-turn fixture."
+    ]
+  },
+  "limitations": [
+    "This is a deterministic erratum over the same exposed development fixture.",
+    "The correction does not create new model outputs or confirmatory evidence.",
+    "Downstream hard-filter completion remains unevaluated."
+  ]
+}

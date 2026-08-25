@@ -1,0 +1,40 @@
+{
+  "manifest_version": "tablet-domain-segse-dev-v1.1-preflight-failure",
+  "status": "aborted_deterministic_schema_incompatibility",
+  "confirmatory_evidence": false,
+  "performance_result": false,
+  "run_id": "segse-dev-v11-20260818T032856Z-a8bcfe17",
+  "started_at": "2026-08-18T03:28:56.390334+00:00",
+  "execution_branch": "codex/segse-lite-experiment",
+  "execution_commit": "ff16b585b64096dd2de2021be97c6464263f8327",
+  "attempted_case_count": 2,
+  "planned_case_count": 24,
+  "aborted_remaining_calls": 22,
+  "failure": {
+    "type": "provider_schema_rejection",
+    "provider_http_surface": 500,
+    "nested_error": "400 Invalid schema for response_format SEGSEV11ProposalOutput",
+    "schema_path": "properties.state_events.items",
+    "reason": "oneOf is not permitted",
+    "same_error_on_all_attempted_cases": true
+  },
+  "artifacts": {
+    "partial_raw_report": {
+      "path": "reports/tablet_domain_segse_dev_v11.json",
+      "sha256": "f7a6fd80a121fa8570a479be18d046425390467ec2e9895a2ce203505948fe76",
+      "size_bytes": 54145,
+      "tracked": false
+    },
+    "trace": {
+      "expected_filename": "tablet_segse_dev_segse-dev-v11-20260818T032856Z-a8bcfe17_d4_segse_lite_v11.jsonl",
+      "present": false,
+      "note": "No completed structured logical-call trace record was emitted before the terminal provider schema rejection."
+    }
+  },
+  "decision": {
+    "v11_performance_gate": "not_evaluable",
+    "do_not_continue_identical_calls": true,
+    "next_version": "v1.2_flat_event_schema",
+    "preserve_v11_sources": true
+  }
+}

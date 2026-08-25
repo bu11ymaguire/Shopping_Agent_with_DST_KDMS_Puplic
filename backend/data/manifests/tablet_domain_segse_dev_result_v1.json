@@ -1,0 +1,77 @@
+{
+  "manifest_version": "tablet-domain-segse-dev-result-v1",
+  "status": "development_module_gate_failed",
+  "confirmatory_evidence": false,
+  "run_id": "segse-dev-20260818T031459Z-a4cafb11",
+  "started_at": "2026-08-18T03:14:59.895994+00:00",
+  "completed_at": "2026-08-18T03:16:50.637855+00:00",
+  "execution_branch": "codex/segse-lite-experiment",
+  "execution_commit": "aae36bdce3c4491019d18b22fa7ef3b1f475cd74",
+  "protocol_manifest": "data/manifests/tablet_domain_segse_dev_protocol_v1.json",
+  "logical_understanding_calls": 48,
+  "arm_order": [
+    "b0_c_semantic_noop",
+    "d4_segse_lite"
+  ],
+  "artifacts": {
+    "compact_result": {
+      "path": "data/results/tablet_domain_segse_dev_v1.json",
+      "sha256": "0e28f9e4f09b9aa5cb20edb79937732c7aa69440db033016e1915619c63f4e6f",
+      "size_bytes": 106788,
+      "tracked": true
+    },
+    "analysis": {
+      "path": "docs/tablet_domain_segse_dev_result_v1.md",
+      "sha256_lf_normalized": "bcf1cc4e4da97a112723eab91d5dce526eb9b77187b39e5334845f9f2e336088",
+      "tracked": true
+    },
+    "raw_report": {
+      "path": "reports/tablet_domain_segse_dev_v1.json",
+      "sha256": "fd6131da92e00e55f9f5023cea04e84f5c14678459c9fd1ac1ea041a655628ee",
+      "size_bytes": 354467,
+      "tracked": false
+    }
+  },
+  "traces": {
+    "b0_c_semantic_noop": {
+      "file": "tablet_segse_dev_segse-dev-20260818T031459Z-a4cafb11_b0_c_semantic_noop.jsonl",
+      "sha256": "1363ab0f203ddf5b620181eec695447f6e2486866383615c38a3b6cc4e4386d3",
+      "size_bytes": 257750,
+      "logical_calls": 24,
+      "schema_repairs": 3,
+      "http_attempts": 27
+    },
+    "d4_segse_lite": {
+      "file": "tablet_segse_dev_segse-dev-20260818T031459Z-a4cafb11_d4_segse_lite.jsonl",
+      "sha256": "58b70da97f1a021c42b43700ef60e0415b11d124fb495760efbbbaa97389a71b",
+      "size_bytes": 145697,
+      "logical_calls": 24,
+      "schema_repairs": 5,
+      "http_attempts": 29
+    }
+  },
+  "headline": {
+    "b0_schema_completion": 0.958333,
+    "d4_schema_completion": 0.833333,
+    "b0_raw_candidate_fp": 6,
+    "d4_raw_candidate_fp": 2,
+    "b0_c2u_fp": 2,
+    "d4_c2u_fp": 1,
+    "b0_material_fp": 6,
+    "d4_material_fp": 0,
+    "b0_material_fn": 6,
+    "d4_material_fn": 9,
+    "b0_final_state_f1": 0.723404,
+    "d4_final_state_f1": 0.780488,
+    "b0_final_state_fp": 8,
+    "d4_final_state_fp": 3,
+    "d4_event_rejection_count": 12
+  },
+  "decision": {
+    "module_gate_status": "module_gate_failed",
+    "failed_check": "schema_completion_drop_at_most_05pp",
+    "hard_filter_completion": "not_evaluable_in_module_fixture",
+    "selected_for_confirmatory": false,
+    "next_status": "v1.1_development_schema_simplification"
+  }
+}
