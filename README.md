@@ -4,6 +4,10 @@
 태블릿 쇼핑 에이전트 연구 프로젝트다. Luxia GPT-4o-mini가 발화를 구조화하고, 상태 병합부터
 정책 분기·상품 검색·리뷰 검색·랭킹까지는 결정론적 코드가 담당한다.
 
+- **Summer Intern 프로젝트 기간:** 2026년 6월 23일–8월 26일
+- **Vercel 프로덕션 배포:** [agent-iota-five.vercel.app](https://agent-iota-five.vercel.app/)
+- **최종 포스터:** [사용자 요구 변화를 추적하는 다중 턴 쇼핑 에이전트 PDF](<presentation/김진욱_사용자 요구 변화를 추적하는 다중 턴 쇼핑 에이전트.pdf>)
+
 ## 핵심 설계
 
 ```text
