@@ -27,7 +27,9 @@
   ],
   "public_only_changes": [
     "repository-facing documentation, data/privacy notices, and ignore policy",
-    "a mock-provider startup path for the synthetic six-turn API when Luxia and the local catalog are absent"
+    "a mock-provider startup path for the synthetic six-turn API when Luxia and the local catalog are absent",
+    "cross-platform checkout rules for historical raw hashes recorded from Windows CRLF worktrees"
   ],
+  "history_topology_note": "Verifiers that assert an original commit is an ancestor or the last commit to touch a file are preserved as research artifacts but are not part of public CI. The original commits are intentionally absent from this sanitized history; use source_refs above for provenance.",
   "integrity_note": "Tracked experiment manifests, frozen fixtures, and result files are copied byte-for-byte from each source branch. Research evaluation and ranking logic is unchanged; the only runtime change is the public mock startup guard described above. Original freeze commit IDs are provenance only and are not reachable objects in this public repository."
 }
